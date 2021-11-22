@@ -345,7 +345,7 @@ beginState: s32'RomanCancel_Mirage'
   sprite: s32'kyk351_17', 2
   endState: 
 
-startSubroutine: s32'RandomExPointNum3'
+beginSubroutine: s32'RandomExPointNum3'
   ifOperation: 22, (STATIC), 33, (STATIC), 100
     Unknown2193: 0, 0, 0
     endIf: 
@@ -383,18 +383,18 @@ beginState: s32'StunEdgeObj'
     Unknown2214: 1
     Unknown2215: 1
     Unknown1914: 0
-    upon: 2
+    upon: (TOUCH_GROUND)
       Unknown2208: 23
       endUpon: 
     upon: 45
       Unknown446: s32'StunEdgeDelete', 100
       Unknown14: s32'koware'
-      Unknown23: 45
-      Unknown23: (HIT_OR_GUARD)
-      Unknown23: (FRAME_STEP)
-      Unknown23: 2
-      Unknown23: 99
-      Unknown23: (BEFORE_EXIT)
+      clearRegisteredUponCode: 45
+      clearRegisteredUponCode: (HIT_OR_GUARD)
+      clearRegisteredUponCode: (FRAME_STEP)
+      clearRegisteredUponCode: (TOUCH_GROUND)
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: (BEFORE_EXIT)
       recoveryState: 
       Unknown450: s32''
       endUpon: 
@@ -427,7 +427,7 @@ beginState: s32'StunEdgeObj'
         else: 
           Unknown1045: 2, s32'mahojin'
           Unknown1046: 2, s32'mahojin'
-          tumbleDuration: 18
+          tumbleDuration: 25
           Unknown963: 110
           Unknown1803: s32'Taiden_Effect', 23
           hitSoftKnockdown: 0
@@ -439,7 +439,7 @@ beginState: s32'StunEdgeObj'
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
       endUpon: 
     upon: 66
-      Unknown23: 66
+      clearRegisteredUponCode: 66
       storeValue: (VARIABLE), 52, (STATIC), 1
       endUpon: 
     ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
@@ -467,7 +467,7 @@ beginState: s32'StunEdgeObj'
         endElse: 
       endIf: 
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown2208: 23
       Unknown295: 1
       Unknown1801: 1
@@ -496,7 +496,8 @@ beginState: s32'StunEdgeObj'
     hitAirPushbackX: 0, 35000
     hitAirPushbackY: 0, 10000
     Unknown1138: 1
-    physicsXImpulse: 0, 28000
+    Unknown1110: 1
+    physicsXImpulse: 0, 32000
     Unknown200: 0
     Unknown94: 0, 100000
     Unknown953: 1
@@ -508,7 +509,7 @@ beginState: s32'StunEdgeObj'
     Unknown1138: 1
     physicsXImpulse: 0, 14000
     Unknown120: 175
-    Unknown188: 2000
+    setObjectSize: 2000
     Unknown200: 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
@@ -522,6 +523,7 @@ beginState: s32'StunEdgeObj'
     hitAirPushbackY: 0, -30000
     Unknown1108: -60
     Unknown1138: 1
+    Unknown1110: 1
     physicsXImpulse: 0, 21000
     physicsYImpulse: 0, -34125
     Unknown200: 0
@@ -539,6 +541,7 @@ beginState: s32'StunEdgeObj'
     hitAirPushbackY: 0, -30000
     Unknown1108: -20
     Unknown1138: 1
+    Unknown1110: 1
     physicsXImpulse: 0, 36750
     physicsYImpulse: 0, -7875
     Unknown200: 0
@@ -553,17 +556,17 @@ beginState: s32'StunEdgeObj'
   Unknown233: 
   Unknown454: 0
   Unknown456: 0
-  Unknown13: s32'Air', 9, 2, 115, 0, 2
-  Unknown13: s32'Air', 9, 2, 115, 0, 3
+  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
   sprite: s32'_StunEdge_00', 1
   upon: (BEFORE_EXIT)
     Unknown446: s32'StunEdgeDelete', 100
     Unknown14: s32'koware'
-    Unknown23: 45
-    Unknown23: (HIT_OR_GUARD)
-    Unknown23: (FRAME_STEP)
-    Unknown23: 2
-    Unknown23: 99
+    clearRegisteredUponCode: 45
+    clearRegisteredUponCode: (HIT_OR_GUARD)
+    clearRegisteredUponCode: (FRAME_STEP)
+    clearRegisteredUponCode: (TOUCH_GROUND)
+    clearRegisteredUponCode: 99
     recoveryState: 
     Unknown450: s32''
     endUpon: 
@@ -574,11 +577,11 @@ beginState: s32'StunEdgeObj'
   upon: (BEFORE_EXIT)
     Unknown446: s32'StunEdgeDelete', 100
     Unknown14: s32'koware'
-    Unknown23: 45
-    Unknown23: (HIT_OR_GUARD)
-    Unknown23: (FRAME_STEP)
-    Unknown23: 2
-    Unknown23: 99
+    clearRegisteredUponCode: 45
+    clearRegisteredUponCode: (HIT_OR_GUARD)
+    clearRegisteredUponCode: (FRAME_STEP)
+    clearRegisteredUponCode: (TOUCH_GROUND)
+    clearRegisteredUponCode: 99
     recoveryState: 
     Unknown450: s32''
     endUpon: 
@@ -638,19 +641,19 @@ beginState: s32'StunEdgeObj_DI'
     Unknown2213: 1
     Unknown2214: 1
     Unknown2215: 1
-    Unknown188: 1300
+    setObjectSize: 1300
     Unknown1914: 0
-    upon: 2
+    upon: (TOUCH_GROUND)
       Unknown2208: 23
       endUpon: 
     upon: 45
       Unknown446: s32'StunEdgeDelete', 100
       Unknown14: s32'koware'
-      Unknown23: 45
-      Unknown23: (HIT_OR_GUARD)
-      Unknown23: (FRAME_STEP)
-      Unknown23: 2
-      Unknown23: (BEFORE_EXIT)
+      clearRegisteredUponCode: 45
+      clearRegisteredUponCode: (HIT_OR_GUARD)
+      clearRegisteredUponCode: (FRAME_STEP)
+      clearRegisteredUponCode: (TOUCH_GROUND)
+      clearRegisteredUponCode: (BEFORE_EXIT)
       recoveryState: 
       Unknown450: s32''
       endUpon: 
@@ -678,7 +681,7 @@ beginState: s32'StunEdgeObj_DI'
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endUpon: 
     upon: 66
-      Unknown23: 66
+      clearRegisteredUponCode: 66
       Unknown458: 0
       endUpon: 
     ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
@@ -691,7 +694,7 @@ beginState: s32'StunEdgeObj_DI'
       Unknown2595: s32'AirStunEdge2_DIObj'
       endIf: 
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown2208: 23
       Unknown295: 1
       Unknown1801: 1
@@ -700,7 +703,7 @@ beginState: s32'StunEdgeObj_DI'
       Unknown454: 0
       endUpon: 
     endUpon: 
-  sprite: s32'null', 4
+  sprite: s32'null', 6
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   Unknown1058: 1
   if: (VARIABLE), 49
@@ -733,7 +736,9 @@ beginState: s32'StunEdgeObj_DI'
     hitAirPushbackX: 0, 35000
     hitAirPushbackY: 0, 10000
     Unknown1138: 1
-    physicsXImpulse: 0, 28000
+    Unknown1110: 1
+    tumbleDuration: 37
+    physicsXImpulse: 0, 32000
     Unknown200: 0
     Unknown94: 0, 100000
     Unknown953: 1
@@ -750,6 +755,8 @@ beginState: s32'StunEdgeObj_DI'
     hitAirPushbackY: 0, -30000
     Unknown1108: -60
     Unknown1138: 1
+    Unknown1110: 1
+    tumbleDuration: 37
     physicsXImpulse: 0, 21000
     physicsYImpulse: 0, -34125
     Unknown200: 0
@@ -768,6 +775,8 @@ beginState: s32'StunEdgeObj_DI'
     hitAirPushbackY: 0, -30000
     Unknown1108: -20
     Unknown1138: 1
+    Unknown1110: 1
+    tumbleDuration: 37
     physicsXImpulse: 0, 36750
     physicsYImpulse: 0, -7875
     Unknown200: 0
@@ -782,17 +791,17 @@ beginState: s32'StunEdgeObj_DI'
   Unknown233: 
   Unknown454: 0
   Unknown456: 0
-  Unknown13: s32'Air', 9, 2, 115, 0, 2
-  Unknown13: s32'Air', 9, 2, 115, 0, 3
+  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
   sprite: s32'_StunEdge_00', 1
   upon: (BEFORE_EXIT)
     Unknown446: s32'StunEdgeDelete', 100
     Unknown14: s32'koware'
-    Unknown23: 45
-    Unknown23: (HIT_OR_GUARD)
-    Unknown23: (FRAME_STEP)
-    Unknown23: 2
-    Unknown23: 99
+    clearRegisteredUponCode: 45
+    clearRegisteredUponCode: (HIT_OR_GUARD)
+    clearRegisteredUponCode: (FRAME_STEP)
+    clearRegisteredUponCode: (TOUCH_GROUND)
+    clearRegisteredUponCode: 99
     recoveryState: 
     Unknown450: s32''
     endUpon: 
@@ -803,11 +812,11 @@ beginState: s32'StunEdgeObj_DI'
   upon: (BEFORE_EXIT)
     Unknown446: s32'StunEdgeDelete', 100
     Unknown14: s32'koware'
-    Unknown23: 45
-    Unknown23: (HIT_OR_GUARD)
-    Unknown23: (FRAME_STEP)
-    Unknown23: 2
-    Unknown23: 99
+    clearRegisteredUponCode: 45
+    clearRegisteredUponCode: (HIT_OR_GUARD)
+    clearRegisteredUponCode: (FRAME_STEP)
+    clearRegisteredUponCode: (TOUCH_GROUND)
+    clearRegisteredUponCode: 99
     recoveryState: 
     Unknown450: s32''
     endUpon: 
@@ -876,13 +885,14 @@ beginState: s32'ChargedStunEdgeObj'
     Unknown1112: 0
     Unknown1110: 1
     damage: 0, 20
-    hitAirPushbackX: 0, 15000
-    hitAirPushbackY: 0, 30000
+    hitAirPushbackX: 0, 35000
+    hitAirPushbackY: 0, 10000
     pushbackX: 50
     Unknown1138: 1
     Unknown2314: 1
     Unknown1058: 1
     Unknown1153: 1
+    Unknown1110: 1
     Unknown953: 1
     Unknown2210: 
     Unknown2211: 3
@@ -892,7 +902,7 @@ beginState: s32'ChargedStunEdgeObj'
     Unknown2214: 1
     Unknown2215: 1
     Unknown1914: 0
-    upon: 2
+    upon: (TOUCH_GROUND)
       Unknown2208: 23
       endUpon: 
     upon: 35
@@ -901,12 +911,12 @@ beginState: s32'ChargedStunEdgeObj'
     upon: 45
       Unknown448: s32'kyk_402_stunedge_end', 100
       Unknown14: s32'koware'
-      Unknown23: 45
-      Unknown23: (HIT_OR_GUARD)
-      Unknown23: (FRAME_STEP)
-      Unknown23: 2
-      Unknown23: 35
-      Unknown23: 99
+      clearRegisteredUponCode: 45
+      clearRegisteredUponCode: (HIT_OR_GUARD)
+      clearRegisteredUponCode: (FRAME_STEP)
+      clearRegisteredUponCode: (TOUCH_GROUND)
+      clearRegisteredUponCode: 35
+      clearRegisteredUponCode: 99
       recoveryState: 
       Unknown450: s32''
       Unknown70: s32'ChargeStuntail'
@@ -928,9 +938,10 @@ beginState: s32'ChargedStunEdgeObj'
     Unknown1629: 1
     Unknown58: 1
     upon: (HIT_OR_GUARD)
+      Unknown2181: 2
       ifNot: (VARIABLE), 52
         ifNot: (VARIABLE), 25
-          Unknown23: (HIT_OR_GUARD)
+          clearRegisteredUponCode: (HIT_OR_GUARD)
           storeValue: (VARIABLE), 25, (STATIC), 1
           Unknown446: s32'Taiden_Effect', 132
           endIf: 
@@ -938,7 +949,9 @@ beginState: s32'ChargedStunEdgeObj'
           Unknown1045: 2, s32'mahojin'
           Unknown1046: 2, s32'mahojin'
           groundHitEffect: 9
-          tumbleDuration: 18
+		  hitAirPushbackX: 0, 10000
+		  hitAirPushbackY: 0, 35000
+          tumbleDuration: 25
           damage: 0, 22
           Unknown996: 5, 5, 5
           Unknown1803: s32'Taiden_Effect', 23
@@ -950,13 +963,13 @@ beginState: s32'ChargedStunEdgeObj'
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
       endUpon: 
     upon: 66
-      Unknown23: 66
-      Unknown23: 35
+      clearRegisteredUponCode: 66
+      clearRegisteredUponCode: 35
       storeValue: (VARIABLE), 52, (STATIC), 1
       endUpon: 
     Unknown94: 0, 100000
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown2208: 23
       Unknown295: 1
       Unknown1801: 1
@@ -987,44 +1000,44 @@ beginState: s32'ChargedStunEdgeObj'
   Unknown454: 0
   Unknown458: 0
   Unknown456: 0
-  physicsXImpulse: 0, 10500
+  physicsXImpulse: 0, 12500
   hit: 
   beginLabel: s32'loop'
   sprite: s32'_ChargedStunEdge_01', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   Unknown448: s32'kyk_secharge_ring', 100
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_02', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_00', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   Unknown448: s32'kyk_secharge_ring', 100
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_01', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_02', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   Unknown448: s32'kyk_secharge_ring', 100
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_00', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
@@ -1051,7 +1064,7 @@ beginState: s32'ChargedStunEdgeObj_DI'
     Unknown1110: 1
     Unknown996: 5, 5, 5
     damage: 0, 17
-    tumbleDuration: 18
+    tumbleDuration: 37
     hitAirPushbackX: 0, 35000
     hitAirPushbackY: 0, 10000
     pushbackX: 50
@@ -1059,6 +1072,7 @@ beginState: s32'ChargedStunEdgeObj_DI'
     Unknown2314: 1
     Unknown1058: 1
     Unknown1153: 1
+    Unknown1110: 1
     Unknown953: 1
     Unknown2210: 
     Unknown2211: 5
@@ -1067,9 +1081,9 @@ beginState: s32'ChargedStunEdgeObj_DI'
     Unknown2213: 1
     Unknown2214: 1
     Unknown2215: 1
-    Unknown188: 1300
+    setObjectSize: 1300
     Unknown1914: 0
-    upon: 2
+    upon: (TOUCH_GROUND)
       Unknown2208: 23
       endUpon: 
     upon: 35
@@ -1078,12 +1092,12 @@ beginState: s32'ChargedStunEdgeObj_DI'
     upon: 45
       Unknown448: s32'kyk_402_stunedge_end', 100
       Unknown14: s32'koware'
-      Unknown23: 45
-      Unknown23: (HIT_OR_GUARD)
-      Unknown23: (FRAME_STEP)
-      Unknown23: 2
-      Unknown23: 35
-      Unknown23: 99
+      clearRegisteredUponCode: 45
+      clearRegisteredUponCode: (HIT_OR_GUARD)
+      clearRegisteredUponCode: (FRAME_STEP)
+      clearRegisteredUponCode: (TOUCH_GROUND)
+      clearRegisteredUponCode: 35
+      clearRegisteredUponCode: 99
       recoveryState: 
       Unknown450: s32''
       Unknown70: s32'ChargeStuntail'
@@ -1105,15 +1119,16 @@ beginState: s32'ChargedStunEdgeObj_DI'
     Unknown1629: 1
     Unknown58: 1
     upon: (HIT_OR_GUARD)
+      Unknown2181: 2																									  
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endUpon: 
     Unknown94: 0, 100000
     upon: 66
-      Unknown23: 66
-      Unknown23: 35
+      clearRegisteredUponCode: 66
+      clearRegisteredUponCode: 35
       endUpon: 
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown2208: 23
       Unknown295: 1
       Unknown1801: 1
@@ -1141,44 +1156,44 @@ beginState: s32'ChargedStunEdgeObj_DI'
   Unknown454: 0
   Unknown458: 0
   Unknown456: 0
-  physicsXImpulse: 0, 10500
+  physicsXImpulse: 0, 12500
   hit: 
   beginLabel: s32'loop'
   sprite: s32'_ChargedStunEdge_01', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   Unknown448: s32'kyk_secharge_ring', 100
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_02', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_00', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   Unknown448: s32'kyk_secharge_ring', 100
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_01', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_02', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   Unknown448: s32'kyk_secharge_ring', 100
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
   Unknown449: s32'kyk_thunder_tail', 130
   sprite: s32'_ChargedStunEdge_00', 3
-  Unknown111: 106
+  Unknown111: 105
   hit: 
   callSubroutine: s32'RandomExPointNum3'
   Unknown2276: 0, 0
@@ -1218,7 +1233,7 @@ beginState: s32'SacredEdgeObj'
     Unknown2213: 1
     Unknown2215: 1
     Unknown1914: 0
-    upon: 2
+    upon: (TOUCH_GROUND)
       Unknown2208: 23
       endUpon: 
     upon: 45
@@ -1259,7 +1274,7 @@ beginState: s32'SacredEdgeObj'
           airHitEffect: 12
           hitAirPushbackX: 0, 3000
           hitAirPushbackY: 0, 50000
-          tumbleDuration: 18
+          tumbleDuration: 25
           Unknown996: 5, 5, 5
           Unknown1803: s32'Taiden_Effect', 23
           endElse: 
@@ -1269,7 +1284,7 @@ beginState: s32'SacredEdgeObj'
       physicsXImpulse: 0, 5000
       modifyVar: (ADD), (VARIABLE), 47, (STATIC), 1
       ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 47, (STATIC), 5
-        Unknown1069: 0, 0, 0, 0, 1, 22, 2, 319
+        Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
         Unknown788: 1
         Unknown955: 5
         Unknown953: 1
@@ -1277,7 +1292,7 @@ beginState: s32'SacredEdgeObj'
       Unknown2121: s32'Cam_Finish_SacredEdge'
       endUpon: 
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown2208: 23
       Unknown295: 1
       Unknown1801: 1
@@ -1292,16 +1307,19 @@ beginState: s32'SacredEdgeObj'
   Unknown615: s32'SE_BTL_KYK_09'
   beginLabel: s32'loop'
   sprite: s32'_SacredEdge_00', 1
-  physicsXImpulse: 0, 35000
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_00', 1
   sprite: s32'_SacredEdge_01', 1
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_01', 1
   sprite: s32'_SacredEdge_02', 1
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_02', 1
   sprite: s32'_SacredEdge_03', 1
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_03', 1
   endLabel: 
@@ -1316,7 +1334,9 @@ beginState: s32'SacredEdgeObj_DI'
     callSubroutine: s32'cmnNohosei_kakusei'
     Unknown1028: 4
     damage: 0, 20
-    tumbleDuration: 15
+    hitAirPushbackX: 0, 3000
+    hitAirPushbackY: 0, 50000
+    tumbleDuration: 37
     Unknown1138: 0
     Unknown1117: 0
     hitSoftKnockdown: 0
@@ -1339,10 +1359,10 @@ beginState: s32'SacredEdgeObj_DI'
     Unknown2213: 1
     Unknown2214: 1
     Unknown2215: 1
-    Unknown188: 1300
+    setObjectSize: 1300
     Unknown996: 5, 5, 5
     Unknown1914: 0
-    upon: 2
+    upon: (TOUCH_GROUND)
       Unknown2208: 23
       endUpon: 
     upon: 45
@@ -1369,7 +1389,7 @@ beginState: s32'SacredEdgeObj_DI'
       physicsXImpulse: 0, 5000
       modifyVar: (ADD), (VARIABLE), 47, (STATIC), 1
       ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 47, (STATIC), 8
-        Unknown1069: 0, 0, 0, 0, 1, 22, 2, 319
+        Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
         Unknown788: 1
         Unknown955: 5
         Unknown953: 1
@@ -1377,7 +1397,7 @@ beginState: s32'SacredEdgeObj_DI'
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
       endUpon: 
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown2208: 23
       Unknown295: 1
       Unknown1801: 1
@@ -1389,16 +1409,19 @@ beginState: s32'SacredEdgeObj_DI'
   Unknown615: s32'SE_BTL_KYK_09'
   beginLabel: s32'loop'
   sprite: s32'_SacredEdge_00', 1
-  physicsXImpulse: 0, 35000
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_00', 1
   sprite: s32'_SacredEdge_01', 1
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_01', 1
   sprite: s32'_SacredEdge_02', 1
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_02', 1
   sprite: s32'_SacredEdge_03', 1
+  physicsXImpulse: 0, 42500
   hit: 
   sprite: s32'_SacredEdge_03', 1
   endLabel: 
@@ -1677,7 +1700,7 @@ beginState: s32'kyk252_bake1'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown450: s32'kyk_252_bake02'
           endIf: 
@@ -1706,7 +1729,7 @@ beginState: s32'kyk252_bake2'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -1806,7 +1829,7 @@ beginState: s32'kyk404_trail'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -1832,7 +1855,7 @@ beginState: s32'kyk404_atk01'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -1846,7 +1869,7 @@ beginState: s32'kyk404_atk01'
     Unknown94: 0, -36922
     Unknown99: 0, 265841
     Unknown1732: 0, 4077
-    Unknown148: 1160
+    setObjectWidth: 1160
     Unknown156: 1160
     Unknown180: 1160
     Unknown231: 166000
@@ -1869,7 +1892,7 @@ beginState: s32'kyk404_atk02'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -1880,7 +1903,7 @@ beginState: s32'kyk404_atk02'
     Unknown94: 0, -36922
     Unknown99: 0, 265841
     Unknown1732: 0, 4077
-    Unknown148: 1160
+    setObjectWidth: 1160
     Unknown156: 1160
     Unknown180: 1160
     Unknown231: 166000
@@ -1905,7 +1928,7 @@ beginState: s32'kyk404_atk02sub'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -1951,7 +1974,7 @@ beginState: s32'Taiden_charge'
     Unknown295: 1
     callSubroutine: s32'cmn_Effect_NoLink'
     upon: 23
-      Unknown23: 23
+      clearRegisteredUponCode: 23
       Unknown454: 0
       endUpon: 
     upon: 36
@@ -1959,7 +1982,7 @@ beginState: s32'Taiden_charge'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -1988,14 +2011,14 @@ beginState: s32'Taiden_charge_se1'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
         endIf: 
       else: 
         ifNot: (VARIABLE), 16
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -2020,14 +2043,14 @@ beginState: s32'Taiden_charge_se1_air'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
         endIf: 
       else: 
         ifNot: (VARIABLE), 16
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -2053,14 +2076,14 @@ beginState: s32'Taiden_charge_se2'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
         endIf: 
       else: 
         ifNot: (VARIABLE), 16
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -2086,14 +2109,14 @@ beginState: s32'Taiden_charge_se2_end'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
         endIf: 
       else: 
         ifNot: (VARIABLE), 16
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           endIf: 
@@ -2117,7 +2140,7 @@ beginState: s32'kyk407_atk'
     Unknown231: 38000
     Unknown232: 166000
     Unknown164: 330000
-    Unknown148: 1150
+    setObjectWidth: 1150
     Unknown156: 800
     Unknown180: 1150
     Unknown2314: 1
@@ -2126,7 +2149,7 @@ beginState: s32'kyk407_atk'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -2157,7 +2180,7 @@ beginState: s32'kyk407_floor'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -2419,7 +2442,7 @@ beginState: s32'Stundipper'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -2433,7 +2456,7 @@ beginState: s32'Stundipper'
     Unknown231: 100400
     Unknown232: 348000
     Unknown164: 359200
-    Unknown188: 800
+    setObjectSize: 800
     endUpon: 
   sprite: s32'null', 8
   sprite: s32'null', 100
@@ -2450,7 +2473,7 @@ beginState: s32'Vaporthrust'
     Unknown450: s32'kyk_405_vapor'
     Unknown2314: 1
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       storeValue: (VARIABLE), 45, (STATIC), 1
       ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
         Unknown454: 3
@@ -2542,13 +2565,14 @@ beginState: s32'CS500_charge'
     Unknown454: 3
     Unknown294: 1
     Unknown450: s32'kyk_500charge'
+    Unknown2519: 1
     Unknown94: 0, -141722
     Unknown99: 0, 322044
     Unknown1732: 0, -151440
     Unknown231: 54000
     Unknown232: 352000
     Unknown164: 220000
-    Unknown148: 700
+    setObjectWidth: 700
     Unknown156: 700
     Unknown180: 700
     endUpon: 
@@ -2567,13 +2591,14 @@ beginState: s32'CS500_sword'
     Unknown454: 3
     Unknown294: 1
     Unknown450: s32'kyk_500sword'
+    Unknown2519: 1
     Unknown94: 0, 98882
     Unknown99: 0, 316433
     Unknown1732: 0, 198011
     Unknown231: 6000
     Unknown232: 306000
     Unknown164: 302000
-    Unknown148: 700
+    setObjectWidth: 700
     Unknown156: 700
     Unknown180: 700
     endUpon: 
@@ -2592,7 +2617,7 @@ beginState: s32'CS500_sword'
   Unknown231: 344000
   Unknown232: 14000
   Unknown164: 311200
-  Unknown148: 850
+  setObjectWidth: 850
   Unknown156: 850
   Unknown180: 850
   sprite: s32'null', 4
@@ -2640,7 +2665,7 @@ beginState: s32'kyk500_tossin01_mc'
     Unknown94: 0, 314937
     Unknown99: 0, 195000
     Unknown1732: 0, 0
-    Unknown148: 670
+    setObjectWidth: 670
     Unknown156: 670
     Unknown180: 670
     Unknown231: 0
@@ -2852,20 +2877,20 @@ beginState: s32'DKY_stand_aura_loop'
       endUpon: 
     Unknown450: s32'dky_aura_stand_start'
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       upon: 39
         Unknown53: 23, 2, 45, 3, 2, 334
-        Unknown2500: 9, 3, 2, 334, 0, 0
+        Unknown2500: 9, 3, (VARIABLE), 334, (STATIC), 0
           storeValue: (VARIABLE), 46, (STATIC), 0
           endIf: 
-        Unknown2500: 9, 3, 2, 334, 0, 1
+        Unknown2500: 9, 3, (VARIABLE), 334, (STATIC), 1
           storeValue: (VARIABLE), 46, (STATIC), 1
           endIf: 
-        Unknown2500: 9, 3, 2, 334, 0, 2
+        Unknown2500: 9, 3, (VARIABLE), 334, (STATIC), 2
           storeValue: (VARIABLE), 46, (STATIC), 0
           endIf: 
         ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (STATIC), 1
-          Unknown2500: 9, 3, 2, 13, 0, 1
+          Unknown2500: 9, 3, (VARIABLE), 13, (STATIC), 1
             ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (VARIABLE), 47
               Unknown450: s32'dky_aura_stand_loop'
               storeValue: (VARIABLE), 47, (VARIABLE), 46
@@ -2883,7 +2908,7 @@ beginState: s32'DKY_stand_aura_loop'
             endIf: 
           endIf: 
         else: 
-          Unknown2500: 9, 3, 2, 13, 0, 1
+          Unknown2500: 9, 3, (VARIABLE), 13, (STATIC), 1
             ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (VARIABLE), 47
               Unknown450: s32'dky_aura_crouch_loop'
               storeValue: (VARIABLE), 47, (VARIABLE), 46
@@ -3046,8 +3071,8 @@ beginState: s32'DKY_floor_aura'
     Unknown38: s32'DKY_floor_aura'
     Unknown2314: 1
     upon: 99
-      Unknown23: 99
-      Unknown23: 39
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: 39
       Unknown14: s32'end'
       Unknown295: 1
       Unknown1801: 1
@@ -3056,7 +3081,7 @@ beginState: s32'DKY_floor_aura'
       endUpon: 
     endUpon: 
   sprite: s32'null', 5
-  Unknown188: 0
+  setObjectSize: 0
   Unknown191: 200
   sprite: s32'null', 2147483647
   upon: 39
@@ -3068,15 +3093,15 @@ beginState: s32'DKY_floor_aura'
       Unknown191: -300
       endElse: 
     ifOperation: (IS_LESSER), (VARIABLE), 99, (STATIC), 0
-      Unknown188: 0
+      setObjectSize: 0
       endIf: 
     ifOperation: (IS_GREATER), (VARIABLE), 99, (STATIC), 1000
-      Unknown188: 1000
+      setObjectSize: 1000
       endIf: 
     Unknown98: 0
     Unknown53: 23, 2, 59, 3, 2, 59
     if: (VARIABLE), 59
-      Unknown23: 39
+      clearRegisteredUponCode: 39
       Unknown14: s32'end'
       Unknown295: 1
       Unknown1801: 1
@@ -3088,7 +3113,7 @@ beginState: s32'DKY_floor_aura'
   Unknown191: -200
   endState: 
 
-startSubroutine: s32'DKY_EffectDisp'
+beginSubroutine: s32'DKY_EffectDisp'
   Unknown2314: 1
   upon: 39
     storeValue: (VARIABLE), 59, (STATIC), 0
@@ -3136,23 +3161,27 @@ beginState: s32'JumpDobj'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
       endUpon: 
     endUpon: 
-  sprite: s32'null', 8
-  sprite: s32'_kyk254_00', 10
+  sprite: s32'null', 2
   Unknown450: s32'kyk_254_atk'
+  sprite: s32'_kyk254_00', 6
   hit: 
   sprite: s32'null', 20
   endState: 
 
 beginState: s32'StunRaysObj'
   upon: (IMMEDIATE)
+    clearRegisteredUponCode: 35
     Unknown458: 3
     Unknown245: 
+    Unknown1110: 1
+    Unknown1058: 1
+    Unknown1138: 0
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
     storeValue: (VARIABLE), 338, (STATIC), 1000010000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -3175,7 +3204,7 @@ beginState: s32'StunRaysObj'
     upon: (HIT_OR_GUARD)
       ifNot: (VARIABLE), 52
         ifNot: (VARIABLE), 25
-          Unknown23: (HIT_OR_GUARD)
+          clearRegisteredUponCode: (HIT_OR_GUARD)
           storeValue: (VARIABLE), 25, (STATIC), 1
           Unknown446: s32'Taiden_Effect', 132
           endIf: 
@@ -3185,6 +3214,7 @@ beginState: s32'StunRaysObj'
           tumbleDuration: 18
           hitAirPushbackY: 0, 45000
           damage: 0, 35
+		  hitSoftKnockdown: 0
           Unknown996: 5, 5, 5
           Unknown1803: s32'Taiden_Effect', 23
           endElse: 
@@ -3206,7 +3236,7 @@ beginState: s32'StunRaysObj'
       endUpon: 
     upon: (FRAME_STEP)
       ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 89
-        Unknown23: (FRAME_STEP)
+        clearRegisteredUponCode: (FRAME_STEP)
         Unknown14: s32'Koware'
         endIf: 
       endUpon: 
@@ -3229,17 +3259,24 @@ beginState: s32'StunRaysObj'
 beginState: s32'StunRays_DIObj'
   upon: (IMMEDIATE)
     Unknown458: 3
-    Unknown243: 
+    Unknown245: 
+    Unknown2314: 1
+    Unknown2189: 2, 5
+    Unknown1028: 2
+    Unknown1110: 1
+    Unknown1112: 0
+    Unknown1058: 1
+    Unknown1138: 0
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
     storeValue: (VARIABLE), 338, (STATIC), 1000010000
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
-    damage: 0, 25
+    damage: 0, 20
     hitEffectElectric: 1
     hitSoftKnockdown: 0
     hitAirPushbackX: 0, 15000
-    hitAirPushbackY: 0, 45000
+    hitAirPushbackY: 0, 22500
     groundHitEffect: 9
     airHitEffect: 9
     Unknown2210: 
@@ -3262,7 +3299,7 @@ beginState: s32'StunRays_DIObj'
       endUpon: 
     upon: (FRAME_STEP)
       ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 129
-        Unknown23: (FRAME_STEP)
+        clearRegisteredUponCode: (FRAME_STEP)
         Unknown14: s32'Koware'
         endIf: 
       endUpon: 
@@ -3284,11 +3321,11 @@ beginState: s32'Taiden_Effect'
     Unknown38: s32'Taiden_Effect'
     upon: (FRAME_STEP)
       ifNot: (VARIABLE), 25
-        Unknown23: (FRAME_STEP)
+        clearRegisteredUponCode: (FRAME_STEP)
         Unknown19: 23
         endIf: 
       Unknown2499: 22, 2, 77
-        Unknown23: (FRAME_STEP)
+        clearRegisteredUponCode: (FRAME_STEP)
         Unknown19: 23
         endIf: 
       endUpon: 
@@ -3446,7 +3483,7 @@ beginState: s32'DragonInstall_start'
     Unknown245: 
     callSubroutine: s32'cmn_AtkLv4'
     callSubroutine: s32'cmnNohosei_kakusei'
-    damage: 0, 40
+    damage: 0, 80
     groundHitEffect: 8
     Unknown1117: 0
     hitEffectElectric: 1
@@ -3460,8 +3497,8 @@ beginState: s32'DragonInstall_start'
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown450: s32'dky_burstatk'
     Unknown2299: 2000
-    Unknown188: 1500
-    Unknown1069: 0, 0, 0, 0, 1, 22, 2, 319
+    setObjectSize: 1500
+    Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
     storeValue: (VARIABLE), 350, (STATIC), -80000
     Unknown788: 1
     Unknown955: 5
@@ -3472,6 +3509,17 @@ beginState: s32'DragonInstall_start'
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: (HIT_OR_GUARD)
       Unknown2121: s32'Cam_Finish_DragonInstall'
+      if: (VARIABLE), 3
+        Unknown446: s32'mahojin', 132
+        Unknown1045: 1, s32''
+        Unknown1046: 1, s32''
+        Unknown963: 110
+        tumbleDuration: 25
+        clearRegisteredUponCode: (HIT_OR_GUARD)
+        storeValue: (VARIABLE), 3, (STATIC), 0
+        storeValue: (VARIABLE), 4, (STATIC), 0
+        Unknown1803: s32'Taiden_Effect', 23
+        endIf: 
       endUpon: 
     endUpon: 
   sprite: s32'null', 2
@@ -3559,7 +3607,7 @@ beginState: s32'Cam_Throw'
   storeValue: (VARIABLE), 51, (STATIC), 600000
   Unknown2552: 0, 108000, 0, 95000, 0, 135000, 0, 20, 0, 1000, 0, 0, s32'accel_brake', s32'accel_brake'
   sprite: s32'null', 22
-  Unknown2500: 10, 22, 2, 77, 0, 0
+  Unknown2500: 10, 22, (VARIABLE), 77, (STATIC), 0
     Unknown2563: 22, 32, s32'accel_brake'
     Unknown2558: 0, 1000, 0, 0, 0, 32, 0, 0, 0, 0, s32'brake', s32'brake'
     Unknown2553: 0, 1000, 0, 0, 0, 22, 0, 0, 0, 0, s32'brake', s32'brake'
