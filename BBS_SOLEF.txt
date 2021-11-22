@@ -526,7 +526,7 @@ beginState: s32'Airthrow_explosion'
     Unknown94: 0, 160412
     Unknown99: 0, 260032
     Unknown1732: 0, -15928
-    Unknown148: 1600
+    setObjectWidth: 1600
     Unknown156: 1600
     Unknown180: 1600
     endUpon: 
@@ -570,7 +570,7 @@ beginState: s32'402_tossinsmoke'
     Unknown94: 0, -29994
     Unknown99: 0, 0
     Unknown1732: 0, 0
-    Unknown148: 1000
+    setObjectWidth: 1000
     Unknown156: 1000
     Unknown180: 1500
     endUpon: 
@@ -667,7 +667,7 @@ beginState: s32'Bringercharge'
     Unknown94: 0, 15000
     Unknown99: 0, 30000
     upon: 23
-      Unknown23: (FRAME_STEP)
+      clearRegisteredUponCode: (FRAME_STEP)
       Unknown94: 0, 35000
       Unknown99: 0, -10000
       endUpon: 
@@ -689,7 +689,7 @@ beginState: s32'Dust_atk_sol'
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -720,7 +720,7 @@ beginState: s32'GunFlame_Obj'
     Unknown760: 0, 80, 0, 4, 0, 8
     hitAirPushbackY: 0, 25000
     Unknown770: 0, 60, 0, 8, 0, 13
-    Unknown778: 0, 0
+    hitGravity: (STATIC), 0
     Unknown783: 0, 125, 0, 10, 0, 30
     Unknown1005: 200
     Unknown1004: 200
@@ -790,7 +790,7 @@ beginState: s32'GunFlame_Obj_DI'
     Unknown760: 0, 80, 0, 4, 0, 8
     hitAirPushbackY: 0, 50000
     Unknown770: 0, 60, 0, 8, 0, 13
-    Unknown778: 0, 2400
+    hitGravity: (STATIC), 2400
     Unknown783: 0, 125, 0, 10, 0, 30
     Unknown450: s32'sol_gunflame'
     Unknown2271: 0, 1
@@ -802,14 +802,14 @@ beginState: s32'GunFlame_Obj_DI'
   Unknown612: s32'SE_BTL_CMN_Expl_Fire_L'
   sprite: s32'sleg_03', 3
   sprite: s32'sleg_04', 1
-  Unknown188: 1000
+  setObjectSize: 1000
   hit: 
   sprite: s32'sleg_04', 1
-  Unknown188: 1100
+  setObjectSize: 1100
   sprite: s32'sleg_04', 1
-  Unknown188: 1200
+  setObjectSize: 1200
   sprite: s32'sleg_05', 3
-  Unknown188: 1300
+  setObjectSize: 1300
   sprite: s32'sleg_06', 2
   recoveryState: 
   sprite: s32'sleg_06', 2
@@ -834,14 +834,14 @@ beginState: s32'GunFlame_Eff'
     ifNot: (VARIABLE), 116
       Unknown2217: 1
       upon: 45
-        Unknown23: 45
-        Unknown23: 23
+        clearRegisteredUponCode: 45
+        clearRegisteredUponCode: 23
         Unknown450: s32'sol_gunflame_end'
         endUpon: 
       endIf: 
     upon: 23
-      Unknown23: 23
-      Unknown23: 45
+      clearRegisteredUponCode: 23
+      clearRegisteredUponCode: 45
       Unknown450: s32'sol_gunflame_end'
       endUpon: 
     upon: 24
@@ -854,8 +854,8 @@ beginState: s32'GunFlame_Eff'
   sprite: s32'null', 10
   sprite: s32'null', 50
   Unknown2217: 0
-  Unknown23: 45
-  Unknown23: 23
+  clearRegisteredUponCode: 45
+  clearRegisteredUponCode: 23
   endState: 
 
 beginState: s32'KudakeroEF'
@@ -863,12 +863,12 @@ beginState: s32'KudakeroEF'
     Unknown244: 
     Unknown450: s32'sol_airthrow'
     callSubroutine: s32'cmn_AtkLv3'
-    damage: 0, 32
+    damage: 0, 25
     groundHitEffect: 11
-    hitAirPushbackX: 0, 30000
-    hitAirPushbackY: 0, 23000
+    hitAirPushbackX: 0, 20000
+    hitAirPushbackY: 0, 30000
     hitEffectFire: 1
-    Unknown188: 1500
+    setObjectSize: 1500
     Unknown156: 1700
     endUpon: 
   sprite: s32'null', 4
@@ -883,13 +883,13 @@ beginState: s32'KudakeroEF_DI'
   upon: (IMMEDIATE)
     Unknown244: 
     Unknown450: s32'sol_airthrow'
-    Unknown188: 3000
+    setObjectSize: 3000
     Unknown2271: 0, 1
     callSubroutine: s32'cmn_AtkLv3'
     damage: 0, 32
     groundHitEffect: 11
-    hitAirPushbackX: 0, 20000
-    hitAirPushbackY: 0, 30000
+    hitAirPushbackX: 0, 23000
+    hitAirPushbackY: 0, 40000
     hitEffectFire: 1
     endUpon: 
   sprite: s32'null', 4
@@ -908,7 +908,7 @@ beginState: s32'Crater'
         Unknown42: 23, 12, 3, 12
         Unknown454: 12
         Unknown453: 12
-        Unknown2500: 15, 3, 2, 319, 0, 0
+        Unknown2500: 15, 3, (VARIABLE), 319, (STATIC), 0
           Unknown453: 3
           endIf: 
         endIf: 
@@ -922,14 +922,14 @@ beginState: s32'Crater'
     Unknown2033: 3, s32'BanditBringer_Air'
     if: (VARIABLE), 0
       Unknown94: 0, -200000
-      Unknown188: 1200
+      setObjectSize: 1200
       endIf: 
     upon: 36
       if: (VARIABLE), 315
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
           Unknown456: 0
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endIf: 
@@ -948,7 +948,7 @@ beginState: s32'Crater_sp'
     Unknown99: 0, 0
     Unknown1732: 0, 40012
     Unknown94: 0, -200000
-    Unknown188: 1200
+    setObjectSize: 1200
     endUpon: 
   sprite: s32'null', 80
   endState: 
@@ -958,7 +958,7 @@ beginState: s32'407Crater'
     Unknown458: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
     Unknown450: s32'sol_bukkira_crater'
-    Unknown188: 1900
+    setObjectSize: 1900
     endUpon: 
   sprite: s32'null', 300
   Unknown612: s32'SE_BTL_CMN_LandBreak_Clay_M'
@@ -975,7 +975,7 @@ beginState: s32'Grandviper_atk'
     upon: 36
       modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
       ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
-        Unknown23: 36
+        clearRegisteredUponCode: 36
         Unknown295: 1
         Unknown456: 0
         endIf: 
@@ -1044,8 +1044,8 @@ beginState: s32'BanditBringerPunch'
     Unknown454: 3
     Unknown2314: 1
     upon: 99
-      Unknown23: 99
-      Unknown23: 23
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: 23
       Unknown454: 3
       Unknown453: 3
       Unknown456: 0
@@ -1054,23 +1054,23 @@ beginState: s32'BanditBringerPunch'
       upon: 36
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           endIf: 
         endUpon: 
       endUpon: 
     Unknown450: s32'sol_banditbringer_loop'
     upon: 47
-      Unknown23: 47
-      Unknown23: 99
-      Unknown23: 23
+      clearRegisteredUponCode: 47
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: 23
       Unknown454: 0
       Unknown450: s32'sol_banditbringer_end'
       endUpon: 
     upon: 23
-      Unknown23: 47
-      Unknown23: 99
-      Unknown23: 23
+      clearRegisteredUponCode: 47
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: 23
       Unknown94: 0, -100000
       Unknown450: s32'sol_banditbringer_end'
       endUpon: 
@@ -1086,14 +1086,14 @@ beginState: s32'FafnirPunch'
     Unknown450: s32'sol_fafnir_main'
     Unknown2314: 1
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown454: 0
       Unknown456: 0
       Unknown295: 1
       endUpon: 
     upon: 99
-      Unknown23: 99
-      Unknown23: 23
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: 23
       Unknown454: 3
       Unknown453: 3
       Unknown456: 0
@@ -1101,7 +1101,7 @@ beginState: s32'FafnirPunch'
       upon: 36
         modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
         ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
-          Unknown23: 36
+          clearRegisteredUponCode: 36
           Unknown295: 1
           Unknown1801: 1
           Unknown2189: 0, 5
@@ -1125,7 +1125,7 @@ beginState: s32'CounterAtk_slow'
     Unknown94: 0, 138805
     Unknown99: 0, 262555
     Unknown1732: 0, 194231
-    Unknown148: 600
+    setObjectWidth: 600
     Unknown156: 600
     Unknown180: 600
     Unknown231: 340000
@@ -1143,7 +1143,7 @@ beginState: s32'CounterSpeedline_slow'
     Unknown94: 0, 138805
     Unknown99: 0, 262555
     Unknown1732: 0, 194231
-    Unknown148: 600
+    setObjectWidth: 600
     Unknown156: 600
     Unknown180: 600
     Unknown231: 340000
@@ -1183,12 +1183,12 @@ beginState: s32'TyrantRavePunch2'
     Unknown450: s32'sol_tyrantrave2'
     callSubroutine: s32'cmnCutScene_ObjHide'
     upon: 99
-      Unknown23: 99
+      clearRegisteredUponCode: 99
       Unknown295: 1
       Unknown456: 0
       endUpon: 
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown295: 1
       Unknown456: 0
       endUpon: 
@@ -1233,7 +1233,7 @@ beginState: s32'TyrantRavePunch2_DI'
       guardType: (NONE)
       endIf: 
     Unknown2271: 0, 1
-    Unknown148: 3000
+    setObjectWidth: 3000
     Unknown156: 600
     Unknown454: 3
     Unknown458: 3
@@ -1296,7 +1296,7 @@ beginState: s32'TyrantRave_sub'
     callSubroutine: s32'cmnCutScene_ObjHide'
     callSubroutine: s32'cmn_Effect_NoLink'
     upon: 23
-      Unknown23: 23
+      clearRegisteredUponCode: 23
       Unknown2055: 0
       endUpon: 
     endUpon: 
@@ -1318,6 +1318,38 @@ beginState: s32'CS500_glare'
   upon: (IMMEDIATE)
     Unknown454: 3
     Unknown450: s32'sol_cs500_glare'
+    Unknown294: 1
+    Unknown94: 0, 78471
+    Unknown99: 0, -5826
+    Unknown1732: 0, -117752
+    upon: 99
+      Unknown19: 23
+      endUpon: 
+    callSubroutine: s32'cmn_Effect_NoLink'
+    endUpon: 
+  sprite: s32'null', 150
+  endState: 
+
+beginState: s32'550_transform'
+  upon: (IMMEDIATE)
+    Unknown454: 3
+    Unknown450: s32'sol_550_transform'
+    Unknown294: 1
+    Unknown94: 0, 78471
+    Unknown99: 0, -5826
+    Unknown1732: 0, -117752
+    upon: 99
+      Unknown19: 23
+      endUpon: 
+    callSubroutine: s32'cmn_Effect_NoLink'
+    endUpon: 
+  sprite: s32'null', 150
+  endState: 
+
+beginState: s32'550_circle'
+  upon: (IMMEDIATE)
+    Unknown454: 3
+    Unknown450: s32'sol_550_circle'
     Unknown294: 1
     Unknown94: 0, 78471
     Unknown99: 0, -5826
@@ -1384,6 +1416,7 @@ beginState: s32'CS500_TyrantRave02'
     Unknown294: 1
     Unknown454: 3
     Unknown450: s32'sol_cs500_eff02'
+    Unknown2519: 1
     Unknown94: 0, -62792
     Unknown99: 0, 325483
     Unknown1732: 0, 309634
@@ -1432,7 +1465,7 @@ beginState: s32'CS501_bg'
   Unknown92: -132089
   Unknown98: 285585
   Unknown1731: 193273
-  Unknown148: 500
+  setObjectWidth: 500
   Unknown156: 500
   Unknown180: 500
   Unknown231: 246400
@@ -1449,7 +1482,7 @@ beginState: s32'CS501_bg'
   Unknown92: -26542
   Unknown98: 305401
   Unknown1731: 235207
-  Unknown148: 300
+  setObjectWidth: 300
   Unknown156: 300
   Unknown180: 300
   Unknown231: 238400
@@ -1495,7 +1528,7 @@ beginState: s32'CS501_wingfire'
     Unknown94: 0, -306436
     Unknown99: 0, -81303
     Unknown1732: 0, -1283152
-    Unknown148: 1200
+    setObjectWidth: 1200
     Unknown156: 1200
     Unknown180: 1200
     Unknown231: 358400
@@ -1567,7 +1600,7 @@ beginState: s32'502_jump'
   upon: (IMMEDIATE)
     Unknown457: 3
     Unknown450: s32'dsl_502_jump'
-    Unknown188: 1700
+    setObjectSize: 1700
     endUpon: 
   sprite: s32'null', 120
   endState: 
@@ -1607,7 +1640,7 @@ beginState: s32'502_explosion'
     Unknown94: 0, 68987
     Unknown99: 0, 150000
     Unknown1732: 0, -274945
-    Unknown148: 1700
+    setObjectWidth: 1700
     Unknown156: 1700
     Unknown180: 1700
     Unknown231: 350000
@@ -1669,6 +1702,34 @@ beginState: s32'502_sippai'
     endUpon: 
   sprite: s32'null', 180
   endState: 
+  
+beginState: s32'550_whiteout'
+  upon: (IMMEDIATE)
+    Unknown294: 1
+    Unknown2519: 1
+    upon: 23
+      clearRegisteredUponCode: 23
+      Unknown14: s32'end'
+      storeValue: (VARIABLE), 45, (STATIC), 1
+      endUpon: 
+    upon: 99
+      clearRegisteredUponCode: 99
+      clearRegisteredUponCode: 23
+      Unknown403: 0
+      ifNot: (VARIABLE), 45
+        Unknown14: s32'end'
+        endIf: 
+      endUpon: 
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endUpon: 
+  sprite: s32'null', 100
+  Unknown450: s32'fau_cs500_whiteout'
+  endLabel: 
+  beginLabel: s32'end'
+  sprite: s32'null', 10
+  sprite: s32'null', 12
+  Unknown450: s32'fau_cs500_whiteout_end'
+  endState: 
 
 beginState: s32'VV_1st_atk'
   upon: (IMMEDIATE)
@@ -1678,14 +1739,14 @@ beginState: s32'VV_1st_atk'
     Unknown2314: 1
     upon: 36
       if: (VARIABLE), 315
-        Unknown23: 36
+        clearRegisteredUponCode: 36
         Unknown454: 3
         Unknown94: 0, -100000
         Unknown1732: 0, -10000
         endIf: 
       endUpon: 
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1708,14 +1769,14 @@ beginState: s32'VV_1st_atk_air'
     Unknown2314: 1
     upon: 36
       if: (VARIABLE), 315
-        Unknown23: 36
+        clearRegisteredUponCode: 36
         Unknown454: 3
         Unknown94: 0, -125000
         Unknown1732: 0, -20000
         endIf: 
       endUpon: 
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1768,7 +1829,7 @@ beginState: s32'VV_Loop'
     Unknown2314: 1
     callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1779,7 +1840,7 @@ beginState: s32'VV_Loop'
     endUpon: 
   sprite: s32'null', 7
   sprite: s32'null', 60
-  Unknown23: 47
+  clearRegisteredUponCode: 47
   Unknown456: 0
   Unknown454: 0
   Unknown295: 1
@@ -1795,13 +1856,13 @@ beginState: s32'VV_Loop_air'
     Unknown94: 0, 32333
     Unknown99: 0, -410271
     Unknown1732: 0, 127504
-    Unknown148: 1200
+    setObjectWidth: 1200
     Unknown156: 1200
     Unknown180: 2000
     Unknown2314: 1
     callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1812,7 +1873,7 @@ beginState: s32'VV_Loop_air'
     endUpon: 
   sprite: s32'null', 7
   sprite: s32'null', 60
-  Unknown23: 47
+  clearRegisteredUponCode: 47
   Unknown456: 0
   Unknown454: 0
   Unknown295: 1
@@ -1832,7 +1893,7 @@ beginState: s32'VV_Loop_hs'
     Unknown2314: 1
     callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1843,7 +1904,7 @@ beginState: s32'VV_Loop_hs'
     endUpon: 
   sprite: s32'null', 24
   sprite: s32'null', 60
-  Unknown23: 47
+  clearRegisteredUponCode: 47
   Unknown456: 0
   Unknown454: 0
   Unknown295: 1
@@ -1859,7 +1920,7 @@ beginState: s32'VV_Loop_hs_air'
     Unknown94: 0, 190107
     Unknown99: 0, 186473
     Unknown1732: 0, 175473
-    Unknown148: 1000
+    setObjectWidth: 1000
     Unknown156: 1000
     Unknown180: 1600
     Unknown231: 0
@@ -1868,7 +1929,7 @@ beginState: s32'VV_Loop_hs_air'
     Unknown2314: 1
     callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1879,7 +1940,7 @@ beginState: s32'VV_Loop_hs_air'
     endUpon: 
   sprite: s32'null', 24
   sprite: s32'null', 60
-  Unknown23: 47
+  clearRegisteredUponCode: 47
   Unknown456: 0
   Unknown454: 0
   Unknown295: 1
@@ -1898,7 +1959,7 @@ beginState: s32'VV_End'
     Unknown2314: 1
     callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -1920,7 +1981,7 @@ beginState: s32'VV_End_air'
     Unknown2314: 1
     callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: 47
-      Unknown23: 47
+      clearRegisteredUponCode: 47
       Unknown456: 0
       Unknown454: 0
       Unknown295: 1
@@ -2159,7 +2220,7 @@ beginState: s32'sol252_bake1'
     Unknown1955: s32'sol252_bake1'
     upon: 36
       if: (VARIABLE), 315
-        Unknown23: 36
+        clearRegisteredUponCode: 36
         Unknown19: 23
         endIf: 
       endUpon: 
@@ -2176,7 +2237,7 @@ beginState: s32'sol252_bake2'
     Unknown1955: s32'sol252_bake2'
     upon: 36
       if: (VARIABLE), 315
-        Unknown23: 36
+        clearRegisteredUponCode: 36
         Unknown19: 23
         endIf: 
       endUpon: 
@@ -2194,7 +2255,7 @@ beginState: s32'sol252_bake3'
     Unknown2314: 1
     upon: 36
       if: (VARIABLE), 315
-        Unknown23: 36
+        clearRegisteredUponCode: 36
         Unknown19: 23
         endIf: 
       endUpon: 
@@ -2202,10 +2263,10 @@ beginState: s32'sol252_bake3'
   sprite: s32'null', 15
   endState: 
 
-startSubroutine: s32'TargetCamera_Dafult'
+beginSubroutine: s32'TargetCamera_Dafult'
   Unknown2082: 
   Unknown454: 3
-  Unknown188: 100
+  setObjectSize: 100
   Unknown290: 300
   endSubroutine: 
 
@@ -2234,8 +2295,8 @@ beginState: s32'Fefnir_Slow_cam'
       Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000000000000000000000A42C02000000000000000000000000004600000028000000000000000500000000000000350000000000000008000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
       endElse: 
     physicsXImpulse: 0, 3000
-    Unknown36: 13, 10
-    upon: 13
+    setEventTrigger: (TIMER), 10
+    upon: (TIMER)
       Unknown120: -50
       endUpon: 
     upon: 77
@@ -2442,7 +2503,7 @@ beginState: s32'Cam_Dragon'
   Unknown2574: 0, 0, 0, 38000, 0, 24, 0, 0, 0, 16, s32'accel_brake', s32'brake'
   Unknown2551: 0, 166000, 0, 400000, 0, 205000, 0, 64, 0, 300, 0, 0, s32'accel_brake', s32'brake'
   sprite: s32'null', 1
-  Unknown2500: 9, 22, 2, 279, 0, 0
+  ifNot: (VARIABLE), 16
     Unknown14: s32'finish'
     endIf: 
   else: 
