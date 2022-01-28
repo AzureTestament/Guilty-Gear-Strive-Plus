@@ -590,7 +590,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_623)
     moveInput: (INPUT_PRESS_D)
-	addMoveFlag: 5
+    addMoveFlag: 5
     Unknown1525: -229, -278, 88, 52
     Unknown1581: 
     Unknown1567: 
@@ -812,9 +812,9 @@ beginSubroutine: s32'RoundInit'
   Unknown1325: 47, s32'may640_02'
   Unknown1325: 48, s32'may060_01'
   Unknown1325: 49, s32'may090_00'
-  Unknown1328: '0x76734A4B4F5F456C7973696F6E447269766572000000000000000000000000006D61793132305F30300000000000000000000000000000000000000000000000'
-  Unknown1328: '0x4C616E645468726F7700000000000000000000000000000000000000000000006D61793331315F30310000000000000000000000000000000000000000000000'
-  Unknown1328: '0x4169725468726F770000000000000000000000000000000000000000000000006D61793332315F30310000000000000000000000000000000000000000000000'
+  Unknown1328: s32'vsJKO_ElysionDriver', s32'may120_00'
+  Unknown1328: s32'LandThrow', s32'may311_01'
+  Unknown1328: s32'AirThrow', s32'may321_01'
   Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
   Unknown2057: s32'nohead'
   Unknown2058: s32'Body'
@@ -2674,7 +2674,7 @@ beginState: s32'CmnActQuickDown2Stand'
 
 beginState: s32'CmnActMidGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     endUpon: 
   Unknown2030: s32'CmnActMidGuardEnd'
   Unknown24: s32'_Top', 2, 0
@@ -2712,7 +2712,7 @@ beginState: s32'CmnActMidGuardEnd'
 
 beginState: s32'CmnActHighGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     storeValue: (VARIABLE), 45, (STATIC), 250000
     storeValue: (VARIABLE), 46, (STATIC), 0
     storeValue: (VARIABLE), 47, (STATIC), 0
@@ -2755,7 +2755,7 @@ beginState: s32'CmnActHighGuardEnd'
 
 beginState: s32'CmnActCrouchGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     endUpon: 
   Unknown2030: s32'CmnActCrouchGuardEnd'
   Unknown24: s32'_Top', 2, 0
@@ -2793,7 +2793,7 @@ beginState: s32'CmnActCrouchGuardEnd'
 
 beginState: s32'CmnActAirGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     callSubroutine: s32'cmnAirGuard'
     endUpon: 
   beginLabel: s32'_Pre'
@@ -2828,7 +2828,7 @@ beginState: s32'CmnActAirGuardEnd'
 
 beginState: s32'CmnActGuardLanding'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     callSubroutine: s32'cmnGuardLanding'
     endUpon: 
   sprite: s32'may067_00', 2
@@ -5563,7 +5563,7 @@ beginState: s32'IrukasanTateC'
   Unknown2172: 1
   sprite: s32'may402_11', 2
   endState: 
-  
+
 beginState: s32'AirIrukasanTate'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv2'
@@ -6183,7 +6183,7 @@ beginState: s32'IrukasanYokoC'
     airHitEffect: 11
     hitAirPushbackX: 0, 35000
     hitAirPushbackY: 0, 10000
-    Unknown933: 10
+    rollDuration: 10
     Unknown906: 1
     counterhitAirPushbackX: 0, 40000
     counterhitAirPushbackY: 0, 10000
@@ -6631,7 +6631,7 @@ beginState: s32'OverHeadKissExe'
   sprite: s32'may404_24', 3
   sprite: s32'may404_25', 3
   endState: 
-  
+
 beginState: s32'UltimateKiss'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
@@ -6642,13 +6642,14 @@ beginState: s32'UltimateKiss'
     storeValue: (VARIABLE), 338, (STATIC), 101
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
-	setForcedProration: 75
+    setForcedProration: 75
     hitAirPushbackX: 0, -7000
     hitAirPushbackY: 0, 44000
+	hitGravity: (STATIC), 3000
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: 11
-	Unknown953: 1
+    Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -400000
     storeValue: (VARIABLE), 344, (STATIC), 50000
     storeValue: (VARIABLE), 345, (STATIC), 0
@@ -6772,7 +6773,7 @@ beginState: s32'Yamada'
   sprite: s32'may530_01', 180
   setStrikeInvulnerable: 1
   setThrowInvulnerable: 1
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 180, 181
   upon: 50
     clearRegisteredUponCode: 50
@@ -6979,7 +6980,7 @@ beginState: s32'Goshogawara'
   setStrikeInvulnerable: 1
   sprite: s32'may501_01', 3
   sprite: s32'may501_02', 3
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 53, 54
   upon: 50
     clearRegisteredUponCode: 50
@@ -7136,7 +7137,7 @@ beginState: s32'AirGoshogawara'
   setStrikeInvulnerable: 1
   sprite: s32'may502_01', 3
   sprite: s32'may502_02', 3
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 53, 54
   upon: 50
     clearRegisteredUponCode: 50
@@ -7958,7 +7959,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   sprite: s32'keep', 1
   Unknown27: s32'_NEUTRAL'
   endState: 
-  
+
 beginState: s32'vsJKO_ElysionDriver'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_vsJKO_ElysionDriver'
@@ -8011,3 +8012,4 @@ beginState: s32'vsJKO_ElysionDriver'
 beginState: s32'DUMMY'
   sprite: s32'e0ea04_01', 2
   endState: 
+

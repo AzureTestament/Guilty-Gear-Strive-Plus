@@ -9316,55 +9316,47 @@ beginSubroutine: s32'cmn_AtkLv0'
     Unknown1117: 15
     endIf: 
   Unknown765: 0, 190
-  Unknown774: 0
-  Unknown250: 906
-  endState: 
-
-if: (VARIABLE), 31
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 30000
-  hitGravity: (STATIC), 3000
-  endIf: 
-
-else: 
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 10000
-  hitGravity: (STATIC), 3500
-  endElse: 
-
-Unknown1001: 5
-Unknown762: 15
-Unknown772: 15
-Unknown785: 0
-Unknown1026: 75
-Unknown1034: 50
-if: (VARIABLE), 130
-  Unknown1035: 250
-  endIf: 
-
-if: (VARIABLE), 130
-  Unknown928: 1
-  Unknown1024: 15
-  endIf: 
-
-Unknown914: 1
-upon: (COUNTER_HIT)
-  clearRegisteredUponCode: (COUNTER_HIT)
-  if: (VARIABLE), 130
-    callSubroutine: s32'cmn_RISCounter'
+  Unknown774: 0, 250
+  Unknown906: 1
+  if: (VARIABLE), 31
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 30000
+    hitGravity: (STATIC), 3000
     endIf: 
-  endUpon: 
+  else: 
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 10000
+    hitGravity: (STATIC), 3500
+    endElse: 
+  Unknown1001: 5
+  Unknown762: 15
+  Unknown772: 15
+  Unknown785: 0
+  Unknown1026: 75
+  Unknown1034: 50
+  if: (VARIABLE), 130
+    Unknown1035: 250
+    endIf: 
+  if: (VARIABLE), 130
+    Unknown928: 1
+    Unknown1024: 15
+    endIf: 
+  Unknown914: 1
+  upon: (COUNTER_HIT)
+    clearRegisteredUponCode: (COUNTER_HIT)
+    if: (VARIABLE), 130
+      callSubroutine: s32'cmn_RISCounter'
+      endIf: 
+    endUpon: 
+  callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 1, (VARIABLE), 333
+  if: (VARIABLE), 130
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endIf: 
+  else: 
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endElse: 
+  endSubroutine: 
 
-callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 1, (VARIABLE), 333
-if: (VARIABLE), 130
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endIf: 
-
-else: 
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endElse: 
-
-endSubroutine: 
 beginSubroutine: s32'cmn_AtkLv1'
   if: (VARIABLE), 130
     Unknown707: 
@@ -9372,9 +9364,9 @@ beginSubroutine: s32'cmn_AtkLv1'
   Unknown711: 1
   hitstunAmount: 14
   blockstunAmount: 11
-  riscGain: 4
+  riscGain: 5
   ifNot: (VARIABLE), 130
-    riscGain: 4
+    riscGain: 5
     Unknown1138: 1
     Unknown1051: 0
     Unknown1058: 1
@@ -9389,55 +9381,47 @@ beginSubroutine: s32'cmn_AtkLv1'
     Unknown1117: 20
     endIf: 
   Unknown765: 0, 195
-  Unknown774: 0
-  Unknown250: 906
-  endState: 
-
-if: (VARIABLE), 31
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 30000
-  hitGravity: (STATIC), 3000
-  endIf: 
-
-else: 
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 10000
-  hitGravity: (STATIC), 3500
-  endElse: 
-
-Unknown1001: 5
-Unknown762: 15
-Unknown772: 15
-Unknown785: 0
-Unknown1026: 75
-Unknown1034: 50
-if: (VARIABLE), 130
-  Unknown1035: 250
-  endIf: 
-
-if: (VARIABLE), 130
-  Unknown928: 1
-  Unknown1024: 15
-  endIf: 
-
-Unknown914: 1
-upon: (COUNTER_HIT)
-  clearRegisteredUponCode: (COUNTER_HIT)
-  if: (VARIABLE), 130
-    callSubroutine: s32'cmn_RISCounter'
+  Unknown774: 0, 250
+  Unknown906: 1
+  if: (VARIABLE), 31
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 30000
+    hitGravity: (STATIC), 3000
     endIf: 
-  endUpon: 
+  else: 
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 10000
+    hitGravity: (STATIC), 3500
+    endElse: 
+  Unknown1001: 5
+  Unknown762: 15
+  Unknown772: 15
+  Unknown785: 0
+  Unknown1026: 75
+  Unknown1034: 50
+  if: (VARIABLE), 130
+    Unknown1035: 250
+    endIf: 
+  if: (VARIABLE), 130
+    Unknown928: 1
+    Unknown1024: 15
+    endIf: 
+  Unknown914: 1
+  upon: (COUNTER_HIT)
+    clearRegisteredUponCode: (COUNTER_HIT)
+    if: (VARIABLE), 130
+      callSubroutine: s32'cmn_RISCounter'
+      endIf: 
+    endUpon: 
+  callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 2, (VARIABLE), 333
+  if: (VARIABLE), 130
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endIf: 
+  else: 
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endElse: 
+  endSubroutine: 
 
-callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 2, (VARIABLE), 333
-if: (VARIABLE), 130
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endIf: 
-
-else: 
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endElse: 
-
-endSubroutine: 
 beginSubroutine: s32'cmn_AtkLv2'
   if: (VARIABLE), 130
     Unknown707: 
@@ -9445,9 +9429,9 @@ beginSubroutine: s32'cmn_AtkLv2'
   Unknown711: 2
   hitstunAmount: 16
   blockstunAmount: 13
-  riscGain: 6
+  riscGain: 8
   ifNot: (VARIABLE), 130
-    riscGain: 6
+    riscGain: 8
     Unknown1138: 1
     Unknown1051: 0
     Unknown1058: 1
@@ -9462,55 +9446,47 @@ beginSubroutine: s32'cmn_AtkLv2'
     Unknown1117: 25
     endIf: 
   Unknown765: 0, 200
-  Unknown774: 0
-  Unknown250: 906
-  endState: 
-
-if: (VARIABLE), 31
-  hitAirPushbackX: 0, 22500
-  hitAirPushbackY: 0, 30000
-  hitGravity: (STATIC), 3000
-  endIf: 
-
-else: 
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 15000
-  hitGravity: (STATIC), 3500
-  endElse: 
-
-Unknown1001: 5
-Unknown762: 15
-Unknown772: 15
-Unknown785: 0
-Unknown1026: 75
-Unknown1034: 50
-if: (VARIABLE), 130
-  Unknown1035: 250
-  endIf: 
-
-if: (VARIABLE), 130
-  Unknown928: 1
-  Unknown1024: 15
-  endIf: 
-
-Unknown914: 1
-upon: (COUNTER_HIT)
-  clearRegisteredUponCode: (COUNTER_HIT)
-  if: (VARIABLE), 130
-    callSubroutine: s32'cmn_RISCounter'
+  Unknown774: 0, 250
+  Unknown906: 1
+  if: (VARIABLE), 31
+    hitAirPushbackX: 0, 22500
+    hitAirPushbackY: 0, 30000
+    hitGravity: (STATIC), 3000
     endIf: 
-  endUpon: 
+  else: 
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 15000
+    hitGravity: (STATIC), 3500
+    endElse: 
+  Unknown1001: 5
+  Unknown762: 15
+  Unknown772: 15
+  Unknown785: 0
+  Unknown1026: 75
+  Unknown1034: 50
+  if: (VARIABLE), 130
+    Unknown1035: 250
+    endIf: 
+  if: (VARIABLE), 130
+    Unknown928: 1
+    Unknown1024: 15
+    endIf: 
+  Unknown914: 1
+  upon: (COUNTER_HIT)
+    clearRegisteredUponCode: (COUNTER_HIT)
+    if: (VARIABLE), 130
+      callSubroutine: s32'cmn_RISCounter'
+      endIf: 
+    endUpon: 
+  callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 3, (VARIABLE), 333
+  if: (VARIABLE), 130
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endIf: 
+  else: 
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endElse: 
+  endSubroutine: 
 
-callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 3, (VARIABLE), 333
-if: (VARIABLE), 130
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endIf: 
-
-else: 
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endElse: 
-
-endSubroutine: 
 beginSubroutine: s32'cmn_AtkLv3'
   if: (VARIABLE), 130
     Unknown707: 
@@ -9518,9 +9494,9 @@ beginSubroutine: s32'cmn_AtkLv3'
   Unknown711: 3
   hitstunAmount: 19
   blockstunAmount: 16
-  riscGain: 15
+  riscGain: 10
   ifNot: (VARIABLE), 130
-    riscGain: 15
+    riscGain: 10
     Unknown1138: 1
     Unknown1051: 0
     Unknown1058: 1
@@ -9535,55 +9511,47 @@ beginSubroutine: s32'cmn_AtkLv3'
     Unknown1117: 30
     endIf: 
   Unknown765: 0, 205
-  Unknown774: 0
-  Unknown250: 906
-  endState: 
-
-if: (VARIABLE), 31
-  hitAirPushbackX: 0, 22500
-  hitAirPushbackY: 0, 30000
-  hitGravity: (STATIC), 3000
-  endIf: 
-
-else: 
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 15000
-  hitGravity: (STATIC), 3500
-  endElse: 
-
-Unknown1001: 5
-Unknown762: 15
-Unknown772: 15
-Unknown785: 0
-Unknown1026: 75
-Unknown1034: 50
-if: (VARIABLE), 130
-  Unknown1035: 250
-  endIf: 
-
-if: (VARIABLE), 130
-  Unknown928: 1
-  Unknown1024: 15
-  endIf: 
-
-Unknown914: 1
-upon: (COUNTER_HIT)
-  clearRegisteredUponCode: (COUNTER_HIT)
-  if: (VARIABLE), 130
-    callSubroutine: s32'cmn_RISCounter'
+  Unknown774: 0, 250
+  Unknown906: 1
+  if: (VARIABLE), 31
+    hitAirPushbackX: 0, 22500
+    hitAirPushbackY: 0, 30000
+    hitGravity: (STATIC), 3000
     endIf: 
-  endUpon: 
+  else: 
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 15000
+    hitGravity: (STATIC), 3500
+    endElse: 
+  Unknown1001: 5
+  Unknown762: 15
+  Unknown772: 15
+  Unknown785: 0
+  Unknown1026: 75
+  Unknown1034: 50
+  if: (VARIABLE), 130
+    Unknown1035: 250
+    endIf: 
+  if: (VARIABLE), 130
+    Unknown928: 1
+    Unknown1024: 15
+    endIf: 
+  Unknown914: 1
+  upon: (COUNTER_HIT)
+    clearRegisteredUponCode: (COUNTER_HIT)
+    if: (VARIABLE), 130
+      callSubroutine: s32'cmn_RISCounter'
+      endIf: 
+    endUpon: 
+  callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 4, (VARIABLE), 333
+  if: (VARIABLE), 130
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endIf: 
+  else: 
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endElse: 
+  endSubroutine: 
 
-callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 4, (VARIABLE), 333
-if: (VARIABLE), 130
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endIf: 
-
-else: 
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endElse: 
-
-endSubroutine: 
 beginSubroutine: s32'cmn_AtkLv4'
   if: (VARIABLE), 130
     Unknown707: 
@@ -9591,9 +9559,9 @@ beginSubroutine: s32'cmn_AtkLv4'
   Unknown711: 4
   hitstunAmount: 21
   blockstunAmount: 18
-  riscGain: 16
+  riscGain: 13
   ifNot: (VARIABLE), 130
-    riscGain: 16
+    riscGain: 13
     Unknown1138: 1
     Unknown1051: 0
     Unknown1058: 1
@@ -9608,55 +9576,47 @@ beginSubroutine: s32'cmn_AtkLv4'
     Unknown1117: 35
     endIf: 
   Unknown765: 0, 210
-  Unknown774: 0
-  Unknown250: 906
-  endState: 
-
-if: (VARIABLE), 31
-  hitAirPushbackX: 0, 23500
-  hitAirPushbackY: 0, 30000
-  hitGravity: (STATIC), 3000
-  endIf: 
-
-else: 
-  hitAirPushbackX: 0, 21500
-  hitAirPushbackY: 0, 15000
-  hitGravity: (STATIC), 3500
-  endElse: 
-
-Unknown1001: 5
-Unknown762: 15
-Unknown772: 15
-Unknown785: 0
-Unknown1026: 75
-Unknown1034: 50
-if: (VARIABLE), 130
-  Unknown1035: 250
-  endIf: 
-
-if: (VARIABLE), 130
-  Unknown928: 1
-  Unknown1024: 15
-  endIf: 
-
-Unknown914: 1
-upon: (COUNTER_HIT)
-  clearRegisteredUponCode: (COUNTER_HIT)
-  if: (VARIABLE), 130
-    callSubroutine: s32'cmn_RISCounter'
+  Unknown774: 0, 250
+  Unknown906: 1
+  if: (VARIABLE), 31
+    hitAirPushbackX: 0, 23500
+    hitAirPushbackY: 0, 30000
+    hitGravity: (STATIC), 3000
     endIf: 
-  endUpon: 
+  else: 
+    hitAirPushbackX: 0, 21500
+    hitAirPushbackY: 0, 15000
+    hitGravity: (STATIC), 3500
+    endElse: 
+  Unknown1001: 5
+  Unknown762: 15
+  Unknown772: 15
+  Unknown785: 0
+  Unknown1026: 75
+  Unknown1034: 50
+  if: (VARIABLE), 130
+    Unknown1035: 250
+    endIf: 
+  if: (VARIABLE), 130
+    Unknown928: 1
+    Unknown1024: 15
+    endIf: 
+  Unknown914: 1
+  upon: (COUNTER_HIT)
+    clearRegisteredUponCode: (COUNTER_HIT)
+    if: (VARIABLE), 130
+      callSubroutine: s32'cmn_RISCounter'
+      endIf: 
+    endUpon: 
+  callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 5, (VARIABLE), 333
+  if: (VARIABLE), 130
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endIf: 
+  else: 
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    endElse: 
+  endSubroutine: 
 
-callSubroutineWithArgs: s32'cmnAtk_GB_TGG', (VARIABLE), 330, (VARIABLE), 331, (STATIC), 5, (VARIABLE), 333
-if: (VARIABLE), 130
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endIf: 
-
-else: 
-  callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  endElse: 
-
-endSubroutine: 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv0'
   Unknown949: 0
   ifNot: (VARIABLE), 340
@@ -10015,31 +9975,31 @@ beginSubroutine: s32'cmn_hosei'
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: 16, (VARIABLE), 339, (STATIC), 2
-      riscConsume: 4
+      riscConsume: 5
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 4
+      riscConsume: 5
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 4
+      riscConsume: 5
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 8
+      riscConsume: 9
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 8
+      riscConsume: 9
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 8
+      riscConsume: 9
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 10
+      riscConsume: 11
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
@@ -10133,7 +10093,7 @@ beginSubroutine: s32'cmn_hosei'
       setProration: 90
       endIf: 
     endIf: 
-  Unknown1001: 5
+  Unknown1001: 3
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: 16, (VARIABLE), 339, (STATIC), 2
@@ -10161,37 +10121,37 @@ beginSubroutine: s32'cmn_hosei'
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 4
+      Unknown1001: 3
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 8
+      Unknown1001: 6
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 8
+      Unknown1001: 6
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 8
+      Unknown1001: 6
       endIf: 
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 5
+      Unknown1001: 3
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 5
+      Unknown1001: 3
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 5
+      Unknown1001: 3
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: 16, (VARIABLE), 339, (STATIC), 2
-      Unknown1001: 15
+      Unknown1001: 10
       endIf: 
     endIf: 
   Unknown1000: 0, 0
@@ -10234,7 +10194,7 @@ beginSubroutine: s32'cmn_hosei'
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1000: 0, 15
+      Unknown1000: 0, 10
       endIf: 
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
@@ -10252,7 +10212,7 @@ beginSubroutine: s32'cmn_hosei'
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      Unknown1000: 0, 15
+      Unknown1000: 0, 10
       endIf: 
     endIf: 
   storeValue: (VARIABLE), 338, (STATIC), 0
@@ -10955,7 +10915,7 @@ beginSubroutine: s32'cmnFDashStop'
 beginSubroutine: s32'cmnFDashCancel'
   Unknown276: 1
   recoveryState: 
-  Unknown2234: 1
+  enableClashes: 1
   Unknown2438: 1
   upon: (FRAME_STEP)
     ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 3
@@ -11908,26 +11868,26 @@ beginSubroutine: s32'cmn_screenshake'
 beginSubroutine: s32'cmnMutekiRC'
   upon: 36
     if: (VARIABLE), 310
-      Unknown2234: 0
+      enableClashes: 0
       endIf: 
     else: 
       Unknown2498: 22, 2, 36
-        Unknown2234: 1
+        enableClashes: 1
         endIf: 
       else: 
         Unknown2033: 22, s32'CmnActBurst'
         if: (VARIABLE), 0
-          Unknown2234: 1
+          enableClashes: 1
           endIf: 
         else: 
-          Unknown2234: 0
+          enableClashes: 0
           endElse: 
         endElse: 
       endElse: 
     endUpon: 
   upon: 99
     clearRegisteredUponCode: 36
-    Unknown2234: 0
+    enableClashes: 0
     endUpon: 
   endSubroutine: 
 
@@ -12785,7 +12745,7 @@ beginSubroutine: s32'cmn_Dust_Finish'
     Unknown40: 
     Unknown32: s32'cmn_Dust_SpeedLine'
     Unknown2239: 1
-    Unknown2234: 0
+    enableClashes: 0
     enableGatlings: 0
     enableWhiffCancel: 0
     Unknown1918: s32'ClearPastSenkoInputTime', 0, 0, 0, 0, 0, 0, 0, 0
@@ -12978,7 +12938,7 @@ beginState: s32'cmn_hibana'
 beginSubroutine: s32'cmn_Dust_Finish_Master'
   Unknown1668: 60, 0
   Unknown2188: 1
-  Unknown2234: 0
+  enableClashes: 0
   Unknown1971: 1
   storeValue: (VARIABLE), 390, (STATIC), 0
   storeValue: (VARIABLE), 391, (STATIC), 0
@@ -13018,7 +12978,7 @@ beginSubroutine: s32'cmn_Dust_Finish_Master'
 
 beginSubroutine: s32'cmn_Dust_Finish_Slave'
   Unknown1668: 60, 0
-  Unknown2234: 0
+  enableClashes: 0
   Unknown2188: 1
   Unknown1971: 1
   storeValue: (VARIABLE), 390, (STATIC), 0
@@ -13064,7 +13024,7 @@ beginSubroutine: s32'cmn_Dust_Finish_Slave'
 beginSubroutine: s32'cmn_Dust_End_Master'
   Unknown1025: 0, 1500000
   Unknown1668: 60, 0
-  Unknown2234: 0
+  enableClashes: 0
   Unknown2188: 1
   Unknown2169: 0
   Unknown1971: 1
@@ -13151,7 +13111,7 @@ beginSubroutine: s32'cmn_Dust_End_Master'
 beginSubroutine: s32'cmn_Dust_End_Slave'
   Unknown1025: 0, 1500000
   Unknown1668: 60, 0
-  Unknown2234: 0
+  enableClashes: 0
   Unknown2188: 1
   Unknown2169: 0
   Unknown1971: 1
@@ -13627,7 +13587,7 @@ beginSubroutine: s32'cmnNandemoCancel'
   enableNormalCancel: 1
   Unknown1348: 1
   Unknown1364: 1
-  Unknown1341: 1
+  enableJumpCancelAfterMove: 1
   enableBlock: 1
   Unknown1362: 1
   Unknown2172: 1
@@ -13646,7 +13606,7 @@ beginSubroutine: s32'cmnNandemoCancelC'
   enableNormalCancel: 1
   Unknown1348: 1
   Unknown1364: 1
-  Unknown1341: 1
+  enableJumpCancelAfterMove: 1
   enableBlock: 1
   Unknown1362: 1
   Unknown2172: 1
@@ -13953,7 +13913,7 @@ beginSubroutine: s32'cmnAtkTemplNageFinish'
   Unknown957: 0
   Unknown773: 1
   Unknown1037: 1
-  Unknown2234: 1
+  enableClashes: 1
   Unknown1157: 0
   Unknown1370: 0
   storeValue: (VARIABLE), 390, (STATIC), 0
@@ -14359,7 +14319,7 @@ beginSubroutine: s32'cmnWSBWallBreak'
       enableGatlings: 0
       enableWhiffCancel: 0
       enableSpecialCancel: 0
-      Unknown2234: 0
+      enableClashes: 0
       Unknown1918: s32'ClearPastSenkoInputTime', 0, 0, 0, 0, 0, 0, 0, 0
       endIf: 
     else: 
@@ -14369,7 +14329,7 @@ beginSubroutine: s32'cmnWSBWallBreak'
       enableGatlings: 0
       enableWhiffCancel: 0
       enableSpecialCancel: 0
-      Unknown2234: 0
+      enableClashes: 0
       Unknown1918: s32'ClearPastSenkoInputTime', 0, 0, 0, 0, 0, 0, 0, 0
       Unknown40: 
       endElse: 
@@ -15725,7 +15685,7 @@ beginSubroutine: s32'cmnWorldSideBreak_Base'
     enableGatlings: 0
     enableWhiffCancel: 0
     enableSpecialCancel: 0
-    Unknown2234: 0
+    enableClashes: 0
     Unknown1918: s32'ClearPastSenkoInputTime', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1371: 0
     Unknown40: 
@@ -17100,7 +17060,7 @@ beginSubroutine: s32'cmnWorldSideBreak_Action_Slave'
 beginSubroutine: s32'cmnWSB_Action_Default'
   Unknown1668: 60, 0
   Unknown2188: 1
-  Unknown2234: 0
+  enableClashes: 0
   Unknown176: 1
   Unknown393: 
   upon: (BEFORE_EXIT)
@@ -21007,6 +20967,8 @@ beginState: s32'cmn_wallbreak_end'
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 4
       endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 5
+      endIf: 
     endUpon: 
   sprite: s32'null', 1
   sprite: s32'null', 6
@@ -21326,7 +21288,7 @@ beginSubroutine: s32'cmnDS_Initialize'
               endIf: 
             ifOperation: (IS_EQUAL), (VARIABLE), 134, (STATIC), 45
               groundHitEffect: 11
-              Unknown933: 60
+              rollDuration: 60
               hitAirPushbackX: 0, 20000
               hitSoftKnockdown: 0
               endIf: 
@@ -22352,7 +22314,7 @@ beginState: s32'cmnDebug34'
     Unknown1337: 0
     enableWalkBackCancel: 0
     Unknown1340: 0
-    Unknown1341: 0
+    enableJumpCancelAfterMove: 0
     Unknown40: 
     endUpon: 
   sprite: s32'null', 1
@@ -24455,7 +24417,7 @@ beginState: s32'cmn_DebugBomb'
     airHitEffect: 9
     hitEffectFire: 1
     Unknown711: 4
-    Unknown1028: 2
+    setDurability: 2
     damage: 0, 100
     hitAirPushbackY: 0, 35000
     Unknown1137: 32
@@ -24922,7 +24884,7 @@ beginState: s32'cmn_Afro_Timer'
   airHitEffect: 1
   Unknown1046: 1, s32''
   Unknown1073: 1
-  Unknown1028: 0
+  setDurability: 0
   Unknown1138: 0
   Unknown1051: 3
   hitAirPushbackX: 0, 10000
@@ -25137,6 +25099,20 @@ beginSubroutine: s32'cmnRomanCancel'
     setEventTrigger: (TIMER), 14
     Unknown2188: 1
     endIf: 
+  checkCurrentStateEntryName: s32'RomanCancelLite'
+  if: (VARIABLE), 0
+    Unknown2427: s32'Romancancel_Red', 0, 1
+    storeValue: (VARIABLE), 115, (STATIC), 5
+    storeValue: (VARIABLE), 45, (STATIC), 5
+    storeValue: (VARIABLE), 46, (STATIC), 38
+    storeValue: (VARIABLE), 47, (STATIC), 45
+    storeValue: (VARIABLE), 48, (STATIC), 7
+    storeValue: (VARIABLE), 49, (STATIC), 13
+    storeValue: (VARIABLE), 341, (STATIC), 5
+    storeValue: (VARIABLE), 335, (STATIC), 0
+    storeValue: (VARIABLE), 392, (STATIC), 46
+    setEventTrigger: (TIMER), 1
+    endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 337, (STATIC), 1
     if: (VARIABLE), 32
       ifOperation: (IS_EQUAL), (VARIABLE), 335, (STATIC), 6
@@ -25187,10 +25163,18 @@ beginSubroutine: s32'cmnRomanCancel'
     ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 4
       Unknown271: 0, 119, 28, 28
       endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+      Unknown271: 0, 119, 32, 32
+      endIf: 
     endUpon: 
   upon: 50
     clearRegisteredUponCode: 50
-    tensionUsage: 5000
+    ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+      tensionUsage: 2500
+      endIf: 
+    else: 
+      tensionUsage: 5000
+      endElse: 
     Unknown2231: 1
     Unknown2188: 1
     Unknown294: 1
@@ -25212,6 +25196,10 @@ beginSubroutine: s32'cmnRomanCancel'
     ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 4
       Unknown613: s16'vxxx113'
       Unknown612: s32'SE_BTL_CMN_RC_Yellow'
+      endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+      Unknown613: s16'vxxx111'
+      Unknown612: s32'SE_BTL_CMN_RC_Red'
       endIf: 
     endUpon: 
   upon: (FRAME_STEP)
@@ -25303,6 +25291,9 @@ beginSubroutine: s32'cmnRomanCancel'
         ifOperation: (IS_EQUAL), (VARIABLE), 341, (STATIC), 4
           Unknown296: 480
           endIf: 
+        ifOperation: (IS_EQUAL), (VARIABLE), 341, (STATIC), 5
+          Unknown296: 240
+          endIf: 
         Unknown446: s32'cmnRomanCancelSeal', 100
         Unknown1918: s32'ClearPastSenkoInputTime', 0, 0, 0, 0, 0, 0, 0, 0
         Unknown1663: 
@@ -25323,6 +25314,9 @@ beginSubroutine: s32'cmnRomanCancel'
           endMove: 
         Unknown1415: 1
         addMove: s32'RomanCancelGuard'
+          addMoveFlag: 120
+          endMove: 
+        addMove: s32'RomanCancelLite'
           addMoveFlag: 120
           endMove: 
         storeValue: (VARIABLE), 390, (STATIC), 0
@@ -25421,6 +25415,9 @@ beginSubroutine: s32'cmnRomanCancel'
         ifOperation: (IS_EQUAL), (VARIABLE), 341, (STATIC), 4
           Unknown296: 480
           endIf: 
+        ifOperation: (IS_EQUAL), (VARIABLE), 341, (STATIC), 5
+          Unknown296: 240
+          endIf: 
         storeValue: (VARIABLE), 390, (STATIC), 0
         storeValue: (VARIABLE), 391, (STATIC), 0
         storeValue: (VARIABLE), 392, (STATIC), 0
@@ -25513,6 +25510,8 @@ beginSubroutine: s32'cmnRomanCancel'
           endIf: 
         endIf: 
       endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+      endIf: 
     endUpon: 
   upon: 12
     if: (VARIABLE), 51
@@ -25534,6 +25533,8 @@ beginSubroutine: s32'cmnRomanCancel'
             Unknown2233: 10
             Unknown2239: 1
             Unknown2240: 1
+            endIf: 
+          ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
             endIf: 
           endIf: 
         endIf: 
@@ -25577,6 +25578,10 @@ beginState: s32'cmnRomanCancel_Object_Pre'
       Unknown450: s32'cmn_start_rc03'
       Unknown364: 255, 255, 15, 15
       endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 5
+      Unknown450: s32'cmn_start_rc04'
+      Unknown364: 255, 15, 100, 255
+      endIf: 
     endUpon: 
   sprite: s32'null', 30
   endState: 
@@ -25600,12 +25605,16 @@ beginState: s32'cmnRomanCancel_Object'
     ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 4
       Unknown364: 255, 255, 15, 15
       endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 5
+      Unknown364: 255, 15, 100, 255
+      recoveryState: 
+      endIf: 
     setObjectSize: 1000
     Unknown191: 80
     Unknown2299: 800
     Unknown247: 
     callSubroutine: s32'cmn_AtkLv2'
-    Unknown1028: 3
+    setDurability: 3
     damage: 0, 0
     Unknown762: 0
     Unknown772: 0
@@ -25708,6 +25717,9 @@ beginState: s32'cmnRomanCancel_Object'
         Unknown2427: s32'RCYellowNearGuard', 0, 1
         endUpon: 
       endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 5
+      recoveryState: 
+      endIf: 
     storeValue: (VARIABLE), 45, (STATIC), 250000
     upon: (FRAME_STEP)
       ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 13, (STATIC), 10
@@ -25753,7 +25765,7 @@ beginState: s32'cmnRomanCancel_Sousai'
     Unknown2299: 900
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv2'
-    Unknown1028: 3
+    setDurability: 3
     Unknown1152: 1
     Unknown1058: 1
     damage: 0, 0
@@ -25814,6 +25826,10 @@ beginState: s32'cmnRomanCancelSeal'
         endMove: 
       Unknown1415: 1
       addMove: s32'RomanCancelGuard'
+        Unknown1417: 120
+        endMove: 
+      Unknown1415: 1
+      addMove: s32'RomanCancelLite'
         Unknown1417: 120
         endMove: 
       Unknown40: 
@@ -26318,7 +26334,7 @@ beginSubroutine: s32'cmnWorldStop_Tension'
 
 beginSubroutine: s32'cmnWorldStop_Start'
   Unknown294: 1
-  Unknown2234: 0
+  enableClashes: 0
   Unknown2188: 1
   Unknown176: 1
   Unknown2279: 2, 330, 0, 0
@@ -26333,12 +26349,12 @@ beginSubroutine: s32'cmnWorldStop_Start'
 
 beginSubroutine: s32'cmnWorldStop_End'
   Unknown294: 0
-  Unknown2234: 1
+  enableClashes: 1
   Unknown2188: 0
   clearRegisteredUponCode: 99
   Unknown296: 180
   if: (VARIABLE), 330
-    Unknown2234: 0
+    enableClashes: 0
     endIf: 
   endSubroutine: 
 

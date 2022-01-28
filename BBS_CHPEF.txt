@@ -1640,7 +1640,7 @@ beginState: s32'Alpha_naname'
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv1'
     damage: 0, 36
-    Unknown1028: 0
+    setDurability: 0
     Unknown1112: 1
     Unknown1110: 1
     pushbackX: 50
@@ -1804,7 +1804,7 @@ beginState: s32'Alpha_yoko'
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv1'
     damage: 0, 38
-    Unknown1028: 0
+    setDurability: 0
     pushbackX: 50
     Unknown1110: 1
     Unknown725: 1
@@ -1863,14 +1863,14 @@ beginState: s32'Alpha_yoko'
   Unknown457: 0
   Unknown233: 
   endState: 
-  
+
 beginState: s32'FBAlpha_yoko'
   upon: (IMMEDIATE)
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv3'
     damage: 0, 44
-	wallBounceCount: 1
-    Unknown1028: 0
+    wallBounceCount: 1
+    setDurability: 0
     pushbackX: 50
     Unknown1110: 1
     Unknown725: 1
@@ -1935,7 +1935,7 @@ beginState: s32'Alpha_air_ref'
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv1'
     damage: 0, 50
-    Unknown1028: 0
+    setDurability: 0
     Unknown1112: 1
     Unknown1110: 1
     pushbackX: 50
@@ -2029,7 +2029,7 @@ beginState: s32'ShurikenObj1'
   upon: (IMMEDIATE)
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv0'
-    Unknown1028: 0
+    setDurability: 0
     damage: 0, 10
     Unknown1110: 1
     Unknown1108: -45
@@ -2381,7 +2381,7 @@ beginState: s32'GammaBladeObj'
     Unknown244: 
     callSubroutine: s32'cmn_AtkLv1'
     damage: 0, 30
-    Unknown1028: 0
+    setDurability: 0
     Unknown1112: 0
     Unknown1138: 0
     storeValue: (VARIABLE), 338, (STATIC), 10000
@@ -2512,7 +2512,7 @@ beginState: s32'GammaBladeObj'
   Unknown2193: 119, -40000, 80000
   Unknown449: s32'chp_burst_smoke', 130
   endState: 
-  
+
 beginState: s32'FBGammaBladeObj'
   upon: (IMMEDIATE)
     Unknown2003: 12384
@@ -2528,33 +2528,30 @@ beginState: s32'FBGammaBladeObj'
     Unknown2064: s32'RomanCancel_Mirage'
     Unknown446: s32'Ganma_dash', 100
     Unknown244: 
-    callSubroutine: s32'cmn_AtkLv2'
+    callSubroutine: s32'cmn_AtkLv4'
+	hitstunAmount: 22
+	blockstunAmount: 20
     damage: 0, 35
-	riscGain: 10
-	riscConsume: 20
-	groundHitEffect: 10
-	airHitEffect: 10
+    riscGain: 10
+    riscConsume: 20
     storeValue: (VARIABLE), 338, (STATIC), 10000
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
-    hitAirPushbackX: 0, 5250
-    hitAirPushbackY: 0, 17500
-    hitGravity: 0, 1925
     upon: (HIT)
-      Unknown23: 10
-      Unknown23: 8
-	  Unknown1798: 3, 23
+      clearRegisteredUponCode: (HIT)
+      clearRegisteredUponCode: 8
+      Unknown1798: 3, 23
       endUpon: 
     upon: (HIT_OR_GUARD)
-      Unknown23: 10
-      Unknown23: 8
-	  Unknown1798: 3, 23
+      clearRegisteredUponCode: (HIT)
+      clearRegisteredUponCode: 8
+      Unknown1798: 3, 23
       Unknown19: 23
       endUpon: 
     upon: (BEFORE_EXIT)
-	  Unknown449: s32'chp_burst_smoke', 130
+      Unknown449: s32'chp_burst_smoke', 130
       Unknown1630: 1
       endUpon: 
     Unknown1148: s32'SE_BTL_CMN_Impact_Katana_M'

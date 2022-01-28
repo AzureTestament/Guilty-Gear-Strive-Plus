@@ -3171,7 +3171,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_K)
-	isFollowupMove: 1
+    isFollowupMove: 1
     Unknown1525: -766, -118, 764, 130
     Unknown1560: 
     Unknown1538: 75
@@ -3371,6 +3371,7 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'FaultlessDefenceAir'
   registerMove: s32'CmnMaximumBurst'
   registerMove: s32'CmnDamageBurst'
+  registerMove: s32'RomanCancelLite'
   registerMove: s32'RomanCancelGap'
   registerMove: s32'RomanCancelNeutral'
   registerMove: s32'RomanCancelAttack'
@@ -3433,9 +3434,9 @@ beginSubroutine: s32'RoundInit'
   Unknown1325: 47, s32'kyk064_06'
   Unknown1325: 48, s32'kyk063_00'
   Unknown1325: 49, s32'kyk090_00'
-  Unknown1328: '0x76734A4B4F5F456C7973696F6E447269766572000000000000000000000000006B796B3132305F30300000000000000000000000000000000000000000000000'
-  Unknown1328: '0x4C616E645468726F7700000000000000000000000000000000000000000000006B796B3331315F30310000000000000000000000000000000000000000000000'
-  Unknown1328: '0x4169725468726F770000000000000000000000000000000000000000000000006B796B3332315F30310000000000000000000000000000000000000000000000'
+  Unknown1328: s32'vsJKO_ElysionDriver', s32'kyk120_00'
+  Unknown1328: s32'LandThrow', s32'kyk311_01'
+  Unknown1328: s32'AirThrow', s32'kyk321_01'
   Unknown629: s16'vxxx021', s16'voice_none'
   Unknown629: s16'vxxx023', s16'voice_none'
   Unknown629: s16'vxxx026', s16'voice_none'
@@ -5742,7 +5743,7 @@ beginState: s32'CmnActQuickDown2Stand'
 
 beginState: s32'CmnActMidGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     endUpon: 
   Unknown2030: s32'CmnActMidGuardEnd'
   Unknown24: s32'_Top', 2, 0
@@ -5779,7 +5780,7 @@ beginState: s32'CmnActMidGuardEnd'
 
 beginState: s32'CmnActHighGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     storeValue: (VARIABLE), 45, (STATIC), 250000
     storeValue: (VARIABLE), 46, (STATIC), 0
     storeValue: (VARIABLE), 47, (STATIC), 0
@@ -5820,7 +5821,7 @@ beginState: s32'CmnActHighGuardEnd'
 
 beginState: s32'CmnActCrouchGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     endUpon: 
   Unknown2030: s32'CmnActCrouchGuardEnd'
   Unknown24: s32'_Top', 2, 0
@@ -5858,7 +5859,7 @@ beginState: s32'CmnActCrouchGuardEnd'
 
 beginState: s32'CmnActAirGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     callSubroutine: s32'cmnAirGuard'
     endUpon: 
   beginLabel: s32'_Pre'
@@ -5893,7 +5894,7 @@ beginState: s32'CmnActAirGuardEnd'
 
 beginState: s32'CmnActGuardLanding'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     callSubroutine: s32'cmnGuardLanding'
     endUpon: 
   sprite: s32'kyk033_00', 1
@@ -6885,6 +6886,7 @@ beginState: s32'NmlAtk5CNear'
     hitGravity: (STATIC), 0
     Unknown808: 1000
     Unknown783: 0, 200, 0, 15, 0, 30
+    groundBounceYVelocityPercent: 60
     groundBounceXVelocity: 10000
     groundBounceYVelocity: 40000
     groundBounceCount: 1
@@ -6995,7 +6997,7 @@ beginState: s32'NmlAtk5CFar'
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     hitAirPushbackX: 0, 25000
     hitAirPushbackY: 0, 15000
-    Unknown933: 10
+    rollDuration: 10
     Unknown906: 1
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk2C'
@@ -7271,10 +7273,11 @@ beginState: s32'NmlAtk6D'
     pushbackX: 80
     Unknown725: 1
     callSubroutine: s32'cmn_fuwafuwafuwa'
-	groundHitEffect: 12
+    groundHitEffect: 12
     airHitEffect: 12
     hitAirPushbackX: 0, 60000
     hitAirPushbackY: 0, 35000
+    wallBounceGravity: 5000
     Unknown783: 0, 200, 0, 2, 0, 10
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk5CNear'
@@ -7385,7 +7388,8 @@ beginState: s32'NmlAtk2D'
     Unknown1108: 90
     Unknown1036: 90
     callSubroutine: s32'cmn_fuwafuwafuwa'
-    hitAirPushbackX: 0, -4000
+	groundHitEffect: 9
+    hitAirPushbackX: 0, 4000
     Unknown760: 0, 80, 0, 6, 0, 15
     hitAirPushbackY: 0, 40000
     Unknown770: 0, 60, 0, 4, 0, 15
@@ -7394,7 +7398,7 @@ beginState: s32'NmlAtk2D'
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
-	enableJumpCancel: 1
+    enableJumpCancel: 1
     upon: (HIT_OR_GUARD)
       extendPushboxX: 100000
       endUpon: 
@@ -8174,7 +8178,7 @@ beginState: s32'NmlAtkAir5B'
     damage: 0, 22
     Unknown1118: s32'SE_BTL_CMN_Hit_Grap_M'
     ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 10000
+      storeValue: (VARIABLE), 346, (STATIC), 6000
       storeValue: (VARIABLE), 347, (STATIC), 28000
       endIf: 
     else: 
@@ -8241,11 +8245,9 @@ beginState: s32'NmlAtkAir5C'
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
     damage: 0, 26
-    hitAirPushbackX: 0, 4000
-    hitAirPushbackY: 0, 20000
     Unknown725: 1
     ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 3000
+      storeValue: (VARIABLE), 346, (STATIC), 8000
       storeValue: (VARIABLE), 347, (STATIC), 26000
       endIf: 
     else: 
@@ -8321,16 +8323,14 @@ beginState: s32'NmlAtkAir5D'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 32
     Unknown725: 1
-    airHitEffect: 12
-    hitAirPushbackX: 0, 4000
-    hitAirPushbackY: 0, 24000
+    Unknown1108: -90
     ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 5000
-      storeValue: (VARIABLE), 347, (STATIC), 30000
+      storeValue: (VARIABLE), 346, (STATIC), 25000
+      storeValue: (VARIABLE), 347, (STATIC), -30000
       endIf: 
     else: 
       endElse: 
-	Unknown1118: s32'SE_BTL_CMN_Hit_Slash_L'
+    Unknown1118: s32'SE_BTL_CMN_Hit_Slash_L'
     callSubroutine: s32'cmn_AtkTemplNmlAtkAir'
     callSubroutine: s32'cmnAirMoveCancel'
     Unknown783: 0, 100, 0, 5, 0, 30
@@ -8529,7 +8529,7 @@ beginState: s32'ThrowExe'
     Unknown1111: 1
     Unknown1142: 1
     callSubroutine: s32'cmn_AtkTemplFloatDamageHead'
-    Unknown2234: 0
+    enableClashes: 0
     Unknown2525: 1
     Unknown2189: 0, 5
     Unknown1064: s32'ThrowExe'
@@ -8659,8 +8659,8 @@ beginState: s32'NmlAtkAirThrow'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'kyk321_11', 3
-  endState: 	
-  
+  endState: 
+
 beginState: s32'AirThrowExe'
   upon: (IMMEDIATE)
     Unknown1673: 17, 3
@@ -8758,7 +8758,7 @@ beginState: s32'AirThrowExe'
   endLabel: 
   gotoLabel: s32'downloop'
   endState: 
-  
+
 beginState: s32'StunEdge1'
   upon: (IMMEDIATE)
     if: (VARIABLE), 5
@@ -8792,7 +8792,7 @@ beginState: s32'StunEdge1'
   sprite: s32'kyk401_09', 5
   Unknown615: s32'SE_BTL_KYK_00'
   sprite: s32'kyk401_10', 4
-  callSubroutine: s32'cmnNandemoCancel'					   
+  callSubroutine: s32'cmnNandemoCancel'
   sprite: s32'kyk401_11', 4
   sprite: s32'kyk401_12', 6
   sprite: s32'kyk401_13', 6
@@ -9128,7 +9128,7 @@ beginState: s32'StunDipper'
         Unknown1045: 1, s32''
         Unknown1046: 1, s32''
         Unknown963: 110
-        tumbleDuration: 50
+        Unknown1203: 50
         clearRegisteredUponCode: (HIT_OR_GUARD)
         storeValue: (VARIABLE), 25, (STATIC), 0
         storeValue: (VARIABLE), 4, (STATIC), 0
@@ -9347,7 +9347,7 @@ beginState: s32'FadulArc'
           Unknown446: s32'mahojin', 132
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
-          tumbleDuration: 50
+          Unknown1203: 50
           clearRegisteredUponCode: (HIT_OR_GUARD)
           hitSoftKnockdown: 0
           storeValue: (VARIABLE), 25, (STATIC), 0
@@ -9447,7 +9447,7 @@ beginState: s32'FadulArc'
   callSubroutine: s32'cmn_countertype_high'
   Unknown1324: s32'FadulArc_DI'
   damage: 0, 24
-  tumbleDuration: 75
+  Unknown1203: 75
   hitStop: 10
   Unknown1041: 1
   hitSoftKnockdown: 0
@@ -9475,7 +9475,7 @@ beginState: s32'FadulArc'
   callSubroutine: s32'cmn_hosei'
   callSubroutine: s32'cmn_countertype_high'
   Unknown1324: s32'FadulArc_DI'
-  tumbleDuration: 75
+  Unknown1203: 75
   hitStop: 10
   Unknown1041: 0
   hitSoftKnockdown: 0
@@ -9505,7 +9505,7 @@ beginState: s32'FadulArc'
   hit: 
   Unknown1324: s32'FadulArc_DI'
   hitSoftKnockdown: 0
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown1041: 0
   Unknown1148: s32'SE_BTL_CMN_Impact_Electric'
   Unknown1211: s32'SE_BTL_CMN_Impact_Electric'
@@ -9557,7 +9557,7 @@ beginState: s32'FBFadulArc'
       endElse: 
     damage: 0, 50
     Unknown1108: -90
-	pushbackX: 70
+    pushbackX: 70
     upon: 78
       pushbackX: 90
       endUpon: 
@@ -9582,18 +9582,18 @@ beginState: s32'FBFadulArc'
           callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
           callSubroutine: s32'cmn_countertype_middle'
           damage: 0, 55
-		  Unknown1108: -90
-		  pushbackX: 70
-		  upon: 78
-			pushbackX: 90
-		    endUpon: 
+          Unknown1108: -90
+          pushbackX: 70
+          upon: 78
+            pushbackX: 90
+            endUpon: 
           hitEffectElectric: 1
-		  groundHitEffect: 9
-		  airHitEffect: 9
-		  guardType: (HIGH)
-		  hitAirPushbackX: 0, 5000
-		  hitAirPushbackY: 0, -38000
-		  groundBounceCount: 1
+          groundHitEffect: 9
+          airHitEffect: 9
+          guardType: (HIGH)
+          hitAirPushbackX: 0, 5000
+          hitAirPushbackY: 0, -38000
+          groundBounceCount: 1
           Unknown446: s32'mahojin', 132
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
@@ -9796,7 +9796,7 @@ beginState: s32'VaporThrustC'
     hitGravity: (STATIC), 2500
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmnMutekiRC'
-	addGatlingOption: s32'VTFadulArc'
+    addGatlingOption: s32'VTFadulArc'
     Unknown2169: 0
     upon: (TOUCH_GROUND)
       Unknown14: s32'landing'
@@ -9829,7 +9829,7 @@ beginState: s32'VaporThrustC'
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
           Unknown963: 110
-          tumbleDuration: 37
+          Unknown1203: 37
           clearRegisteredUponCode: (HIT_OR_GUARD)
           storeValue: (VARIABLE), 25, (STATIC), 0
           storeValue: (VARIABLE), 4, (STATIC), 0
@@ -9931,7 +9931,7 @@ beginState: s32'VaporThrustC'
   Unknown1108: 75
   Unknown725: 1
   hitEffectElectric: 1
-  tumbleDuration: 75
+  Unknown1203: 75
   hitStop: 10
   Unknown1324: s32'VaporThrustC_DI'
   groundHitEffect: 9
@@ -9958,7 +9958,7 @@ beginState: s32'VaporThrustC'
   Unknown1108: 75
   Unknown725: 1
   hitEffectElectric: 1
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown1324: s32'VaporThrustC_DI'
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
@@ -10040,7 +10040,7 @@ beginState: s32'VaporThrustD'
     Unknown780: 0, 3600
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmnMutekiRC'
-	addGatlingOption: s32'VTFadulArc'
+    addGatlingOption: s32'VTFadulArc'
     Unknown2169: 0
     upon: (TOUCH_GROUND)
       Unknown14: s32'landing'
@@ -10080,7 +10080,7 @@ beginState: s32'VaporThrustD'
           Unknown446: s32'mahojin', 132
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
-          tumbleDuration: 50
+          Unknown1203: 50
           Unknown963: 110
           clearRegisteredUponCode: (HIT_OR_GUARD)
           storeValue: (VARIABLE), 25, (STATIC), 0
@@ -10199,7 +10199,7 @@ beginState: s32'VaporThrustD'
   pushbackX: 30
   hitAirPushbackX: 0, 8000
   hitAirPushbackY: 0, 50000
-  tumbleDuration: 50
+  Unknown1203: 50
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnMutekiRC'
   Unknown644: s16'vxxx204', s16'vxxx704'
@@ -10232,7 +10232,7 @@ beginState: s32'VaporThrustD'
   pushbackX: 30
   hitAirPushbackX: 0, 8000
   hitAirPushbackY: 0, 50000
-  tumbleDuration: 50
+  Unknown1203: 50
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnMutekiRC'
   sprite: s32'kyk406_05', 2
@@ -10254,7 +10254,7 @@ beginState: s32'VaporThrustD'
   storeValue: (VARIABLE), 344, (STATIC), 0
   storeValue: (VARIABLE), 345, (STATIC), 0
   damage: 0, 28
-  tumbleDuration: 50
+  Unknown1203: 50
   hit: 
   pushbackX: 100
   callSubroutine: s32'cmnMutekiRC'
@@ -10326,7 +10326,7 @@ beginState: s32'AirVaporThrustC'
     hitGravity: (STATIC), 2500
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmnMutekiRC'
-	addGatlingOption: s32'VTFadulArc'
+    addGatlingOption: s32'VTFadulArc'
     Unknown2169: 0
     upon: (TOUCH_GROUND)
       Unknown14: s32'landing'
@@ -10369,7 +10369,7 @@ beginState: s32'AirVaporThrustC'
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
           Unknown963: 110
-          tumbleDuration: 37
+          Unknown1203: 37
           endIf: 
         endIf: 
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -10475,7 +10475,7 @@ beginState: s32'AirVaporThrustC'
   damage: 0, 40
   pushbackX: 30
   Unknown1108: 75
-  tumbleDuration: 75
+  Unknown1203: 75
   hitStop: 10
   callSubroutine: s32'cmnMutekiRC'
   groundHitEffect: 9
@@ -10489,7 +10489,7 @@ beginState: s32'AirVaporThrustC'
   storeValue: (VARIABLE), 344, (STATIC), 0
   storeValue: (VARIABLE), 345, (STATIC), 0
   Unknown2526: 1, 2, 6, 700, 60, 1000
-  Unknown2591: 1, 2, 6, 700, 200, 1000																							 
+  Unknown2591: 1, 2, 6, 700, 200, 1000
   sprite: s32'kyk405_04', 2
   callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   storeValue: (VARIABLE), 338, (STATIC), 1000
@@ -10503,7 +10503,7 @@ beginState: s32'AirVaporThrustC'
   hit: 
   damage: 0, 30
   Unknown1108: 75
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -10584,7 +10584,7 @@ beginState: s32'AirVaporThrustD'
     counterhitAirPushbackY: 0, 70000
     Unknown780: 0, 3600
     callSubroutine: s32'cmnMutekiRC'
-	addGatlingOption: s32'VTFadulArc'
+    addGatlingOption: s32'VTFadulArc'
     Unknown2169: 0
     upon: (TOUCH_GROUND)
       Unknown14: s32'landing'
@@ -10613,7 +10613,7 @@ beginState: s32'AirVaporThrustD'
           callSubroutine: s32'cmn_fuwafuwafuwa'
           groundHitEffect: 12
           airHitEffect: 12
-		  hitSoftKnockdown: 0
+          hitSoftKnockdown: 0
           hitAirPushbackX: 0, 60000
           Unknown760: 0, 70, 0, 6, 0, 11
           hitAirPushbackY: 0, 70000
@@ -10632,7 +10632,7 @@ beginState: s32'AirVaporThrustD'
           Unknown446: s32'mahojin', 132
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
-          tumbleDuration: 50
+          Unknown1203: 50
           endIf: 
         endIf: 
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
@@ -10752,7 +10752,7 @@ beginState: s32'AirVaporThrustD'
   pushbackX: 30
   hitAirPushbackX: 0, 8000
   hitAirPushbackY: 0, 50000
-  tumbleDuration: 75
+  Unknown1203: 75
   hitStop: 10
   callSubroutine: s32'cmnMutekiRC'
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -10783,7 +10783,7 @@ beginState: s32'AirVaporThrustD'
   pushbackX: 30
   hitAirPushbackX: 0, 8000
   hitAirPushbackY: 0, 50000
-  tumbleDuration: 75
+  Unknown1203: 75
   hitStop: 10
   callSubroutine: s32'cmnMutekiRC'
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -10810,7 +10810,7 @@ beginState: s32'AirVaporThrustD'
   storeValue: (VARIABLE), 345, (STATIC), 0
   hit: 
   damage: 0, 28
-  tumbleDuration: 75
+  Unknown1203: 75
   pushbackX: 100
   callSubroutine: s32'cmnMutekiRC'
   callSubroutine: s32'cmn_fuwafuwafuwa'
@@ -10846,7 +10846,7 @@ beginState: s32'AirVaporThrustD'
   endLabel: 
   gotoLabel: s32'downloop'
   endState: 
-  
+
 beginState: s32'VTFadulArc'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv2'
@@ -10911,7 +10911,7 @@ beginState: s32'VTFadulArc'
           Unknown446: s32'mahojin', 132
           Unknown1045: 1, s32''
           Unknown1046: 1, s32''
-          tumbleDuration: 50
+          Unknown1203: 50
           clearRegisteredUponCode: (HIT_OR_GUARD)
           hitSoftKnockdown: 0
           storeValue: (VARIABLE), 25, (STATIC), 0
@@ -10921,23 +10921,23 @@ beginState: s32'VTFadulArc'
         endIf: 
       if: (VARIABLE), 5
         callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 3, (STATIC), 0, (STATIC), 0
-		callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
-		storeValue: (VARIABLE), 338, (STATIC), 100
-		storeValue: (VARIABLE), 339, (STATIC), 5
-		storeValue: (VARIABLE), 340, (STATIC), 3
-		damage: 0, 40
-		callSubroutine: s32'cmn_hosei'
-		callSubroutine: s32'cmn_countertype_high'
-		Unknown1324: s32'FadulArc_DI'
-		hitSoftKnockdown: 0
-		tumbleDuration: 75
-		Unknown1041: 0
-		Unknown1148: s32'SE_BTL_CMN_Impact_Electric'
-		Unknown1211: s32'SE_BTL_CMN_Impact_Electric'
-		hitStop: 15
-		callSubroutine: s32'cmn_fuwafuwafuwa'
-		hitAirPushbackX: 0, 30000
-		hitAirPushbackY: 0, -90000
+        callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
+        storeValue: (VARIABLE), 338, (STATIC), 100
+        storeValue: (VARIABLE), 339, (STATIC), 5
+        storeValue: (VARIABLE), 340, (STATIC), 3
+        damage: 0, 40
+        callSubroutine: s32'cmn_hosei'
+        callSubroutine: s32'cmn_countertype_high'
+        Unknown1324: s32'FadulArc_DI'
+        hitSoftKnockdown: 0
+        Unknown1203: 75
+        Unknown1041: 0
+        Unknown1148: s32'SE_BTL_CMN_Impact_Electric'
+        Unknown1211: s32'SE_BTL_CMN_Impact_Electric'
+        hitStop: 15
+        callSubroutine: s32'cmn_fuwafuwafuwa'
+        hitAirPushbackX: 0, 30000
+        hitAirPushbackY: 0, -90000
         endIf: 
       endUpon: 
     Unknown953: 3
@@ -10971,7 +10971,7 @@ beginState: s32'VTFadulArc'
   sprite: s32'kyk404_08', 2
   clearRegisteredUponCode: 8
   sprite: s32'kyk404_09', 2147483647
-  endLabel:
+  endLabel: 
   beginLabel: s32'landing'
   sprite: s32'kyk404_10', 3
   recoveryState: 
@@ -11018,7 +11018,7 @@ beginState: s32'Diaekura'
     hitAirPushbackX: 0, 60000
     Unknown760: 0, 90, 0, 4, 0, 10
     hitAirPushbackY: 0, -20000
-    Unknown933: 1
+    rollDuration: 1
     Unknown906: 1
     upon: (HIT)
       ifNot: (VARIABLE), 5
@@ -11034,7 +11034,7 @@ beginState: s32'Diaekura'
           callSubroutine: s32'cmn_hosei'
           callSubroutine: s32'cmn_countertype_middle_slash'
           damage: 0, 45
-		  setForcedProration: 70
+          setForcedProration: 70
           pushbackX: 150
           Unknown963: 110
           hitEffectElectric: 1
@@ -11044,7 +11044,7 @@ beginState: s32'Diaekura'
           hitAirPushbackX: 0, 60000
           Unknown760: 0, 90, 0, 4, 0, 10
           hitAirPushbackY: 0, -20000
-          Unknown933: 5
+          rollDuration: 5
           Unknown906: 1
           Unknown446: s32'mahojin', 132
           Unknown1045: 1, s32''
@@ -11079,9 +11079,9 @@ beginState: s32'Diaekura'
           hitAirPushbackX: 0, 60000
           Unknown760: 0, 90, 0, 4, 0, 10
           hitAirPushbackY: 0, -20000
-          Unknown933: 5
+          rollDuration: 5
           Unknown906: 1
-          tumbleDuration: 80
+          Unknown1203: 80
           Unknown446: s32'mahojin', 132
           Unknown1046: 1, s32''
           Unknown1803: s32'Taiden_Effect', 23
@@ -11173,7 +11173,7 @@ beginState: s32'Diaekura'
   Unknown1324: s32'Diaekura_DI'
   groundHitEffect: 8
   hitAirPushbackY: 0, -20000
-  Unknown933: 8
+  rollDuration: 8
   Unknown906: 1
   Unknown953: 1
   storeValue: (VARIABLE), 343, (STATIC), -380000
@@ -11181,8 +11181,8 @@ beginState: s32'Diaekura'
   storeValue: (VARIABLE), 345, (STATIC), 0
   ifNot: (VARIABLE), 45
     damage: 0, 20
-    tumbleDuration: 28
-    Unknown933: 8
+    Unknown1203: 28
+    rollDuration: 8
     hitAirPushbackX: 0, 30000
     Unknown760: 0, 90, 0, 4, 0, 10
     Unknown446: s32'kyk407_atk', 100
@@ -11253,7 +11253,7 @@ beginSubroutine: s32'Ride_TossinFunc'
   hitAirPushbackX: 0, 30000
   hitAirPushbackY: 0, 5000
   hitGravity: (STATIC), 500
-  Unknown933: 1
+  rollDuration: 1
   Unknown906: 1
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown953: 1
@@ -11275,7 +11275,7 @@ beginSubroutine: s32'RideDI_TossinFunc'
   hitSoftKnockdown: 0
   Unknown2249: 0
   hitStop: 6
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown968: 7
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   storeValue: (VARIABLE), 338, (STATIC), 1000000000
@@ -11286,7 +11286,7 @@ beginSubroutine: s32'RideDI_TossinFunc'
   hitAirPushbackX: 0, 30000
   hitAirPushbackY: 0, 5000
   hitGravity: (STATIC), 500
-  Unknown933: 1
+  rollDuration: 1
   Unknown906: 1
   Unknown953: 1
   storeValue: (VARIABLE), 343, (STATIC), -400000
@@ -11302,7 +11302,7 @@ beginSubroutine: s32'RideDI_FinishFunc'
   damage: 0, 32
   hitStop: 6
   Unknown968: 4
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown1051: 1
   Unknown1117: 0
   hitEffectElectric: 1
@@ -11317,7 +11317,7 @@ beginSubroutine: s32'RideDI_FinishFunc'
   hitAirPushbackX: 0, 60000
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 4000
-  Unknown933: 60
+  rollDuration: 60
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown1148: s32'SE_BTL_CMN_Expl_Shock'
   Unknown1211: s32'SE_BTL_CMN_Expl_Shock'
@@ -11341,7 +11341,7 @@ beginSubroutine: s32'AirRideDI_TossinFunc'
   hitSoftKnockdown: 0
   Unknown2249: 0
   hitStop: 6
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown968: 7
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   storeValue: (VARIABLE), 338, (STATIC), 1000000000
@@ -11352,7 +11352,7 @@ beginSubroutine: s32'AirRideDI_TossinFunc'
   hitAirPushbackX: 0, 30000
   hitAirPushbackY: 0, 5000
   hitGravity: (STATIC), 500
-  Unknown933: 1
+  rollDuration: 1
   Unknown906: 1
   Unknown953: 1
   storeValue: (VARIABLE), 343, (STATIC), -400000
@@ -11368,7 +11368,7 @@ beginSubroutine: s32'AirRideDI_FinishFunc'
   damage: 0, 32
   hitStop: 6
   Unknown968: 4
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown1051: 1
   Unknown1117: 0
   hitEffectElectric: 1
@@ -11383,7 +11383,7 @@ beginSubroutine: s32'AirRideDI_FinishFunc'
   hitAirPushbackX: 0, 60000
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 4000
-  Unknown933: 60
+  rollDuration: 60
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown1148: s32'SE_BTL_CMN_Expl_Shock'
   Unknown1211: s32'SE_BTL_CMN_Expl_Shock'
@@ -11419,7 +11419,7 @@ beginState: s32'RideTheLightning'
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, 5000
     hitGravity: (STATIC), 500
-    Unknown933: 1
+    rollDuration: 1
     Unknown906: 1
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown1971: 1
@@ -11428,7 +11428,7 @@ beginState: s32'RideTheLightning'
       ifNot: (VARIABLE), 5
         if: (VARIABLE), 25
           damage: 0, 22
-          tumbleDuration: 50
+          Unknown1203: 50
           endIf: 
         endIf: 
       storeValue: (VARIABLE), 47, (STATIC), 1
@@ -11478,7 +11478,7 @@ beginState: s32'RideTheLightning'
   setThrowInvulnerable: 1
   sprite: s32'kyk530_01', 3
   sprite: s32'kyk530_01', 152
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 152, 153
   upon: 50
     clearRegisteredUponCode: 50
@@ -11655,7 +11655,7 @@ beginState: s32'RideTheLightning'
   hitAirPushbackX: 0, 60000
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 4000
-  Unknown933: 30
+  rollDuration: 30
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
   Unknown788: 1
@@ -11671,10 +11671,10 @@ beginState: s32'RideTheLightning'
     clearRegisteredUponCode: (HIT_OR_GUARD)
     if: (VARIABLE), 25
       damage: 0, 60
-      tumbleDuration: 150
+      Unknown1203: 150
       storeValue: (VARIABLE), 25, (STATIC), 0
       storeValue: (VARIABLE), 4, (STATIC), 0
-      Unknown933: 52
+      rollDuration: 52
       endIf: 
     else: 
       damage: 0, 50
@@ -11832,7 +11832,7 @@ beginState: s32'RideTheLightning'
   damage: 0, 30
   hitStop: 6
   Unknown968: 4
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown1051: 1
   Unknown1117: 0
   hitEffectElectric: 1
@@ -11847,7 +11847,7 @@ beginState: s32'RideTheLightning'
   hitAirPushbackX: 0, 60000
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 4000
-  Unknown933: 30
+  rollDuration: 30
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown1148: s32'SE_BTL_CMN_Expl_Shock'
   Unknown1211: s32'SE_BTL_CMN_Expl_Shock'
@@ -11911,7 +11911,7 @@ beginState: s32'AirRideTheLightning'
     hitEffectElectric: 1
     hitSoftKnockdown: 0
     Unknown2249: 0
-    Unknown933: 1
+    rollDuration: 1
     Unknown906: 1
     storeValue: (VARIABLE), 338, (STATIC), 1000000000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -11928,7 +11928,7 @@ beginState: s32'AirRideTheLightning'
       ifNot: (VARIABLE), 5
         if: (VARIABLE), 25
           damage: 0, 22
-          tumbleDuration: 50
+          Unknown1203: 50
           endIf: 
         endIf: 
       storeValue: (VARIABLE), 47, (STATIC), 1
@@ -11978,7 +11978,7 @@ beginState: s32'AirRideTheLightning'
   setThrowInvulnerable: 1
   sprite: s32'kyk531_01', 3
   sprite: s32'kyk531_01', 152
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 152, 153
   upon: 50
     clearRegisteredUponCode: 50
@@ -12180,7 +12180,7 @@ beginState: s32'AirRideTheLightning'
   hitAirPushbackX: 0, 60000
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 4000
-  Unknown933: 30
+  rollDuration: 30
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown1148: s32'SE_BTL_CMN_Expl_Shock'
   Unknown1211: s32'SE_BTL_CMN_Expl_Shock'
@@ -12198,8 +12198,8 @@ beginState: s32'AirRideTheLightning'
     clearRegisteredUponCode: (HIT_OR_GUARD)
     if: (VARIABLE), 25
       damage: 0, 60
-      tumbleDuration: 50
-      Unknown933: 52
+      Unknown1203: 50
+      rollDuration: 52
       storeValue: (VARIABLE), 25, (STATIC), 0
       storeValue: (VARIABLE), 4, (STATIC), 0
       endIf: 
@@ -12369,7 +12369,7 @@ beginState: s32'AirRideTheLightning'
   damage: 0, 30
   hitStop: 6
   Unknown968: 4
-  tumbleDuration: 75
+  Unknown1203: 75
   Unknown1051: 1
   Unknown1117: 0
   hitEffectElectric: 1
@@ -12384,7 +12384,7 @@ beginState: s32'AirRideTheLightning'
   hitAirPushbackX: 0, 60000
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 4000
-  Unknown933: 30
+  rollDuration: 30
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown1148: s32'SE_BTL_CMN_Expl_Shock'
   Unknown1211: s32'SE_BTL_CMN_Expl_Shock'
@@ -12467,7 +12467,7 @@ beginState: s32'SacredEdge'
   Unknown615: s32'SE_BTL_KYK_08'
   Unknown615: s32'SE_BTL_KYK_08'
   sprite: s32'kyk502_02', 13
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 39, 40
   upon: 50
     clearRegisteredUponCode: 50
@@ -12554,7 +12554,7 @@ beginState: s32'DragonInstall'
   sprite: s32'kyk533_02', 3
   sprite: s32'kyk533_03', 3
   sprite: s32'kyk533_04', 3
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 0, 119, 15, 15
   upon: 50
     clearRegisteredUponCode: 50
@@ -12563,7 +12563,7 @@ beginState: s32'DragonInstall'
   sprite: s32'kyk533_05', 4
   sprite: s32'kyk533_06', 3
   sprite: s32'kyk533_06', 164
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 164, 165
   upon: 50
     clearRegisteredUponCode: 50
