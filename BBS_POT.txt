@@ -888,9 +888,9 @@ beginSubroutine: s32'RoundInit'
   Unknown1325: 47, s32'pot070_06'
   Unknown1325: 48, s32'pot075_00'
   Unknown1325: 49, s32'pot090_00'
-  Unknown1328: '0x76734A4B4F5F456C7973696F6E44726976657200000000000000000000000000706F743132305F30300000000000000000000000000000000000000000000000'
-  Unknown1328: '0x4C616E645468726F770000000000000000000000000000000000000000000000706F743331315F30310000000000000000000000000000000000000000000000'
-  Unknown1328: '0x4169725468726F77000000000000000000000000000000000000000000000000706F743332315F30310000000000000000000000000000000000000000000000'
+  Unknown1328: s32'vsJKO_ElysionDriver', s32'pot120_00'
+  Unknown1328: s32'LandThrow', s32'pot311_01'
+  Unknown1328: s32'AirThrow', s32'pot321_01'
   Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
   Unknown2057: s32'nohead'
   Unknown2058: s32'Body'
@@ -2808,7 +2808,7 @@ beginState: s32'CmnActQuickDown2Stand'
 
 beginState: s32'CmnActMidGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     endUpon: 
   Unknown2030: s32'CmnActMidGuardEnd'
   Unknown24: s32'_Top', 2, 0
@@ -2846,7 +2846,7 @@ beginState: s32'CmnActMidGuardEnd'
 
 beginState: s32'CmnActHighGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     storeValue: (VARIABLE), 45, (STATIC), 250000
     storeValue: (VARIABLE), 46, (STATIC), 0
     storeValue: (VARIABLE), 47, (STATIC), 0
@@ -2889,7 +2889,7 @@ beginState: s32'CmnActHighGuardEnd'
 
 beginState: s32'CmnActCrouchGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     endUpon: 
   Unknown2030: s32'CmnActCrouchGuardEnd'
   Unknown24: s32'_Top', 2, 0
@@ -2927,7 +2927,7 @@ beginState: s32'CmnActCrouchGuardEnd'
 
 beginState: s32'CmnActAirGuardLoop'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     callSubroutine: s32'cmnAirGuard'
     endUpon: 
   beginLabel: s32'_Pre'
@@ -2962,7 +2962,7 @@ beginState: s32'CmnActAirGuardEnd'
 
 beginState: s32'CmnActGuardLanding'
   upon: (IMMEDIATE)
-    Unknown2234: 1
+    enableClashes: 1
     callSubroutine: s32'cmnGuardLanding'
     endUpon: 
   sprite: s32'pot067_00', 1
@@ -3681,7 +3681,7 @@ beginState: s32'NmlAtk6B'
     wallBounceCount: 1
     wallBounceInCornerOnly: 1
     wallBounceXVelocityPercent: 30
-    Unknown933: 16
+    rollDuration: 16
     Unknown935: 36
     Unknown906: 1
     storeValue: (VARIABLE), 338, (STATIC), 0
@@ -3881,7 +3881,7 @@ beginState: s32'NmlAtk5CFar'
     damage: 0, 40
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, 8000
-    Unknown933: 15
+    rollDuration: 15
     Unknown906: 1
     storeValue: (VARIABLE), 338, (STATIC), 100000000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -4047,7 +4047,7 @@ beginState: s32'NmlAtk6D'
     groundHitEffect: 8
     hitAirPushbackX: 0, 60000
     hitAirPushbackY: 0, 30000
-    Unknown933: 16
+    rollDuration: 16
     Unknown935: 36
     Unknown906: 1
     hitSoftKnockdown: 1
@@ -4151,7 +4151,6 @@ beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
     Unknown2193: 100, 80000, 50000
     callSubroutine: s32'cmn_DustAttack'
-    enableSpecialCancel: 1
     damage: 0, 50
     hitAirPushbackY: 0, 35000
     Unknown1108: 45
@@ -5280,7 +5279,7 @@ beginState: s32'PotemkinBusterExe'
     Unknown957: 0
     Unknown773: 1
     Unknown1037: 1
-    Unknown2234: 1
+    enableClashes: 1
     Unknown1157: 1
     Unknown1370: 0
     storeValue: (VARIABLE), 390, (STATIC), 0
@@ -5325,7 +5324,7 @@ beginState: s32'FDB'
     groundHitEffect: 8
     hitAirPushbackX: 0, 50000
     hitAirPushbackY: 0, -20000
-    Unknown933: 1
+    rollDuration: 1
     Unknown906: 1
     upon: (HIT_OR_GUARD)
       extendPushboxX: 100000
@@ -5372,7 +5371,7 @@ beginState: s32'FDB'
   sprite: s32'pot407_03', 14
   endLabel: 
   damage: 0, 75
-  Unknown933: 10
+  rollDuration: 10
   pushbackX: 120
   beginLabel: s32'Attack'
   sprite: s32'pot407_04', 2
@@ -5474,11 +5473,11 @@ beginState: s32'HammerFall'
     Unknown1827: 0
     Unknown240: 
     Unknown448: s32'cmn_armor_stand', 103
-    Unknown2234: 0
+    enableClashes: 0
     upon: 12
       ifNot: (VARIABLE), 81
         clearRegisteredUponCode: 12
-        Unknown2234: 1
+        enableClashes: 1
         whiffCancelOptionBufferTime: s32'RomanCancelGap', 13
         endIf: 
       endUpon: 
@@ -5602,7 +5601,7 @@ beginState: s32'HeatKnucle'
       if: (VARIABLE), 16
         ifNot: (VARIABLE), 368
           Unknown2188: 1
-          Unknown2234: 0
+          enableClashes: 0
           Unknown14: s32'hit'
           storeValue: (VARIABLE), 45, (STATIC), 1
           Unknown2233: 0
@@ -5640,7 +5639,7 @@ beginState: s32'HeatKnucle'
       Unknown1079: 1
       Unknown1082: 1
       damage: 0, 50
-      tumbleDuration: 50
+      Unknown1203: 50
       hitAirPushbackX: 0, 0
       hitAirPushbackY: 0, 20000
       Unknown1059: 0
@@ -5805,7 +5804,7 @@ beginState: s32'SlideHead'
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
     damage: 0, 40
-    Unknown1028: 0
+    setDurability: 0
     guardType: (LOW)
     pushbackX: 10
     Unknown1112: 1
@@ -5833,11 +5832,11 @@ beginState: s32'SlideHead'
   upon: 33
     Unknown1827: 0
     Unknown448: s32'cmn_armor_stand', 103
-    Unknown2234: 0
+    enableClashes: 0
     upon: 12
       ifNot: (VARIABLE), 81
         clearRegisteredUponCode: 12
-        Unknown2234: 1
+        enableClashes: 1
         whiffCancelOptionBufferTime: s32'RomanCancelGap', 13
         endIf: 
       endUpon: 
@@ -5850,13 +5849,13 @@ beginState: s32'SlideHead'
   sprite: s32'pot404_05', 4
   sprite: s32'pot404_06', 4
   sprite: s32'pot404_07', 2
-  hit:
+  hit: 
   sprite: s32'pot404_08', 4
   Unknown1827: 0
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 4, (STATIC), 0, (STATIC), 0
-  ifNot: 2, 45
-	Unknown446: s32'SlideHead_Obj', 100
-	endIf:
+  ifNot: (VARIABLE), 45
+    Unknown446: s32'SlideHead_Obj', 100
+    endIf: 
   recoveryState: 
   sprite: s32'pot404_09', 4
   sprite: s32'pot404_10', 4
@@ -6063,7 +6062,7 @@ beginState: s32'GarudaImpact'
     callSubroutine: s32'cmn_countertype_high'
     damage: 0, 73
     pushbackX: 20
-    tumbleDuration: 50
+    Unknown1203: 50
     hitSoftKnockdown: 0
     hitEffectFire: 1
     Unknown1005: 50
@@ -6164,7 +6163,7 @@ beginState: s32'HeavenlyPBuster'
   endLabel: 
   sprite: s32'pot500_02', 5
   sprite: s32'pot500_02', 38
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 40, 41
   upon: 50
     clearRegisteredUponCode: 50
@@ -6225,7 +6224,7 @@ beginState: s32'HeavenlyPBusterExe'
     Unknown1165: s32'HeavenlyPBuster'
     endUpon: 
   sprite: s32'keep', 449
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 449, 449
   upon: 50
     clearRegisteredUponCode: 50
@@ -6497,7 +6496,7 @@ beginState: s32'Giganter'
   Unknown446: s32'502bit', 100
   sprite: s32'pot502_03', 3
   Unknown446: s32'502spark', 100
-  Unknown2234: 0
+  enableClashes: 0
   Unknown271: 1, 119, 71, 72
   upon: 50
     clearRegisteredUponCode: 50
