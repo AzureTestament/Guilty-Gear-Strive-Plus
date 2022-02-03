@@ -729,7 +729,7 @@ beginState: s32'502spark'
     Unknown239: 
     endUpon: 
   sprite: s32'null', 120
-  Unknown615: s32'SE_BTL_POT_17'
+  characterSfx: s32'SE_BTL_POT_17'
   endState: 
 
 beginState: s32'502_1stATK'
@@ -766,7 +766,7 @@ beginState: s32'GiganObj'
   upon: (IMMEDIATE)
     Unknown245: 
     callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
-    Unknown1028: 5
+    setDurability: 5
     damage: 0, 25
     pushbackX: 50
     hitEffectElectric: 1
@@ -783,8 +783,8 @@ beginState: s32'GiganObj'
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmn_fuwafuwafuwa'
-    groundHitEffect: 11
-    airHitEffect: 11
+    groundHitEffect: (AIR_STRONG)
+    airHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 10000
     Unknown760: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 10000
@@ -832,8 +832,8 @@ beginState: s32'GiganObj'
   beginLabel: s32'loop'
   sprite: s32'_giganter_00', 12
   hit: 
-  Unknown615: s32'SE_BTL_POT_KAKUSEI_02'
-  Unknown615: s32'SE_BTL_POT_KAKUSEI_01'
+  characterSfx: s32'SE_BTL_POT_KAKUSEI_02'
+  characterSfx: s32'SE_BTL_POT_KAKUSEI_01'
   sprite: s32'_giganter_00', 8
   sprite: s32'_giganter_00', 8
   endLabel: 
@@ -856,9 +856,9 @@ beginState: s32'Buster_floor'
     Unknown450: s32'pot_buster_floor'
     endUpon: 
   sprite: s32'null', 300
-  Unknown612: s32'SE_BTL_CMN_Shake'
-  Unknown612: s32'SE_BTL_CMN_LandBreak_Clay_L'
-  Unknown615: s32'SE_BTL_POT_09'
+  cmnSfx: s32'SE_BTL_CMN_Shake'
+  cmnSfx: s32'SE_BTL_CMN_LandBreak_Clay_L'
+  characterSfx: s32'SE_BTL_POT_09'
   endState: 
 
 beginState: s32'Gigantic_headatk'
@@ -888,7 +888,7 @@ beginState: s32'FDB_damy'
     Unknown466: 3
     Unknown456: 3
     Unknown2188: 0
-    Unknown1827: 1
+    enableSuperArmor: 1
     Unknown1840: 1
     Unknown1857: 0
     Unknown1851: 0, 0
@@ -898,7 +898,7 @@ beginState: s32'FDB_damy'
     Unknown2292: 1
     upon: 64
       clearRegisteredUponCode: 64
-      Unknown1827: 0
+      enableSuperArmor: 0
       setStrikeInvulnerable: 1
       Unknown1798: 3, 23
       endUpon: 
@@ -913,7 +913,7 @@ beginState: s32'FDB_damy2'
     Unknown466: 3
     Unknown456: 3
     Unknown2188: 0
-    Unknown1827: 1
+    enableSuperArmor: 1
     Unknown1840: 1
     Unknown1857: 0
     Unknown1851: 0, 0
@@ -1303,8 +1303,8 @@ beginState: s32'Hbuster_floor'
   sprite: s32'null', 50
   Unknown1801: 1
   Unknown450: s32'pot_hbuster_floor'
-  Unknown615: s32'SE_BTL_POT_09'
-  Unknown615: s32'SE_BTL_POT_18'
+  characterSfx: s32'SE_BTL_POT_09'
+  characterSfx: s32'SE_BTL_POT_18'
   sprite: s32'null', 140
   endState: 
 
@@ -1371,7 +1371,7 @@ beginState: s32'SlideHead_Obj'
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
     damage: 0, 0
-    Unknown1028: 0
+    setDurability: 0
     guardType: (LOW)
     pushbackX: 10
     Unknown1112: 1
@@ -1385,7 +1385,7 @@ beginState: s32'SlideHead_Obj'
     Unknown1027: -1, -1, 0, -1
     setGuardBreakDuration: 23
     enableGuardBreak: 1
-    groundHitEffect: 10
+    groundHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, 30000
     hitGravity: (STATIC), 3000
@@ -1398,8 +1398,8 @@ beginState: s32'SlideHead_Obj'
   sprite: s32'pot404_08', 2
   clearRegisteredUponCode: 23
   hit: 
-  Unknown612: s32'SE_BTL_CMN_LandBreak_Clay_L'
-  Unknown615: s32'SE_BTL_POT_09'
+  cmnSfx: s32'SE_BTL_CMN_LandBreak_Clay_L'
+  characterSfx: s32'SE_BTL_POT_09'
   Unknown450: s32'pot_slidehead'
   endLabel: 
   sprite: s32'null', 60
@@ -1412,7 +1412,7 @@ beginState: s32'JumpD_Obj'
     Unknown454: 2
     Unknown456: 2
     Unknown457: 2
-    groundHitEffect: 10
+    groundHitEffect: (AIR_FACE_DOWN)
     guardType: (LOW)
     Unknown711: 4
     Unknown1027: 600000, -600000, -1, -1
@@ -1491,7 +1491,7 @@ beginState: s32'fdb_attack'
     Unknown244: 
     Unknown1152: 1
     Unknown711: 3
-    Unknown1028: 1
+    setDurability: 1
     callSubroutine: s32'cmn_AtkLv3'
     damage: 0, 40
     Unknown2314: 1
@@ -1512,9 +1512,9 @@ beginState: s32'fdb_Bomb'
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
-    Unknown1028: 3
+    setDurability: 3
     damage: 0, 50
-    groundHitEffect: 8
+    groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 40000
     hitAirPushbackY: 0, 30000
     Unknown2314: 1

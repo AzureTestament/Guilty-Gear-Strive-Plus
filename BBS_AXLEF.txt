@@ -407,7 +407,7 @@ beginState: s32'ByakueObj'
   upon: (IMMEDIATE)
     Unknown245: 
     callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
-    Unknown1028: 4
+    setDurability: 4
     callSubroutine: s32'cmnNohosei_kakusei'
     damage: 0, 20
     Unknown1117: 0
@@ -423,8 +423,8 @@ beginState: s32'ByakueObj'
       Unknown1001: 0
       riscConsume: 0
       endIf: 
-    groundHitEffect: 9
-    airHitEffect: 9
+    groundHitEffect: (AIR_LAUNCH)
+    airHitEffect: (AIR_LAUNCH)
     hitAirPushbackX: 0, 35000
     hitAirPushbackY: 0, 30000
     hitGravity: (STATIC), 2900
@@ -527,9 +527,9 @@ beginState: s32'Rensen_HS'
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 3
     callSubroutine: s32'cmn_hosei'
-    groundHitEffect: 8
+    groundHitEffect: (AIR_FACE_UP)
     damage: 0, 15
-    Unknown1028: 2
+    setDurability: 2
     hitStop: 2
     Unknown996: 4, 4, 4
     Unknown1112: 0
@@ -601,7 +601,7 @@ beginState: s32'Rensen_Bomb'
     damage: 0, 40
     hitAirPushbackX: 0, 28000
     hitAirPushbackY: 0, 75000
-    tumbleDuration: 40
+    Unknown1203: 40
     hitEffectFire: 1
     Unknown1058: 1
     Unknown1138: 0
@@ -651,7 +651,7 @@ beginState: s32'Rensen_Bomb_Just'
     damage: 0, 60
     hitAirPushbackX: 0, 28000
     hitAirPushbackY: 0, 80000
-    tumbleDuration: 40
+    Unknown1203: 40
     hitEffectFire: 1
     Unknown1045: 4, s32'axl_403_just'
     Unknown1058: 1
@@ -693,13 +693,13 @@ beginState: s32'FBRensen_Bomb'
     groundHitEffect: 12
     airHitEffect: 12
     damage: 0, 60
-	setForcedProration: 50
+    setForcedProration: 50
     hitAirPushbackX: 0, 28000
     hitAirPushbackY: 0, 90000
-	groundBounceCount: 1
-	groundBounceYVelocityPercent: 60
-    tumbleDuration: 40
-	hitSoftKnockdown: 0
+    groundBounceCount: 1
+    groundBounceYVelocityPercent: 60
+    Unknown1203: 40
+    hitSoftKnockdown: 0
     hitEffectFire: 1
     Unknown1045: 4, s32'axl_403_just'
     Unknown1058: 1
@@ -791,8 +791,8 @@ beginState: s32'NeoKyokusaObj'
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
-    groundHitEffect: 10
-    airHitEffect: 10
+    groundHitEffect: (AIR_FACE_DOWN)
+    airHitEffect: (AIR_FACE_DOWN)
     damage: 0, 30
     hitSoftKnockdown: 0
     Unknown1056: 1
@@ -861,7 +861,7 @@ beginState: s32'NeoKyokusaObj'
 beginState: s32'SensagekiObj'
   upon: (IMMEDIATE)
     Unknown244: 
-    Unknown1028: 2
+    setDurability: 2
     Unknown1152: 1
     Unknown94: 0, 250000
     Unknown2314: 1
@@ -1221,7 +1221,7 @@ beginState: s32'axl402_Sensa_Wind'
   Unknown450: s32'axl_402_wind01'
   Unknown341: 67
   Unknown338: 0
-  Unknown615: s32'SE_BTL_AXL_08'
+  characterSfx: s32'SE_BTL_AXL_08'
   sprite: s32'null', 200
   Unknown341: 0
   Unknown338: 1000
@@ -1375,7 +1375,7 @@ beginState: s32'axl405_Rasho_Dig'
       clearRegisteredUponCode: 47
       endUpon: 
     Unknown446: s32'axl405_Rasho_Dig_Debris', 100
-    Unknown615: s32'SE_BTL_AXL_11'
+    characterSfx: s32'SE_BTL_AXL_11'
     endUpon: 
   sprite: s32'null', 1
   Unknown344: 0
@@ -1434,7 +1434,7 @@ beginState: s32'axl405_Rasho_Dig_Debris'
 
 beginState: s32'axl405_EnemySuberi'
   upon: (IMMEDIATE)
-    Unknown457: 3				  
+    Unknown457: 3
     Unknown454: 22
     Unknown456: 3
     Unknown94: 0, -200000
@@ -1720,8 +1720,8 @@ beginState: s32'axl500_Byakue_Ring_Light'
     endUpon: 
   sprite: s32'null', 30
   Unknown450: s32'axl_500_elight01'
-  Unknown615: s32'SE_BTL_AXL_05'
-  Unknown615: s32'SE_BTL_AXL_06'
+  characterSfx: s32'SE_BTL_AXL_05'
+  characterSfx: s32'SE_BTL_AXL_06'
   endState: 
 
 beginState: s32'axl500_Byakue_Shot'
@@ -1741,7 +1741,7 @@ beginState: s32'axl500_Byakue_Shot'
   Unknown446: s32'axl500_Byakue_Shot_Ring', 100
   Unknown446: s32'axl500_Byakue_Shot_Light', 100
   Unknown32: s32'axl500_Byakue_Ring_Light'
-  Unknown615: s32'SE_BTL_AXL_07'
+  characterSfx: s32'SE_BTL_AXL_07'
   sprite: s32'null', 3
   Unknown450: s32'axl_500_byakue_shot03'
   sprite: s32'null', 3
@@ -1976,7 +1976,7 @@ beginState: s32'axl501_Aura'
       endUpon: 
     Unknown2278: s32'pelvis', 0, 3
     Unknown449: s32'axl_501_start', 100
-    Unknown615: s32'SE_BTL_AXL_KAKUSEI_01'
+    characterSfx: s32'SE_BTL_AXL_KAKUSEI_01'
     endUpon: 
   beginLabel: s32'Loop'
   sprite: s32'null', 8
@@ -1995,7 +1995,7 @@ beginState: s32'axl501_Aura'
   sprite: s32'null', 1
   Unknown2278: s32'pelvis', 0, 3
   Unknown449: s32'axl_501_count', 100
-  Unknown615: s32'SE_BTL_AXL_KAKUSEI_03'
+  characterSfx: s32'SE_BTL_AXL_KAKUSEI_03'
   endState: 
 
 beginState: s32'axl615_Spin'
@@ -2441,14 +2441,14 @@ beginState: s32'OneVision_obj'
       Unknown41: 22
       Unknown645: 1
       Unknown40: 
-      Unknown615: s32'SE_BTL_AXL_KAKUSEI_05'
+      characterSfx: s32'SE_BTL_AXL_KAKUSEI_05'
       endUpon: 
     upon: 23
       Unknown20: 
       endUpon: 
     endUpon: 
   sprite: s32'null', 150
-  Unknown615: s32'SE_BTL_AXL_KAKUSEI_04'
+  characterSfx: s32'SE_BTL_AXL_KAKUSEI_04'
   endState: 
 
 beginState: s32'OneVision_aura'
