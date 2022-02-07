@@ -481,7 +481,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1225: 1900
   Unknown1232: 105000
   Unknown1233: 12
-  Unknown1251: 26000
+  airdashFSpeed: 26000
   Unknown1242: 17
   Unknown1234: 10
   airDashBackVelocity: 22000
@@ -1411,7 +1411,7 @@ beginSubroutine: s32'OnFrameStep'
     backwardJumpDistance: 9000
     forwardSuperJumpDistance: 10800
     backwardSuperJumpDistance: 9000
-    Unknown1251: 36000
+    airdashFSpeed: 36000
     airDashBackVelocity: 29000
     Unknown1236: 80
     callSubroutine: s32'DI_MeshSetCheck'
@@ -4837,7 +4837,7 @@ beginState: s32'NmlAtk6D'
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, -30000
     counterhitAirPushbackY: 0, -35000
-    Unknown856: 1
+    counterHitGroundBounceCount: 1
     counterHitGroundBounceYVelocityPercent: 100
     Unknown953: 3
     storeValue: (VARIABLE), 343, (STATIC), -500000
@@ -4909,7 +4909,7 @@ beginState: s32'NmlAtk6D'
   hitAirPushbackX: 0, 5000
   hitAirPushbackY: 0, -30000
   counterhitAirPushbackY: 0, -35000
-  Unknown856: 1
+  counterHitGroundBounceCount: 1
   counterHitGroundBounceYVelocityPercent: 100
   Unknown953: 3
   storeValue: (VARIABLE), 343, (STATIC), -500000
@@ -5009,7 +5009,7 @@ beginState: s32'NmlAtk6D'
   hitAirPushbackX: 0, 5000
   hitAirPushbackY: 0, -30000
   counterhitAirPushbackY: 0, -35000
-  Unknown856: 1
+  counterHitGroundBounceCount: 1
   counterHitGroundBounceYVelocityPercent: 100
   Unknown953: 3
   storeValue: (VARIABLE), 343, (STATIC), -500000
@@ -9055,7 +9055,7 @@ beginState: s32'BukkiraExe'
   Unknown546: 0, 115, 0
   sprite: s32'sol407_05', 4
   Unknown41: 22
-  Unknown239: 
+  flipDirection: 
   Unknown40: 
   Unknown544: 29
   Unknown546: 0, 115, 0
@@ -9093,7 +9093,7 @@ beginState: s32'BukkiraExe'
   sprite: s32'sol407_15', 2
   sprite: s32'sol407_17', 2
   sprite: s32'sol000_00', 1
-  Unknown239: 
+  flipDirection: 
   clearRegisteredUponCode: (BEFORE_EXIT)
   exitState: 
   endState: 
@@ -9900,7 +9900,7 @@ beginState: s32'MobCemeteryExe'
   Unknown544: 37
   Unknown546: 0, 115, 2
   Unknown41: 22
-  Unknown239: 
+  flipDirection: 
   Unknown40: 
   grabOrRelease: 
   callSubroutine: s32'cmn_fuwafuwafuwa'
@@ -9978,7 +9978,7 @@ beginState: s32'MobCemeteryExe'
   backwardJumpDistance: 7500
   forwardSuperJumpDistance: 10400
   backwardSuperJumpDistance: 7500
-  Unknown1251: 26000
+  airdashFSpeed: 26000
   airDashBackVelocity: 22000
   Unknown1236: -4
   callSubroutine: s32'DI_MeshSetCheck'
@@ -10236,7 +10236,7 @@ beginState: s32'MobCemeteryAirExe'
   Unknown544: 37
   Unknown546: 0, 115, 2
   Unknown41: 22
-  Unknown239: 
+  flipDirection: 
   Unknown40: 
   grabOrRelease: 
   callSubroutine: s32'cmn_fuwafuwafuwa'
@@ -10314,7 +10314,7 @@ beginState: s32'MobCemeteryAirExe'
   backwardJumpDistance: 7500
   forwardSuperJumpDistance: 10400
   backwardSuperJumpDistance: 7500
-  Unknown1251: 26000
+  airdashFSpeed: 26000
   airDashBackVelocity: 22000
   Unknown1236: -4
   callSubroutine: s32'DI_MeshSetCheck'
@@ -10396,7 +10396,7 @@ beginState: s32'TyrantRave'
       endIf: 
     endIf: 
   enableClashes: 0
-  Unknown271: 1, 119, 135, 136
+  superFreeze: 1, 119, 135, 136
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -10600,7 +10600,7 @@ beginState: s32'TyrantRave'
   sprite: s32'sol500_01', 2
   sprite: s32'sol500_02', 2
   sprite: s32'sol500_04', 39
-  Unknown271: 1, 119, 60, 60
+  superFreeze: 1, 119, 60, 60
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -10742,7 +10742,7 @@ beginState: s32'HMC'
   sprite: s32'sol531_02', 4
   sprite: s32'sol531_02', 168
   enableClashes: 0
-  Unknown271: 1, 119, 168, 169
+  superFreeze: 1, 119, 168, 169
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnCameraSettings'
@@ -11072,7 +11072,7 @@ beginState: s32'HMCExe'
   Unknown544: 37
   Unknown546: 0, 115, 2
   Unknown41: 22
-  Unknown239: 
+  flipDirection: 
   Unknown40: 
   grabOrRelease: 
   callSubroutine: s32'cmn_fuwafuwafuwa'
@@ -11206,16 +11206,13 @@ beginState: s32'DragonInstallSol'
   sprite: s32'sol434_05', 1
   sprite: s32'sol434_06', 3
   sprite: s32'sol434_07', 3
-  setBGMPlay: 0, 10
   sprite: s32'sol434_08', 1
   sprite: s32'sol434_08', 2
   Unknown294: 1
   Unknown2181: 66
   Unknown2317: 66
   Unknown2316: 66
-  Unknown271: 1, 119, 50, 90
-  setBGMPlay: 1000, 10
-  setBGM: s32'BGM_DragonInstall'
+  superFreeze: 1, 119, 50, 90
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -11330,7 +11327,7 @@ beginState: s32'DragonInstallAirSol'
   Unknown2181: 66
   Unknown2317: 66
   Unknown2316: 66
-  Unknown271: 1, 119, 50, 90
+  superFreeze: 1, 119, 50, 90
   setBGM: s32'BGM_DragonInstall'
   upon: 50
     clearRegisteredUponCode: 50
@@ -11405,7 +11402,7 @@ beginState: s32'DragonInstallStun'
     backwardJumpDistance: 7500
     forwardSuperJumpDistance: 10400
     backwardSuperJumpDistance: 7500
-    Unknown1251: 26000
+    airdashFSpeed: 26000
     airDashBackVelocity: 22000
     Unknown1236: -4
     callSubroutine: s32'DI_MeshSetCheck'
@@ -11443,7 +11440,7 @@ beginState: s32'Ichigeki'
     groundHitEffect: (NONE)
     airHitEffect: (NONE)
     Unknown1076: 0
-    Unknown1043: 1
+    canGrabDuringHitstun: 1
     upon: (HIT)
       Unknown14: s32'hit'
       clearRegisteredUponCode: (HIT)
@@ -11505,7 +11502,7 @@ beginState: s32'Ichigeki'
   Unknown268: 0
   setNoCollision: 0
   Unknown178: 22
-  Unknown239: 
+  flipDirection: 
   Unknown2045: s32'xxx_sol550', 0
   Unknown2189: 0, 5
   Unknown2060: s32'CmnCutSceneDamage_Kakusei'

@@ -680,11 +680,35 @@ beginSubroutine: s32'RoundInit'
     addMoveFlag: 126
     Unknown1559: 
     endMove: 
+  addMove: s32'FBBounce'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_PRESS_D)
+    isFollowupMove: 1
+    addMoveFlag: 5
+    addMoveFlag: 126
+    Unknown1559: 
+    endMove: 
   addMove: s32'Ai'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_P)
+    Unknown1419: 2
+    Unknown1435: 1
+    Unknown1525: -1050, -292, 1054, 835
+    Unknown1560: 
+    Unknown1577: 
+    Unknown1573: 
+    Unknown1582: 
+    Unknown1538: 75
+    Unknown1540: 300
+    endMove: 
+  addMove: s32'Inject'
+    moveType: (SPECIAL)
+    characterState: (JUMPING)
+    moveInput: (INPUT_236)
+    moveInput: (INPUT_PRESS_H)
     Unknown1419: 2
     Unknown1435: 1
     Unknown1525: -1050, -292, 1054, 835
@@ -784,12 +808,14 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'CmnFAirJump'
   registerMove: s32'Hikimodoshi'
   registerMove: s32'NiceShot'
+  registerMove: s32'FBBounce'
   registerMove: s32'MettaGari'
   registerMove: s32'Nekkakonnrenn'
   registerMove: s32'Nekkakonnrenn_Air'
   registerMove: s32'Tsukimasu'
   registerMove: s32'NanigaDerukana'
   registerMove: s32'Ai'
+  registerMove: s32'Inject'
   registerMove: s32'Kuebiko_C'
   registerMove: s32'Kuebiko_B'
   registerMove: s32'Kuebiko_A'
@@ -8163,6 +8189,7 @@ beginState: s32'Hikimodoshi'
         endIf: 
       endUpon: 
     addWhiffCancelOption: s32'NiceShot'
+    addWhiffCancelOption: s32'FBBounce'
     endUpon: 
   sprite: s32'fau401_00', 5
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -8492,6 +8519,97 @@ beginState: s32'NiceShot'
   sprite: s32'fau402_30', 3
   endState: 
 
+beginState: s32'FBBounce'
+  upon: (IMMEDIATE)
+	tensionUsage: 2500
+	tensionCooldown: 120
+    callSubroutine: s32'cmn_AtkLv4'
+    callSubroutine: s32'cmn_countertype_high_slash'
+    guardType: (HIGH)
+    damage: 0, 60
+	setForcedProration: 80
+    Unknown725: 1
+    Unknown1108: -60
+    storeValue: (VARIABLE), 338, (STATIC), 101
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutine: s32'cmn_hosei'
+    callSubroutine: s32'cmn_AtkTemplNokezoriHigh'
+    hitAirPushbackX: 0, 12000
+    hitAirPushbackY: 0, -50000
+    Unknown808: 2500
+    groundBounceYVelocity: 42000
+    groundBounceYVelocityPercent: 100
+    groundBounceCount: 2
+    Unknown858: s32'CmnActZSpin'
+    Unknown953: 3
+    storeValue: (VARIABLE), 343, (STATIC), -600000
+    storeValue: (VARIABLE), 344, (STATIC), 0
+    storeValue: (VARIABLE), 345, (STATIC), 130000
+    storeValue: (VARIABLE), 350, (STATIC), -20000
+    upon: (HIT_OR_GUARD)
+      extendPushboxX: 150000
+      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
+      endUpon: 
+    Unknown1148: s32'SE_BTL_CMN_Impact_Katana_L'
+    Unknown1211: s32'SE_BTL_CMN_Impact_Katana_L'
+    Unknown2526: 1, 1, 1, 0, 60, 100
+    Unknown2591: 1, 1, 1, 0, 120, 100
+    endUpon: 
+  sprite: s32'fau213_00', 2
+  cmnSfx: s32'SE_BTL_SYS_Skill'
+  Unknown448: s32'cmn_kakusei_hatudo', 119
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  sprite: s32'fau213_01', 2
+  sprite: s32'fau213_02', 2
+  sprite: s32'fau213_03', 2
+  sprite: s32'fau213_04', 2
+  sprite: s32'fau213_05', 2
+  sprite: s32'fau213_06', 2
+  sprite: s32'fau213_07', 2
+  Unknown446: s32'213atk1', 100
+  hit: 
+  cmnSfx: s32'SE_BTL_CMN_Swing_Sword_Sharp_L'
+  characterSfx: s32'SE_BTL_FAU_20'
+  Unknown621: 2, -1
+  sprite: s32'fau213_08', 3
+  Unknown32: s32'213atk1'
+  Unknown446: s32'213atk2', 100
+  Unknown2193: 100, -50000, 0
+  Unknown2273: 0, 1250
+  Unknown449: s32'bg_land', 130
+  Unknown2176: 0, 100
+  characterSfx: s32'SE_BTL_FAU_15'
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 3, (STATIC), 0, (STATIC), 0
+  Unknown2526: 1, 1, 1, 0, 60, 1000
+  Unknown2591: 1, 1, 1, 0, 120, 1000
+  sprite: s32'fau213_09', 3
+  sprite: s32'fau213_10', 4
+  callSubroutine: s32'cmn_AttackEnd'
+  extendPushboxX: 0
+  sprite: s32'fau213_11', 4
+  sprite: s32'fau213_12', 4
+  sprite: s32'fau213_13', 4
+  sprite: s32'fau213_14', 4
+  sprite: s32'fau213_15', 3
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'fau213_16', 3
+  sprite: s32'fau213_17', 3
+  sprite: s32'fau213_18', 3
+  sprite: s32'fau213_19', 2
+  sprite: s32'fau213_20', 2
+  sprite: s32'fau213_21', 2
+  sprite: s32'fau213_22', 4
+  sprite: s32'fau213_23', 4
+  sprite: s32'fau213_24', 4
+  sprite: s32'fau213_25', 4
+  sprite: s32'fau213_26', 4
+  sprite: s32'fau213_27', 5
+  sprite: s32'fau213_28', 5
+  sprite: s32'fau213_29', 6
+  sprite: s32'fau213_30', 6
+  endState: 
+
 beginState: s32'Ai'
   upon: (IMMEDIATE)
     Unknown1058: 1
@@ -8532,6 +8650,68 @@ beginState: s32'Ai'
   sprite: s32'fau407_11', 2
   setGravity: 1925
   sprite: s32'fau407_12', 2
+  endState: 
+
+beginState: s32'Inject'
+  upon: (IMMEDIATE)
+    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    callSubroutine: s32'cmn_countertype_middle'
+    damage: 0, 35
+    Unknown1108: -80
+	Unknown1070: 360, 50
+	hitAirPushbackX: 0, 30000
+	hitAirPushbackY: 0, -10000
+    storeValue: (VARIABLE), 338, (STATIC), 1000000000
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutine: s32'cmn_hosei'
+    Unknown953: 2
+    upon: (TOUCH_GROUND)
+      Unknown14: s32'landing'
+      endUpon: 
+    storeValue: (VARIABLE), 343, (STATIC), -400000
+    storeValue: (VARIABLE), 344, (STATIC), 150000
+    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: (VARIABLE), 350, (STATIC), -50000
+    upon: (HIT_OR_GUARD)
+      clearRegisteredUponCode: (HIT_OR_GUARD)
+      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      endUpon: 
+    callSubroutine: s32'cmn_Dust_HomingJump_Attack'
+    callSubroutine: s32'cmnLandingStiffadd_Timer'
+    endUpon: 
+  sprite: s32'fau254_00', 2
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  sprite: s32'fau254_01', 2
+  sprite: s32'fau254_02', 2
+  sprite: s32'fau254_03', 3
+  sprite: s32'fau254_04', 3
+  cmnSfx: s32'SE_BTL_CMN_Swing_Sword_Sharp_M'
+  sprite: s32'fau254_05', 3
+  sprite: s32'fau254_06', 3
+  Unknown446: s32'poisonatk', 100
+  hit: 
+  Unknown1148: s32'SE_BTL_CMN_Condition_Poison'
+  Unknown1211: s32'SE_BTL_CMN_Condition_Poison'
+  Unknown621: 2, -1
+  sprite: s32'fau254_07', 2
+  sprite: s32'fau254_08', 2
+  sprite: s32'fau254_09', 2
+  callSubroutine: s32'cmn_AttackEnd'
+  sprite: s32'fau254_10', 3
+  sprite: s32'fau254_11', 3
+  sprite: s32'fau254_12', 3
+  sprite: s32'fau254_13', 3
+  sprite: s32'fau254_14', 3
+  sprite: s32'fau254_15', 3
+  sprite: s32'fau254_16', 3
+  beginLabel: s32'landing'
+  sprite: s32'fau020_18', 4
+  Unknown1709: 1
+  clearRegisteredUponCode: (TOUCH_GROUND)
+  sprite: s32'fau020_19', 4
+  sprite: s32'fau020_20', 4
+  endLabel: 
   endState: 
 
 beginState: s32'exciting'
