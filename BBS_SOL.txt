@@ -1013,6 +1013,20 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 25
     Unknown1540: 600
     endMove: 
+  addMove: s32'DragonInstallAirSol'
+    moveType: (OVERDRIVE)
+    characterState: (JUMPING)
+    addMoveFlag: 3
+    moveInput: (INPUT_214214)
+    moveInput: (INPUT_PRESS_S)
+    addMoveFlag: 16
+    addMoveFlag: 126
+    Unknown1525: -784, -384, 774, 386
+    Unknown1575: 
+    Unknown1578: 
+    Unknown1538: 25
+    Unknown1540: 600
+    endMove: 
   addMove: s32'Ichigeki'
     moveType: 21
     characterState: (STANDING)
@@ -1109,6 +1123,7 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'FBBanditRevolver_Land_yoga'
   registerMove: s32'HMC'
   registerMove: s32'DragonInstallSol'
+  registerMove: s32'DragonInstallAirSol'
   registerMove: s32'TyrantRave'
   registerMove: s32'FaultlessDefenceStand'
   registerMove: s32'FaultlessDefenceCrouch'
@@ -1401,41 +1416,34 @@ beginSubroutine: s32'OnFrameStep'
     Unknown1236: 80
     callSubroutine: s32'DI_MeshSetCheck'
     endIf: 
-  ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 294
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 420
+  ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 252
+    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 300
       storeValue: (VARIABLE), 6, (STATIC), 1
       endIf: 
     endIf: 
   else: 
-    ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 252
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 480
+    ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 168
+      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 360
         storeValue: (VARIABLE), 6, (STATIC), 1
         endIf: 
       endIf: 
     else: 
-      ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 168
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 540
+      ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 126
+        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 420
           storeValue: (VARIABLE), 6, (STATIC), 1
           endIf: 
         endIf: 
       else: 
-        ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 126
-          ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 600
+        ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 84
+          ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 480
             storeValue: (VARIABLE), 6, (STATIC), 1
             endIf: 
           endIf: 
         else: 
-          ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 84
-            ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 660
-              storeValue: (VARIABLE), 6, (STATIC), 1
-              endIf: 
+          ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 540
+            storeValue: (VARIABLE), 6, (STATIC), 1
             endIf: 
-          else: 
-            ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 720
-              storeValue: (VARIABLE), 6, (STATIC), 1
-              endIf: 
-            endIf: 
-          endElse: 
+          endIf: 
         endElse: 
       endElse: 
     endElse: 
@@ -6405,7 +6413,6 @@ beginState: s32'VolcanicViperAirS'
   physicsXImpulse: 0, 0
   physicsYImpulse: 0, 0
   setStrikeInvulnerable: 1
-  setThrowInvulnerable: 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'sol408_01', 3
   voiceLine: s16'vxxx203'
@@ -6467,7 +6474,6 @@ beginState: s32'VolcanicViperAirS'
   physicsXImpulse: 0, 0
   physicsYImpulse: 0, 0
   setStrikeInvulnerable: 1
-  setThrowInvulnerable: 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'sol408_01', 3
   voiceLine: s16'vxxx203'
@@ -6535,7 +6541,7 @@ beginState: s32'VolcanicViperLandHS'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmn_countertype_high'
-    damage: 0, 35
+    damage: 0, 30
     Unknown1108: 75
     pushbackX: 40
     hitEffectFire: 1
@@ -6602,7 +6608,6 @@ beginState: s32'VolcanicViperLandHS'
   sprite: s32'sol408_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   setStrikeInvulnerable: 1
-  setThrowInvulnerable: 1
   sprite: s32'sol408_00', 3
   Unknown1695: s32'sol408_01', 0, 700
   sprite: s32'sol408_00', 3
@@ -6636,7 +6641,7 @@ beginState: s32'VolcanicViperLandHS'
   sprite: s32'sol408_04', 2
   hit: 
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
-  damage: 0, 30
+  damage: 0, 27
   Unknown1108: 75
   hitEffectFire: 1
   storeValue: (VARIABLE), 338, (STATIC), 1000
@@ -6739,7 +6744,6 @@ beginState: s32'VolcanicViperLandHS'
   sprite: s32'sol408_00', 2
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   setStrikeInvulnerable: 1
-  setThrowInvulnerable: 1
   sprite: s32'sol408_00', 2
   Unknown1695: s32'sol408_01', 0, 700
   sprite: s32'sol408_00', 1
@@ -6873,7 +6877,7 @@ beginState: s32'VolcanicViperAirHS'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmn_countertype_high'
-    damage: 0, 35
+    damage: 0, 30
     Unknown1108: 75
     hitEffectFire: 1
     storeValue: (VARIABLE), 338, (STATIC), 1000
@@ -6937,7 +6941,6 @@ beginState: s32'VolcanicViperAirHS'
   Unknown24: s32'super', 2, 5
   sprite: s32'sol408_00', 3
   setStrikeInvulnerable: 1
-  setThrowInvulnerable: 1
   Unknown446: s32'Step_mahojin', 100
   physicsYImpulse: 0, 0
   physicsXImpulse: 0, 0
@@ -6978,7 +6981,7 @@ beginState: s32'VolcanicViperAirHS'
   sprite: s32'sol408_04', 2
   hit: 
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
-  damage: 0, 30
+  damage: 0, 27
   Unknown1108: 75
   hitEffectFire: 1
   storeValue: (VARIABLE), 338, (STATIC), 1000
@@ -7077,7 +7080,6 @@ beginState: s32'VolcanicViperAirHS'
   damage: 0, 60
   sprite: s32'sol408_00', 3
   setStrikeInvulnerable: 1
-  setThrowInvulnerable: 1
   Unknown446: s32'Step_mahojin', 100
   physicsYImpulse: 0, 0
   physicsXImpulse: 0, 0
@@ -7339,7 +7341,7 @@ beginState: s32'BanditRevolver_Land'
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmn_countertype_middle'
   hit: 
-  damage: 0, 25
+  damage: 0, 20
   Unknown1027: 450000, -50000, -1, -1
   storeValue: (VARIABLE), 338, (STATIC), 100000000
   storeValue: (VARIABLE), 339, (STATIC), 0
@@ -7524,7 +7526,7 @@ beginState: s32'BanditRevolver_Air'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmn_countertype_middle'
-    damage: 0, 20
+    damage: 0, 15
     pushbackX: 160
     Unknown1103: 50
     Unknown1051: 0
@@ -7645,7 +7647,7 @@ beginState: s32'BanditRevolver_Air'
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmn_countertype_middle'
   hit: 
-  damage: 0, 25
+  damage: 0, 20
   Unknown1027: 450000, -50000, -1, -1
   storeValue: (VARIABLE), 338, (STATIC), 100000000
   storeValue: (VARIABLE), 339, (STATIC), 0
@@ -8467,7 +8469,7 @@ beginState: s32'BanditBringer_Land'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv3'
     callSubroutine: s32'cmn_countertype_middle'
-    damage: 0, 50
+    damage: 0, 45
     guardType: (HIGH)
     Unknown1108: -50
     pushbackX: 120
@@ -8547,7 +8549,7 @@ beginState: s32'BanditBringer_Land'
           storeValue: (VARIABLE), 339, (STATIC), 5
           storeValue: (VARIABLE), 340, (STATIC), 1
           callSubroutine: s32'cmn_hosei'
-          damage: 0, 50
+          damage: 0, 45
           guardType: (HIGH)
           hitStop: 25
           Unknown1108: -50
@@ -8799,7 +8801,7 @@ beginState: s32'BanditBringer_Air'
           storeValue: (VARIABLE), 339, (STATIC), 5
           storeValue: (VARIABLE), 340, (STATIC), 1
           callSubroutine: s32'cmn_hosei'
-          damage: 0, 50
+          damage: 0, 40
           guardType: (HIGH)
           hitStop: 25
           Unknown1108: -50
@@ -9678,7 +9680,7 @@ beginState: s32'MobCemetery'
     hitAirPushbackX: 0, 50000
     hitAirPushbackY: 0, 40000
     hitGravity: (STATIC), 3000
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     groundHitEffect: (AIR_FACE_UP)
     airHitEffect: (AIR_FACE_UP)
     hitSoftKnockdown: 0
@@ -9777,7 +9779,7 @@ beginState: s32'MobCemeteryExe'
     Unknown1673: 20, 3
     Unknown711: 4
     damage: 0, 40
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     Unknown1971: 1
     callSubroutine: s32'cmnAtkTemplDagekiLock'
     callSubroutine: s32'cmnAtkTemplNageDageki'
@@ -10012,7 +10014,7 @@ beginState: s32'MobCemeteryAir'
     hitAirPushbackX: 0, 50000
     hitAirPushbackY: 0, 40000
     hitGravity: (STATIC), 3000
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     groundHitEffect: (AIR_FACE_UP)
     airHitEffect: (AIR_FACE_UP)
     hitSoftKnockdown: 0
@@ -10114,7 +10116,7 @@ beginState: s32'MobCemeteryAirExe'
     Unknown1673: 20, 3
     Unknown711: 4
     damage: 0, 40
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     Unknown1971: 1
     callSubroutine: s32'cmnAtkTemplDagekiLock'
     callSubroutine: s32'cmnAtkTemplNageDageki'
@@ -10347,7 +10349,7 @@ beginState: s32'TyrantRave'
     callSubroutine: s32'cmnNohosei_kakusei'
     damage: 0, 50
     pushbackX: 50
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     hitSoftKnockdown: 0
     Unknown2249: 0
     storeValue: (VARIABLE), 338, (STATIC), 1000000000
@@ -10536,7 +10538,7 @@ beginState: s32'TyrantRave'
   storeValue: (VARIABLE), 340, (STATIC), 1
   callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   damage: 0, 100
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   pushbackX: 120
   Unknown1045: 1, s32''
   hitEffectFire: 1
@@ -10651,7 +10653,7 @@ beginState: s32'TyrantRave'
   storeValue: (VARIABLE), 340, (STATIC), 1
   callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   damage: 0, 100
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   pushbackX: 120
   Unknown1045: 1, s32''
   hitEffectFire: 1
@@ -10947,7 +10949,7 @@ beginState: s32'HMCExe'
     Unknown1673: 20, 3
     Unknown711: 4
     damage: 0, 40
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     Unknown1971: 1
     callSubroutine: s32'cmnAtkTemplDagekiLock'
     callSubroutine: s32'cmnAtkTemplNageDageki'
@@ -11204,6 +11206,7 @@ beginState: s32'DragonInstallSol'
   sprite: s32'sol434_05', 1
   sprite: s32'sol434_06', 3
   sprite: s32'sol434_07', 3
+  setBGMPlay: 0, 10
   sprite: s32'sol434_08', 1
   sprite: s32'sol434_08', 2
   Unknown294: 1
@@ -11211,11 +11214,13 @@ beginState: s32'DragonInstallSol'
   Unknown2317: 66
   Unknown2316: 66
   Unknown271: 1, 119, 50, 90
+  setBGMPlay: 1000, 10
+  setBGM: s32'BGM_DragonInstall'
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
     cmnSfx: s32'SE_BTL_SYS_SKill'
-    Unknown2076: '0x657900003AEE0600105F0100C70100000000000000000000360000000F000000140000000F00000001000000'
+    cameraMotion: 31077, 454202, 89872, 455, 0, 0, 54, 15, 20, 15, 1
     Unknown2189: 2, 5
     Unknown448: s32'cmn_kakusei_hatudo', 119
     callSubroutine: s32'cmnWorldStop_Tension'
@@ -11268,6 +11273,120 @@ beginState: s32'DragonInstallSol'
   sprite: s32'sol434_33', 3
   sprite: s32'sol434_34', 3
   sprite: s32'sol434_35', 3
+  endState: 
+
+beginState: s32'DragonInstallAirSol'
+  upon: (IMMEDIATE)
+    recoveryState: 
+    Unknown1971: 1
+    Unknown2526: 0, 0, 0, 0, 0, 0
+    Unknown2591: 0, 0, 0, 0, 0, 0
+    upon: 99
+      clearRegisteredUponCode: 99
+      Unknown2560: 0
+      Unknown1972: 0
+      Unknown428: 0, 10
+      Unknown427: 0, 10
+      Unknown429: 0, 10
+      Unknown27: s32'WSB_Master_Wait'
+      Unknown2065: 
+      Unknown2066: 
+      Unknown2244: 0
+      Unknown2097: 
+      upon: (BEFORE_EXIT)
+        Unknown2065: 
+        Unknown2066: 
+        callSubroutine: s32'DI_MeshSetCheck'
+        endUpon: 
+      endUpon: 
+    storeValue: (VARIABLE), 6, (STATIC), 0
+    storeValue: (VARIABLE), 58, (STATIC), 1
+    Unknown1058: 1
+    Unknown2249: 0
+    physicsXImpulse: 0, 0
+    endUpon: 
+  sprite: s32'sol434_00', 6
+  Unknown109: 
+  Unknown114: 
+  Unknown176: 1
+  Unknown621: 2, -1
+  sprite: s32'sol434_01', 1
+  Unknown2231: 1
+  setStrikeInvulnerable: 1
+  setThrowInvulnerable: 1
+  sprite: s32'sol434_02', 1
+  sprite: s32'sol434_03', 1
+  sprite: s32'sol434_04', 1
+  Unknown344: 0
+  Unknown350: 0
+  Unknown356: 0
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  sprite: s32'sol434_05', 1
+  sprite: s32'sol434_06', 3
+  sprite: s32'sol434_07', 3
+  sprite: s32'sol434_08', 1
+  sprite: s32'sol434_08', 2
+  Unknown294: 1
+  Unknown2181: 66
+  Unknown2317: 66
+  Unknown2316: 66
+  Unknown271: 1, 119, 50, 90
+  setBGM: s32'BGM_DragonInstall'
+  upon: 50
+    clearRegisteredUponCode: 50
+    callSubroutine: s32'cmnWorldStop_Start'
+    cmnSfx: s32'SE_BTL_SYS_SKill'
+    ifNot: (VARIABLE), 317
+      cameraMotion: 31077, 454202, 89872, 455, 0, 0, 54, 15, 20, 15, 1
+      endIf: 
+    Unknown2189: 2, 5
+    Unknown448: s32'cmn_kakusei_hatudo', 119
+    callSubroutine: s32'cmnWorldStop_Tension'
+    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    voiceLine: s16'vxxx254'
+    endUpon: 
+  sprite: s32'sol434_09', 3
+  sprite: s32'sol434_10', 3
+  sprite: s32'sol434_11', 3
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  sprite: s32'sol434_12', 3
+  sprite: s32'sol434_13', 3
+  sprite: s32'sol434_14', 3
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  sprite: s32'sol434_15', 3
+  sprite: s32'sol434_16', 3
+  sprite: s32'sol434_17', 3
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  sprite: s32'sol434_18', 3
+  sprite: s32'sol434_19', 3
+  sprite: s32'sol434_20', 9
+  sprite: s32'sol434_21', 3
+  storeValue: (VARIABLE), 5, (STATIC), 1
+  storeValue: (VARIABLE), 3, (STATIC), 0
+  callSubroutine: s32'DI_MeshSetCheck'
+  voiceLine: s16'vxxx255'
+  setStrikeInvulnerable: 0
+  setThrowInvulnerable: 0
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  sprite: s32'sol434_22', 3
+  Unknown344: 1000
+  Unknown350: 1000
+  Unknown356: 1000
+  Unknown1984: 3000
+  Unknown1990: 600
+  Unknown1996: 50
+  Unknown1988: -250
+  Unknown1994: -50
+  Unknown2000: -5
+  sprite: s32'sol434_04', 5
+  sprite: s32'sol434_04', 13
+  sprite: s32'sol434_04', 24
+  sprite: s32'sol434_04', 1
+  Unknown110: 
+  Unknown115: 
+  Unknown111: 50
+  Unknown116: 50
+  setGravity: 2100
   endState: 
 
 beginState: s32'DragonInstallStun'

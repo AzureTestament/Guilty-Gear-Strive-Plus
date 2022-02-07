@@ -3248,6 +3248,20 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 50
     Unknown1540: 600
     endMove: 
+  addMove: s32'DragonInstallAir'
+    moveType: (OVERDRIVE)
+    characterState: (JUMPING)
+    moveInput: (INPUT_214214)
+    moveInput: (INPUT_PRESS_H)
+    addMoveFlag: 3
+    addMoveFlag: 16
+    addMoveFlag: 126
+    Unknown1525: -284, -384, 274, 386
+    Unknown1575: 
+    Unknown1578: 
+    Unknown1538: 50
+    Unknown1540: 600
+    endMove: 
   addMove: s32'DragonInstallStun'
     moveType: (SPECIAL)
     characterState: (STANDING)
@@ -3363,6 +3377,7 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'AirStunEdge1_yoga'
   registerMove: s32'SacredEdge'
   registerMove: s32'DragonInstall'
+  registerMove: s32'DragonInstallAir'
   registerMove: s32'RideTheLightning'
   registerMove: s32'AirRideTheLightning'
   registerMove: s32'FaultlessDefenceStand'
@@ -3845,41 +3860,34 @@ beginSubroutine: s32'OnFrameStep'
     endIf: 
   else: 
     endElse: 
-  ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 294
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 420
+  ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 252
+    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 300
       storeValue: (VARIABLE), 6, (STATIC), 1
       endIf: 
     endIf: 
   else: 
-    ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 252
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 480
+    ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 168
+      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 360
         storeValue: (VARIABLE), 6, (STATIC), 1
         endIf: 
       endIf: 
     else: 
-      ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 168
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 540
+      ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 126
+        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 420
           storeValue: (VARIABLE), 6, (STATIC), 1
           endIf: 
         endIf: 
       else: 
-        ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 126
-          ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 600
+        ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 84
+          ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 480
             storeValue: (VARIABLE), 6, (STATIC), 1
             endIf: 
           endIf: 
         else: 
-          ifOperation: (IS_GREATER), (VARIABLE), 77, (STATIC), 84
-            ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 660
-              storeValue: (VARIABLE), 6, (STATIC), 1
-              endIf: 
+          ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 540
+            storeValue: (VARIABLE), 6, (STATIC), 1
             endIf: 
-          else: 
-            ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 5, (STATIC), 720
-              storeValue: (VARIABLE), 6, (STATIC), 1
-              endIf: 
-            endIf: 
-          endElse: 
+          endIf: 
         endElse: 
       endElse: 
     endElse: 
@@ -7265,7 +7273,7 @@ beginState: s32'NmlAtk6D'
     groundHitEffect: 3
     airHitEffect: 12
     hitAirPushbackX: 0, 40000
-    hitAirPushbackY: 0, 40000
+    hitAirPushbackY: 0, 36000
     Unknown783: 0, 200, 0, 2, 0, 10
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk5D'
@@ -7273,7 +7281,7 @@ beginState: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     wallBounceCount: 1
-    wallBounceGravity: 2500
+    wallBounceGravity: 3500
     upon: (HIT_OR_GUARD)
       extendPushboxX: 75000
       endUpon: 
@@ -12642,6 +12650,81 @@ beginState: s32'DragonInstall'
   sprite: s32'kyk503_08', 3
   sprite: s32'kyk503_09', 3
   sprite: s32'kyk503_10', 3
+  endState: 
+  
+beginState: s32'DragonInstallAir'
+  upon: (IMMEDIATE)
+    Unknown1971: 1
+    Unknown2526: 0, 0, 0, 0, 0, 0
+    Unknown2591: 0, 0, 0, 0, 0, 0
+    upon: 50
+      clearRegisteredUponCode: 50
+      Unknown2231: 1
+      Unknown2318: 1
+      tensionUsage: 5000
+      Unknown448: s32'cmn_kakusei_hatudo', 119
+      upon: (BEFORE_EXIT)
+        callSubroutineWithArgs: s32'cmnCameraSettings', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+        Unknown2065: 
+        Unknown2066: 
+        callSubroutine: s32'DI_MeshSetCheck'
+        endUpon: 
+      endUpon: 
+    storeValue: (VARIABLE), 6, (STATIC), 0
+    storeValue: (VARIABLE), 58, (STATIC), 1
+    Unknown1058: 1
+    Unknown2249: 0
+    endUpon: 
+  sprite: s32'kyk351_01', 3
+  Unknown109: 
+  Unknown114: 
+  Unknown176: 1
+  Unknown621: 2, -1
+  sprite: s32'kyk351_02', 3
+  sprite: s32'kyk351_03', 3
+  Unknown613: s16'vxxx250'
+  sprite: s32'kyk351_04', 3
+  sprite: s32'kyk351_05', 3
+  sprite: s32'kyk351_06', 3
+  sprite: s32'kyk351_07', 3
+  Unknown271: 1, 119, 0, 47
+  Unknown2234: 0
+  setStrikeInvulnerable: 1
+  setThrowInvulnerable: 1
+  sprite: s32'kyk351_08', 2
+  sprite: s32'kyk351_09', 2
+  sprite: s32'kyk351_10', 2
+  sprite: s32'kyk351_08', 2
+  sprite: s32'kyk351_09', 2
+  sprite: s32'kyk351_10', 2
+  sprite: s32'kyk351_08', 2
+  sprite: s32'kyk351_09', 2
+  sprite: s32'kyk351_10', 2
+  Unknown446: s32'DragonInstall_start', 100
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  storeValue: (VARIABLE), 5, (STATIC), 1
+  storeValue: (VARIABLE), 25, (STATIC), 0
+  Unknown296: 360
+  setStrikeInvulnerable: 0
+  setThrowInvulnerable: 0
+  Unknown615: s32'SE_BTL_KYK_03'
+  Unknown615: s32'SE_BTL_KYK_07'
+  sprite: s32'kyk351_11', 2
+  sprite: s32'kyk351_12', 3
+  sprite: s32'kyk351_13', 3
+  sprite: s32'kyk351_14', 3
+  sprite: s32'kyk351_12', 3
+  sprite: s32'kyk351_13', 3
+  sprite: s32'kyk351_14', 3
+  sprite: s32'kyk351_12', 3
+  sprite: s32'kyk351_15', 2
+  sprite: s32'kyk351_16', 2
+  sprite: s32'kyk351_17', 2
+  Unknown110: 
+  Unknown115: 
+  Unknown111: 50
+  Unknown116: 50
+  setGravity: 2100
   endState: 
 
 beginState: s32'DragonInstallStun'
