@@ -1114,6 +1114,41 @@ beginState: s32'FafnirPunch'
   Unknown99: 0, -20000
   endState: 
 
+beginState: s32'RiotStamp_DI'
+  upon: (IMMEDIATE)
+    endUpon: 
+  sprite: s32'null', 10
+  Unknown446: s32'RiotStamp_DI_Bomb', 133
+  sprite: s32'null', 10
+  Unknown446: s32'RiotStamp_DI_Bomb', 133
+  sprite: s32'null', 4
+  Unknown446: s32'RiotStamp_DI_Bomb', 133
+  sprite: s32'null', 4
+  Unknown446: s32'RiotStamp_DI_Bomb', 133
+  sprite: s32'null', 4
+  Unknown446: s32'RiotStamp_DI_Bomb', 133
+  endState: 
+  
+beginState: s32'RiotStamp_DI_Bomb'
+  upon: (IMMEDIATE)
+    Unknown244: 
+	callSubroutine: s32'cmn_AtkLv2'
+	callSubroutine: s32'cmnNohosei'
+    damage: 0, 20
+    riscGain: 10
+    hitAirPushbackX: 0, 10000
+    hitAirPushbackY: 0, 30000
+    hitEffectFire: 1
+    Unknown1118: s32'SE_BTL_CMN_Expl_Fire_L'
+    Unknown1119: s32'SE_BTL_CMN_Expl_Fire_L'
+    tensionGainOnConnect: 12
+    Unknown450: s32'sol_airthrow'
+    setObjectSize: 1500
+    endUpon: 
+  sprite: s32'solef414_00', 10
+  hit: 
+  endState: 
+
 beginState: s32'CounterAtk_slow'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnWSB_Effect_Angle'

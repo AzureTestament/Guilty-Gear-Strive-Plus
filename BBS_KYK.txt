@@ -2113,7 +2113,7 @@ if: (VARIABLE), 371
                   Unknown2095: 50, 30
                   endIf: 
                 Unknown1825: s32'world stop start', 0, 0
-                Unknown271: 1, 119, 1, 1
+                superFreeze: 1, 119, 1, 1
                 Unknown1386: 268
                 if: (VARIABLE), 0
                   Unknown1825: s32'burst input', 0, 0
@@ -2776,7 +2776,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1225: 1900
   Unknown1232: 105000
   Unknown1233: 12
-  Unknown1251: 25000
+  airdashFSpeed: 25000
   Unknown1242: 17
   Unknown1234: 10
   airDashBackVelocity: 22000
@@ -3838,7 +3838,7 @@ beginSubroutine: s32'OnFrameStep'
     backwardJumpDistance: 8500
     forwardSuperJumpDistance: 10500
     backwardSuperJumpDistance: 8500
-    Unknown1251: 34000
+    airdashFSpeed: 34000
     airDashBackVelocity: 27000
     Unknown1236: 80
     ifNot: (VARIABLE), 0
@@ -7270,7 +7270,7 @@ beginState: s32'NmlAtk6D'
     pushbackX: 125
     Unknown725: 1
     callSubroutine: s32'cmn_fuwafuwafuwa'
-    groundHitEffect: 3
+    groundHitEffect: (FORCE_CROUCH)
     airHitEffect: 12
     hitAirPushbackX: 0, 40000
     hitAirPushbackY: 0, 36000
@@ -8707,7 +8707,7 @@ beginState: s32'AirThrowExe'
   Unknown546: 0, 115, 0
   sprite: s32'kyk320_04', 3
   Unknown41: 21
-  Unknown239: 
+  flipDirection: 
   Unknown40: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   Unknown544: 24
@@ -10023,7 +10023,7 @@ beginState: s32'VaporThrustD'
     hitGravity: (STATIC), 3000
     counterhitAirPushbackX: 0, 15000
     counterhitAirPushbackY: 0, 70000
-    Unknown780: 0, 3600
+    counterhitGravity: 0, 3600
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmnMutekiRC'
     addGatlingOption: s32'VTFadulArc'
@@ -10175,7 +10175,7 @@ beginState: s32'VaporThrustD'
   hitGravity: (STATIC), 3000
   counterhitAirPushbackX: 0, 15000
   counterhitAirPushbackY: 0, 70000
-  Unknown780: 0, 3600
+  counterhitGravity: 0, 3600
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -10208,7 +10208,7 @@ beginState: s32'VaporThrustD'
   hitGravity: (STATIC), 3000
   counterhitAirPushbackX: 0, 15000
   counterhitAirPushbackY: 0, 70000
-  Unknown780: 0, 3600
+  counterhitGravity: 0, 3600
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -10234,7 +10234,7 @@ beginState: s32'VaporThrustD'
   Unknown1324: s32'VaporThrustD_DI'
   counterhitAirPushbackX: 0, 15000
   counterhitAirPushbackY: 0, 70000
-  Unknown780: 0, 3600
+  counterhitGravity: 0, 3600
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -10568,7 +10568,7 @@ beginState: s32'AirVaporThrustD'
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
     counterhitAirPushbackX: 0, 15000
     counterhitAirPushbackY: 0, 70000
-    Unknown780: 0, 3600
+    counterhitGravity: 0, 3600
     callSubroutine: s32'cmnMutekiRC'
     addGatlingOption: s32'VTFadulArc'
     Unknown2169: 0
@@ -10728,7 +10728,7 @@ beginState: s32'AirVaporThrustD'
   hitGravity: (STATIC), 3000
   counterhitAirPushbackX: 0, 15000
   counterhitAirPushbackY: 0, 70000
-  Unknown780: 0, 3600
+  counterhitGravity: 0, 3600
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -10759,7 +10759,7 @@ beginState: s32'AirVaporThrustD'
   hitGravity: (STATIC), 3000
   counterhitAirPushbackX: 0, 15000
   counterhitAirPushbackY: 0, 70000
-  Unknown780: 0, 3600
+  counterhitGravity: 0, 3600
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -10789,7 +10789,7 @@ beginState: s32'AirVaporThrustD'
   Unknown1324: s32'AirVaporThrustD_DI'
   counterhitAirPushbackX: 0, 15000
   counterhitAirPushbackY: 0, 70000
-  Unknown780: 0, 3600
+  counterhitGravity: 0, 3600
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -200000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -11227,7 +11227,7 @@ beginSubroutine: s32'Ride_TossinFunc'
   Unknown1110: 1
   Unknown968: 4
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -11256,7 +11256,7 @@ beginSubroutine: s32'RideDI_TossinFunc'
   pushbackX: 180
   Unknown1110: 1
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -11290,7 +11290,7 @@ beginSubroutine: s32'RideDI_FinishFunc'
   Unknown968: 4
   Unknown1203: 75
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   Unknown725: 1
   Unknown1045: 1, s32''
@@ -11322,7 +11322,7 @@ beginSubroutine: s32'AirRideDI_TossinFunc'
   pushbackX: 180
   Unknown1110: 1
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -11356,7 +11356,7 @@ beginSubroutine: s32'AirRideDI_FinishFunc'
   Unknown968: 4
   Unknown1203: 75
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   Unknown725: 1
   Unknown1045: 1, s32''
@@ -11393,7 +11393,7 @@ beginState: s32'RideTheLightning'
     Unknown1110: 1
     Unknown968: 4
     Unknown1051: 1
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     hitEffectElectric: 1
     hitSoftKnockdown: 0
     Unknown2249: 0
@@ -11465,7 +11465,7 @@ beginState: s32'RideTheLightning'
   sprite: s32'kyk530_01', 3
   sprite: s32'kyk530_01', 152
   enableClashes: 0
-  Unknown271: 1, 119, 152, 153
+  superFreeze: 1, 119, 152, 153
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -11628,7 +11628,7 @@ beginState: s32'RideTheLightning'
   callSubroutine: s32'cmn_countertype_middle_slash'
   pushbackX: 250
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   Unknown725: 1
   Unknown1045: 1, s32''
@@ -11820,7 +11820,7 @@ beginState: s32'RideTheLightning'
   Unknown968: 4
   Unknown1203: 75
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   Unknown725: 1
   Unknown1045: 1, s32''
@@ -11893,7 +11893,7 @@ beginState: s32'AirRideTheLightning'
     Unknown1110: 1
     Unknown968: 4
     Unknown1051: 1
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     hitEffectElectric: 1
     hitSoftKnockdown: 0
     Unknown2249: 0
@@ -11965,7 +11965,7 @@ beginState: s32'AirRideTheLightning'
   sprite: s32'kyk531_01', 3
   sprite: s32'kyk531_01', 152
   enableClashes: 0
-  Unknown271: 1, 119, 152, 153
+  superFreeze: 1, 119, 152, 153
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -12153,7 +12153,7 @@ beginState: s32'AirRideTheLightning'
   callSubroutine: s32'cmnNohosei_kakusei'
   pushbackX: 250
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   Unknown725: 1
   Unknown1045: 1, s32''
@@ -12357,7 +12357,7 @@ beginState: s32'AirRideTheLightning'
   Unknown968: 4
   Unknown1203: 75
   Unknown1051: 1
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitEffectElectric: 1
   Unknown725: 1
   Unknown1045: 1, s32''
@@ -12454,7 +12454,7 @@ beginState: s32'SacredEdge'
   characterSfx: s32'SE_BTL_KYK_08'
   sprite: s32'kyk502_02', 13
   enableClashes: 0
-  Unknown271: 1, 119, 39, 40
+  superFreeze: 1, 119, 39, 40
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -12541,7 +12541,7 @@ beginState: s32'DragonInstall'
   sprite: s32'kyk533_03', 3
   sprite: s32'kyk533_04', 3
   enableClashes: 0
-  Unknown271: 0, 119, 15, 15
+  superFreeze: 0, 119, 15, 15
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutineWithArgs: s32'cmnWorldStop_Start', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -12550,7 +12550,7 @@ beginState: s32'DragonInstall'
   sprite: s32'kyk533_06', 3
   sprite: s32'kyk533_06', 164
   enableClashes: 0
-  Unknown271: 1, 119, 164, 165
+  superFreeze: 1, 119, 164, 165
   upon: 50
     clearRegisteredUponCode: 50
     Unknown32: s32'dky_aura'
@@ -12596,6 +12596,12 @@ beginState: s32'DragonInstall'
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 117
         voiceLine: s16'vxxx250'
+        ifOpponentCharacter: s16'sol'
+          setBGMWithArgs: s32'BGM_033', '0x01000000'
+          endIf: 
+        else: 
+          setBGMWithArgs: s32'BGM_039', '0x01000000'
+          endElse: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 120
         Unknown446: s32'DKY_wingaura', 100
@@ -12651,7 +12657,7 @@ beginState: s32'DragonInstall'
   sprite: s32'kyk503_09', 3
   sprite: s32'kyk503_10', 3
   endState: 
-  
+
 beginState: s32'DragonInstallAir'
   upon: (IMMEDIATE)
     Unknown1971: 1
@@ -12682,13 +12688,13 @@ beginState: s32'DragonInstallAir'
   Unknown621: 2, -1
   sprite: s32'kyk351_02', 3
   sprite: s32'kyk351_03', 3
-  Unknown613: s16'vxxx250'
+  voiceLine: s16'vxxx250'
   sprite: s32'kyk351_04', 3
   sprite: s32'kyk351_05', 3
   sprite: s32'kyk351_06', 3
   sprite: s32'kyk351_07', 3
-  Unknown271: 1, 119, 0, 47
-  Unknown2234: 0
+  superFreeze: 1, 119, 0, 47
+  enableClashes: 0
   setStrikeInvulnerable: 1
   setThrowInvulnerable: 1
   sprite: s32'kyk351_08', 2
@@ -12704,11 +12710,17 @@ beginState: s32'DragonInstallAir'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
   storeValue: (VARIABLE), 5, (STATIC), 1
   storeValue: (VARIABLE), 25, (STATIC), 0
-  Unknown296: 360
+  ifOpponentCharacter: s16'sol'
+    setBGMWithArgs: s32'BGM_033', '0x01000000'
+    endIf: 
+  else: 
+    setBGMWithArgs: s32'BGM_039', '0x01000000'
+    endElse: 
+  tensionCooldown: 360
   setStrikeInvulnerable: 0
   setThrowInvulnerable: 0
-  Unknown615: s32'SE_BTL_KYK_03'
-  Unknown615: s32'SE_BTL_KYK_07'
+  characterSfx: s32'SE_BTL_KYK_03'
+  characterSfx: s32'SE_BTL_KYK_07'
   sprite: s32'kyk351_11', 2
   sprite: s32'kyk351_12', 3
   sprite: s32'kyk351_13', 3
@@ -12742,7 +12754,7 @@ beginState: s32'DragonInstallStun'
     backwardJumpDistance: 6200
     forwardSuperJumpDistance: 9100
     backwardSuperJumpDistance: 6200
-    Unknown1251: 25000
+    airdashFSpeed: 25000
     airDashBackVelocity: 22000
     Unknown1236: 0
     callSubroutine: s32'DI_MeshSetCheck'

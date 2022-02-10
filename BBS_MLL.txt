@@ -372,7 +372,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1225: 1925
   Unknown1232: 105000
   Unknown1233: 13
-  Unknown1251: 35000
+  airdashFSpeed: 35000
   Unknown1242: 12
   Unknown1234: 10
   airDashBackVelocity: 26250
@@ -620,6 +620,18 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
+  addMove: s32'Longinus'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_214)
+    moveInput: (INPUT_PRESS_D)
+	isFollowupMove: 1
+	addMoveFlag: 5
+    Unknown1525: -376, -358, 338, 296
+    Unknown1560: 
+    Unknown1538: 75
+    Unknown1540: 300
+    endMove: 
   addMove: s32'TandemTopC'
     moveType: (SPECIAL)
     characterState: (STANDING)
@@ -697,6 +709,15 @@ beginSubroutine: s32'RoundInit'
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
+    endMove: 
+  addMove: s32'SilentForce'
+    moveType: (SPECIAL)
+    characterState: (JUMPING)
+    moveInput: (INPUT_214)
+    moveInput: (INPUT_PRESS_S)
+    Unknown1419: 2
+    minimumHeightRequirement: 52500
+    Unknown1525: -566, -202, 418, 410
     endMove: 
   addMove: s32'Winger'
     moveType: (OVERDRIVE)
@@ -779,6 +800,8 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'KousokuRakka'
   registerMove: s32'BadMoon'
   registerMove: s32'LustShaker'
+  registerMove: s32'Longinus'
+  registerMove: s32'SilentForce'
   registerMove: s32'Mirazh'
   registerMove: s32'IronSavior'
   registerMove: s32'SeptemVoices'
@@ -3680,7 +3703,7 @@ beginState: s32'NmlAtk6A'
       Unknown2266: s32'mll210_05ex'
       endUpon: 
     upon: (HIT_OR_GUARD)
-      extendPushboxX: 50000
+      extendPushboxX: 30000
       endUpon: 
     Unknown1702: s32'Weapon_flower', 1
     Unknown953: 1
@@ -3969,7 +3992,7 @@ beginSubroutine: s32'NmlAtk5CNear_atk'
   callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmn_countertype_middle_slash'
   damage: 0, 15
-  pushbackX: 60
+  pushbackX: 30
   Unknown1108: 90
   Unknown725: 1
   storeValue: (VARIABLE), 338, (STATIC), 0
@@ -3996,7 +4019,7 @@ beginState: s32'NmlAtk5CNear'
     callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 15
-    pushbackX: 60
+    pushbackX: 30
     Unknown1108: 90
     Unknown725: 1
     storeValue: (VARIABLE), 338, (STATIC), 0
@@ -4026,7 +4049,7 @@ beginState: s32'NmlAtk5CNear'
     Unknown2526: 1, 1, 1, 0, 60, 100
     Unknown2591: 1, 1, 1, 0, 200, 100
     upon: (HIT_OR_GUARD)
-      extendPushboxX: 50000
+      extendPushboxX: 30000
       endUpon: 
     Unknown1702: s32'Weapon_midhair', 1
     Unknown1702: s32'weapon_sslash', 1
@@ -4096,7 +4119,7 @@ beginState: s32'NmlAtk5CFar'
     Unknown2526: 1, 1, 1, 0, 60, 10
     Unknown2591: 1, 1, 1, 0, 200, 10
     upon: (HIT_OR_GUARD)
-      extendPushboxX: 100000
+      extendPushboxX: 75000
       endUpon: 
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -450000
@@ -4383,7 +4406,7 @@ beginState: s32'NmlAtk2D'
     Unknown770: 0, 60, 0, 4, 0, 15
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
-	enableJumpCancel: 1
+    enableJumpCancel: 1
     hitGravity: (STATIC), 1000
     Unknown783: 0, 200, 0, 10, 0, 50
     upon: 62
@@ -5516,7 +5539,7 @@ beginState: s32'AirThrowExe'
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   Unknown1139: 0
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   Unknown730: 0
   groundHitEffect: (AIR_FACE_UP)
   hitAirPushbackX: 0, 14000
@@ -5850,6 +5873,7 @@ beginState: s32'LustShaker'
     storeValue: (VARIABLE), 340, (STATIC), 6
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
+	addGatlingOption: s32'Longinus'
     hitAirPushbackX: 0, 3000
     hitAirPushbackY: 0, 8000
     Unknown953: 1
@@ -6049,6 +6073,74 @@ beginState: s32'LustShaker'
   callSubroutine: s32'cmnNandemoCancel'
   Unknown1803: s32'MLL_406_Hair', 26
   Unknown1803: s32'MLL_406_Shadow', 28
+  endState: 
+  
+beginState: s32'Longinus'
+  upon: (IMMEDIATE)
+    tensionUsage: 2500
+	tensionCooldown: 120
+    callSubroutine: s32'cmn_AtkLv4'
+    callSubroutine: s32'cmn_countertype_high_slash'
+    damage: 0, 35
+    pushbackX: 70
+    Unknown730: 1
+    Unknown1108: -60
+	hitSoftKnockdown: 0
+    storeValue: (VARIABLE), 338, (STATIC), 100000
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutine: s32'cmn_hosei'
+	groundHitEffect: (AIR_STRONG)
+	airHitEffect: (AIR_STRONG)
+    callSubroutine: s32'cmn_fuwafuwafuwa'
+    hitAirPushbackX: 0, 40000
+    hitAirPushbackY: 0, 19000
+    Unknown2526: 0, 0, 0, 0, 0, 0
+    Unknown2591: 0, 0, 0, 0, 0, 0
+    Unknown1702: s32'weapon_arrowhead', 1
+    Unknown1702: s32'weapon_Longhair', 1
+    upon: (HIT_OR_GUARD)
+      extendPushboxX: 100000
+      endUpon: 
+    Unknown953: 1
+    storeValue: (VARIABLE), 343, (STATIC), -250000
+    storeValue: (VARIABLE), 344, (STATIC), 0
+    storeValue: (VARIABLE), 345, (STATIC), 0
+    endUpon: 
+  sprite: s32'mll204_00', 1
+  Unknown448: s32'cmn_kakusei_hatudo', 119
+  cmnSfx: s32'SE_BTL_SYS_Skill'
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  extendPushboxX: 30000
+  Unknown621: 2, 160
+  cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_L'
+  sprite: s32'mll204_04', 1
+  sprite: s32'mll204_05', 2
+  sprite: s32'mll204_06', 4
+  hit: 
+  sprite: s32'mll204_07', 4
+  Unknown1108: 0
+  callSubroutine: s32'cmn_AtkTemplNokezoriLow'
+  Unknown953: 1
+  storeValue: (VARIABLE), 343, (STATIC), -500000
+  storeValue: (VARIABLE), 344, (STATIC), 0
+  storeValue: (VARIABLE), 345, (STATIC), 0
+  sprite: s32'mll204_08', 3
+  callSubroutine: s32'cmn_AttackEnd'
+  extendPushboxX: 0
+  sprite: s32'mll204_12', 3
+  Unknown446: s32'MLL_204_Hair', 100
+  Unknown1702: s32'WeaponSingle', 0
+  Unknown1702: s32'weapon_arrowhead', 0
+  Unknown1702: s32'weapon_Longhair', 0
+  sprite: s32'mll204_13', 3
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'mll204_14', 3
+  sprite: s32'mll204_15', 2
+  sprite: s32'mll204_16', 3
+  sprite: s32'mll204_17', 3
+  sprite: s32'mll204_18', 3
+  Unknown1702: s32'WeaponSingle', 1
   endState: 
 
 beginSubroutine: s32'BadMoon_atk'
@@ -6366,6 +6458,34 @@ beginState: s32'Kapel'
   sprite: s32'mll407_13', 4
   endState: 
 
+beginState: s32'SilentForce'
+  upon: (IMMEDIATE)
+    endUpon: 
+  sprite: s32'mll408_00', 2
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  Unknown111: 75
+  Unknown116: 75
+  Unknown109: 
+  Unknown114: 
+  Unknown111: 20
+  Unknown116: 20
+  addVelocityY: 0, 3500
+  setGravity: 0
+  sprite: s32'mll408_01', 2
+  sprite: s32'mll408_02', 2
+  voiceLine: s16'vxxx204'
+  sprite: s32'mll408_03', 2
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
+  sprite: s32'mll408_04', 3
+  Unknown446: s32'SilentForceKnife', 0
+  Unknown110: 
+  Unknown115: 
+  setGravity: 2275
+  sprite: s32'mll408_05', 4
+  sprite: s32'mll408_06', 4
+  sprite: s32'mll408_07', 4
+  endState: 
+
 beginState: s32'Winger'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 6, (STATIC), 6, (STATIC), 0, (STATIC), 0
@@ -6373,7 +6493,7 @@ beginState: s32'Winger'
     damage: 0, 20
     Unknown1110: 1
     Unknown968: 3
-    Unknown1117: 0
+    tensionGainOnConnect: 0
     Unknown1108: 90
     hitSoftKnockdown: 0
     Unknown2249: 0
@@ -6428,7 +6548,7 @@ beginState: s32'Winger'
   sprite: s32'mll530_00', 2
   sprite: s32'mll530_00', 150
   enableClashes: 0
-  Unknown271: 1, 119, 152, 153
+  superFreeze: 1, 119, 152, 153
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'
@@ -6560,7 +6680,7 @@ beginState: s32'Winger'
   damage: 0, 20
   Unknown1110: 1
   Unknown968: 3
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   Unknown1108: 90
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -6591,7 +6711,7 @@ beginState: s32'Winger'
   damage: 0, 20
   Unknown1110: 1
   Unknown968: 3
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   Unknown1108: 90
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -6615,7 +6735,7 @@ beginState: s32'Winger'
   damage: 0, 20
   Unknown1110: 1
   Unknown968: 3
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   Unknown1108: 90
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -6640,7 +6760,7 @@ beginState: s32'Winger'
   damage: 0, 20
   Unknown1110: 1
   Unknown968: 3
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   Unknown1108: 90
   hitSoftKnockdown: 0
   Unknown2249: 0
@@ -6670,7 +6790,7 @@ beginState: s32'Winger'
   callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 6, (STATIC), 6, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmn_countertype_middle'
   damage: 0, 60
-  Unknown1117: 0
+  tensionGainOnConnect: 0
   hitSoftKnockdown: 0
   Unknown1108: -80
   storeValue: (VARIABLE), 338, (STATIC), 1000000000
@@ -6743,7 +6863,7 @@ beginState: s32'SeptemVoices'
   Unknown2189: 2, 5
   sprite: s32'mll501_01', 4
   enableClashes: 0
-  Unknown271: 1, 119, 39, 40
+  superFreeze: 1, 119, 39, 40
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'

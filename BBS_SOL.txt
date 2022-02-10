@@ -806,7 +806,7 @@ beginSubroutine: s32'RoundInit'
   addMove: s32'BanditBringer_Land'
     moveType: (SPECIAL)
     characterState: (STANDING)
-    moveInput: (INPUT_214)
+    moveInput: 176
     moveInput: (INPUT_PRESS_K)
     Unknown1525: -662, -402, 532, 420
     Unknown1560: 
@@ -817,7 +817,7 @@ beginSubroutine: s32'RoundInit'
   addMove: s32'BanditBringer_Air'
     moveType: (SPECIAL)
     characterState: (JUMPING)
-    moveInput: (INPUT_214)
+    moveInput: 176
     moveInput: (INPUT_PRESS_K)
     Unknown1435: 1
     Unknown1525: -662, -402, 532, 420
@@ -970,6 +970,40 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 25
     Unknown1540: 300
     endMove: 
+  addMove: s32'RiotStamp'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_214)
+    moveInput: (INPUT_PRESS_K)
+    addMoveFlag: 16
+    Unknown1525: -1233, -296, 1221, 176
+    endMove: 
+  addMove: s32'RiotStamp_DI'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_214)
+    moveInput: (INPUT_PRESS_K)
+    addMoveFlag: 12
+    Unknown1525: -1233, -296, 1221, 176
+    endMove: 
+  addMove: s32'RiotStamp_yoga'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_63214)
+    moveInput: (INPUT_PRESS_K)
+    addMoveFlag: 16
+    Unknown1421: s32'RiotStamp'
+    Unknown1538: 0
+    endMove: 
+  addMove: s32'RiotStamp_DI_yoga'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_63214)
+    moveInput: (INPUT_PRESS_K)
+    addMoveFlag: 12
+    Unknown1421: s32'RiotStamp_DI'
+    Unknown1538: 0
+    endMove: 
   addMove: s32'TyrantRave'
     moveType: (OVERDRIVE)
     characterState: (STANDING)
@@ -1105,8 +1139,12 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'FBBanditRevolver_Air'
   registerMove: s32'GunFlame'
   registerMove: s32'Vortex'
+  registerMove: s32'RiotStamp'
+  registerMove: s32'RiotStamp_DI'
   registerMove: s32'BanditBringer_Land'
   registerMove: s32'BanditBringer_Air'
+  registerMove: s32'RiotStamp_yoga'
+  registerMove: s32'RiotStamp_DI_yoga'
   registerMove: s32'Kudakero'
   registerMove: s32'GunFlameFeint'
   registerMove: s32'Sidewinder'
@@ -4860,6 +4898,7 @@ beginState: s32'NmlAtk6D'
     endUpon: 
   Unknown621: 2, -1
   sprite: s32'sol213_04', 4
+  addGatlingOption: s32'Cancel_FDash'  
   clearRegisteredUponCode: (FRAME_STEP)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'sol213_05', 3
@@ -4960,6 +4999,7 @@ beginState: s32'NmlAtk6D'
     endUpon: 
   Unknown621: 2, -1
   sprite: s32'sol213_04', 2
+  addGatlingOption: s32'Cancel_FDash'  
   clearRegisteredUponCode: (FRAME_STEP)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'sol213_05', 2
@@ -5838,9 +5878,9 @@ beginState: s32'NmlAtkAir5E'
     callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 40
-    pushbackX: 180
+    pushbackX: 120
     Unknown1108: 20
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
+    storeValue: (VARIABLE), 338, (STATIC), 100000
     storeValue: (VARIABLE), 339, (STATIC), 5
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutine: s32'cmn_hosei'
@@ -5853,6 +5893,11 @@ beginState: s32'NmlAtkAir5E'
     callSubroutine: s32'cmn_AtkTemplNmlAtkAir'
     callSubroutineWithArgs: s32'cmnAirMoveCancel', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     groundHitEffect: (AIR_FACE_UP)
+    wallBounceCount: 1
+    wallBounceGravity: 2000
+    wallBounceInCornerOnly: 1
+    wallBounceXVelocityPercent: 40
+    wallBounceYVelocity: 0
     Unknown1005: 10
     Unknown1004: 50
     enableJumpCancel: 1
@@ -6834,6 +6879,10 @@ beginState: s32'VolcanicViperLandHS'
   Unknown446: s32'VV_Loop_hs', 100
   sprite: s32'sol408_04', 4
   hitAirPushbackY: 0, 80000
+  Unknown1069: (STATIC), 1, (STATIC), 1, 1, 22, (VARIABLE), 319
+  Unknown788: 1
+  Unknown955: 15
+  Unknown947: 1
   hit: 
   sprite: s32'sol408_04', 2147483647
   storeValue: (VARIABLE), 45, (STATIC), 0
@@ -7177,6 +7226,10 @@ beginState: s32'VolcanicViperAirHS'
   Unknown446: s32'VV_Loop_hs', 100
   sprite: s32'sol408_04', 4
   hitAirPushbackY: 0, 80000
+  Unknown1069: (STATIC), 1, (STATIC), 1, 1, 22, (VARIABLE), 319
+  Unknown788: 1
+  Unknown955: 15
+  Unknown947: 1
   hit: 
   sprite: s32'sol408_04', 2147483647
   storeValue: (VARIABLE), 45, (STATIC), 0
@@ -9672,6 +9725,316 @@ beginState: s32'Kudakero'
   endLabel: 
   endState: 
 
+beginState: s32'RiotStamp'
+  upon: (IMMEDIATE)
+    callSubroutine: s32'cmn_AtkLv3'
+    storeValue: (VARIABLE), 338, (STATIC), 101
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 2
+    callSubroutine: s32'cmn_hosei'
+    hitEffectFire: 1
+    guardType: (HIGH)
+    Unknown1027: 370000, -10000, 300000, -300000
+    Unknown1110: 1
+    pushbackX: 10
+    damage: 0, 30
+    setProration: 75
+    airHitEffect: (AIR_LAUNCH)
+    hitAirPushbackX: 0, 100
+    hitAirPushbackY: 0, 20000
+    Unknown996: 16, 16, 16
+    groundHitEffect: (NORMAL_LOWER)
+    tensionGainOnConnect: 35
+    restoreAirDash: 
+    restoreDoubleJump: 
+    Unknown2333: 1
+    upon: (FRAME_STEP)
+      if: (VARIABLE), 45
+        ifNot: 2, 46
+          ifOperation: (IS_GREATER), (VARIABLE), 18, 0, 35000
+            modifyVar: (ADD), 2, 18, 0, -5000
+            endIf: 
+          else: 
+            modifyVar: (ADD), 2, 18, 0, -2500
+            endElse: 
+          storeValue: (VARIABLE), 8, (VARIABLE), 0
+          ifOperation: (IS_GREATER), (VARIABLE), 8, 0, -875
+            storeValue: (VARIABLE), 8, 0, -875
+            endIf: 
+          endIf: 
+        ifOperation: (IS_LESSER), (VARIABLE), 15, 0, 100000
+          ifOperation: (IS_LESSER), (VARIABLE), 14, 0, 250000
+            storeValue: (VARIABLE), 46, 0, 1
+            setGravity: 400
+            endIf: 
+          endIf: 
+        ifOperation: (IS_LESSER), (VARIABLE), 14, 0, 150000
+          storeValue: (VARIABLE), 46, 0, 1
+          setGravity: 400
+          endIf: 
+        endIf: 
+      endUpon: 
+    Unknown1824: 5, 1
+    Unknown2363: 16
+    endUpon: 
+  sprite: s32'sol414_00', 3
+  physicsXImpulse: 0, -54250
+  physicsYImpulse: 0, 17500
+  setGravity: 700
+  characterSfx: s32'GG2_062'
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  sprite: s32'sol414_01', 3
+  upon: 6
+    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 18, 0, 70000
+      Unknown14: s32'haritsuki'
+      endIf: 
+    endUpon: 
+  beginLabel: s32'backjump'
+  sprite: s32'sol414_00', 3
+  sprite: s32'sol414_01', 3
+  Unknown3: 
+  gotoLabel: s32'backjump'
+  beginLabel: s32'haritsuki'
+  sprite: s32'sol414_02', 4
+  Unknown23: 6
+  Unknown176: 1
+  sprite: s32'sol414_03', 4
+  sprite: s32'sol414_04', 1
+  sprite: s32'sol414_04', 1
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'sol_riot_fire', 130
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'sol_riot_fire', 130
+  hit: 
+  physicsXImpulse: 0, 45500
+  characterSfx: s32'3'
+  upon: 9
+    Unknown14: s32'hit'
+    Unknown176: 1
+    Unknown99: 0, 1
+    endUpon: 
+  sprite: s32'sol414_05', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown111: 108
+  setGravity: 0
+  storeValue: (VARIABLE), 45, 0, 1
+  sprite: s32'sol414_04', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'sol_riot_fire', 130
+  beginLabel: s32'kickloop'
+  sprite: s32'sol414_05', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'sol_riot_fire', 130
+  sprite: s32'sol414_04', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'sol_riot_fire', 130
+  Unknown3: 
+  gotoLabel: s32'kickloop'
+  beginLabel: s32'hit'
+  sprite: s32'sol414_06', 3
+  Unknown1915: 
+  Unknown176: 1
+  Unknown94: 0, 40000
+  Unknown99: 0, 1
+  storeValue: (VARIABLE), 45, 0, 0
+  Unknown23: 9
+  sprite: s32'sol414_07', 3
+  Unknown94: 0, 40000
+  sprite: s32'sol414_08', 6
+  sprite: s32'sol414_09', 3
+  Unknown99: 0, 19000
+  sprite: s32'sol414_10', 3
+  Unknown707: 
+  callSubroutine: s32'cmn_AtkLv4'
+  damage: 0, 30
+  setProration: 75
+  guardType: (HIGH)
+  Unknown1110: 1
+  airHitEffect: (AIR_FACE_UP)
+  groundHitEffect: (AIR_FACE_UP)
+  hitAirPushbackX: 0, 38500
+  hitAirPushbackY: 0, -38500
+  hitGravity: 0, 0
+  Unknown1127: 1
+  groundBounceCount: 1
+  wallBounceCount: 1
+  wallBounceXVelocityPercent: 40
+  wallBounceGravity: 2800
+  pushbackX: 20
+  Unknown1051: 0
+  grabOrRelease: 
+  Unknown99: 0, 17000
+  physicsXImpulse: 0, -2000
+  physicsYImpulse:0,  22000
+  Unknown135: 
+  sprite: s32'sol414_11', 2
+  recoveryState: 
+  sprite: s32'sol414_10', 2
+  sprite: s32'sol414_11', 2
+  sprite: s32'sol414_12', 2
+  sprite: s32'sol414_13', 2
+  endState: 
+  
+beginState: s32'RiotStamp_DI'
+  upon: (IMMEDIATE)
+    callSubroutine: s32'cmn_AtkLv3'
+    storeValue: (VARIABLE), 338, (STATIC), 100000
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 2
+    callSubroutine: s32'cmn_hosei'
+    hitEffectFire: 1
+    guardType: (HIGH)
+    Unknown1027: -300000, -300000, 300000, -300000
+    Unknown1110: 1
+    pushbackX: 10
+    damage: 0, 10
+    airHitEffect: (AIR_LAUNCH)
+    hitAirPushbackX: 0, 100
+    hitAirPushbackY: 0, 20000
+    Unknown996: 16, 16, 16
+    tensionGainOnConnect: 20
+    restoreAirDash: 
+    restoreDoubleJump: 
+    Unknown2333: 1
+    upon: (FRAME_STEP)
+      if: (VARIABLE), 45
+        ifNot: 2, 46
+          ifOperation: (IS_GREATER), (VARIABLE), 18, 0, 35000
+            modifyVar: (ADD), 2, 18, 0, -5000
+            endIf: 
+          else: 
+            modifyVar: (ADD), 2, 18, 0, -2500
+            endElse: 
+          storeValue: (VARIABLE), 8, (VARIABLE), 0
+          ifOperation: (IS_GREATER), (VARIABLE), 8, 0, -875
+            storeValue: (VARIABLE), 8, 0, -875
+            endIf: 
+          endIf: 
+        ifOperation: (IS_LESSER), (VARIABLE), 15, 0, 100000
+          ifOperation: (IS_LESSER), (VARIABLE), 14, 0, 250000
+            storeValue: (VARIABLE), 46, 0, 1
+            setGravity: 400
+            endIf: 
+          endIf: 
+        ifOperation: (IS_LESSER), (VARIABLE), 14, 0, 150000
+          storeValue: (VARIABLE), 46, 0, 1
+          setGravity: 400
+          endIf: 
+        endIf: 
+      endUpon: 
+    Unknown1824: 5, 1
+    Unknown2363: 16
+    endUpon: 
+  sprite: s32'sol414_00', 3
+  physicsXImpulse: 0, -54250
+  physicsYImpulse: 0, 17500
+  setGravity: 700
+  characterSfx: s32'GG2_062'
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  upon: 6
+    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 18, 0, 70000
+      Unknown14: s32'haritsuki'
+      endIf: 
+    endUpon: 
+  beginLabel: s32'backjump'
+  sprite: s32'sol414_00', 3
+  sprite: s32'sol414_01', 3
+  Unknown3: 
+  gotoLabel: s32'backjump'
+  beginLabel: s32'haritsuki'
+  sprite: s32'sol414_02', 4
+  Unknown23: 6
+  Unknown176: 1
+  sprite: s32'sol414_03', 4
+  sprite: s32'sol414_04', 1
+  sprite: s32'sol414_04', 1
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  hit: 
+  physicsXImpulse: 0, 45500
+  characterSfx: s32'3'
+  upon: 9
+    Unknown14: s32'hit'
+    Unknown176: 1
+    Unknown99: 0, 1
+    endUpon: 
+  sprite: s32'sol414_05', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  Unknown111: 108
+  setGravity: 0
+  storeValue: (VARIABLE), 45, 0, 1
+  sprite: s32'sol414_04', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  beginLabel: s32'kickloop'
+  sprite: s32'sol414_05', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  sprite: s32'sol414_04', 2
+  Unknown2193: 100, 0, 0
+  Unknown2194: '0x00000000C045040000000000E0930400000000002030050000000000407E0500'
+  Unknown448: s32'dsl_riot_fire', 130
+  Unknown3: 
+  gotoLabel: s32'kickloop'
+  beginLabel: s32'hit'
+  sprite: s32'sol414_06', 3
+  Unknown1915: 
+  Unknown176: 1
+  Unknown94: 0, 40000
+  Unknown99: 0, 1
+  storeValue: (VARIABLE), 45, 0, 0
+  Unknown23: 9
+  sprite: s32'sol414_07', 3
+  Unknown94: 0, 40000
+  sprite: s32'sol414_08', 6
+  sprite: s32'sol414_09', 3
+  Unknown99: 0, 19000
+  sprite: s32'sol414_10', 3
+  Unknown707: 
+  callSubroutine: s32'cmn_AtkLv4'
+  damage: 0, 30
+  guardType: (HIGH)
+  Unknown1110: 1
+  airHitEffect: (AIR_FACE_UP)
+  groundHitEffect: (AIR_FACE_UP)
+  hitAirPushbackX: 0, 38500
+  hitAirPushbackY: 0, -38500
+  groundBounceCount: 1
+  pushbackX: 20
+  tensionGainOnConnect: 25
+  grabOrRelease: 
+  Unknown99: 0, 17000
+  physicsXImpulse: 0, -2000
+  physicsYImpulse: 0, 22000
+  Unknown135: 
+  sprite: s32'sol414_11', 2
+  Unknown446: s32'RiotStamp_DI', 102
+  recoveryState: 
+  sprite: s32'sol414_10', 2
+  sprite: s32'sol414_11', 2
+  sprite: s32'sol414_12', 2
+  sprite: s32'sol414_13', 2
+  endState: 
+
 beginState: s32'MobCemetery'
   upon: (IMMEDIATE)
     Unknown711: 4
@@ -10657,10 +11020,6 @@ beginState: s32'TyrantRave'
   pushbackX: 120
   Unknown1045: 1, s32''
   hitEffectFire: 1
-  Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
-  Unknown788: 1
-  Unknown955: 10
-  Unknown947: 1
   hitSoftKnockdown: 0
   groundHitEffect: (AIR_FACE_UP)
   hitAirPushbackX: 0, 63000
@@ -11212,6 +11571,12 @@ beginState: s32'DragonInstallSol'
   Unknown2181: 66
   Unknown2317: 66
   Unknown2316: 66
+  ifOpponentCharacter: s16'kyk'
+    setBGMWithArgs: s32'BGM_033', 1
+	endIf:
+  else:
+    setBGMWithArgs: s32'BGM_DragonInstall', 1
+	endElse:
   superFreeze: 1, 119, 50, 90
   upon: 50
     clearRegisteredUponCode: 50
@@ -11327,8 +11692,13 @@ beginState: s32'DragonInstallAirSol'
   Unknown2181: 66
   Unknown2317: 66
   Unknown2316: 66
+  ifOpponentCharacter: s16'kyk'
+    setBGMWithArgs: s32'BGM_033', 1
+	endIf:
+  else:
+    setBGMWithArgs: s32'BGM_DragonInstall', 1
+	endElse:
   superFreeze: 1, 119, 50, 90
-  setBGM: s32'BGM_DragonInstall'
   upon: 50
     clearRegisteredUponCode: 50
     callSubroutine: s32'cmnWorldStop_Start'

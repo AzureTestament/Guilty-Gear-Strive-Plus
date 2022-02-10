@@ -806,6 +806,33 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
+  addMove: s32'InviteHellS'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_ANY_DOWNDOWN)
+    moveInput: (INPUT_PRESS_S)
+    Unknown1419: 1
+    Unknown1525: -976, -292, 110, 296
+    Unknown1560: 
+    Unknown1577: 
+    Unknown1573: 
+    Unknown1538: 75
+    Unknown1540: 300
+    endMove: 
+  addMove: s32'FBInviteHell'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_ANY_DOWNDOWN)
+    moveInput: (INPUT_PRESS_D)
+	addMoveFlag: 5
+    Unknown1419: 1
+    Unknown1525: -976, -292, 110, 296
+    Unknown1560: 
+    Unknown1577: 
+    Unknown1573: 
+    Unknown1538: 75
+    Unknown1540: 300
+    endMove: 
   addMove: s32'DrunkerdShade'
     moveType: (SPECIAL)
     characterState: (STANDING)
@@ -1108,6 +1135,8 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'Fly7'
   registerMove: s32'Fly1'
   registerMove: s32'InviteHell'
+  registerMove: s32'InviteHellS'
+  registerMove: s32'FBInviteHell'
   registerMove: s32'EddieSummonD'
   registerMove: s32'EddieSummonC'
   registerMove: s32'EddieSummonB'
@@ -7162,6 +7191,78 @@ beginState: s32'InviteHell'
   sprite: s32'zat400_15', 4
   sprite: s32'zat400_16', 4
   callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'zat400_17', 4
+  endState: 
+
+beginState: s32'InviteHellS'
+  upon: (IMMEDIATE)
+    Unknown1058: 1
+    endUpon: 
+  sprite: s32'zat400_00', 3
+  Unknown2193: 100, 525000, 0
+  Unknown446: s32'zat_drill_start', 130
+  Unknown446: s32'DrillObjS_Master', 130
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  sprite: s32'zat400_01', 3
+  characterSfx: s32'SE_BTL_ZAT_06'
+  sprite: s32'zat400_02', 2
+  sprite: s32'zat400_02', 1
+  voiceLine: s16'vxxx200'
+  sprite: s32'zat400_03', 3
+  sprite: s32'zat400_04', 3
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
+  sprite: s32'zat400_05', 1
+  sprite: s32'zat400_06', 1
+  sprite: s32'zat400_06', 2
+  sprite: s32'zat400_08', 4
+  sprite: s32'zat400_09', 4
+  sprite: s32'zat400_10', 4
+  sprite: s32'zat400_11', 4
+  sprite: s32'zat400_12', 4
+  sprite: s32'zat400_13', 4
+  Unknown446: s32'StandAtk_shadow_end02', 100
+  sprite: s32'zat400_14', 4
+  sprite: s32'zat400_15', 4
+  sprite: s32'zat400_16', 4
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'zat400_17', 4
+  endState: 
+
+beginState: s32'FBInviteHell'
+  upon: (IMMEDIATE)
+    tensionUsage: 2500
+    tensionCooldown: 120
+    Unknown1058: 1
+    endUpon: 
+  sprite: s32'zat400_00', 3
+  Unknown2193: 100, 525000, 0
+  cmnSfx: s32'SE_BTL_SYS_Skill'
+  Unknown448: s32'cmn_kakusei_hatudo', 119
+  Unknown446: s32'zat_drillspe_start', 130
+  Unknown446: s32'DrillObjSpe_Master', 130
+  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  sprite: s32'zat400_01', 3
+  characterSfx: s32'SE_BTL_ZAT_06'
+  sprite: s32'zat400_02', 2
+  sprite: s32'zat400_02', 1
+  voiceLine: s16'vxxx200'
+  sprite: s32'zat400_03', 3
+  sprite: s32'zat400_04', 3
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
+  sprite: s32'zat400_05', 1
+  sprite: s32'zat400_06', 1
+  sprite: s32'zat400_06', 2
+  sprite: s32'zat400_08', 4
+  sprite: s32'zat400_09', 4
+  sprite: s32'zat400_10', 4
+  sprite: s32'zat400_11', 4
+  sprite: s32'zat400_12', 4
+  sprite: s32'zat400_13', 4
+  Unknown446: s32'StandAtk_shadow_end02', 100
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'zat400_14', 4
+  sprite: s32'zat400_15', 4
+  sprite: s32'zat400_16', 4
   sprite: s32'zat400_17', 4
   endState: 
 
