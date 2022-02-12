@@ -523,6 +523,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_41236)
     moveInput: (INPUT_PRESS_S)
+	minimumHeightRequirement: 75000
     Unknown1525: -444, -620, 446, 626
     Unknown1560: 
     Unknown1538: 75
@@ -535,6 +536,7 @@ beginSubroutine: s32'RoundInit'
     addMoveFlag: 5
     moveInput: (INPUT_41236)
     moveInput: (INPUT_PRESS_D)
+	minimumHeightRequirement: 75000
     Unknown1525: -444, -620, 446, 626
     Unknown1560: 
     Unknown1538: 75
@@ -5770,6 +5772,9 @@ beginState: s32'FBAirIrukasanTate'
     Unknown1079: 1
     Unknown1051: 0
     enableAirForwardDashCancel: 1
+    enableAirBackwardDashCancel: 1
+	enableGuardBreak: 1
+	setGuardBreakDuration: 28
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), -300000
@@ -5811,6 +5816,7 @@ beginState: s32'FBAirIrukasanTate'
   sprite: s32'may401_00', 4
   Unknown109: 
   Unknown114: 
+  Unknown176: 1
   setGravity: 0
   storeValue: (VARIABLE), 4, (STATIC), 45000
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -5839,7 +5845,6 @@ beginState: s32'FBAirIrukasanTate'
   characterSfx: s32'SE_BTL_MAY_13'
   voiceLine: s16'vxxx200'
   sprite: s32'may401_04', 3
-  hit: 
   physicsXImpulse: 0, 22500
   physicsYImpulse: 0, 7500
   setGravity: 3500
@@ -5873,6 +5878,7 @@ beginState: s32'FBAirIrukasanTate'
   callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown953: 3
   storeValue: (VARIABLE), 344, (STATIC), 200000
+  hit: 
   sprite: s32'may401_07', 2
   storeValue: (VARIABLE), 4, (STATIC), -45000
   storeValue: (VARIABLE), 45, (STATIC), 2
