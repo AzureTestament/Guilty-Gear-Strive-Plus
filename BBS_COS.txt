@@ -25,7 +25,7 @@ beginState: s32'EventFall'
     Unknown94: 0, -732000
     Unknown99: 0, 500000
     physicsXImpulse: 0, 20000
-    Unknown135: 
+    resetGravity: 
     upon: (TOUCH_GROUND)
       Unknown268: 1
       Unknown14: s32'landing'
@@ -38,7 +38,7 @@ beginState: s32'EventFall'
   gotoLabel: s32'jump_loop'
   beginLabel: s32'landing'
   sprite: s32'cos021_18', 3
-  Unknown176: 1
+  haltMomentum: 1
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'
   sprite: s32'cos021_19', 3
   sprite: s32'cos021_20', 3
@@ -51,7 +51,7 @@ beginState: s32'EventFall'
   sprite: s32'cos021_27', 3
   sprite: s32'cos021_28', 3
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event022'
@@ -61,13 +61,13 @@ beginState: s32'Event022'
   physicsXImpulse: 0, -40000
   physicsYImpulse: 0, 80000
   cmnSfx: s32'SE_BTL_CMN_JumpEX'
-  Unknown448: s32'cmn_hijump_obj', 100
+  createParticle: s32'cmn_hijump_obj', (PLAYER)
   sprite: s32'cos022_03', 3
   sprite: s32'cos022_04', 3
   sprite: s32'cos022_03', 3
   sprite: s32'cos022_04', 3
-  Unknown2055: 0
-  Unknown176: 1
+  displayModel: 0
+  haltMomentum: 1
   Unknown2036: 3, 131
   sprite: s32'cos022_03', 3
   sprite: s32'cos022_04', 3
@@ -117,7 +117,7 @@ beginState: s32'Event001'
   sprite: s32'cos001_23', 4
   sprite: s32'cos001_24', 4
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event085'
@@ -181,7 +181,7 @@ beginState: s32'Event300'
   sprite: s32'cos300_12', 6
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeA_loop1', 2, 45
+  Unknown24: s16'TypeA_loop1', s16'', 2, 45
   sprite: s32'cos300_13', 8
   sprite: s32'cos300_14', 8
   sprite: s32'cos300_15', 8
@@ -195,7 +195,7 @@ beginState: s32'Event300'
   sprite: s32'cos300_20', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeA_loop2', 2, 45
+  Unknown24: s16'TypeA_loop2', s16'', 2, 45
   sprite: s32'cos300_21', 4
   sprite: s32'cos300_22', 4
   sprite: s32'cos300_23', 4
@@ -203,7 +203,7 @@ beginState: s32'Event300'
   sprite: s32'cos300_25', 6
   sprite: s32'cos300_26', 6
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event301'
@@ -227,7 +227,7 @@ beginState: s32'Event301'
   sprite: s32'cos301_12', 4
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeB_loop1', 2, 45
+  Unknown24: s16'TypeB_loop1', s16'', 2, 45
   sprite: s32'cos301_13', 3
   sprite: s32'cos301_14', 3
   sprite: s32'cos301_15', 4
@@ -242,7 +242,7 @@ beginState: s32'Event301'
   sprite: s32'cos301_21', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeB_loop2', 2, 45
+  Unknown24: s16'TypeB_loop2', s16'', 2, 45
   sprite: s32'cos301_22', 4
   sprite: s32'cos301_23', 4
   sprite: s32'cos301_24', 5
@@ -250,7 +250,7 @@ beginState: s32'Event301'
   sprite: s32'cos301_26', 4
   sprite: s32'cos301_27', 3
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event305'
@@ -301,7 +301,7 @@ beginState: s32'Event305'
   sprite: s32'cos305_35', 5
   sprite: s32'cos305_36', 5
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event306'
@@ -335,9 +335,9 @@ beginState: s32'Event306'
   sprite: s32'cos306_15', 6
   sprite: s32'cos306_16', 6
   endLabel: 
-  Unknown25: s32'TypeB_Next', 2, 95
+  Unknown25: s16'TypeB_Next', s16'', 2, 95
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-  Unknown24: s32'TypeB_loop1', 2, 45
+  Unknown24: s16'TypeB_loop1', s16'', 2, 45
   gotoLabel: s32'TypeB_Next'
   beginLabel: s32'TypeB_Next'
   sprite: s32'cos306_17', 4
@@ -352,7 +352,7 @@ beginState: s32'Event306'
   sprite: s32'cos306_25', 5
   sprite: s32'cos306_26', 5
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event400'
@@ -363,8 +363,8 @@ beginState: s32'Event400'
   sprite: s32'cos400_02', 8
   sprite: s32'cos400_03', 8
   sprite: s32'cos400_04', 8
-  Unknown24: s32'loop_a', 2, 95
-  Unknown25: s32'loop_b', 2, 95
+  Unknown24: s16'loop_a', s16'', 2, 95
+  Unknown25: s16'loop_b', s16'', 2, 95
   beginLabel: s32'loop_b'
   sprite: s32'cos400_05', 8
   sprite: s32'cos400_06', 8
@@ -373,12 +373,12 @@ beginState: s32'Event400'
   sprite: s32'cos400_09', 4
   sprite: s32'cos400_10', 4
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event000'
   sprite: s32'cos003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
   sprite: s32'cos003_03', 2
@@ -403,17 +403,17 @@ beginState: s32'Event000'
   characterSfx: s32'SE_BTL_COS_08'
   physicsXImpulse: 0, 0
   sprite: s32'cos003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
   sprite: s32'cos003_03', 2
   sprite: s32'keep', 1
-  Unknown27: s32'Event301'
+  jumpToState: s32'Event301'
   endState: 
 
 beginState: s32'Event003'
   sprite: s32'cos003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
   sprite: s32'cos003_03', 2
@@ -446,7 +446,7 @@ beginState: s32'EventWhiteout'
       endIf: 
     endUpon: 
   sprite: s32'cos003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
   sprite: s32'cos003_03', 2
@@ -481,7 +481,7 @@ beginState: s32'EventWhiteout'
 
 beginState: s32'Event000_1'
   sprite: s32'cos003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
   sprite: s32'cos003_03', 2
@@ -549,16 +549,16 @@ beginState: s32'Event000_2'
   sprite: s32'cos030_08', 4
   physicsXImpulse: 0, 0
   sprite: s32'cos003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
   sprite: s32'cos003_03', 2
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginSubroutine: s32'PreInit'
-  Unknown1264: s16'cos'
+  charaName: s16'cos'
   endSubroutine: 
 
 beginSubroutine: s32'PreInit2nd'
@@ -569,11 +569,11 @@ beginSubroutine: s32'RoundInit'
   walkFSpeed: 8800
   walkBSpeed: 6800
   initDashFSpeed: 13500
-  Unknown1226: 400
-  Unknown1227: 100
-  Unknown1215: 13000
-  Unknown1216: 5200
-  Unknown1217: 700
+  fDashAccelSpeed: 400
+  fDashFriction: 100
+  bDashXSpeed: 13000
+  bDashYSpeed: 5200
+  bDashGravity: 700
   forwardJumpDistance: 9700
   backwardJumpDistance: 7500
   jumpHeight: 38500
@@ -581,33 +581,33 @@ beginSubroutine: s32'RoundInit'
   forwardSuperJumpDistance: 10400
   backwardSuperJumpDistance: 7500
   superJumpHeight: 45500
-  Unknown1225: 1900
+  superJumpGravity: 1900
   Unknown1232: 105000
-  Unknown1233: 12
-  Unknown1251: 21200
-  Unknown1242: 17
-  Unknown1234: 10
+  airFDashTime: 12
+  airdashFSpeed: 21200
+  airFDashNoAttackTime: 5
+  airBDashTime: 10
   airDashBackVelocity: 16000
-  Unknown1243: 5
+  airBDashNoAttackTime: 5
   doubleJumpCount: 1
   airDashCount: 1
-  Unknown1236: 10
-  Unknown1237: 1
+  defence: 10
+  guts: 1
   Unknown1248: 36
   Unknown1249: 170
   recievedHitPushbackPercentage: 100
-  Unknown1244: 4
-  Unknown1245: 2
-  Unknown1246: 8
-  Unknown1247: 4
-  Unknown1253: 110000
-  Unknown1254: 300000
-  Unknown1255: 120000
-  Unknown1256: 250000
-  Unknown1257: 100000
-  Unknown1258: 275000
-  Unknown1259: -125000
-  Unknown1260: 270000
+  forwardWalkTension: 4
+  forwardJumpTension: 2
+  forwardDashTension: 8
+  airFDashTension: 4
+  pushboxWidthStand: 110000
+  pushboxHeightStand: 300000
+  pushboxWidthCrouch: 120000
+  pushboxHeightCrouch: 250000
+  pushboxWidthAir: 100000
+  pushboxHeightAir: 275000
+  pushboxHeightLowAir: -125000
+  closeSlashRange: 270000
   Unknown1262: 5
   Unknown1288: 1
   Unknown1268: 0
@@ -678,7 +678,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_S)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 72
+    addMoveFlag: (CLOSE_SLASH)
     Unknown1525: -330, -213, 280, 106
     Unknown1560: 
     Unknown1558: 
@@ -690,7 +690,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_S)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 73
+    addMoveFlag: (FAR_SLASH)
     Unknown1525: -432, -224, 318, 152
     Unknown1560: 
     Unknown1538: 125
@@ -772,14 +772,14 @@ beginSubroutine: s32'RoundInit'
     endMove: 
   addMove: s32'NmlAtk5F'
     moveType: (NORMAL)
-    Unknown1414: 1
+    moveSubType: 1
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_TAUNT)
     Unknown1538: 0
     endMove: 
   addMove: s32'NmlAtk6F'
     moveType: (NORMAL)
-    Unknown1414: 2
+    moveSubType: 2
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_TAUNT)
     moveInput: (INPUT_ANY_FORWARD)
@@ -837,18 +837,43 @@ beginSubroutine: s32'RoundInit'
   addMove: s32'DebugSkillEx'
     moveType: (SPECIAL)
     characterState: (NONE)
-    moveInput: 47
-    addMoveFlag: 81
+    moveInput: (INPUT_RELEASE_R)
+    addMoveFlag: (DEBUG_EX)
     endMove: 
   addMove: s32'HoldGunAtk'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 17
-    addMoveFlag: 18
-    addMoveFlag: 19
-    addMoveFlag: 42
+    addMoveFlag: (VARIABLE_4_FALSE)
+    addMoveFlag: (VARIABLE_5_FALSE)
+    addMoveFlag: (VARIABLE_6_FALSE)
+    addMoveFlag: (FIRST_EXTRA_GAUGE_NOT_EMPTY)
+    Unknown1525: -228, -248, 202, 252
+    Unknown1560: 
+    Unknown1538: 75
+    Unknown1540: 300
+    endMove: 
+  addMove: s32'HoldGunAtk_yoga'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_41236)
+    moveInput: (INPUT_PRESS_S)
+    addMoveFlag: (VARIABLE_4_FALSE)
+    addMoveFlag: (VARIABLE_5_FALSE)
+    addMoveFlag: (VARIABLE_6_FALSE)
+    addMoveFlag: (FIRST_EXTRA_GAUGE_NOT_EMPTY)
+    Unknown1538: 0
+    endMove: 
+  addMove: s32'Fanning'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_236)
+    moveInput: (INPUT_PRESS_D)
+    addMoveFlag: (VARIABLE_4_FALSE)
+    addMoveFlag: (VARIABLE_5_FALSE)
+    addMoveFlag: (VARIABLE_6_FALSE)
+    addMoveFlag: (REQUIRES_25_TENSION)
     Unknown1525: -228, -248, 202, 252
     Unknown1560: 
     Unknown1538: 75
@@ -869,9 +894,9 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 18
-    addMoveFlag: 19
-    addMoveFlag: 42
+    addMoveFlag: (VARIABLE_5_FALSE)
+    addMoveFlag: (VARIABLE_6_FALSE)
+    addMoveFlag: (FIRST_EXTRA_GAUGE_NOT_EMPTY)
     Unknown1525: -2000, -500, 1000, 500
     Unknown1560: 
     Unknown1538: 75
@@ -882,18 +907,18 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 13
+    addMoveFlag: (VARIABLE_4_TRUE)
     isFollowupMove: 1
     endMove: 
   addMove: s32'SniperEmptyEndForce'
-    Unknown1421: s32'SniperEnd'
+    moveAlias: s32'SniperEnd'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_RELEASE_H)
     isFollowupMove: 1
     endMove: 
   addMove: s32'SniperEndForce'
-    Unknown1421: s32'SniperEnd'
+    moveAlias: s32'SniperEnd'
     moveType: (SPECIAL)
     characterState: (STANDING)
     isFollowupMove: 1
@@ -939,11 +964,11 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_632146)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 3
+    addMoveFlag: (REQUIRES_50_TENSION)
     addMoveFlag: 126
-    addMoveFlag: 18
-    addMoveFlag: 19
-    addMoveFlag: 42
+    addMoveFlag: (VARIABLE_5_FALSE)
+    addMoveFlag: (VARIABLE_6_FALSE)
+    addMoveFlag: (FIRST_EXTRA_GAUGE_NOT_EMPTY)
     Unknown1525: -786, -320, 774, 268
     Unknown1577: 
     Unknown1538: 50
@@ -954,7 +979,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214214)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 3
+    addMoveFlag: (REQUIRES_50_TENSION)
     addMoveFlag: 126
     Unknown1525: -2000, -500, 2000, 500
     Unknown1538: 50
@@ -963,18 +988,18 @@ beginSubroutine: s32'RoundInit'
   addMove: s32'Conce_End'
     moveType: (SPECIAL)
     characterState: (STANDING)
-    addMoveFlag: 66
-    addMoveFlag: 15
+    addMoveFlag: (BATTLING)
+    addMoveFlag: (VARIABLE_6_TRUE)
     disableCancelsIntoMove: 1
     endMove: 
   addMove: s32'HoldMiss'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: 29
-    addMoveFlag: 17
-    addMoveFlag: 14
+    addMoveFlag: (VARIABLE_4_FALSE)
+    addMoveFlag: (VARIABLE_5_TRUE)
     disableCancelsIntoMove: 1
-    addMoveFlag: 42
+    addMoveFlag: (FIRST_EXTRA_GAUGE_NOT_EMPTY)
     Unknown1525: -228, -248, 202, 252
     Unknown1560: 
     Unknown1538: 75
@@ -1031,6 +1056,8 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'SniperEmptyEndForce'
   registerMove: s32'Reload'
   registerMove: s32'HoldGunAtk'
+  registerMove: s32'Fanning'
+  registerMove: s32'HoldGunAtk_yoga'
   registerMove: s32'Decoy'
   registerMove: s32'Mark'
   registerMove: s32'SniperEnd'
@@ -1111,76 +1138,76 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'LandThrow', s32'cos311_01'
   Unknown1328: s32'AirThrow', s32'cos321_01'
   Unknown1328: s32'DMG_CELL_KIRIMOMI_FIRST', s32'cos074_00'
-  Unknown1883: 0
-  Unknown1896: 0, 1
-  Unknown1888: 0, 10000
-  Unknown1887: 0, 10000
-  Unknown1883: 1
-  Unknown1896: 1, 1
-  Unknown1888: 1, 6
-  Unknown1887: 1, 6
-  Unknown1883: 2
-  Unknown1896: 2, 1
-  Unknown1888: 2, 100
-  Unknown1887: 2, 0
-  Unknown1883: 3
-  Unknown1896: 3, 1
-  Unknown1888: 3, 1500
-  Unknown1887: 3, 0
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
-  Unknown2057: s32'high'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Head_High'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Manpu'
-  Unknown2059: 
-  Unknown2057: s32'nohead'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Jacket'
-  Unknown2059: 
-  Unknown2057: s32'headonly'
-  Unknown2058: s32'Head_Low'
-  Unknown2059: 
-  Unknown2057: s32'CmnCutSceneDamage_Kakusei'
+  resetExGauge: 0
+  exGaugeDisplay: 0, 1
+  exGaugeMaxValue: 0, 10000
+  exGaugeValue: 0, 10000
+  resetExGauge: 1
+  exGaugeDisplay: 1, 1
+  exGaugeMaxValue: 1, 6
+  exGaugeValue: 1, 6
+  resetExGauge: 2
+  exGaugeDisplay: 2, 1
+  exGaugeMaxValue: 2, 100
+  exGaugeValue: 2, 0
+  resetExGauge: 3
+  exGaugeDisplay: 3, 1
+  exGaugeMaxValue: 3, 1500
+  exGaugeValue: 3, 0
+  linkPawn: s32''
+  beginMeshSet: s32'high'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Head_High'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Manpu'
+  endMeshSet: 
+  beginMeshSet: s32'nohead'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Jacket'
+  endMeshSet: 
+  beginMeshSet: s32'headonly'
+  addToMeshSet: s32'Head_Low'
+  endMeshSet: 
+  beginMeshSet: s32'CmnCutSceneDamage_Kakusei'
   Unknown47: s16'pot'
   if: (VARIABLE), 0
-    Unknown2058: s32'Body'
-    Unknown2058: s32'Head_High'
-    Unknown2058: s32'Weapon'
-    Unknown2058: s32'Jacket'
+    addToMeshSet: s32'Body'
+    addToMeshSet: s32'Head_High'
+    addToMeshSet: s32'Weapon'
+    addToMeshSet: s32'Jacket'
     endIf: 
   Unknown47: s16'fau'
   if: (VARIABLE), 0
-    Unknown2058: s32'Body'
-    Unknown2058: s32'Jacket'
-    Unknown2058: s32'Head_High'
-    Unknown2058: s32'Weapon'
-    Unknown2058: s32'Manpudetail'
-    Unknown2058: s32'Manpu'
-    Unknown2058: s32'Slot_reel'
+    addToMeshSet: s32'Body'
+    addToMeshSet: s32'Jacket'
+    addToMeshSet: s32'Head_High'
+    addToMeshSet: s32'Weapon'
+    addToMeshSet: s32'Manpudetail'
+    addToMeshSet: s32'Manpu'
+    addToMeshSet: s32'Slot_reel'
     endIf: 
-  Unknown2059: 
-  Unknown2057: s32'800cs'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'head_high'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Jacket'
-  Unknown2058: s32's_cosc'
-  Unknown2058: s32'Head_Low'
-  Unknown2058: s32'Manpudetail'
-  Unknown2058: s32'Manpu'
-  Unknown2059: 
-  Unknown2057: s32'500cs'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Head_Low'
-  Unknown2058: s32'Head_High'
-  Unknown2058: s32'Jacket'
-  Unknown2058: s32'Manpudetail'
-  Unknown2059: 
-  Unknown2068: 
-  Unknown2066: 
+  endMeshSet: 
+  beginMeshSet: s32'800cs'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'head_high'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Jacket'
+  addToMeshSet: s32's_cosc'
+  addToMeshSet: s32'Head_Low'
+  addToMeshSet: s32'Manpudetail'
+  addToMeshSet: s32'Manpu'
+  endMeshSet: 
+  beginMeshSet: s32'500cs'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Head_Low'
+  addToMeshSet: s32'Head_High'
+  addToMeshSet: s32'Jacket'
+  addToMeshSet: s32'Manpudetail'
+  endMeshSet: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   Unknown601: s16'vxxx103', 1, 3, 100
   Unknown601: s16'vxxx104', 1, -1, 100
   Unknown601: s16'vxxx200', 1, 3, 100
@@ -1284,7 +1311,7 @@ beginSubroutine: s32'CmnCutSceneDamage_Kakusei'
   endSubroutine: 
 
 beginSubroutine: s32'CPUEstimate'
-  ifOperation: 22, (STATIC), 75, (STATIC), 100
+  ifOperation: (PERCENT), (STATIC), 75, (STATIC), 100
     Unknown2202: '0x020000007401000000000000010000000000000064000000'
     Unknown2202: '0x020000007501000000000000010000000000000064000000'
     ifOperation: (IS_GREATER), (VARIABLE), 25, (STATIC), 5000
@@ -1307,7 +1334,7 @@ beginSubroutine: s32'CPUEstimate'
         storeValue: (VARIABLE), 373, (STATIC), 1
         endElse: 
       endElse: 
-    ifOperation: 22, (STATIC), 75, (STATIC), 100
+    ifOperation: (PERCENT), (STATIC), 75, (STATIC), 100
       Unknown2202: '0x020000007601000000000000010000000000000064000000'
       ifOperation: (IS_GREATER), (VARIABLE), 25, (STATIC), 4
         ifOperation: (IS_GREATER), (VARIABLE), 374, (STATIC), 25
@@ -1351,13 +1378,13 @@ beginSubroutine: s32'CPUEstimate'
     Unknown51: 4
     if: (VARIABLE), 0
       Unknown2500: 9, 4, (VARIABLE), 53, (STATIC), 1
-        ifOperation: 22, (STATIC), 75, (STATIC), 100
+        ifOperation: (PERCENT), (STATIC), 75, (STATIC), 100
           storeValue: (VARIABLE), 374, (STATIC), 0
           endIf: 
         endIf: 
       endIf: 
     else: 
-      ifOperation: 22, (STATIC), 25, (STATIC), 100
+      ifOperation: (PERCENT), (STATIC), 25, (STATIC), 100
         storeValue: (VARIABLE), 372, (STATIC), 0
         storeValue: (VARIABLE), 373, (STATIC), 1
         endIf: 
@@ -1396,7 +1423,7 @@ beginSubroutine: s32'CPUEstimate'
       addMove: s32'Routine_Super'
         Unknown1538: 100
         endMove: 
-      ifOperation: 22, (STATIC), 50, (STATIC), 100
+      ifOperation: (PERCENT), (STATIC), 50, (STATIC), 100
         storeValue: (VARIABLE), 372, (STATIC), 0
         storeValue: (VARIABLE), 373, (STATIC), 1
         storeValue: (VARIABLE), 374, (STATIC), 0
@@ -1436,7 +1463,7 @@ beginSubroutine: s32'CPUEstimate'
       addMove: s32'COS_Ultimate1'
         Unknown1538: 100
         endMove: 
-      ifOperation: 22, (STATIC), 50, (STATIC), 100
+      ifOperation: (PERCENT), (STATIC), 50, (STATIC), 100
         storeValue: (VARIABLE), 372, (STATIC), 0
         storeValue: (VARIABLE), 373, (STATIC), 1
         storeValue: (VARIABLE), 374, (STATIC), 0
@@ -1626,7 +1653,7 @@ beginSubroutine: s32'OnFrameStep'
           ifOperation: (IS_EQUAL), (VARIABLE), 4, (STATIC), 2
             Unknown2279: 0, 1, 0, 0
             endIf: 
-          Unknown445: s32'Reticle', 132
+          createObjectWithArg: s32'Reticle', (ENEMY_CENTER)
           Unknown43: 4, 1
           endIf: 
         else: 
@@ -1712,16 +1739,16 @@ beginSubroutine: s32'OnFrameStep'
   Unknown51: 4
   if: (VARIABLE), 0
     ifNot: (VARIABLE), 26
-      Unknown19: 4
+      deactivateObjectById: 4
       endIf: 
     ifNot: (VARIABLE), 16
-      Unknown19: 4
+      deactivateObjectById: 4
       endIf: 
     ifNot: (VARIABLE), 4
-      Unknown19: 4
+      deactivateObjectById: 4
       endIf: 
     if: (VARIABLE), 5
-      Unknown19: 4
+      deactivateObjectById: 4
       endIf: 
     endIf: 
   if: (VARIABLE), 60
@@ -1820,7 +1847,7 @@ beginSubroutine: s32'OnFrameStep'
         else: 
           checkInput: 29
           if: (VARIABLE), 0
-            checkInput: 76
+            checkInput: (INPUT_NOT_2)
             if: (VARIABLE), 0
               storeValue: (VARIABLE), 57, (STATIC), 0
               if: (VARIABLE), 5
@@ -1858,7 +1885,7 @@ beginSubroutine: s32'OnFrameStep'
         callSubroutine: s32'ForceConceEnd_Wall'
         endIf: 
       else: 
-        Unknown2033: 3, s32'WSB_Master_Wait'
+        checkCurrentStateName: 3, s32'WSB_Master_Wait'
         if: (VARIABLE), 0
           callSubroutine: s32'ForceConceEnd_Wall'
           endIf: 
@@ -1880,7 +1907,7 @@ beginSubroutine: s32'OnFrameStep'
           endElse: 
         checkInput: 29
         if: (VARIABLE), 0
-          checkInput: 76
+          checkInput: (INPUT_NOT_2)
           if: (VARIABLE), 0
             modifyVar: (ADD), (VARIABLE), 203, (STATIC), 15
             ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 203, (STATIC), 16
@@ -1921,7 +1948,7 @@ beginSubroutine: s32'OnFrameStep'
           endIf: 
         checkInput: 29
         if: (VARIABLE), 0
-          checkInput: 76
+          checkInput: (INPUT_NOT_2)
           if: (VARIABLE), 0
             storeValue: (VARIABLE), 203, (STATIC), 100
             endIf: 
@@ -1930,24 +1957,24 @@ beginSubroutine: s32'OnFrameStep'
       endIf: 
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 4, (STATIC), 1
-    modifyVar2: 13, (VARIABLE), 14, (STATIC), 300000
+    modifyVar2: (IS_LESSER_OR_EQUAL), (VARIABLE), 14, (STATIC), 300000
     if: (VARIABLE), 0
-      Unknown1918: s32'cos_HoldGunType', 0, 0, 0, 12, 0, -1, 0, 0
+      callPrivateFunction: s32'cos_HoldGunType', 0, 0, 0, 12, 0, -1, 0, 0
       endIf: 
     else: 
-      Unknown1918: s32'cos_HoldGunType', 0, 1, 0, 12, 0, -1, 0, 0
+      callPrivateFunction: s32'cos_HoldGunType', 0, 1, 0, 12, 0, -1, 0, 0
       endElse: 
     ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 0
-      Unknown1918: s32'cos_HoldGunAiming', 0, 2, 0, 200, 0, 30000, 0, 0
-      Unknown1918: s32'cos_HoldGunAtk', 2, 53, 0, 0, 0, 0, 0, 0
-      Unknown2033: 23, s32'CmnActCrouch2Stand'
+      callPrivateFunction: s32'cos_HoldGunAiming', 0, 2, 0, 200, 0, 30000, 0, 0
+      callPrivateFunction: s32'cos_HoldGunAtk', 2, 53, 0, 0, 0, 0, 0, 0
+      checkCurrentStateName: 23, s32'CmnActCrouch2Stand'
       if: (VARIABLE), 0
-        Unknown1918: s32'cos_HoldGunAiming', 0, -1, 0, 200, 0, 30000, 0, 0
+        callPrivateFunction: s32'cos_HoldGunAiming', 0, -1, 0, 200, 0, 30000, 0, 0
         endIf: 
       endIf: 
     else: 
       ifNot: (VARIABLE), 57
-        Unknown1918: s32'cos_HoldGunAtk', 2, 53, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGunAtk', 2, 53, 0, 0, 0, 0, 0, 0
         endIf: 
       endElse: 
     endIf: 
@@ -1978,11 +2005,11 @@ beginSubroutine: s32'OnIdling'
         modifyVar: (ADD), (VARIABLE), 3, (STATIC), 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
-        Unknown2524: s32'UpArm_L', -3000, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'LowArm_L', 32000, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'Hand_L', -32000, 0, 0, 0, 0, 0, 0
-        Unknown1918: s32'cos_HoldGunAiming', 0, 1, 0, 900, 0, 0, 0, 0
-        Unknown446: s32'AngleCheckObj', 100
+        boneRotation: s32'UpArm_L', -3000, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'LowArm_L', 32000, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'Hand_L', -32000, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGunAiming', 0, 1, 0, 900, 0, 0, 0, 0
+        createObject: s32'AngleCheckObj', (PLAYER)
         Unknown43: 7, 1
         Unknown2500: 12, 7, (VARIABLE), 1, (STATIC), 15000
           Unknown2500: 13, 7, (VARIABLE), 1, (STATIC), 90000
@@ -1991,129 +2018,129 @@ beginSubroutine: s32'OnIdling'
           endIf: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
-        Unknown2524: s32'UpArm_L', 12000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 48000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', -25000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
-        Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578330000000000000000000000000000000000000000000000000000000000E8030000B6030000B603000001000000010000000000000000000000'
-        Unknown2559: '0x6578340000000000000000000000000000000000000000000000000000000000E80300001A0400001A04000001000000010000000000000000000000'
-        Unknown32: s32'AngleCheckObj'
+        boneRotation: s32'UpArm_L', 12000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 48000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', -25000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
+        boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex3', 1000, 950, 950, 1, 1, 0, 0
+        boneScale: s32'ex4', 1000, 1050, 1050, 1, 1, 0, 0
+        deactivateObjectByName: s32'AngleCheckObj'
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 5
-        Unknown2524: s32'UpArm_L', 15000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 55000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 5000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 15000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 55000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 5000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 8
-        Unknown2524: s32'UpArm_L', 13000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 52000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 15000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 13000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 52000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 15000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 12
-        Unknown2524: s32'UpArm_L', 10000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 45000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 25000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
-        Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578330000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578340000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
+        boneRotation: s32'UpArm_L', 10000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 45000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 25000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
+        boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex3', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex4', 1000, 1000, 1000, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 16
-        Unknown2524: s32'UpArm_L', 8000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 35000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 38000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
-        Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578330000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578340000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
+        boneRotation: s32'UpArm_L', 8000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 35000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 38000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 1200, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -4000, 0, 1, 1, 0, 0
+        boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex3', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex4', 1000, 1000, 1000, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 20
-        Unknown2524: s32'UpArm_L', 4000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 30000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 20000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, 0, 0, 1, 1, 0, 0
-        Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
+        boneRotation: s32'UpArm_L', 4000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 30000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 20000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, 0, 0, 1, 1, 0, 0
+        boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 24
-        Unknown2524: s32'UpArm_L', -1000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 1000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 5000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, 0, 0, 1, 1, 0, 0
-        Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
+        boneRotation: s32'UpArm_L', -1000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 1000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 5000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, 0, 0, 1, 1, 0, 0
+        boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 28
-        Unknown2524: s32'UpArm_L', 0, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 0, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 0, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, 0, 0, 1, 1, 0, 0
-        Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578330000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x6578340000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-        Unknown2559: '0x48616E645F4C0000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
+        boneRotation: s32'UpArm_L', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, 0, 0, 1, 1, 0, 0
+        boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex3', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'ex4', 1000, 1000, 1000, 1, 1, 0, 0
+        boneScale: s32'Hand_L', 1000, 1000, 1000, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 30
         storeValue: (VARIABLE), 3, (STATIC), 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 101
-        Unknown2524: s32'UpArm_L', -500, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'LowArm_L', 2000, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'Hand_L', -2500, 0, 0, 0, 0, 0, 0
-        Unknown1918: s32'cos_HoldGunAiming', 0, 1, 0, 900, 0, 0, 0, 0
+        boneRotation: s32'UpArm_L', -500, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'LowArm_L', 2000, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'Hand_L', -2500, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGunAiming', 0, 1, 0, 900, 0, 0, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 103
-        Unknown2524: s32'UpArm_L', -1000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 1000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 2000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 500, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', -1000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 1000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 2000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 500, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, 0, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 105
-        Unknown2524: s32'UpArm_L', 1000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 1500, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 5000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 800, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -500, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 1000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 1500, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 5000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 800, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -500, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 107
-        Unknown2524: s32'UpArm_L', 3000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 3000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 10000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 1000, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -800, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 3000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 3000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 10000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 1000, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -800, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 109
-        Unknown2524: s32'UpArm_L', 4000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 5000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 7000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 300, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -1000, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 4000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 5000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 7000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 300, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -1000, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 113
-        Unknown2524: s32'UpArm_L', 3000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 6000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 8000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex0', 0, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, -300, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 3000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 6000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 8000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex0', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, -300, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 117
-        Unknown2524: s32'UpArm_L', 500, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'LowArm_L', 3000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'Hand_L', 6000, 0, 0, 1, 1, 0, 0
-        Unknown2524: s32'ex2', 0, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'UpArm_L', 500, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 3000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'Hand_L', 6000, 0, 0, 1, 1, 0, 0
+        boneRotation: s32'ex2', 0, 0, 0, 1, 1, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 121
-        Unknown2524: s32'UpArm_L', 0, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'Hand_L', 0, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'UpArm_L', 0, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'Hand_L', 0, 0, 0, 0, 0, 0, 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 122
         storeValue: (VARIABLE), 3, (STATIC), 0
@@ -2121,15 +2148,15 @@ beginSubroutine: s32'OnIdling'
       endIf: 
     ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 3, (STATIC), 200
       storeValue: (VARIABLE), 3, (STATIC), 0
-      Unknown2524: s32'UpArm_L', 0, 0, 0, 1, 1, 0, 0
-      Unknown2524: s32'LowArm_L', 0, 0, 0, 1, 1, 0, 0
-      Unknown2524: s32'Hand_L', 0, 0, 0, 1, 1, 0, 0
-      Unknown2524: s32'ex0', 0, 0, 0, 1, 1, 0, 0
-      Unknown2524: s32'ex2', 0, 0, 0, 1, 1, 0, 0
-      Unknown2559: '0x6578300000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-      Unknown2559: '0x6578330000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-      Unknown2559: '0x6578340000000000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
-      Unknown2559: '0x48616E645F4C0000000000000000000000000000000000000000000000000000E8030000E8030000E803000001000000010000000000000000000000'
+      boneRotation: s32'UpArm_L', 0, 0, 0, 1, 1, 0, 0
+      boneRotation: s32'LowArm_L', 0, 0, 0, 1, 1, 0, 0
+      boneRotation: s32'Hand_L', 0, 0, 0, 1, 1, 0, 0
+      boneRotation: s32'ex0', 0, 0, 0, 1, 1, 0, 0
+      boneRotation: s32'ex2', 0, 0, 0, 1, 1, 0, 0
+      boneScale: s32'ex0', 1000, 1000, 1000, 1, 1, 0, 0
+      boneScale: s32'ex3', 1000, 1000, 1000, 1, 1, 0, 0
+      boneScale: s32'ex4', 1000, 1000, 1000, 1, 1, 0, 0
+      boneScale: s32'Hand_L', 1000, 1000, 1000, 1, 1, 0, 0
       storeValue: (VARIABLE), 3, (STATIC), 0
       endIf: 
     endIf: 
@@ -2137,7 +2164,7 @@ beginSubroutine: s32'OnIdling'
 
 beginSubroutine: s32'ShootingBone'
   storeValue: (VARIABLE), 3, (STATIC), 1
-  Unknown2033: 23, s32'CmnActStand'
+  checkCurrentStateName: 23, s32'CmnActStand'
   if: (VARIABLE), 0
     if: (VARIABLE), 47
       Unknown2266: s32'cos280_00'
@@ -2177,89 +2204,89 @@ beginSubroutine: s32'OnActionBeginPre'
     endIf: 
   storeValue: (VARIABLE), 203, (STATIC), 0
   ifOperation: (IS_EQUAL), (VARIABLE), 4, (STATIC), 0
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
     endIf: 
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 4, (STATIC), 1
-    Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
     Unknown1691: 0
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
     endIf: 
   endSubroutine: 
 
 beginSubroutine: s32'OnActionBegin'
-  Unknown2033: 3, s32'CmnActFWalk'
+  checkCurrentStateName: 3, s32'CmnActFWalk'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActBWalk'
+  checkCurrentStateName: 3, s32'CmnActBWalk'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActFDash'
+  checkCurrentStateName: 3, s32'CmnActFDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActBDash'
+  checkCurrentStateName: 3, s32'CmnActBDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActAirFDash'
+  checkCurrentStateName: 3, s32'CmnActAirFDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActAirBDash'
+  checkCurrentStateName: 3, s32'CmnActAirBDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActJumpPre'
+  checkCurrentStateName: 3, s32'CmnActJumpPre'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   Unknown2526: 1, 2, 6, 100, 60, 200
   Unknown2591: 1, 2, 6, 100, 200, 200
-  Unknown2033: 3, s32'NmlAtk5F'
+  checkCurrentStateName: 3, s32'NmlAtk5F'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'NmlAtk6F'
+  checkCurrentStateName: 3, s32'NmlAtk6F'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'NmlAtkThrow'
-  if: (VARIABLE), 0
-    callSubroutine: s32'ForceConceEnd'
-    storeValue: (VARIABLE), 55, (STATIC), 1
-    storeValue: (VARIABLE), 56, (STATIC), 1
-    storeValue: (VARIABLE), 203, (STATIC), 1
-    endIf: 
-  Unknown2033: 3, s32'ThrowExe'
+  checkCurrentStateName: 3, s32'NmlAtkThrow'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'NmlAtkAirThrow'
+  checkCurrentStateName: 3, s32'ThrowExe'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'AirThrowExe'
+  checkCurrentStateName: 3, s32'NmlAtkAirThrow'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'HomingJump'
+  checkCurrentStateName: 3, s32'AirThrowExe'
+  if: (VARIABLE), 0
+    callSubroutine: s32'ForceConceEnd'
+    storeValue: (VARIABLE), 55, (STATIC), 1
+    storeValue: (VARIABLE), 56, (STATIC), 1
+    storeValue: (VARIABLE), 203, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: 3, s32'HomingJump'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 6, (STATIC), 0
     storeValue: (VARIABLE), 54, (STATIC), 1
@@ -2267,127 +2294,127 @@ beginSubroutine: s32'OnActionBegin'
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 57, (STATIC), 0
     endIf: 
-  Unknown2033: 3, s32'DustFinish'
+  checkCurrentStateName: 3, s32'DustFinish'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'CmnActBurst'
+  checkCurrentStateName: 3, s32'CmnActBurst'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'CmnActRomanCancel'
+  checkCurrentStateName: 3, s32'CmnActRomanCancel'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 23, s32'Conce_End'
+  checkCurrentStateName: 23, s32'Conce_End'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd_Next'
     storeValue: (VARIABLE), 4, (STATIC), 0
     storeValue: (VARIABLE), 203, (STATIC), 2000
     endIf: 
-  Unknown2033: 23, s32'HoldMiss'
+  checkCurrentStateName: 23, s32'HoldMiss'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 2000
     endIf: 
-  Unknown2033: 23, s32'Reload'
+  checkCurrentStateName: 23, s32'Reload'
   if: (VARIABLE), 0
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     storeValue: (VARIABLE), 57, (STATIC), 0
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 23, s32'HoldGunAtk'
+  checkCurrentStateName: 23, s32'HoldGunAtk'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd_Next'
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 100
     endIf: 
-  Unknown2033: 23, s32'Routine'
+  checkCurrentStateName: 23, s32'Routine'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 23, s32'ForwardRoll'
+  checkCurrentStateName: 23, s32'ForwardRoll'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 57, (STATIC), 0
     ifNot: (VARIABLE), 4
       callSubroutine: s32'ForceConceEnd'
       endIf: 
     else: 
-      Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
       Unknown1691: -1
       Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
       endElse: 
     endIf: 
-  Unknown2033: 23, s32'Sniper'
+  checkCurrentStateName: 23, s32'Sniper'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd_Next'
     storeValue: (VARIABLE), 4, (STATIC), 2
     endIf: 
-  Unknown2033: 23, s32'SniperEnd'
+  checkCurrentStateName: 23, s32'SniperEnd'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 4, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 100
     endIf: 
-  Unknown2033: 23, s32'COS_Ultimate1'
+  checkCurrentStateName: 23, s32'COS_Ultimate1'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 57, (STATIC), 0
     ifNot: (VARIABLE), 4
-      Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
       callSubroutine: s32'ForceConceEnd'
       endIf: 
     else: 
-      Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
       Unknown1691: 0
       Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
       callSubroutine: s32'ForceBoneReset'
       endElse: 
     endIf: 
-  Unknown2033: 23, s32'Routine_Super'
+  checkCurrentStateName: 23, s32'Routine_Super'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 55, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'AssistResult'
+  checkCurrentStateName: 3, s32'AssistResult'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'WinActionWait'
+  checkCurrentStateName: 3, s32'WinActionWait'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'WorldSideBreak_Master_DS'
+  checkCurrentStateName: 3, s32'WorldSideBreak_Master_DS'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'WorldSideBreak_Slave_DS'
+  checkCurrentStateName: 3, s32'WorldSideBreak_Slave_DS'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'WorldSideBreak_Master_DF'
+  checkCurrentStateName: 3, s32'WorldSideBreak_Master_DF'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
     endIf: 
-  Unknown2033: 3, s32'WorldSideBreak_Slave_DF'
+  checkCurrentStateName: 3, s32'WorldSideBreak_Slave_DF'
   if: (VARIABLE), 0
     callSubroutine: s32'ForceConceEnd'
     storeValue: (VARIABLE), 56, (STATIC), 1
@@ -2418,24 +2445,24 @@ beginSubroutine: s32'OnFinalize'
 beginSubroutine: s32'HoldBlendCheck'
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 2
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     storeValue: (VARIABLE), 4, (STATIC), 1
-    Unknown446: s32'HoldStartCheckObj', 100
+    createObject: s32'HoldStartCheckObj', (PLAYER)
     Unknown43: 8, 1
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 4
-    Unknown446: s32'COS_Concentration', 100
+    createObject: s32'COS_Concentration', (PLAYER)
     ifOperation: (IS_NOT_EQUAL), (VARIABLE), 54, (STATIC), 1
-      Unknown1918: s32'cos_HoldGun', 0, 1, 0, 2, 0, 2, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 2, 0, 2, 0, 0
       Unknown1691: 0
       endIf: 
     else: 
-      Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
       Unknown1691: 0
       Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
       endElse: 
-    Unknown1918: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
     Unknown1691: 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 6
@@ -2444,8 +2471,8 @@ beginSubroutine: s32'HoldBlendCheck'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 51
     storeValue: (VARIABLE), 4, (STATIC), 1
-    Unknown1918: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
-    Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
     Unknown1691: 0
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
     endIf: 
@@ -2454,25 +2481,25 @@ beginSubroutine: s32'HoldBlendCheck'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 101
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
-    Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
     Unknown1691: 0
     storeValue: (VARIABLE), 4, (STATIC), 0
-    Unknown446: s32'HoldEndCheckObj', 100
+    createObject: s32'HoldEndCheckObj', (PLAYER)
     Unknown43: 9, 1
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 103
     ifOperation: (IS_NOT_EQUAL), (VARIABLE), 54, (STATIC), 1
-      Unknown1918: s32'cos_HoldGun', 0, 0, 0, 6, 0, 3, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 6, 0, 3, 0, 0
       Unknown1691: -1
       endIf: 
     else: 
-      Unknown1918: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
-      Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
       Unknown1691: -1
       Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
       endElse: 
     ifNot: (VARIABLE), 315
-      Unknown446: s32'COS_ConcentrationEnd', 100
+      createObject: s32'COS_ConcentrationEnd', (PLAYER)
       endIf: 
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 109
@@ -2481,14 +2508,14 @@ beginSubroutine: s32'HoldBlendCheck'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 101
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
-    Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
     Unknown1691: 0
     storeValue: (VARIABLE), 4, (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 151
     storeValue: (VARIABLE), 4, (STATIC), 0
-    Unknown1918: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
     endIf: 
@@ -2497,21 +2524,21 @@ beginSubroutine: s32'HoldBlendCheck'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 201
     storeValue: (VARIABLE), 4, (STATIC), 1
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
-    Unknown446: s32'COS_Concentration', 100
+    createObject: s32'COS_Concentration', (PLAYER)
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 202
     storeValue: (VARIABLE), 57, (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 251
     storeValue: (VARIABLE), 4, (STATIC), 0
-    Unknown1918: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
-    Unknown446: s32'COS_ConcentrationEnd', 100
+    createObject: s32'COS_ConcentrationEnd', (PLAYER)
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 57, (STATIC), 252
     storeValue: (VARIABLE), 57, (STATIC), 0
@@ -2554,8 +2581,8 @@ beginSubroutine: s32'ForceConceEnd_Next'
   callSubroutine: s32'ForceBoneReset'
   storeValue: (VARIABLE), 6, (STATIC), 0
   storeValue: (VARIABLE), 57, (STATIC), 0
-  Unknown1918: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   endSubroutine: 
@@ -2564,14 +2591,14 @@ beginSubroutine: s32'ForceConceEnd_Wall'
   callSubroutine: s32'ForceBoneReset'
   storeValue: (VARIABLE), 4, (STATIC), 0
   storeValue: (VARIABLE), 6, (STATIC), 0
-  Unknown1918: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGunAtk', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
   endSubroutine: 
 
 beginSubroutine: s32'HoldGunAtkCheck'
-  Unknown1918: s32'cos_HoldGunAiming', 0, 1, 0, 900, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGunAiming', 0, 1, 0, 900, 0, 0, 0, 0
   storeValue: (VARIABLE), 54, (STATIC), 1
   callSubroutine: s32'ForceBoneReset'
   ifNot: (VARIABLE), 330
@@ -2704,18 +2731,18 @@ beginState: s32'CmnActStand'
       callSubroutine: s32'HoldCheck_Stand'
       endUpon: 
     endUpon: 
-  Unknown2030: s32'CmnActFWalk'
-  Unknown24: s32'FWalk', 2, 0
-  Unknown2030: s32'CmnActBWalk'
-  Unknown24: s32'BWalk', 2, 0
-  Unknown2030: s32'CmnActBDash'
-  Unknown24: s32'BDash', 2, 0
-  Unknown2030: s32'CmnActBurst'
-  Unknown24: s32'Burst_Hajikare', 2, 0
-  Unknown2030: s32'CmnActHajikareAir'
-  Unknown24: s32'Burst_Hajikare', 2, 0
-  Unknown2030: s32'CmnActLandingStiff'
-  Unknown24: s32'LandingStiff', 2, 0
+  checkLastStateName: s32'CmnActFWalk'
+  Unknown24: s16'FWalk', s16'', 2, 0
+  checkLastStateName: s32'CmnActBWalk'
+  Unknown24: s16'BWalk', s16'', 2, 0
+  checkLastStateName: s32'CmnActBDash'
+  Unknown24: s16'BDash', s16'', 2, 0
+  checkLastStateName: s32'CmnActBurst'
+  Unknown24: s16'Burst_Hajikare', s16'', 2, 0
+  checkLastStateName: s32'CmnActHajikareAir'
+  Unknown24: s16'Burst_Hajikare', s16'', 2, 0
+  checkLastStateName: s32'CmnActLandingStiff'
+  Unknown24: s16'LandingStiff', s16'', 2, 0
   beginLabel: s32'loop'
   sprite: s32'cos000_00', 8
   storeValue: (VARIABLE), 47, (STATIC), 0
@@ -2746,9 +2773,9 @@ beginState: s32'CmnActStand'
   sprite: s32'cos000_12', 8
   storeValue: (VARIABLE), 46, (STATIC), 13
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
-  gotoIfOperation: s32'loop', 22, (STATIC), 80, (STATIC), 100
-  Unknown25: s32'loop', 2, 86
+  Unknown24: s16'holdloop', s16'', 2, 4
+  gotoIfOperation: s32'loop', (PERCENT), (STATIC), 80, (STATIC), 100
+  Unknown25: s16'loop', s16'', 2, 86
   storeValue: (VARIABLE), 87, (STATIC), 600
   sprite: s32'cos001_00', 3
   storeValue: (VARIABLE), 50, (STATIC), 1
@@ -2788,7 +2815,7 @@ beginState: s32'CmnActStand'
   sprite: s32'cos001_23', 4
   sprite: s32'cos001_24', 4
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   beginLabel: s32'holdloop'
   sprite: s32'cos280_00', 8
@@ -2820,7 +2847,7 @@ beginState: s32'CmnActStand'
   sprite: s32'cos280_12', 8
   storeValue: (VARIABLE), 46, (STATIC), 13
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   beginLabel: s32'N_hold'
   sprite: s32'cos213_00', 3
@@ -2861,7 +2888,7 @@ beginState: s32'CmnActStand'
   endLabel: 
   gotoLabel: s32'loop'
   beginLabel: s32'FWalk'
-  Unknown24: s32'holdFWalk', 2, 4
+  Unknown24: s16'holdFWalk', s16'', 2, 4
   sprite: s32'cos030_02', 2
   sprite: s32'cos030_01', 2
   sprite: s32'cos030_00', 2
@@ -2874,7 +2901,7 @@ beginState: s32'CmnActStand'
   endLabel: 
   gotoLabel: s32'loop'
   beginLabel: s32'BWalk'
-  Unknown24: s32'holdBWalk', 2, 4
+  Unknown24: s16'holdBWalk', s16'', 2, 4
   sprite: s32'cos031_02', 2
   sprite: s32'cos031_01', 2
   sprite: s32'cos031_00', 2
@@ -2911,19 +2938,19 @@ beginState: s32'CmnActStand'
   gotoIfOperation: s32'LandingStiff_Vert3', (IS_EQUAL), (VARIABLE), 387, (STATIC), 3
   gotoIfOperation: s32'LandingStiff_Vert2', (IS_EQUAL), (VARIABLE), 387, (STATIC), 2
   gotoIfOperation: s32'LandingStiff_Vert1', (IS_EQUAL), (VARIABLE), 387, (STATIC), 1
-  Unknown24: s32'LandingStiff_Conce1', 2, 4
+  Unknown24: s16'LandingStiff_Con', s16'ce1', 2, 4
   sprite: s32'cos020_19', 3
   beginLabel: s32'LandingStiff_Vert1'
-  Unknown24: s32'LandingStiff_Conce2', 2, 4
+  Unknown24: s16'LandingStiff_Con', s16'ce2', 2, 4
   sprite: s32'cos020_20', 3
   beginLabel: s32'LandingStiff_Vert2'
-  Unknown24: s32'LandingStiff_Conce3', 2, 4
+  Unknown24: s16'LandingStiff_Con', s16'ce3', 2, 4
   sprite: s32'cos020_21', 3
   beginLabel: s32'LandingStiff_Vert3'
-  Unknown24: s32'LandingStiff_Conce4', 2, 4
+  Unknown24: s16'LandingStiff_Con', s16'ce4', 2, 4
   sprite: s32'cos020_22', 3
   beginLabel: s32'LandingStiff_Vert4'
-  Unknown24: s32'LandingStiff_Conce5', 2, 4
+  Unknown24: s16'LandingStiff_Con', s16'ce5', 2, 4
   sprite: s32'cos020_23', 3
   beginLabel: s32'LandingStiff_Vert5'
   gotoLabel: s32'loop'
@@ -3010,7 +3037,7 @@ beginSubroutine: s32'HoldCheck_Stand'
       ifNot: (VARIABLE), 50
         if: (VARIABLE), 4
           ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-            Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+            callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
             Unknown1691: 0
             Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
             storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3057,7 +3084,7 @@ beginSubroutine: s32'HoldCheck_Stand'
           endIf: 
         else: 
           ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-            Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+            callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
             Unknown1691: -1
             Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
             storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3123,11 +3150,11 @@ beginState: s32'CmnActStandTurn'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_NoBlend'
     ifOperation: (IS_EQUAL), (VARIABLE), 4, (STATIC), 1
-      Unknown1918: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
       callSubroutineWithArgs: s32'HoldGunAtkCheck', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
       endIf: 
     endUpon: 
-  Unknown24: s32'01', 2, 4
+  Unknown24: s16'01', s16'', 2, 4
   sprite: s32'cos003_00', 3
   sprite: s32'cos003_01', 2
   sprite: s32'cos003_02', 2
@@ -3147,7 +3174,7 @@ beginState: s32'CmnActStand2Crouch'
       callSubroutine: s32'HoldCheck_Stand2Crouch'
       endUpon: 
     endUpon: 
-  Unknown24: s32'hold', 2, 4
+  Unknown24: s16'hold', s16'', 2, 4
   sprite: s32'cos010_00', 3
   storeValue: (VARIABLE), 46, (STATIC), 1
   sprite: s32'cos010_01', 3
@@ -3189,7 +3216,7 @@ beginSubroutine: s32'HoldCheck_Stand2Crouch'
   ifNot: (VARIABLE), 57
     if: (VARIABLE), 4
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
         Unknown1691: 0
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3221,7 +3248,7 @@ beginSubroutine: s32'HoldCheck_Stand2Crouch'
       endIf: 
     else: 
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
         Unknown1691: -1
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3299,9 +3326,9 @@ beginState: s32'CmnActCrouch'
   sprite: s32'cos010_24', 6
   storeValue: (VARIABLE), 46, (STATIC), 17
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
-  gotoIfOperation: s32'loop', 22, (STATIC), 80, (STATIC), 100
-  Unknown25: s32'loop', 2, 86
+  Unknown24: s16'holdloop', s16'', 2, 4
+  gotoIfOperation: s32'loop', (PERCENT), (STATIC), 80, (STATIC), 100
+  Unknown25: s16'loop', s16'', 2, 86
   storeValue: (VARIABLE), 87, (STATIC), 600
   sprite: s32'cos011_00', 4
   storeValue: (VARIABLE), 50, (STATIC), 1
@@ -3332,7 +3359,7 @@ beginState: s32'CmnActCrouch'
   sprite: s32'cos011_19', 3
   sprite: s32'cos011_20', 3
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   beginLabel: s32'N_hold'
   sprite: s32'cos275_00', 3
@@ -3394,7 +3421,7 @@ beginState: s32'CmnActCrouch'
   sprite: s32'cos281_24', 6
   storeValue: (VARIABLE), 46, (STATIC), 17
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   endState: 
 
@@ -3404,7 +3431,7 @@ beginSubroutine: s32'HoldCheck_Crouch'
       ifNot: (VARIABLE), 50
         if: (VARIABLE), 4
           ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-            Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+            callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
             Unknown1691: 0
             Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
             storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3463,7 +3490,7 @@ beginSubroutine: s32'HoldCheck_Crouch'
           endIf: 
         else: 
           ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-            Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+            callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
             Unknown1691: -1
             Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
             storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3539,11 +3566,11 @@ beginState: s32'CmnActCrouchTurn'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_NoBlend'
     ifOperation: (IS_EQUAL), (VARIABLE), 4, (STATIC), 1
-      Unknown1918: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
+      callPrivateFunction: s32'cos_HoldGunAtk', 0, 1, 0, 0, 0, 0, 0, 0
       callSubroutineWithArgs: s32'HoldGunAtkCheck', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
       endIf: 
     endUpon: 
-  Unknown24: s32'01', 2, 4
+  Unknown24: s16'01', s16'', 2, 4
   sprite: s32'cos013_00', 3
   sprite: s32'cos013_01', 2
   sprite: s32'cos013_02', 2
@@ -3563,7 +3590,7 @@ beginState: s32'CmnActCrouch2Stand'
       callSubroutine: s32'HoldCheck_Crouch2Stand'
       endUpon: 
     endUpon: 
-  Unknown24: s32'hold', 2, 4
+  Unknown24: s16'hold', s16'', 2, 4
   sprite: s32'cos010_25', 6
   storeValue: (VARIABLE), 46, (STATIC), 1
   sprite: s32'cos010_26', 6
@@ -3581,7 +3608,7 @@ beginSubroutine: s32'HoldCheck_Crouch2Stand'
   ifNot: (VARIABLE), 57
     if: (VARIABLE), 4
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
         Unknown1691: 0
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3595,7 +3622,7 @@ beginSubroutine: s32'HoldCheck_Crouch2Stand'
       endIf: 
     else: 
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
         Unknown1691: -1
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -3614,9 +3641,9 @@ beginState: s32'CmnActJumpPre'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnJumpPre'
     endUpon: 
-  Unknown24: s32'ConceJump', 2, 4
-  Unknown24: s32'FJumpPre', 2, 11
-  Unknown24: s32'BJumpPre', 2, 10
+  Unknown24: s16'ConceJump', s16'', 2, 4
+  Unknown24: s16'FJumpPre', s16'', 2, 11
+  Unknown24: s16'BJumpPre', s16'', 2, 10
   sprite: s32'cos020_00', 4
   exitState: 
   beginLabel: s32'FJumpPre'
@@ -3633,9 +3660,9 @@ beginState: s32'CmnActJumpPre'
 
 beginState: s32'CmnActJump'
   beginLabel: s32'_Upper'
-  Unknown24: s32'ConceUpper', 2, 4
-  Unknown24: s32'UpperF', 2, 11
-  Unknown24: s32'UpperB', 2, 10
+  Unknown24: s16'ConceUpper', s16'', 2, 4
+  Unknown24: s16'UpperF', s16'', 2, 11
+  Unknown24: s16'UpperB', s16'', 2, 10
   sprite: s32'cos020_01', 3
   sprite: s32'cos020_02', 3
   beginLabel: s32'upperloop'
@@ -3644,26 +3671,26 @@ beginState: s32'CmnActJump'
   endLabel: 
   gotoLabel: s32'upperloop'
   beginLabel: s32'_UpperToTop'
-  Unknown24: s32'ConceUpperToTop', 2, 4
-  Unknown24: s32'UpperToTopF', 2, 11
-  Unknown24: s32'UpperToTopB', 2, 10
+  Unknown24: s16'ConceUpperToTop', s16'', 2, 4
+  Unknown24: s16'UpperToTopF', s16'', 2, 11
+  Unknown24: s16'UpperToTopB', s16'', 2, 10
   sprite: s32'cos020_05', 3
   sprite: s32'cos020_06', 2
   sprite: s32'cos020_07', 2
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_Top'
-  Unknown24: s32'ConceTop', 2, 4
-  Unknown24: s32'TopF', 2, 11
-  Unknown24: s32'TopB', 2, 10
+  Unknown24: s16'ConceTop', s16'', 2, 4
+  Unknown24: s16'TopF', s16'', 2, 11
+  Unknown24: s16'TopB', s16'', 2, 10
   sprite: s32'cos020_08', 2
   sprite: s32'cos020_09', 2
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_TopToDown'
-  Unknown24: s32'ConceTopToDown', 2, 4
-  Unknown24: s32'TopToDownF', 2, 11
-  Unknown24: s32'TopToDownB', 2, 10
+  Unknown24: s16'ConceTopToDown', s16'', 2, 4
+  Unknown24: s16'TopToDownF', s16'', 2, 11
+  Unknown24: s16'TopToDownB', s16'', 2, 10
   sprite: s32'cos020_10', 2
   sprite: s32'cos020_11', 3
   sprite: s32'cos020_12', 3
@@ -3671,9 +3698,9 @@ beginState: s32'CmnActJump'
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_Down'
-  Unknown24: s32'ConceDown', 2, 4
-  Unknown24: s32'DownF', 2, 11
-  Unknown24: s32'DownB', 2, 10
+  Unknown24: s16'ConceDown', s16'', 2, 4
+  Unknown24: s16'DownF', s16'', 2, 11
+  Unknown24: s16'DownB', s16'', 2, 10
   sprite: s32'cos020_14', 3
   sprite: s32'cos020_15', 3
   endLabel: 
@@ -3794,7 +3821,7 @@ beginState: s32'CmnActJumpLanding'
     callSubroutine: s32'cmnJumpLanding'
     characterSfx: s32'SE_BTL_COS_08'
     endUpon: 
-  Unknown24: s32'ConceLanding', 2, 4
+  Unknown24: s16'ConceLanding', s16'', 2, 4
   gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 1
   gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 2
   sprite: s32'cos020_18', 3
@@ -3870,7 +3897,7 @@ beginState: s32'CmnActLandingStiff'
     callSubroutine: s32'cmnLandingStiff'
     characterSfx: s32'SE_BTL_COS_08'
     endUpon: 
-  Unknown24: s32'ConceJumpLanding', 2, 4
+  Unknown24: s16'ConceJumpLanding', s16'', 2, 4
   gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 1
   gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 2
   sprite: s32'cos020_18', 3
@@ -3960,7 +3987,7 @@ beginState: s32'CmnActFWalk'
       callSubroutine: s32'HoldCheck_FWalk'
       endUpon: 
     endUpon: 
-  Unknown24: s32'holdpre', 2, 4
+  Unknown24: s16'holdpre', s16'', 2, 4
   sprite: s32'cos030_00', 4
   storeValue: (VARIABLE), 46, (STATIC), 1
   sprite: s32'cos030_01', 4
@@ -4006,7 +4033,7 @@ beginState: s32'CmnActFWalk'
   sprite: s32'cos030_18', 4
   storeValue: (VARIABLE), 46, (STATIC), 19
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   beginLabel: s32'holdpre'
   sprite: s32'cos285_00', 4
@@ -4054,7 +4081,7 @@ beginState: s32'CmnActFWalk'
   sprite: s32'cos285_18', 4
   storeValue: (VARIABLE), 46, (STATIC), 19
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   endState: 
 
@@ -4062,7 +4089,7 @@ beginSubroutine: s32'HoldCheck_FWalk'
   ifNot: (VARIABLE), 57
     if: (VARIABLE), 4
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
         Unknown1691: 0
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -4127,7 +4154,7 @@ beginSubroutine: s32'HoldCheck_FWalk'
       endIf: 
     else: 
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
         Unknown1691: -1
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -4200,7 +4227,7 @@ beginState: s32'CmnActBWalk'
       callSubroutine: s32'HoldCheck_BWalk'
       endUpon: 
     endUpon: 
-  Unknown24: s32'holdpre', 2, 4
+  Unknown24: s16'holdpre', s16'', 2, 4
   sprite: s32'cos031_00', 4
   storeValue: (VARIABLE), 46, (STATIC), 1
   sprite: s32'cos031_01', 4
@@ -4244,7 +4271,7 @@ beginState: s32'CmnActBWalk'
   sprite: s32'cos031_16', 5
   storeValue: (VARIABLE), 46, (STATIC), 17
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   beginLabel: s32'holdpre'
   sprite: s32'cos286_00', 4
@@ -4290,7 +4317,7 @@ beginState: s32'CmnActBWalk'
   sprite: s32'cos286_16', 5
   storeValue: (VARIABLE), 46, (STATIC), 17
   endLabel: 
-  Unknown24: s32'holdloop', 2, 4
+  Unknown24: s16'holdloop', s16'', 2, 4
   gotoLabel: s32'loop'
   endState: 
 
@@ -4298,7 +4325,7 @@ beginSubroutine: s32'HoldCheck_BWalk'
   ifNot: (VARIABLE), 57
     if: (VARIABLE), 4
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
         Unknown1691: 0
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -4357,7 +4384,7 @@ beginSubroutine: s32'HoldCheck_BWalk'
       endIf: 
     else: 
       ifOperation: (IS_NOT_EQUAL), (VARIABLE), 45, (VARIABLE), 4
-        Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
         Unknown1691: -1
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
         storeValue: (VARIABLE), 45, (VARIABLE), 4
@@ -4499,7 +4526,7 @@ beginState: s32'CmnActBDash'
   characterSfx: s32'SE_BTL_COS_08'
   physicsXImpulseIfVelocityMatchesSign: -5000
   sprite: s32'keep', 2147483647
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'CmnActAirFDash'
@@ -4512,7 +4539,6 @@ beginState: s32'CmnActAirFDash'
   sprite: s32'cos035_05', 2
   sprite: s32'cos035_06', 3
   sprite: s32'cos035_07', 3
-  callSubroutine: s32'cmnNandemoCancelC'
   sprite: s32'cos035_08', 3
   endState: 
 
@@ -4803,7 +4829,7 @@ beginState: s32'CmnActNokezoriCrouchLv5'
 
 beginState: s32'CmnActBDownUpper'
   callSubroutine: s32'cmnDamageCellDiffAir'
-  Unknown24: s32'diff', 2, 314
+  Unknown24: s16'diff', s16'', 2, 314
   sprite: s32'cos060_00', 3
   endLabel: 
   gotoLabel: s32'loop'
@@ -4855,7 +4881,7 @@ beginState: s32'CmnActBDown2Stand'
     upon: (BEFORE_EXIT)
       callSubroutine: s32'cmnWSBPointLimit'
       endUpon: 
-    Unknown446: s32'cos061Obj', 100
+    createObject: s32'cos061Obj', (PLAYER)
     endUpon: 
   sprite: s32'cos061_00', 4
   sprite: s32'cos061_01', 4
@@ -4917,14 +4943,14 @@ beginState: s32'CmnActFDown2Stand'
     storeValue: (VARIABLE), 56, (STATIC), 1
     upon: (BEFORE_EXIT)
       callSubroutine: s32'cmnWSBPointLimit'
-      Unknown2068: 
+      resetMaterialSet: 
       endUpon: 
-    Unknown446: s32'cos064Obj', 100
+    createObject: s32'cos064Obj', (PLAYER)
     endUpon: 
   sprite: s32'cos064_00', 3
-  Unknown446: s32'COS_064start', 100
+  createObject: s32'COS_064start', (PLAYER)
   storeValue: (VARIABLE), 76, (STATIC), 0
-  Unknown2067: '0x626C696E6B000000000000000000000000000000000000000000000000000000'
+  changeMaterialSet: s32'blink'
   Unknown2305: 18, 700, 0
   Unknown2305: 19, 0, 0
   Unknown2305: 18, 250, 30
@@ -4933,13 +4959,13 @@ beginState: s32'CmnActFDown2Stand'
   sprite: s32'cos064_02', 4
   sprite: s32'cos064_03', 4
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 98000, 61000
-  Unknown448: s32'cos_064kick', 130
+  exPointFReset: (PLAYER), 98000, 61000
+  createParticle: s32'cos_064kick', (EX_POINT_F)
   sprite: s32'cos064_04', 4
   sprite: s32'cos064_05', 4
   sprite: s32'cos064_06', 4
   sprite: s32'cos064_07', 3
-  Unknown2068: 
+  resetMaterialSet: 
   endState: 
 
 beginState: s32'CmnActVDownUpper'
@@ -4992,8 +5018,8 @@ beginState: s32'CmnActVDownLoop'
 
 beginState: s32'CmnActFloatDamage'
   callSubroutine: s32'cmn_FloatDamage'
-  Unknown24: s32'head', 2, 320
-  Unknown24: s32'body', 2, 321
+  Unknown24: s16'head', s16'', 2, 320
+  Unknown24: s16'body', s16'', 2, 321
   Unknown1825: s32'FloatDamage_Error', 0, 0
   beginLabel: s32'head'
   sprite: s32'cos065_00', 1
@@ -5155,7 +5181,7 @@ beginState: s32'fuwafuwa'
 beginState: s32'CmnActKirimomiUpper'
   gotoIfOperation: s32'loop', (IS_EQUAL), (VARIABLE), 351, (STATIC), 10
   gotoIfOperation: s32'Reverse', (IS_EQUAL), (VARIABLE), 351, (STATIC), 11
-  Unknown24: s32'dust', 2, 158
+  Unknown24: s16'dust', s16'', 2, 158
   beginLabel: s32'loop'
   sprite: s32'cos074_00', 3
   sprite: s32'cos074_01', 3
@@ -5190,8 +5216,8 @@ beginState: s32'CmnActKirimomiUpper'
   sprite: s32'cos074_00', 5
   endLabel: 
   clearRegisteredUponCode: (FRAME_STEP)
-  Unknown2033: 22, s32'HomingJump'
-  Unknown25: s32'loop', 2, 0
+  checkCurrentStateName: 22, s32'HomingJump'
+  Unknown25: s16'loop', s16'', 2, 0
   sprite: s32'cos068_04', 3
   sprite: s32'cos068_05', 3
   sprite: s32'cos068_06', 4
@@ -5265,11 +5291,11 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'cos077_02', 6
-  Unknown448: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'cos077_03', 8
-  Unknown448: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'cos077_04', 8
   endLabel: 
   gotoLabel: s32'loop'
@@ -5277,7 +5303,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'cos077_05', 4
-  Unknown448: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'cos077_06', 3
   sprite: s32'cos077_07', 3
   sprite: s32'cos077_08', 3
@@ -5321,7 +5347,7 @@ beginState: s32'CmnActJitabataLoop'
   sprite: s32'cos066_10', 2
   sprite: s32'cos066_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   beginLabel: s32'_Normal_End'
   sprite: s32'cos066_06', 4
   storeValue: (VARIABLE), 45, (STATIC), 2
@@ -5331,7 +5357,7 @@ beginState: s32'CmnActJitabataLoop'
   sprite: s32'cos066_10', 2
   sprite: s32'cos066_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   beginLabel: s32'_Slow_End'
   sprite: s32'cos066_06', 6
   storeValue: (VARIABLE), 45, (STATIC), 3
@@ -5341,7 +5367,7 @@ beginState: s32'CmnActJitabataLoop'
   sprite: s32'cos066_10', 2
   sprite: s32'cos066_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'CmnActKizetsu'
@@ -5405,7 +5431,7 @@ beginState: s32'CmnActHizakuzure'
   Unknown658: 100, 1, 0
   sprite: s32'cos085_13', 6
   endLabel: 
-  Unknown27: s32'CmnActFDownLoop'
+  jumpToState: s32'CmnActFDownLoop'
   endState: 
 
 beginState: s32'CmnActKorogari'
@@ -5503,12 +5529,12 @@ beginState: s32'CmnActQuickDown2Stand'
 
 beginState: s32'CmnActMidGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
-    Unknown446: s32'COS_Guard', 100
+    enableRomanCancelMove: 1
+    createObject: s32'COS_Guard', (PLAYER)
     storeValue: (VARIABLE), 55, (STATIC), 1
     endUpon: 
-  Unknown2030: s32'CmnActMidGuardEnd'
-  Unknown24: s32'_Top', 2, 0
+  checkLastStateName: s32'CmnActMidGuardEnd'
+  Unknown24: s16'_Top', s16'', 2, 0
   beginLabel: s32'_Pre'
   sprite: s32'cos040_00', 3
   sprite: s32'cos040_01', 3
@@ -5532,17 +5558,17 @@ beginState: s32'CmnActMidGuardLoop'
   gotoLabel: s32'loop'
   beginLabel: s32'_Lv1'
   sprite: s32'cos040_15', 1
-  Unknown446: s32'COS_Guard', 100
+  createObject: s32'COS_Guard', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv2'
   sprite: s32'cos040_16', 5
-  Unknown446: s32'COS_Guard', 100
+  createObject: s32'COS_Guard', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv3'
   sprite: s32'cos040_17', 8
-  Unknown446: s32'COS_Guard', 100
+  createObject: s32'COS_Guard', (PLAYER)
   sprite: s32'cos040_16', 5
   endLabel: 
   gotoLabel: s32'_Top'
@@ -5556,7 +5582,7 @@ beginState: s32'CmnActMidGuardEnd'
 
 beginState: s32'CmnActHighGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     storeValue: (VARIABLE), 45, (STATIC), 250000
     storeValue: (VARIABLE), 46, (STATIC), 0
     storeValue: (VARIABLE), 47, (STATIC), 0
@@ -5565,7 +5591,7 @@ beginState: s32'CmnActHighGuardLoop'
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
       endIf: 
-    Unknown446: s32'COS_Guard', 100
+    createObject: s32'COS_Guard', (PLAYER)
     storeValue: (VARIABLE), 55, (STATIC), 1
     endUpon: 
   beginLabel: s32'_Pre'
@@ -5591,17 +5617,17 @@ beginState: s32'CmnActHighGuardLoop'
   gotoLabel: s32'loop'
   beginLabel: s32'_Lv1'
   sprite: s32'cos040_15', 1
-  Unknown446: s32'COS_Guard', 100
+  createObject: s32'COS_Guard', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv2'
   sprite: s32'cos040_16', 5
-  Unknown446: s32'COS_Guard', 100
+  createObject: s32'COS_Guard', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv3'
   sprite: s32'cos040_17', 8
-  Unknown446: s32'COS_Guard', 100
+  createObject: s32'COS_Guard', (PLAYER)
   sprite: s32'cos040_16', 5
   endLabel: 
   gotoLabel: s32'_Top'
@@ -5615,12 +5641,12 @@ beginState: s32'CmnActHighGuardEnd'
 
 beginState: s32'CmnActCrouchGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
-    Unknown446: s32'COS_Guard_Crouch', 100
+    enableRomanCancelMove: 1
+    createObject: s32'COS_Guard_Crouch', (PLAYER)
     storeValue: (VARIABLE), 55, (STATIC), 1
     endUpon: 
-  Unknown2030: s32'CmnActCrouchGuardEnd'
-  Unknown24: s32'_Top', 2, 0
+  checkLastStateName: s32'CmnActCrouchGuardEnd'
+  Unknown24: s16'_Top', s16'', 2, 0
   beginLabel: s32'_Pre'
   sprite: s32'cos043_00', 3
   sprite: s32'cos043_01', 3
@@ -5644,17 +5670,17 @@ beginState: s32'CmnActCrouchGuardLoop'
   gotoLabel: s32'loop'
   beginLabel: s32'_Lv1'
   sprite: s32'cos043_15', 1
-  Unknown446: s32'COS_Guard_Crouch', 100
+  createObject: s32'COS_Guard_Crouch', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv2'
   sprite: s32'cos043_16', 5
-  Unknown446: s32'COS_Guard_Crouch', 100
+  createObject: s32'COS_Guard_Crouch', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv3'
   sprite: s32'cos043_16', 8
-  Unknown446: s32'COS_Guard_Crouch', 100
+  createObject: s32'COS_Guard_Crouch', (PLAYER)
   sprite: s32'cos043_17', 5
   endLabel: 
   gotoLabel: s32'_Top'
@@ -5668,9 +5694,9 @@ beginState: s32'CmnActCrouchGuardEnd'
 
 beginState: s32'CmnActAirGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     callSubroutine: s32'cmnAirGuard'
-    Unknown446: s32'COS_Guard_Air', 100
+    createObject: s32'COS_Guard_Air', (PLAYER)
     storeValue: (VARIABLE), 55, (STATIC), 1
     endUpon: 
   beginLabel: s32'_Pre'
@@ -5688,17 +5714,17 @@ beginState: s32'CmnActAirGuardLoop'
   gotoLabel: s32'loop'
   beginLabel: s32'_Lv1'
   sprite: s32'cos045_07', 1
-  Unknown446: s32'COS_Guard_Air', 100
+  createObject: s32'COS_Guard_Air', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv2'
   sprite: s32'cos045_07', 1
-  Unknown446: s32'COS_Guard_Air', 100
+  createObject: s32'COS_Guard_Air', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   beginLabel: s32'_Lv3'
   sprite: s32'cos045_07', 1
-  Unknown446: s32'COS_Guard_Air', 100
+  createObject: s32'COS_Guard_Air', (PLAYER)
   endLabel: 
   gotoLabel: s32'_Top'
   endState: 
@@ -5709,7 +5735,7 @@ beginState: s32'CmnActAirGuardEnd'
 
 beginState: s32'CmnActGuardLanding'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     callSubroutine: s32'cmnGuardLanding'
     endUpon: 
   sprite: s32'cos033_08', 2
@@ -5788,7 +5814,7 @@ beginState: s32'CmnActHajikareAir'
   sprite: s32'cos020_19', 2
   sprite: s32'cos020_20', 2
   sprite: s32'keep', 2147483647
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'CmnActAirTurn'
@@ -5855,7 +5881,7 @@ beginState: s32'CmnActRomanCancel'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnRomanCancel'
     endUpon: 
-  Unknown24: s32'air', 2, 30
+  Unknown24: s16'air', s16'', 2, 30
   beginLabel: s32'land'
   sprite: s32'cos350_01', 3
   sprite: s32'cos350_02', 3
@@ -5920,7 +5946,7 @@ beginState: s32'CmnActEntryWait'
   upon: (IMMEDIATE)
     endUpon: 
   sprite: s32'null', 2147483647
-  Unknown2055: 0
+  displayModel: 0
   endState: 
 
 beginState: s32'entry_default'
@@ -5944,10 +5970,10 @@ beginState: s32'CmnActRoundWin'
     endUpon: 
   sprite: s32'keep', 2
   endLabel: 
-  Unknown25: s32'bunki', 2, 4
+  Unknown25: s16'bunki', s16'', 2, 4
   sprite: s32'cos273_00', 3
   storeValue: (VARIABLE), 4, (STATIC), 0
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   sprite: s32'cos273_01', 3
@@ -5985,7 +6011,7 @@ beginState: s32'CmnActRoundWin'
   characterSfx: s32'SE_BTL_COS_Win_00'
   sprite: s32'cos615_02', 3
   sprite: s32'cos615_03', 3
-  Unknown446: s32'COS_615_Gun_Spin01', 100
+  createObject: s32'COS_615_Gun_Spin01', (PLAYER)
   endLabel: 
   storeValue: (VARIABLE), 46, (STATIC), 3
   beginLabel: s32'TypeA_loop1'
@@ -5995,10 +6021,10 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'cos615_07', 3
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 46, (STATIC), -1
-  Unknown24: s32'TypeA_loop1', 2, 46
+  Unknown24: s16'TypeA_loop1', s16'', 2, 46
   sprite: s32'cos615_08', 3
-  Unknown32: s32'COS_615_Gun_Spin01'
-  Unknown446: s32'COS_615_Gun_Spin02', 100
+  deactivateObjectByName: s32'COS_615_Gun_Spin01'
+  createObject: s32'COS_615_Gun_Spin02', (PLAYER)
   voiceLine: s16'vxxx606demo'
   sprite: s32'cos615_09', 3
   sprite: s32'cos615_10', 3
@@ -6047,7 +6073,7 @@ beginState: s32'CmnActRoundWin'
   characterSfx: s32'SE_BTL_COS_Win_00'
   sprite: s32'cos615_02', 3
   sprite: s32'cos615_03', 3
-  Unknown446: s32'COS_615_Gun_Spin01', 100
+  createObject: s32'COS_615_Gun_Spin01', (PLAYER)
   endLabel: 
   storeValue: (VARIABLE), 46, (STATIC), 3
   beginLabel: s32'TypeB_loop1'
@@ -6057,11 +6083,11 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'cos615_07', 3
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 46, (STATIC), -1
-  Unknown24: s32'TypeB_loop1', 2, 46
+  Unknown24: s16'TypeB_loop1', s16'', 2, 46
   sprite: s32'cos616_08', 2
-  Unknown32: s32'COS_615_Gun_Spin01'
-  Unknown446: s32'COS_615_Gun_Happening01', 100
-  Unknown446: s32'COS_615_Gun_Happening02', 100
+  deactivateObjectByName: s32'COS_615_Gun_Spin01'
+  createObject: s32'COS_615_Gun_Happening01', (PLAYER)
+  createObject: s32'COS_615_Gun_Happening02', (PLAYER)
   sprite: s32'cos616_09', 3
   characterSfx: s32'SE_BTL_COS_04'
   characterSfx: s32'SE_BTL_COS_04_1'
@@ -6090,7 +6116,7 @@ beginState: s32'CmnActRoundWin'
   characterSfx: s32'SE_BTL_COS_Win_00'
   sprite: s32'cos615_02', 3
   sprite: s32'cos615_03', 3
-  Unknown446: s32'COS_615_Gun_Spin01', 100
+  createObject: s32'COS_615_Gun_Spin01', (PLAYER)
   endLabel: 
   voiceLine: s16'vxxx607demo'
   storeValue: (VARIABLE), 46, (STATIC), 3
@@ -6105,15 +6131,15 @@ beginState: s32'CmnActRoundWin'
     Unknown1702: s32'weapons_R', 1
     characterSfx: s32'SE_BTL_COS_Win_00_1'
     endIf: 
-  Unknown24: s32'TypeC_loop1', 2, 46
+  Unknown24: s16'TypeC_loop1', s16'', 2, 46
   sprite: s32'cos617_04', 3
-  Unknown32: s32'COS_615_Gun_Spin01'
+  deactivateObjectByName: s32'COS_615_Gun_Spin01'
   sprite: s32'cos617_05', 3
   sprite: s32'cos617_06', 3
   sprite: s32'cos617_07', 3
   sprite: s32'cos617_08', 3
   sprite: s32'cos617_09', 3
-  Unknown446: s32'COS_615_Gun_Smoke01', 100
+  createObject: s32'COS_615_Gun_Smoke01', (PLAYER)
   sprite: s32'cos617_10', 3
   characterSfx: s32'SE_BTL_COS_Win_01'
   Unknown2268: 2, 0, 100
@@ -6179,7 +6205,7 @@ beginState: s32'CmnActRoundWin'
   characterSfx: s32'SE_BTL_COS_Win_00'
   sprite: s32'cos615_02', 3
   sprite: s32'cos615_03', 3
-  Unknown446: s32'COS_615_Gun_Spin01', 100
+  createObject: s32'COS_615_Gun_Spin01', (PLAYER)
   endLabel: 
   storeValue: (VARIABLE), 46, (STATIC), 3
   beginLabel: s32'TypeD_loop1'
@@ -6189,10 +6215,10 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'cos615_07', 3
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 46, (STATIC), -1
-  Unknown24: s32'TypeD_loop1', 2, 46
+  Unknown24: s16'TypeD_loop1', s16'', 2, 46
   sprite: s32'cos618_08', 3
-  Unknown32: s32'COS_615_Gun_Spin01'
-  Unknown446: s32'COS_615_Gun_Bake01', 100
+  deactivateObjectByName: s32'COS_615_Gun_Spin01'
+  createObject: s32'COS_615_Gun_Bake01', (PLAYER)
   sprite: s32'cos618_09', 2
   characterSfx: s32'SE_BTL_COS_02'
   sprite: s32'cos618_10', 4
@@ -6230,10 +6256,10 @@ beginState: s32'CmnActMatchWin'
     storeValue: (VARIABLE), 57, (STATIC), 0
     storeValue: (VARIABLE), 203, (STATIC), 0
     endUpon: 
-  Unknown25: s32'next', 2, 4
+  Unknown25: s16'next', s16'', 2, 4
   sprite: s32'cos273_00', 3
   storeValue: (VARIABLE), 4, (STATIC), 0
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   sprite: s32'cos273_01', 3
@@ -6253,26 +6279,26 @@ beginState: s32'CmnActMatchWin'
   endLabel: 
   beginLabel: s32'next'
   sprite: s32'null', 2147483647
-  Unknown2045: s32'cos800cs', 0
-  Unknown2030: s32'WinActionWait'
+  playAnimation: s32'cos800cs', 0
+  checkLastStateName: s32'WinActionWait'
   if: (VARIABLE), 0
-    Unknown2052: s32'cos800cs', 23, 0, -1
+    playCameraAnimation: s32'cos800cs', 23, 0, -1
     endIf: 
   else: 
-    Unknown2052: s32'cos800cs', 23, 15, -1
+    playCameraAnimation: s32'cos800cs', 23, 15, -1
     endElse: 
   Unknown2560: 1
-  Unknown2060: s32'800cs'
+  swapMeshSet: s32'800cs'
   upon: (FRAME_STEP)
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
-      Unknown427: 1, 1
+      resetSaturation: 1, 1
       Unknown410: -1, 800, 50
       Unknown429: 1, 1
       Unknown425: -1, 1400, 50
       Unknown426: -1, 0, 50
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
-      Unknown428: 1, 1
+      resetDOF: 1, 1
       Unknown412: -1, 700, 0
       Unknown413: -1, 0, 0
       Unknown414: -1, 0, 0
@@ -6281,16 +6307,16 @@ beginState: s32'CmnActMatchWin'
       Unknown417: -1, 40, 30
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
-      Unknown446: s32'COS_CS800_car', 100
+      createObject: s32'COS_CS800_car', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 22
       characterSfx: s32'SE_BTL_COS_MatchWin'
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 30
-      Unknown446: s32'COS_CS800_smoke', 100
+      createObject: s32'COS_CS800_smoke', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 163
-      Unknown2244: 1
+      hideAllButSelf: 1
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 214
       voiceLine: s16'vxxx104'
@@ -6366,31 +6392,31 @@ beginState: s32'CmnActMatchWin'
       ifOperation: (IS_GREATER), (VARIABLE), 105, (STATIC), 9
         ifOperation: (IS_LESSER), (VARIABLE), 105, (STATIC), 20
           ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 6
-            Unknown1970: '0x4D6179536869705F504C000000000000'
+            checkStageName: s16'MayShip_PL'
             if: (VARIABLE), 0
-              Unknown1732: 0, 10000
+              addDepth: 0, 10000
               endIf: 
-            Unknown1970: '0x44616D5F504C00000000000000000000'
+            checkStageName: s16'Dam_PL'
             if: (VARIABLE), 0
-              Unknown1732: 0, 25000
+              addDepth: 0, 25000
               endIf: 
             endIf: 
           ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
             ifOperation: (IS_EQUAL), (VARIABLE), 323, (STATIC), 4500
-              Unknown1970: '0x48656C6C5F504C000000000000000000'
+              checkStageName: s16'Hell_PL'
               ifNot: (VARIABLE), 0
-                Unknown1732: 0, 20000
+                addDepth: 0, 20000
                 endIf: 
               endIf: 
             ifOperation: (IS_EQUAL), (VARIABLE), 323, (STATIC), 21000
-              Unknown1732: 0, 10000
+              addDepth: 0, 10000
               endIf: 
             endIf: 
           endIf: 
         endIf: 
       ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 4
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 4
-          Unknown2242: 1
+          disableWall: 1
           Unknown255: 1
           endIf: 
         ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 105, (STATIC), 22
@@ -6418,7 +6444,7 @@ beginState: s32'CmnActLose'
     storeValue: (VARIABLE), 203, (STATIC), 0
     endUpon: 
   sprite: s32'keep', 2
-  Unknown24: s32'Normal_next', 2, 4
+  Unknown24: s16'Normal_next', s16'', 2, 4
   beginLabel: s32'start'
   sprite: s32'cos640_00', 4
   sprite: s32'cos640_01', 4
@@ -6432,7 +6458,7 @@ beginState: s32'CmnActLose'
   sprite: s32'cos640_05', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'loop1', 2, 45
+  Unknown24: s16'loop1', s16'', 2, 45
   sprite: s32'cos640_06', 3
   voiceLine: s16'vxxx408'
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
@@ -6440,9 +6466,9 @@ beginState: s32'CmnActLose'
   sprite: s32'cos640_07', 3
   sprite: s32'cos640_08', 3
   sprite: s32'cos640_09', 4
-  Unknown2193: 100, 170000, 560000
-  Unknown446: s32'COS_640muzzleflash', 130
-  Unknown446: s32'COS_640timeup', 100
+  exPointFReset: (PLAYER), 170000, 560000
+  createObject: s32'COS_640muzzleflash', (EX_POINT_F)
+  createObject: s32'COS_640timeup', (PLAYER)
   characterSfx: s32'SE_BTL_COS_23'
   sprite: s32'cos640_10', 4
   sprite: s32'cos640_11', 6
@@ -6464,7 +6490,7 @@ beginState: s32'CmnActLose'
   beginLabel: s32'Normal_next'
   sprite: s32'cos273_00', 3
   storeValue: (VARIABLE), 4, (STATIC), 0
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   sprite: s32'cos273_01', 3
@@ -6482,7 +6508,7 @@ beginState: s32'CmnActLose'
   endLabel: 
   gotoLabel: s32'start'
   beginLabel: s32'matchlose'
-  Unknown24: s32'Matchlose_next', 2, 4
+  Unknown24: s16'Matchlose_next', s16'', 2, 4
   beginLabel: s32'Match_start'
   sprite: s32'cos640_00', 4
   sprite: s32'cos640_01', 4
@@ -6495,13 +6521,13 @@ beginState: s32'CmnActLose'
   sprite: s32'cos640_05', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'Match_loop1', 2, 45
+  Unknown24: s16'Match_loop1', s16'', 2, 45
   sprite: s32'cos640_06', 3
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   sprite: s32'cos640_07', 3
   sprite: s32'cos640_08', 3
   sprite: s32'cos640_09', 4
-  Unknown2193: 100, 170000, 560000
+  exPointFReset: (PLAYER), 170000, 560000
   sprite: s32'cos640_10', 4
   sprite: s32'cos640_11', 6
   sprite: s32'cos640_12', 5
@@ -6522,7 +6548,7 @@ beginState: s32'CmnActLose'
   beginLabel: s32'Matchlose_next'
   sprite: s32'cos273_00', 3
   storeValue: (VARIABLE), 4, (STATIC), 0
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   sprite: s32'cos273_01', 3
@@ -6636,8 +6662,8 @@ beginState: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
       Unknown2121: s32'COS_FinishCamera_Pattern'
       endUpon: 
@@ -6651,7 +6677,7 @@ beginState: s32'NmlAtk5A'
   sprite: s32'cos200_00', 2
   sprite: s32'cos200_01', 2
   sprite: s32'cos200_02', 2
-  Unknown446: s32'COS_200_Slash', 100
+  createObject: s32'COS_200_Slash', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   Unknown621: 0, -1
@@ -6762,8 +6788,8 @@ beginState: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
       Unknown2121: s32'COS_FinishCamera_Pattern'
       endUpon: 
@@ -6777,7 +6803,7 @@ beginState: s32'NmlAtk2A'
   sprite: s32'cos230_00', 2
   sprite: s32'cos230_01', 3
   sprite: s32'cos230_02', 2
-  Unknown446: s32'COS_230_Slash', 100
+  createObject: s32'COS_230_Slash', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   Unknown621: 0, -1
@@ -6805,11 +6831,11 @@ beginState: s32'NmlAtk5B'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 25000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 25000
-    Unknown770: 0, 70, 0, 4, 0, 16
+    hitAirPushbackYOverTime: 0, 70, 0, 4, 0, 16
     hitGravity: (STATIC), 0
-    Unknown783: 0, 250, 0, 5, 0, 15
+    hitGravityOverTime: 0, 250, 0, 5, 0, 15
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk6B'
@@ -6864,9 +6890,9 @@ beginState: s32'NmlAtk2B'
     airHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, 30000
-    Unknown770: 0, 60, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
-    Unknown783: 0, 100, 0, 10, 0, 35
+    hitGravityOverTime: 0, 100, 0, 10, 0, 35
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk5CNear'
@@ -6917,9 +6943,9 @@ beginState: s32'NmlAtk6B'
     airHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, 50000
-    Unknown770: 0, 60, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
-    Unknown783: 0, 100, 0, 10, 0, 35
+    hitGravityOverTime: 0, 100, 0, 10, 0, 35
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -350000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -6936,7 +6962,7 @@ beginState: s32'NmlAtk6B'
   sprite: s32'cos211_01', 3
   addPositionX: 100000
   characterSfx: s32'SE_BTL_COS_16'
-  Unknown446: s32'COS_211_Smoke', 100
+  createObject: s32'COS_211_Smoke', (PLAYER)
   sprite: s32'cos211_02', 3
   addPositionX: 50000
   sprite: s32'cos211_03', 3
@@ -6944,7 +6970,7 @@ beginState: s32'NmlAtk6B'
   sprite: s32'cos211_04', 2
   addPositionX: 50000
   hit: 
-  Unknown176: 1
+  haltMomentum: 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   Unknown621: 0, -1
   sprite: s32'cos211_05', 3
@@ -6985,11 +7011,11 @@ beginState: s32'NmlAtk5CNear'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 20000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 38000
-    Unknown770: 0, 60, 0, 4, 0, 10
+    hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 10
     hitGravity: (STATIC), 0
-    Unknown783: 0, 250, 0, 7, 0, 30
+    hitGravityOverTime: 0, 250, 0, 7, 0, 30
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -300000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -7008,8 +7034,8 @@ beginState: s32'NmlAtk5CNear'
   Unknown1702: s32'Toge', 0
   sprite: s32'cos202_01', 3
   sprite: s32'cos202_02', 3
-  Unknown446: s32'COS_202_Bake', 100
-  Unknown446: s32'COS_202_Ring', 100
+  createObject: s32'COS_202_Bake', (PLAYER)
+  createObject: s32'COS_202_Ring', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   Unknown621: 1, -1
@@ -7037,7 +7063,7 @@ beginState: s32'NmlAtk5CFar'
     hitAirPushbackX: 0, 24000
     hitAirPushbackY: 0, 8000
     rollDuration: 10
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     callSubroutine: s32'cmn_AtkTemplNokezoriHigh'
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -280000
@@ -7097,11 +7123,11 @@ beginState: s32'NmlAtk6C'
     groundHitEffect: 12
     airHitEffect: 12
     hitAirPushbackX: 0, 40000
-    Unknown760: 0, 80, 0, 8, 0, 14
+    hitAirPushbackXOverTime: 0, 80, 0, 8, 0, 14
     hitAirPushbackY: 0, 25000
-    Unknown770: 0, 50, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 50, 0, 5, 0, 11
     hitGravity: (STATIC), 500
-    Unknown783: 0, 100, 0, 5, 0, 23
+    hitGravityOverTime: 0, 100, 0, 5, 0, 23
     counterhitAirPushbackY: 0, 60000
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -300000
@@ -7111,14 +7137,14 @@ beginState: s32'NmlAtk6C'
       clearRegisteredUponCode: (HIT_OR_GUARD)
       extendPushboxX: 50000
       endUpon: 
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       Unknown2266: s32'cos212_05'
       endUpon: 
     storeValue: (VARIABLE), 53, (STATIC), 1
     callSubroutine: s32'HoldGunAtkCheck'
     upon: (BEFORE_EXIT)
-      Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+      boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
       endUpon: 
     endUpon: 
   sprite: s32'cos212_00', 2
@@ -7128,7 +7154,7 @@ beginState: s32'NmlAtk6C'
   physicsXImpulse: 0, 40000
   Unknown2229: 90
   characterSfx: s32'SE_BTL_COS_16_1'
-  Unknown446: s32'COS_212_Smoke', 100
+  createObject: s32'COS_212_Smoke', (PLAYER)
   sprite: s32'cos212_03', 4
   sprite: s32'cos212_04', 4
   hit: 
@@ -7145,7 +7171,7 @@ beginState: s32'NmlAtk6C'
   upon: 39
     if: (VARIABLE), 4
       clearRegisteredUponCode: 39
-      Unknown2524: s32'LowArm_L', -25000, 0, 0, 1, 1, 0, 0
+      boneRotation: s32'LowArm_L', -25000, 0, 0, 1, 1, 0, 0
       Unknown1691: 0
       ifOperation: (IS_EQUAL), (VARIABLE), 51, (STATIC), 1
         Unknown2266: s32'cos212_06'
@@ -7171,7 +7197,7 @@ beginState: s32'NmlAtk6C'
   storeValue: (VARIABLE), 53, (STATIC), 0
   clearRegisteredUponCode: 39
   clearRegisteredUponCode: (BEFORE_EXIT)
-  Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+  boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
   sprite: s32'cos212_11', 2
   Unknown2177: 0, 100
   characterSfx: s32'SE_BTL_COS_08'
@@ -7192,9 +7218,9 @@ beginState: s32'NmlAtk2C'
     airHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, 50000
-    Unknown770: 0, 60, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
-    Unknown783: 0, 100, 0, 10, 0, 35
+    hitGravityOverTime: 0, 100, 0, 10, 0, 35
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -350000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -7220,7 +7246,7 @@ beginState: s32'NmlAtk2C'
   sprite: s32'cos232_03', 1
   sprite: s32'cos232_04', 3
   hit: 
-  Unknown446: s32'COS_232_Attack', 100
+  createObject: s32'COS_232_Attack', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   characterSfx: s32'SE_BTL_COS_16_1'
   Unknown2526: 1, 1, 6, 0, 60, 100
@@ -7245,7 +7271,7 @@ beginState: s32'NmlAtk2C'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, -50000, 0
+    exPointFReset: (PLAYER_LAND), -50000, 0
     callSubroutine: s32'cmn_DustAttack'
     damage: 0, 35
     pushbackX: 30
@@ -7254,11 +7280,11 @@ beginState: s32'NmlAtk5E'
     callSubroutine: s32'cmn_AtkTemplFloatDamageBody'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 10000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 30000
-    Unknown770: 0, 60, 0, 8, 0, 16
+    hitAirPushbackYOverTime: 0, 60, 0, 8, 0, 16
     hitGravity: (STATIC), 500
-    Unknown783: 0, 250, 0, 5, 0, 30
+    hitGravityOverTime: 0, 250, 0, 5, 0, 30
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), -200000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -7271,8 +7297,8 @@ beginState: s32'NmlAtk5E'
       endUpon: 
     storeValue: (VARIABLE), 53, (STATIC), 1
     callSubroutine: s32'HoldGunAtkCheck'
-    upon: 47
-      Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+    upon: (AFTER_EXIT)
+      boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
       endUpon: 
     endUpon: 
   sprite: s32'cos205_00', 2
@@ -7287,13 +7313,13 @@ beginState: s32'NmlAtk5E'
   sprite: s32'cos205_05', 2
   sprite: s32'cos205_06', 1
   storeValue: (VARIABLE), 51, (STATIC), 1
-  Unknown446: s32'COS_202_Attack', 100
+  createObject: s32'COS_202_Attack', (PLAYER)
   hit: 
   upon: 39
     if: (VARIABLE), 4
       clearRegisteredUponCode: 39
       ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 51, (STATIC), 3
-        Unknown2524: s32'LowArm_L', 0, -10000, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 0, -10000, 0, 1, 1, 0, 0
         Unknown1691: 0
         ifOperation: (IS_EQUAL), (VARIABLE), 51, (STATIC), 1
           Unknown2266: s32'cos205_06'
@@ -7306,7 +7332,7 @@ beginState: s32'NmlAtk5E'
           endIf: 
         endIf: 
       else: 
-        Unknown2524: s32'LowArm_L', 0, -20000, 0, 1, 1, 0, 0
+        boneRotation: s32'LowArm_L', 0, -20000, 0, 1, 1, 0, 0
         Unknown1691: 0
         ifOperation: (IS_EQUAL), (VARIABLE), 51, (STATIC), 4
           Unknown2266: s32'cos205_09'
@@ -7343,8 +7369,8 @@ beginState: s32'NmlAtk5E'
   storeValue: (VARIABLE), 51, (STATIC), 8
   sprite: s32'cos205_14', 4
   clearRegisteredUponCode: 39
-  clearRegisteredUponCode: 47
-  Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+  clearRegisteredUponCode: (AFTER_EXIT)
+  boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
   sprite: s32'cos205_15', 4
   callSubroutine: s32'cmnNandemoCancel'
   sprite: s32'cos205_16', 4
@@ -7395,33 +7421,33 @@ beginState: s32'HomingJump'
   Unknown1702: s32'Head_high', 1
   Unknown1702: s32'Head_low', 0
   Unknown1699: s32'cos_battle_hair', 1, 1, 1, 1
-  Unknown1714: '0x00000000000000000100000000000000'
+  Unknown1714: 0, 0, 1, 0
   Unknown1715: 0, 0, 1, 0
   Unknown1716: 3, 0, 1, 0
-  Unknown2524: s32'Head_Attach', -10000, -10000, -12000, 0, 0, 0, 0
+  boneRotation: s32'Head_Attach', -10000, -10000, -12000, 0, 0, 0, 0
   sprite: s32'cos025_03', 2
-  Unknown2524: s32'Head_Attach', -20000, -10000, 0, 12, 0, 0, 0
+  boneRotation: s32'Head_Attach', -20000, -10000, 0, 12, 0, 0, 0
   sprite: s32'cos025_04', 3
   sprite: s32'cos025_05', 3
   sprite: s32'cos025_03', 3
   sprite: s32'cos025_04', 3
   sprite: s32'cos025_05', 3
-  Unknown2524: s32'Head_Attach', 0, 0, 0, 12, 0, 0, 0
-  Unknown1714: '0x01000000060000000100000000000000'
+  boneRotation: s32'Head_Attach', 0, 0, 0, 12, 0, 0, 0
+  Unknown1714: 1, 6, 1, 0
   Unknown1715: 1, 6, 1, 0
   Unknown1716: 1, 6, 1, 0
   sprite: s32'cos025_03', 3
-  Unknown1714: '0x02000000030000000100000000000000'
+  Unknown1714: 2, 3, 1, 0
   Unknown1715: 2, 3, 1, 0
   sprite: s32'cos025_04', 3
   Unknown1716: 2, 6, 1, 0
   sprite: s32'cos025_05', 3
-  Unknown1714: '0x03000000060000000100000000000000'
+  Unknown1714: 3, 6, 1, 0
   Unknown1715: 3, 6, 1, 0
   sprite: s32'cos025_03', 3
   Unknown1716: 4, 6, 1, 0
   sprite: s32'cos025_04', 3
-  Unknown1714: '0x040000000C0000000100000000000000'
+  Unknown1714: 4, 12, 1, 0
   Unknown1715: 4, 12, 1, 0
   sprite: s32'cos025_05', 3
   sprite: s32'cos025_03', 3
@@ -7434,7 +7460,7 @@ beginState: s32'HomingJump'
   sprite: s32'cos025_03', 3
   sprite: s32'cos025_03', 1
   sprite: s32'keep', 1
-  Unknown27: s32'HomingJumpLoop'
+  jumpToState: s32'HomingJumpLoop'
   endState: 
 
 beginState: s32'HomingJumpLoop'
@@ -7462,11 +7488,11 @@ beginState: s32'DustFinish'
     storeValue: (VARIABLE), 56, (STATIC), 1
     endUpon: 
   sprite: s32'cos320_03', 2
-  Unknown176: 1
+  haltMomentum: 1
   sprite: s32'cos320_03', 2
   addVelocityX: 0, 20000
   addVelocityY: 0, 20000
-  Unknown135: 
+  resetGravity: 
   sprite: s32'cos320_04', 4
   sprite: s32'cos320_05', 4
   sprite: s32'cos320_07', 2
@@ -7525,7 +7551,7 @@ beginState: s32'NmlAtk2E'
     storeValue: (VARIABLE), 53, (STATIC), 1
     callSubroutine: s32'HoldGunAtkCheck'
     upon: (BEFORE_EXIT)
-      Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+      boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
       endUpon: 
     endUpon: 
   sprite: s32'cos234_00', 2
@@ -7538,7 +7564,7 @@ beginState: s32'NmlAtk2E'
   upon: 39
     if: (VARIABLE), 4
       clearRegisteredUponCode: 39
-      Unknown2524: s32'LowArm_L', 30000, 0, 0, 1, 1, 0, 0
+      boneRotation: s32'LowArm_L', 30000, 0, 0, 1, 1, 0, 0
       Unknown1691: 0
       ifOperation: (IS_EQUAL), (VARIABLE), 51, (STATIC), 1
         Unknown2266: s32'cos234_03'
@@ -7563,7 +7589,7 @@ beginState: s32'NmlAtk2E'
   hit: 
   sprite: s32'cos234_04', 3
   storeValue: (VARIABLE), 51, (STATIC), 2
-  Unknown176: 1
+  haltMomentum: 1
   callSubroutine: s32'cmn_AttackEnd'
   Unknown621: 2, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
@@ -7581,7 +7607,7 @@ beginState: s32'NmlAtk2E'
   callSubroutine: s32'cmnNandemoCancelC'
   clearRegisteredUponCode: 39
   clearRegisteredUponCode: (BEFORE_EXIT)
-  Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+  boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
   sprite: s32'cos234_10', 3
   sprite: s32'cos234_11', 3
   sprite: s32'cos234_12', 3
@@ -7592,7 +7618,7 @@ beginState: s32'NmlAtk5F'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
-  gotoIfOperation: s32'TypeB', 22, (STATIC), 50, (STATIC), 100
+  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   sprite: s32'cos300_00', 6
   sprite: s32'cos300_01', 5
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
@@ -7613,7 +7639,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'cos300_12', 6
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeA_loop1', 2, 45
+  Unknown24: s16'TypeA_loop1', s16'', 2, 45
   sprite: s32'cos300_13', 8
   sprite: s32'cos300_14', 8
   sprite: s32'cos300_15', 8
@@ -7627,7 +7653,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'cos300_20', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeA_loop2', 2, 45
+  Unknown24: s16'TypeA_loop2', s16'', 2, 45
   sprite: s32'cos300_21', 4
   sprite: s32'cos300_22', 4
   sprite: s32'cos300_23', 4
@@ -7658,7 +7684,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'cos301_12', 4
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeB_loop1', 2, 45
+  Unknown24: s16'TypeB_loop1', s16'', 2, 45
   sprite: s32'cos301_13', 3
   sprite: s32'cos301_14', 3
   sprite: s32'cos301_15', 4
@@ -7681,7 +7707,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'cos301_21', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeB_loop2', 2, 45
+  Unknown24: s16'TypeB_loop2', s16'', 2, 45
   beginLabel: s32'TypeB_Next'
   sprite: s32'cos301_22', 4
   sprite: s32'cos301_23', 4
@@ -7695,7 +7721,7 @@ beginState: s32'NmlAtk6F'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
-  gotoIfOperation: s32'TypeB', 22, (STATIC), 50, (STATIC), 100
+  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   sprite: s32'cos305_00', 4
   sprite: s32'cos305_01', 4
   sprite: s32'cos305_02', 4
@@ -7777,9 +7803,9 @@ beginState: s32'NmlAtk6F'
   sprite: s32'cos306_15', 6
   sprite: s32'cos306_16', 6
   endLabel: 
-  Unknown25: s32'TypeB_Next', 2, 95
+  Unknown25: s16'TypeB_Next', s16'', 2, 95
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-  Unknown24: s32'TypeB_loop1', 2, 45
+  Unknown24: s16'TypeB_loop1', s16'', 2, 45
   gotoLabel: s32'TypeB_Next'
   beginLabel: s32'TypeB_Next'
   sprite: s32'cos306_17', 4
@@ -7822,8 +7848,8 @@ beginState: s32'NmlAtkAir5A'
     addWhiffCancelOption: s32'NmlAtkAir5B'
     addWhiffCancelOption: s32'NmlAtkAir5C'
     addWhiffCancelOption: s32'NmlAtkAir5E'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
       endUpon: 
     Unknown953: 1
@@ -7938,8 +7964,8 @@ beginState: s32'NmlAtkAir5C'
     upon: (BEFORE_EXIT)
       Unknown2581: s32'weapon', s32'G_wep_grip_R', s32'body', s32'G_holster_attach_R'
       endUpon: 
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       Unknown2121: s32'COS_FinishCamera_Pattern'
       endUpon: 
     Unknown2593: 0, 0
@@ -7950,8 +7976,8 @@ beginState: s32'NmlAtkAir5C'
   characterSfx: s32'SE_BTL_COS_02'
   sprite: s32'cos252_02', 3
   sprite: s32'cos252_03', 4
-  Unknown2193: 100, 150000, 160000
-  Unknown446: s32'COS_252_Muzzleflash', 130
+  exPointFReset: (PLAYER), 150000, 160000
+  createObject: s32'COS_252_Muzzleflash', (EX_POINT_F)
   hit: 
   Unknown621: 1, -1
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -8034,7 +8060,7 @@ beginState: s32'NmlAtkAir2B'
     endIf: 
   Unknown111: 60
   physicsYImpulse: 0, 25000
-  Unknown135: 
+  resetGravity: 
   sprite: s32'cos254_07', 4
   sprite: s32'cos254_08', 4
   sprite: s32'cos254_09', 5
@@ -8066,8 +8092,8 @@ beginState: s32'NmlAtkAir5E'
     enableJumpCancel: 1
     enableAirForwardDashCancel: 1
     callSubroutineWithArgs: s32'cmnAirMoveCancel', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       Unknown2121: s32'Cam_Crossup'
       endUpon: 
     upon: 60
@@ -8158,17 +8184,17 @@ beginState: s32'ThrowExe'
     callSubroutine: s32'cmnthrow_RedromanSenkoInput'
     callSubroutine: s32'cmnNohosei'
     callSubroutine: s32'cmnAtkTemplNage_LandBase'
-    Unknown711: 4
+    attackLevel: 4
     damage: 0, 60
     Unknown1108: 75
     Unknown1067: 4, 230000, 0
     hitStop: 12
-    Unknown1111: 0
+    disableHitstop: 0
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 25000
     hitAirPushbackY: 0, 4000
     rollDuration: 1
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     endUpon: 
   sprite: s32'keep', 1
   Unknown547: 1
@@ -8177,14 +8203,14 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1310, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 240000
-  Unknown448: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 240000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 11
-  Unknown2193: 100, 180000, 0
-  Unknown546: 130, 100, 0
+  exPointFReset: (PLAYER), 180000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
   Unknown2189: 2, 5
-  Unknown446: s32'Cam_Throw', 100
+  createObject: s32'Cam_Throw', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'cos310_01', 5
   sprite: s32'cos310_02', 10
@@ -8196,7 +8222,7 @@ beginState: s32'ThrowExe'
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   voiceLine: s16'vxxx106'
-  Unknown2341: s32'Impact', 500, 0, 30, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 500, 0, 30, 1801545843, s32'e_easeout'
   sprite: s32'cos310_06', 5
   sprite: s32'cos310_07', 5
   sprite: s32'cos310_08', 5
@@ -8252,7 +8278,7 @@ beginState: s32'AirThrowExe'
     callSubroutine: s32'cmnthrow_Redroman'
     callSubroutine: s32'cmnNohosei'
     callSubroutine: s32'cmnAtkTemplNage_AirBase'
-    Unknown711: 4
+    attackLevel: 4
     damage: 0, 60
     Unknown1108: -75
     Unknown1067: 4, 230000, 0
@@ -8270,20 +8296,20 @@ beginState: s32'AirThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1310, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 240000
-  Unknown448: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 240000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 34
-  Unknown2193: 100, 150000, 375000
-  Unknown546: 130, 115, 0
+  exPointFReset: (PLAYER), 150000, 375000
+  setGripPosition: (EX_POINT_F), (NECK), 0
   voiceLine: s16'vxxx106'
   Unknown2189: 2, 5
-  Unknown446: s32'Cam_AirThrow', 100
+  createObject: s32'Cam_AirThrow', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'cos320_01', 4
   sprite: s32'cos320_02', 4
-  Unknown2193: 100, 125000, 375000
-  Unknown546: 130, 115, 0
+  exPointFReset: (PLAYER), 125000, 375000
+  setGripPosition: (EX_POINT_F), (NECK), 0
   sprite: s32'cos320_03', 4
   sprite: s32'cos320_04', 4
   sprite: s32'cos320_05', 4
@@ -8295,7 +8321,7 @@ beginState: s32'AirThrowExe'
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
-  Unknown2341: s32'Impact', 500, 0, 30, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 500, 0, 30, 1801545843, s32'e_easeout'
   Unknown2526: 1, 1, 6, 0, 60, 100
   Unknown2591: 1, 1, 6, 0, 200, 100
   sprite: s32'cos320_09', 2
@@ -8306,7 +8332,7 @@ beginState: s32'AirThrowExe'
   sprite: s32'cos320_13', 4
   sprite: s32'cos320_14', 3
   sprite: s32'cos320_15', 2
-  Unknown135: 
+  resetGravity: 
   sprite: s32'cos020_08', 2
   sprite: s32'cos020_09', 2
   sprite: s32'cos020_10', 2
@@ -8327,9 +8353,9 @@ beginState: s32'AirThrowExe'
 
 beginState: s32'Conce_End'
   upon: (IMMEDIATE)
-    enableClashes: 0
+    enableRomanCancelMove: 0
     Unknown2249: 0
-    Unknown176: 1
+    haltMomentum: 1
     recoveryState: 
     checkInput: (INPUT_ANY_FORWARD)
     if: (VARIABLE), 0
@@ -8397,32 +8423,32 @@ beginState: s32'Conce_End'
   clearRegisteredUponCode: 12
   recoveryState: 
   Unknown2171: 0
-  Unknown1334: 1
-  Unknown1335: 1
-  enableWalkForwardCancel: 1
-  enableWalkBackCancel: 1
-  enableForwardDashCancel: 1
-  enableNormalCancel: 1
-  Unknown1348: 1
-  Unknown1364: 1
-  enableJumpCancelOnWhiff: 1
+  enableCrouch: 1
+  enableWalkForward: 1
+  enableForwardDash: 1
+  enableWalkBack: 1
+  enableBackDash: 1
+  enableNormals: 1
+  enableSpecials: 1
+  enableBurst: 1
+  enableJump: 1
   enableBlock: 1
-  Unknown1362: 1
+  enableProximityBlock: 1
   Unknown2172: 1
-  Unknown2438: 1
+  forceEnableBlueRomanCancel: 1
   Unknown2188: 0
   enableSuperArmor: 0
   ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
-    Unknown1335: 0
+    enableWalkForward: 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 6
-    enableWalkBackCancel: 0
+    enableWalkBack: 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 7
-    enableJumpCancelOnWhiff: 0
+    enableJump: 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 8
-    Unknown1334: 0
+    enableCrouch: 0
     endIf: 
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 5
     upon: 12
@@ -8431,7 +8457,7 @@ beginState: s32'Conce_End'
         ifNot: (VARIABLE), 0
           clearRegisteredUponCode: 12
           storeValue: (VARIABLE), 45, (STATIC), 0
-          Unknown1335: 1
+          enableWalkForward: 1
           endIf: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 6
@@ -8439,7 +8465,7 @@ beginState: s32'Conce_End'
         ifNot: (VARIABLE), 0
           clearRegisteredUponCode: 12
           storeValue: (VARIABLE), 45, (STATIC), 0
-          enableWalkBackCancel: 1
+          enableWalkBack: 1
           endIf: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 7
@@ -8447,7 +8473,7 @@ beginState: s32'Conce_End'
         ifNot: (VARIABLE), 0
           clearRegisteredUponCode: 12
           storeValue: (VARIABLE), 45, (STATIC), 0
-          enableJumpCancelOnWhiff: 1
+          enableJump: 1
           endIf: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 8
@@ -8455,7 +8481,7 @@ beginState: s32'Conce_End'
         ifNot: (VARIABLE), 0
           clearRegisteredUponCode: 12
           storeValue: (VARIABLE), 45, (STATIC), 0
-          Unknown1334: 1
+          enableCrouch: 1
           endIf: 
         endIf: 
       endUpon: 
@@ -8474,23 +8500,23 @@ beginState: s32'Conce_End'
 beginState: s32'HoldMiss'
   upon: (IMMEDIATE)
     Unknown2249: 0
-    Unknown176: 1
+    haltMomentum: 1
     recoveryState: 
     endUpon: 
   sprite: s32'cos271_00', 2
-  Unknown1342: 1
-  Unknown1364: 1
-  Unknown2438: 1
+  enableFaultlessDefenseCancel: 1
+  enableBurst: 1
+  forceEnableBlueRomanCancel: 1
   sprite: s32'cos271_00', 1
-  Unknown1342: 0
-  Unknown1364: 0
-  Unknown2438: 0
+  enableFaultlessDefenseCancel: 0
+  enableBurst: 0
+  forceEnableBlueRomanCancel: 0
   sprite: s32'cos271_01', 3
   sprite: s32'cos271_02', 4
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   characterSfx: s32'SE_BTL_COS_02'
   sprite: s32'cos271_03', 4
-  Unknown446: s32'COS_271_Failure', 100
+  createObject: s32'COS_271_Failure', (PLAYER)
   sprite: s32'cos271_04', 4
   sprite: s32'cos271_05', 4
   sprite: s32'cos271_06', 4
@@ -8524,18 +8550,18 @@ beginState: s32'HoldGunAtk'
     groundHitEffect: (AIR_STRONG)
     airHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 10000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 70000
-    Unknown770: 0, 70, 0, 6, 0, 10
+    hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
     hitGravity: (STATIC), 500
-    Unknown783: 0, 150, 0, 7, 0, 30
+    hitGravityOverTime: 0, 150, 0, 7, 0, 30
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -150000
     storeValue: (VARIABLE), 344, (STATIC), 0
     storeValue: (VARIABLE), 345, (STATIC), 0
     storeValue: (VARIABLE), 350, (STATIC), -10000
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       Unknown2121: s32'COS_FinishCamera_Pattern'
       endUpon: 
     storeValue: (VARIABLE), 27, (STATIC), 100
@@ -8552,7 +8578,7 @@ beginState: s32'HoldGunAtk'
   Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
   storeValue: (VARIABLE), 4, (STATIC), 1
   sprite: s32'cos213_02', 2
-  Unknown446: s32'COS_213_Slash', 100
+  createObject: s32'COS_213_Slash', (PLAYER)
   sprite: s32'cos213_03', 3
   hit: 
   sprite: s32'cos213_04', 2
@@ -8565,6 +8591,76 @@ beginState: s32'HoldGunAtk'
   sprite: s32'cos213_09', 3
   endState: 
 
+beginState: s32'Fanning'
+  upon: (IMMEDIATE)
+    tensionUsage: 2500
+	tensionCooldown: 120
+    callSubroutine: s32'cmn_AtkLv4'
+    callSubroutine: s32'cmn_countertype_middle'
+    damage: 0, 12
+	riscGain: 7
+	riscConsume: 5
+	hitStop: 3
+	blockstunAmount: 21
+	pushbackX: 25
+    storeValue: (VARIABLE), 338, (STATIC), 10000000
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutine: s32'cmn_hosei'
+    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutine: s32'cmn_fuwafuwafuwa'
+	airHitEffect: (AIR_STRONG)
+    hitAirPushbackX: 0, 5000
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
+    hitAirPushbackY: 0, 15000
+    hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
+    hitGravity: (STATIC), 0
+    hitGravityOverTime: 0, 150, 0, 7, 0, 30
+    Unknown953: 1
+    storeValue: (VARIABLE), 343, (STATIC), -150000
+    storeValue: (VARIABLE), 344, (STATIC), 0
+    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: (VARIABLE), 350, (STATIC), -10000
+	upon: (BEFORE_EXIT)
+	  Unknown2581: s32'weapon', s32'G_wep_grip_R', s32'body', s32'G_holster_attach_R'
+	  endIf:
+    endUpon: 
+  sprite: s32'cos406_00', 4
+  cmnSfx: s32'SE_BTL_SYS_Skill'
+  createParticle: s32'cmn_forcebreak', (HEART)
+  Unknown2581: s32'weapon', s32'G_wep_grip_R', s32'body', s32'G_grip_R'
+  sprite: s32'cos406_01', 2
+  sprite: s32'cos406_02', 2
+  sprite: s32'cos406_03', 10
+  sprite: s32'cos406_04', 3
+  randomVoiceLine2: s16'vxxx203', 60, s16'vxxx204', 50, s16'vxxx205', 50, s16'vxxx203', 50
+  createObject: s32'Fanning_Muzzleflash', (PLAYER)
+  hit: 
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  sprite: s32'cos406_05', 3
+  sprite: s32'cos406_06', 3
+  sprite: s32'cos406_04', 3
+  createObject: s32'Fanning_Muzzleflash', (PLAYER)
+  hit: 
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  sprite: s32'cos406_05', 3
+  sprite: s32'cos406_06', 3
+  sprite: s32'cos406_04', 3
+  createObject: s32'Fanning_Muzzleflash', (PLAYER)
+  hit: 
+  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  sprite: s32'cos406_05', 3
+  sprite: s32'cos406_06', 3
+  sprite: s32'cos406_07', 3
+  sprite: s32'cos406_08', 3
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'cos406_09', 4
+  sprite: s32'cos406_10', 4
+  sprite: s32'cos406_11', 4
+  sprite: s32'cos406_12', 4
+  Unknown2581: s32'weapon', s32'G_wep_grip_R', s32'body', s32'G_holster_attach_R'
+  endState: 
+  
 beginSubroutine: s32'SuperFlex_Start'
   enableWhiffCancel: 1
   addWhiffCancelOption: s32'COS_Ultimate1'
@@ -8573,8 +8669,8 @@ beginSubroutine: s32'SuperFlex_Start'
 
 beginSubroutine: s32'SuperFlex_End'
   enableWhiffCancel: 0
-  Unknown1657: s32'COS_Ultimate1'
-  Unknown1657: s32'Routine_Super'
+  removeWhiffCancelOption: s32'COS_Ultimate1'
+  removeWhiffCancelOption: s32'Routine_Super'
   endSubroutine: 
 
 beginState: s32'Routine'
@@ -8596,7 +8692,7 @@ beginState: s32'Routine'
       endElse: 
     endUpon: 
   sprite: s32'cos400_00', 2
-  Unknown446: s32'RoutineEff', 100
+  createObject: s32'RoutineEff', (PLAYER)
   callSubroutine: s32'SuperFlex_Start'
   sprite: s32'cos400_00', 2
   callSubroutine: s32'SuperFlex_End'
@@ -8646,8 +8742,8 @@ beginState: s32'ForwardRoll'
     upon: (BEFORE_EXIT)
       if: (VARIABLE), 4
         ifOperation: (IS_LESSER), (VARIABLE), 104, (STATIC), 0
-          Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
-          Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+          callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+          callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
           Unknown1691: 0
           endIf: 
         endIf: 
@@ -8662,7 +8758,7 @@ beginState: s32'ForwardRoll'
   sprite: s32'cos401_01', 3
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   sprite: s32'cos401_02', 3
-  Unknown446: s32'Forwardrotation_smoke', 100
+  createObject: s32'Forwardrotation_smoke', (PLAYER)
   voiceLine: s16'vxxx604'
   characterSfx: s32'SE_BTL_COS_16'
   sprite: s32'cos401_03', 3
@@ -8678,7 +8774,7 @@ beginState: s32'ForwardRoll'
   storeValue: (VARIABLE), 53, (STATIC), 1
   storeValue: (VARIABLE), 54, (STATIC), 1
   if: (VARIABLE), 4
-    Unknown1918: s32'cos_HoldGun', 0, 1, 0, 3, 0, 1, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 3, 0, 1, 0, 0
     Unknown1691: 0
     endIf: 
   sprite: s32'cos401_06', 3
@@ -8689,12 +8785,12 @@ beginState: s32'ForwardRoll'
     if: (VARIABLE), 4
       ifOperation: (IS_LESSER), (VARIABLE), 104, (STATIC), 0
         clearRegisteredUponCode: (FRAME_STEP)
-        Unknown1918: s32'cos_HoldGunAiming', 0, 2, 0, 400, 0, 30000, 0, 0
+        callPrivateFunction: s32'cos_HoldGunAiming', 0, 2, 0, 400, 0, 30000, 0, 0
         endIf: 
       endIf: 
     endUpon: 
   sprite: s32'cos401_07', 3
-  Unknown176: 1
+  haltMomentum: 1
   sprite: s32'cos401_08', 5
   sprite: s32'cos401_09', 2
   sprite: s32'cos401_10', 2
@@ -8717,12 +8813,12 @@ beginState: s32'Decoy'
   sprite: s32'cos402_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'cos402_01', 3
-  Unknown446: s32'Decoy_start', 100
+  createObject: s32'Decoy_start', (PLAYER)
   extendPushboxX: 50000
   voiceLine: s16'vxxx201'
   sprite: s32'cos402_02', 3
   sprite: s32'cos402_03', 3
-  Unknown446: s32'DecoyObj', 100
+  createObject: s32'DecoyObj', (PLAYER)
   storeValue: (VARIABLE), 45, (VARIABLE), 77
   storeValue: (VARIABLE), 46, (VARIABLE), 78
   modifyVar: (MUL), (VARIABLE), 45, (STATIC), 9
@@ -8771,7 +8867,7 @@ beginState: s32'Mark'
     callSubroutine: s32'HoldGunAtkCheck'
     endUpon: 
   sprite: s32'cos405_00', 2
-  Unknown446: s32'MarkingBall_Generation', 100
+  createObject: s32'MarkingBall_Generation', (PLAYER)
   callSubroutine: s32'SuperFlex_Start'
   sprite: s32'cos405_00', 1
   callSubroutine: s32'SuperFlex_End'
@@ -8785,7 +8881,7 @@ beginState: s32'Mark'
   Unknown2229: 92
   characterSfx: s32'SE_BTL_COS_10'
   sprite: s32'cos405_04', 3
-  Unknown446: s32'MarkObj', 100
+  createObject: s32'MarkObj', (PLAYER)
   voiceLine: s16'vxxx202'
   endLabel: 
   beginLabel: s32'loop'
@@ -8819,21 +8915,21 @@ beginSubroutine: s32'Sniper_Flex'
   endSubroutine: 
 
 beginSubroutine: s32'Sniper_DelFlex'
-  Unknown1657: s32'Routine'
-  Unknown1657: s32'Decoy'
-  Unknown1657: s32'Mark'
-  Unknown1657: s32'Reload'
-  Unknown1657: s32'SniperEnd'
-  Unknown1657: s32'ForwardRoll'
-  Unknown1657: s32'COS_Ultimate1'
-  Unknown1657: s32'Routine_Super'
+  removeWhiffCancelOption: s32'Routine'
+  removeWhiffCancelOption: s32'Decoy'
+  removeWhiffCancelOption: s32'Mark'
+  removeWhiffCancelOption: s32'Reload'
+  removeWhiffCancelOption: s32'SniperEnd'
+  removeWhiffCancelOption: s32'ForwardRoll'
+  removeWhiffCancelOption: s32'COS_Ultimate1'
+  removeWhiffCancelOption: s32'Routine_Super'
   endSubroutine: 
 
 beginSubroutine: s32'Sniper_ShotStart'
   enableWhiffCancel: 1
   callSubroutine: s32'Sniper_Flex'
   storeValue: (VARIABLE), 46, (STATIC), 1
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   endSubroutine: 
@@ -8853,24 +8949,24 @@ beginState: s32'Sniper'
   upon: (IMMEDIATE)
     Unknown1058: 1
     ifNot: (VARIABLE), 4
-      Unknown446: s32'COS_Concentration', 100
+      createObject: s32'COS_Concentration', (PLAYER)
       endIf: 
-    upon: 11
-      clearRegisteredUponCode: 11
+    upon: (RECEIVE_ATTACK)
+      clearRegisteredUponCode: (RECEIVE_ATTACK)
       clearRegisteredUponCode: (BEFORE_EXIT)
       storeValue: (VARIABLE), 27, (STATIC), 0
-      Unknown32: s32'AngleCheckObj'
+      deactivateObjectByName: s32'AngleCheckObj'
       endUpon: 
     storeValue: (VARIABLE), 55, (STATIC), 1
     upon: (BEFORE_EXIT)
       storeValue: (VARIABLE), 27, (STATIC), 0
-      Unknown32: s32'AngleCheckObj'
+      deactivateObjectByName: s32'AngleCheckObj'
       storeValue: (VARIABLE), 4, (STATIC), 1
       endUpon: 
     endUpon: 
   sprite: s32'cos410_00', 2
   callSubroutine: s32'SuperFlex_Start'
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
   Unknown1691: -1
   sprite: s32'cos410_01', 3
   callSubroutine: s32'SuperFlex_End'
@@ -8937,11 +9033,11 @@ beginState: s32'Sniper'
         enableWhiffCancel: 1
         addWhiffCancelOption: s32'SniperEndForce'
         if: (VARIABLE), 154
-          Unknown27: s32'SniperEnd'
+          jumpToState: s32'SniperEnd'
           endIf: 
         endIf: 
       endIf: 
-    Unknown446: s32'AngleCheckObj', 100
+    createObject: s32'AngleCheckObj', (PLAYER)
     Unknown43: 7, 1
     Unknown49: 87
     ifNot: (VARIABLE), 0
@@ -9088,10 +9184,10 @@ beginState: s32'Sniper'
   enableWhiffCancel: 1
   callSubroutine: s32'Sniper_Flex'
   endLabel: 
-  Unknown24: s32'mae_sita', 2, 47
-  Unknown24: s32'loop_mae', 2, 48
-  Unknown24: s32'mae_naname', 2, 49
-  Unknown24: s32'mae_ue', 2, 50
+  Unknown24: s16'mae_sita', s16'', 2, 47
+  Unknown24: s16'loop_mae', s16'', 2, 48
+  Unknown24: s16'mae_naname', s16'', 2, 49
+  Unknown24: s16'mae_ue', s16'', 2, 50
   beginLabel: s32'loop_mae'
   sprite: s32'cos413_00', 6
   storeValue: (VARIABLE), 46, (STATIC), 0
@@ -9253,11 +9349,11 @@ beginState: s32'Sniper'
   endLabel: 
   gotoLabel: s32'loop_ue'
   beginLabel: s32'turn'
-  Unknown24: s32'turn_ue', 2, 49
-  Unknown24: s32'turn_ue', 2, 50
+  Unknown24: s16'turn_ue', s16'', 2, 49
+  Unknown24: s16'turn_ue', s16'', 2, 50
   sprite: s32'cos419_00', 3
   storeValue: (VARIABLE), 46, (STATIC), 1
-  Unknown239: 
+  flipDirection: 
   sprite: s32'cos419_01', 3
   sprite: s32'cos419_02', 3
   endLabel: 
@@ -9270,7 +9366,7 @@ beginState: s32'Sniper'
   beginLabel: s32'turn_ue'
   sprite: s32'cos414_04', 3
   storeValue: (VARIABLE), 46, (STATIC), 1
-  Unknown239: 
+  flipDirection: 
   endLabel: 
   storeValue: (VARIABLE), 46, (STATIC), 0
   storeValue: (VARIABLE), 47, (STATIC), 0
@@ -9295,9 +9391,9 @@ beginState: s32'Sniper'
   sprite: s32'cos425_12', 1
   callSubroutine: s32'Sniper_ShotEnd'
   endLabel: 
-  Unknown24: s32'sita_mae', 2, 48
-  Unknown24: s32'sita_naname', 2, 49
-  Unknown24: s32'sita_ue', 2, 50
+  Unknown24: s16'sita_mae', s16'', 2, 48
+  Unknown24: s16'sita_naname', s16'', 2, 49
+  Unknown24: s16'sita_ue', s16'', 2, 50
   gotoLabel: s32'loop_sita'
   beginLabel: s32'shot_mae'
   sprite: s32'cos412_00', 2
@@ -9316,9 +9412,9 @@ beginState: s32'Sniper'
   sprite: s32'cos412_12', 1
   callSubroutine: s32'Sniper_ShotEnd'
   endLabel: 
-  Unknown24: s32'mae_sita', 2, 47
-  Unknown24: s32'mae_naname', 2, 49
-  Unknown24: s32'mae_ue', 2, 50
+  Unknown24: s16'mae_sita', s16'', 2, 47
+  Unknown24: s16'mae_naname', s16'', 2, 49
+  Unknown24: s16'mae_ue', s16'', 2, 50
   gotoLabel: s32'loop_mae'
   beginLabel: s32'shot_naname'
   sprite: s32'cos426_00', 2
@@ -9337,9 +9433,9 @@ beginState: s32'Sniper'
   sprite: s32'cos426_12', 1
   callSubroutine: s32'Sniper_ShotEnd'
   endLabel: 
-  Unknown24: s32'naname_sita', 2, 47
-  Unknown24: s32'naname_mae', 2, 48
-  Unknown24: s32'naname_ue', 2, 50
+  Unknown24: s16'naname_sita', s16'', 2, 47
+  Unknown24: s16'naname_mae', s16'', 2, 48
+  Unknown24: s16'naname_ue', s16'', 2, 50
   gotoLabel: s32'loop_naname'
   beginLabel: s32'shot_ue'
   sprite: s32'cos424_00', 2
@@ -9358,16 +9454,16 @@ beginState: s32'Sniper'
   sprite: s32'cos424_12', 1
   callSubroutine: s32'Sniper_ShotEnd'
   endLabel: 
-  Unknown24: s32'ue_sita', 2, 47
-  Unknown24: s32'ue_mae', 2, 48
-  Unknown24: s32'ue_naname', 2, 49
+  Unknown24: s16'ue_sita', s16'', 2, 47
+  Unknown24: s16'ue_mae', s16'', 2, 48
+  Unknown24: s16'ue_naname', s16'', 2, 49
   gotoLabel: s32'loop_ue'
   endState: 
 
 beginState: s32'SniperEnd'
   upon: (IMMEDIATE)
     recoveryState: 
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     checkCurrentStateEntryName: s32'SniperEndForce'
     if: (VARIABLE), 0
@@ -9397,7 +9493,7 @@ beginState: s32'SniperEnd'
 beginState: s32'Reload'
   upon: (IMMEDIATE)
     Unknown1058: 1
-    Unknown1918: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
+    callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 0, 0, 0, 0, 0
     Unknown1691: -1
     storeValue: (VARIABLE), 55, (STATIC), 1
     upon: (BEFORE_EXIT)
@@ -9405,14 +9501,14 @@ beginState: s32'Reload'
         Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_holster_attach_L'
         endIf: 
       else: 
-        Unknown1918: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
+        callPrivateFunction: s32'cos_HoldGun', 0, 1, 0, 0, 0, 0, 0, 0
         Unknown1691: 0
         storeValue: (VARIABLE), 27, (STATIC), 0
         endElse: 
       endUpon: 
     Unknown2581: s32'weapon', s32'G_wep_grip_L', s32'body', s32'G_grip_L'
     endUpon: 
-  Unknown24: s32'hold', 2, 4
+  Unknown24: s16'hold', s16'', 2, 4
   beginLabel: s32'nohold'
   sprite: s32'cos274_12', 2
   callSubroutine: s32'SuperFlex_Start'
@@ -9420,7 +9516,7 @@ beginState: s32'Reload'
   callSubroutine: s32'SuperFlex_End'
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'cos274_14', 3
-  Unknown446: s32'Reload_Parent', 100
+  createObject: s32'Reload_Parent', (PLAYER)
   characterSfx: s32'SE_BTL_COS_02'
   sprite: s32'cos274_15', 4
   sprite: s32'cos274_16', 3
@@ -9441,14 +9537,14 @@ beginState: s32'Reload'
   ifOperation: (IS_EQUAL), (VARIABLE), 26, (STATIC), 6
     storeValue: (VARIABLE), 45, (STATIC), 1
     endIf: 
-  Unknown25: s32'loop', 2, 45
+  Unknown25: s16'loop', s16'', 2, 45
   beginLabel: s32'End'
   sprite: s32'cos274_21', 2
   sprite: s32'cos274_22', 2
   sprite: s32'cos274_23', 2
   characterSfx: s32'SE_BTL_COS_02_1'
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   storeValue: (VARIABLE), 26, (STATIC), 6
   exitState: 
   beginLabel: s32'hold'
@@ -9459,7 +9555,7 @@ beginState: s32'Reload'
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   characterSfx: s32'SE_BTL_COS_02'
   sprite: s32'cos274_02', 3
-  Unknown446: s32'Reload_Parent', 100
+  createObject: s32'Reload_Parent', (PLAYER)
   sprite: s32'cos274_03', 4
   sprite: s32'cos274_04', 3
   sprite: s32'cos274_05', 3
@@ -9484,21 +9580,21 @@ beginState: s32'Reload'
   ifOperation: (IS_EQUAL), (VARIABLE), 26, (STATIC), 6
     storeValue: (VARIABLE), 45, (STATIC), 1
     endIf: 
-  Unknown25: s32'hold_loop', 2, 45
-  Unknown24: s32'End', 2, 45
+  Unknown25: s16'hold_loop', s16'', 2, 45
+  Unknown24: s16'End', s16'', 2, 45
   sprite: s32'cos274_09', 2
   sprite: s32'cos274_10', 2
   sprite: s32'cos274_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   storeValue: (VARIABLE), 26, (STATIC), 6
   characterSfx: s32'SE_BTL_COS_02_1'
   endState: 
 
 beginState: s32'COS_Ultimate1'
   upon: (IMMEDIATE)
-    Unknown1971: 1
-    Unknown176: 1
+    pauseTimer: 1
+    haltMomentum: 1
     Unknown1058: 1
     Unknown2249: 0
     storeValue: (VARIABLE), 54, (STATIC), 1
@@ -9506,22 +9602,22 @@ beginState: s32'COS_Ultimate1'
     storeValue: (VARIABLE), 48, (STATIC), 1
     Unknown2526: 0, 0, 0, 0, 0, 0
     Unknown2591: 0, 0, 0, 0, 0, 0
-    upon: 99
-      clearRegisteredUponCode: 99
-      clearRegisteredUponCode: 50
+    upon: (WALL_BREAK)
+      clearRegisteredUponCode: (WALL_BREAK)
+      clearRegisteredUponCode: (SUPERFREEZE)
       Unknown2560: 0
-      Unknown1972: 0
-      Unknown428: 0, 10
-      Unknown427: 0, 10
+      hideUI: 0
+      resetDOF: 0, 10
+      resetSaturation: 0, 10
       Unknown429: 0, 10
-      Unknown27: s32'WSB_Master_Wait'
+      jumpToState: s32'WSB_Master_Wait'
       upon: (BEFORE_EXIT)
-        Unknown2065: 
-        Unknown2066: 
+        resetDefaultMeshSet: 
+        changeDefaultMeshSet: 
         endUpon: 
       endUpon: 
     endUpon: 
-  Unknown24: s32'Conce', 2, 4
+  Unknown24: s16'Conce', s16'', 2, 4
   sprite: s32'cos213_00', 3
   storeValue: (VARIABLE), 4, (STATIC), 1
   sprite: s32'cos213_01', 3
@@ -9532,7 +9628,7 @@ beginState: s32'COS_Ultimate1'
   gotoLabel: s32'start'
   beginLabel: s32'Conce'
   sprite: s32'cos530_00', 3
-  Unknown1918: s32'cos_HoldGun', 0, 0, 0, 3, 0, 3, 0, 0
+  callPrivateFunction: s32'cos_HoldGun', 0, 0, 0, 3, 0, 3, 0, 0
   Unknown1691: -1
   sprite: s32'cos530_01', 3
   sprite: s32'cos530_02', 3
@@ -9540,25 +9636,25 @@ beginState: s32'COS_Ultimate1'
   endLabel: 
   beginLabel: s32'start'
   sprite: s32'cos530_03', 194
-  enableClashes: 0
-  Unknown271: 1, 119, 192, 193
-  upon: 50
+  enableRomanCancelMove: 0
+  superFreeze: 1, 119, 192, 193
+  upon: (SUPERFREEZE)
     storeValue: (VARIABLE), 26, (STATIC), 6
-    clearRegisteredUponCode: 50
+    clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnCameraSettings'
     cmnSfx: s32'SE_BTL_SYS_SKill'
     callSubroutine: s32'cmnWorldStop_Tension'
     Unknown2189: 2, 5
-    Unknown2095: 250, 100
+    fadeOut: 250, 100
     storeValue: (VARIABLE), 4, (STATIC), 1
     storeValue: (VARIABLE), 203, (STATIC), 100
-    Unknown2060: s32'500cs'
-    Unknown2045: s32'cos500cs', 0
-    Unknown2052: s32'cos500cs', 23, 20, 10
+    swapMeshSet: s32'500cs'
+    playAnimation: s32'cos500cs', 0
+    playCameraAnimation: s32'cos500cs', 23, 20, 10
     Unknown2560: 1
-    Unknown1972: 1
-    Unknown446: s32'AngleCheckObj', 100
+    hideUI: 1
+    createObject: s32'AngleCheckObj', (PLAYER)
     Unknown43: 7, 1
     Unknown2500: 12, 7, (VARIABLE), 1, (STATIC), 30000
       storeValue: (VARIABLE), 47, (STATIC), 1
@@ -9572,27 +9668,27 @@ beginState: s32'COS_Ultimate1'
     Unknown2500: 12, 7, (VARIABLE), 1, (STATIC), 150000
       storeValue: (VARIABLE), 47, (STATIC), 4
       endIf: 
-    Unknown428: 1, 1
+    resetDOF: 1, 1
     Unknown412: -1, 700, 0
     Unknown413: -1, 0, 0
     Unknown414: -1, 0, 0
     Unknown415: -1, 500, 0
     Unknown416: -1, 0, 0
     Unknown417: -1, 40, 10
-    Unknown427: 1, 1
+    resetSaturation: 1, 1
     Unknown410: -1, 800, 40
     Unknown429: 1, 1
     Unknown425: -1, 1400, 40
     Unknown426: -1, 0, 40
     upon: (FRAME_STEP)
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 0
-        Unknown2524: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
-        Unknown2524: s32'Hand_L', 0, 0, 0, 0, 0, 0, 0
-        Unknown378: '0x5A0000006E000000820000003C000000'
-        Unknown379: '0x3000000042000000460000003C000000'
+        boneRotation: s32'LowArm_L', 0, 0, 0, 0, 0, 0, 0
+        boneRotation: s32'Hand_L', 0, 0, 0, 0, 0, 0, 0
+        overrideLightColor: 90, 110, 130, 60
+        overrideAmbientColor: 48, 66, 70, 60
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
-        Unknown446: s32'CS500_cos', 100
+        createObject: s32'CS500_cos', (PLAYER)
         characterSfx: s32'SE_BTL_COS_KAKUSEI_00'
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 23
@@ -9606,10 +9702,10 @@ beginState: s32'COS_Ultimate1'
         Unknown2589: s32'PP_ColorBurn01', 1, 40
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 31
-        Unknown2244: 1
+        hideAllButSelf: 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 165
-        Unknown2244: 0
+        hideAllButSelf: 0
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 145
         callSubroutineWithArgs: s32'cmnCameraSettings', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
@@ -9666,102 +9762,102 @@ beginState: s32'COS_Ultimate1'
   upon: (FRAME_STEP)
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 0
       Unknown2279: 2, 47, 0, 0
-      Unknown445: s32'Kakusei_Warphole', 100
+      createObjectWithArg: s32'Kakusei_Warphole', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 4
       Unknown2279: 2, 47, 0, 0
-      Unknown445: s32'Kakusei_Wind', 100
-      Unknown446: s32'Kakusei_Warphole_shot', 132
+      createObjectWithArg: s32'Kakusei_Wind', (PLAYER)
+      createObject: s32'Kakusei_Warphole_shot', (ENEMY_CENTER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 6
       Unknown2279: 2, 47, 0, 0
-      Unknown445: s32'Kakusei_Shot_smoke', 125
-      Unknown446: s32'KakuseiStartObj', 132
+      createObjectWithArg: s32'Kakusei_Shot_smoke', (FRONT_1_BODY)
+      createObject: s32'KakuseiStartObj', (ENEMY_CENTER)
       recoveryState: 
       endIf: 
     if: (VARIABLE), 48
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 9
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 12
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_R', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 14
         Unknown2279: 2, 47, 0, 0
-        Unknown445: s32'Kakusei_Shot_smoke', 125
-        Unknown446: s32'KakuseiShotObj', 132
+        createObjectWithArg: s32'Kakusei_Shot_smoke', (FRONT_1_BODY)
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 17
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_R', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 22
         Unknown2279: 2, 47, 0, 0
-        Unknown445: s32'Kakusei_Shot_smoke', 125
-        Unknown446: s32'KakuseiShotObj', 132
+        createObjectWithArg: s32'Kakusei_Shot_smoke', (FRONT_1_BODY)
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 25
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 28
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_R', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 30
         Unknown2279: 2, 47, 0, 0
-        Unknown445: s32'Kakusei_Shot_smoke', 125
-        Unknown446: s32'KakuseiShotObj', 132
+        createObjectWithArg: s32'Kakusei_Shot_smoke', (FRONT_1_BODY)
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 33
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 36
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_R', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 38
         Unknown2279: 2, 47, 0, 0
-        Unknown445: s32'Kakusei_Shot_smoke', 125
-        Unknown446: s32'KakuseiShotObj', 132
+        createObjectWithArg: s32'Kakusei_Shot_smoke', (FRONT_1_BODY)
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 41
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 44
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_R', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 46
         Unknown2279: 2, 47, 0, 0
-        Unknown445: s32'Kakusei_Shot_smoke', 125
-        Unknown446: s32'KakuseiShotObj', 132
+        createObjectWithArg: s32'Kakusei_Shot_smoke', (FRONT_1_BODY)
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 49
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 52
-        Unknown446: s32'KakuseiShotObj', 132
+        createObject: s32'KakuseiShotObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_R', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
@@ -9771,11 +9867,11 @@ beginState: s32'COS_Ultimate1'
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 62
         Unknown1803: s32'Kakusei_Warphole', 23
         Unknown1803: s32'Kakusei_Wind', 23
-        Unknown446: s32'KakuseiFinishObj', 132
+        createObject: s32'KakuseiFinishObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
-        upon: 99
-          clearRegisteredUponCode: 99
+        upon: (WALL_BREAK)
+          clearRegisteredUponCode: (WALL_BREAK)
           upon: 36
             if: (VARIABLE), 315
               clearRegisteredUponCode: 36
@@ -9799,10 +9895,10 @@ beginState: s32'COS_Ultimate1'
           endUpon: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 70
-        Unknown2096: 10
+        fadeIn: 10
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 73
-        clearRegisteredUponCode: 99
+        clearRegisteredUponCode: (WALL_BREAK)
         endIf: 
       endIf: 
     else: 
@@ -9812,7 +9908,7 @@ beginState: s32'COS_Ultimate1'
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 17
         Unknown1803: s32'Kakusei_Warphole', 23
         Unknown1803: s32'Kakusei_Wind', 23
-        Unknown446: s32'KakuseiFinishObj', 132
+        createObject: s32'KakuseiFinishObj', (ENEMY_CENTER)
         Unknown2278: s32'muzzle_L', 0, 3
         Unknown449: s32'cos_muzzleflash', 100
         endIf: 
@@ -9828,7 +9924,7 @@ beginState: s32'COS_Ultimate1'
   sprite: s32'cos500_02', 2
   sprite: s32'cos500_03', 3
   endLabel: 
-  Unknown25: s32'end_6', 2, 48
+  Unknown25: s16'end_6', s16'', 2, 48
   sprite: s32'cos500_04', 3
   sprite: s32'cos500_05', 2
   endLabel: 
@@ -9861,7 +9957,7 @@ beginState: s32'COS_Ultimate1'
   sprite: s32'cos501_02', 2
   sprite: s32'cos501_03', 3
   endLabel: 
-  Unknown25: s32'end_9', 2, 48
+  Unknown25: s16'end_9', s16'', 2, 48
   sprite: s32'cos501_04', 3
   sprite: s32'cos501_05', 2
   endLabel: 
@@ -9893,7 +9989,7 @@ beginState: s32'COS_Ultimate1'
   sprite: s32'cos502_02', 2
   sprite: s32'cos502_03', 3
   endLabel: 
-  Unknown25: s32'end_8', 2, 48
+  Unknown25: s16'end_8', s16'', 2, 48
   sprite: s32'cos502_04', 3
   sprite: s32'cos502_05', 2
   endLabel: 
@@ -9925,7 +10021,7 @@ beginState: s32'COS_Ultimate1'
   sprite: s32'cos503_02', 2
   sprite: s32'cos503_03', 3
   endLabel: 
-  Unknown25: s32'end_7', 2, 48
+  Unknown25: s16'end_7', s16'', 2, 48
   sprite: s32'cos503_04', 3
   sprite: s32'cos503_05', 2
   endLabel: 
@@ -9957,7 +10053,7 @@ beginState: s32'COS_Ultimate1'
   sprite: s32'cos504_02', 2
   sprite: s32'cos504_03', 3
   endLabel: 
-  Unknown25: s32'end_4', 2, 48
+  Unknown25: s16'end_4', s16'', 2, 48
   sprite: s32'cos504_04', 3
   sprite: s32'cos504_05', 2
   endLabel: 
@@ -9985,28 +10081,28 @@ beginState: s32'COS_Ultimate1'
 
 beginState: s32'Routine_Super'
   upon: (IMMEDIATE)
-    Unknown1971: 1
+    pauseTimer: 1
     Unknown1058: 1
     Unknown2249: 0
     Unknown2526: 0, 0, 0, 0, 0, 0
     Unknown2591: 0, 0, 0, 0, 0, 0
-    upon: 99
-      Unknown27: s32'WSB_Master_Wait'
-      clearRegisteredUponCode: 99
-      clearRegisteredUponCode: 50
+    upon: (WALL_BREAK)
+      jumpToState: s32'WSB_Master_Wait'
+      clearRegisteredUponCode: (WALL_BREAK)
+      clearRegisteredUponCode: (SUPERFREEZE)
       endUpon: 
     endUpon: 
   sprite: s32'cos505_00', 4
-  Unknown446: s32'RoutineSuperEff01', 100
+  createObject: s32'RoutineSuperEff01', (PLAYER)
   sprite: s32'cos505_01', 3
-  enableClashes: 0
-  Unknown271: 1, 119, 51, 52
-  upon: 50
-    clearRegisteredUponCode: 50
+  enableRomanCancelMove: 0
+  superFreeze: 1, 119, 51, 52
+  upon: (SUPERFREEZE)
+    clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnWorldStop_Tension'
     cmnSfx: s32'SE_BTL_SYS_SKill'
-    Unknown448: s32'cmn_kakusei_hatudo', 119
+    createParticle: s32'cmn_kakusei_hatudo', (HEART)
     Unknown1694: 0, 500, 0, 28, 0, 4, 0, 4
     voiceLine: s16'vxxx250'
     characterSfx: s32'SE_BTL_COS_KAKUSEI_03'
@@ -10015,7 +10111,7 @@ beginState: s32'Routine_Super'
       endUpon: 
     recoveryState: 
     Unknown2189: 2, 5
-    Unknown446: s32'Cam_Routine', 100
+    createObject: s32'Cam_Routine', (PLAYER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     endUpon: 
   sprite: s32'cos505_02', 3
@@ -10053,9 +10149,9 @@ beginState: s32'Routine_Super'
   sprite: s32'cos505_06', 3
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'loop', 2, 45
+  Unknown24: s16'loop', s16'', 2, 45
   sprite: s32'cos505_07', 4
-  Unknown446: s32'RoutineSuperEff02', 100
+  createObject: s32'RoutineSuperEff02', (PLAYER)
   sprite: s32'cos505_08', 4
   sprite: s32'cos505_09', 4
   sprite: s32'cos505_10', 4
@@ -10111,7 +10207,7 @@ beginState: s32'WSB_Master_Slide'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Slide'
@@ -10194,7 +10290,7 @@ beginState: s32'WSB_Slave_Slide'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Master_Up'
@@ -10250,7 +10346,7 @@ beginState: s32'WSB_Master_Up'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Up'
@@ -10347,7 +10443,7 @@ beginState: s32'WSB_Slave_Up'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Master_Down'
@@ -10403,7 +10499,7 @@ beginState: s32'WSB_Master_Down'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Down'
@@ -10491,7 +10587,7 @@ beginState: s32'WSB_Slave_Down'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Master_Bound'
@@ -10534,7 +10630,7 @@ beginState: s32'WSB_Master_Bound'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Bound'
@@ -10643,7 +10739,7 @@ beginState: s32'WSB_Slave_Bound'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Assist'
@@ -10678,7 +10774,7 @@ beginState: s32'WSB_Assist'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Master_DS'
@@ -10713,7 +10809,7 @@ beginState: s32'WorldSideBreak_Master_DS'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Slave_DS'
@@ -10750,7 +10846,7 @@ beginState: s32'WorldSideBreak_Slave_DS'
   endLabel: 
   beginLabel: s32'2stand'
   sprite: s32'cos061_00', 4
-  Unknown446: s32'cos061Obj', 100
+  createObject: s32'cos061Obj', (PLAYER)
   sprite: s32'cos061_01', 4
   sprite: s32'cos061_02', 4
   sprite: s32'cos061_03', 4
@@ -10759,7 +10855,7 @@ beginState: s32'WorldSideBreak_Slave_DS'
   sprite: s32'cos061_06', 3
   sprite: s32'cos061_07', 3
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Master_DF'
@@ -10773,7 +10869,7 @@ beginState: s32'WorldSideBreak_Master_DF'
   gotoLabel: s32'loop'
   beginLabel: s32'landing'
   sprite: s32'cos021_18', 3
-  Unknown448: s32'bg_dash_default', 100
+  createParticle: s32'bg_dash_default', (PLAYER)
   sprite: s32'cos021_19', 3
   sprite: s32'cos021_20', 3
   sprite: s32'cos021_21', 3
@@ -10785,7 +10881,7 @@ beginState: s32'WorldSideBreak_Master_DF'
   sprite: s32'cos021_27', 3
   sprite: s32'cos021_28', 3
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Slave_DF'
@@ -10812,7 +10908,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'cos033_00', 1
-  Unknown448: s32'cmn_dashbrake_default', 143
+  createParticle: s32'cmn_dashbrake_default', (EX_POINT_PG)
   sprite: s32'cos033_01', 1
   sprite: s32'cos033_02', 1
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'
@@ -10829,7 +10925,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   sprite: s32'cos033_13', 2
   sprite: s32'cos033_14', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'vsJKO_ElysionDriver'

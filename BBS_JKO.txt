@@ -17,7 +17,7 @@ beginState: s32'EventStand'
 
 beginState: s32'EventStand_2'
   sprite: s32'jko003_00', 3
-  Unknown239: 
+  flipDirection: 
   sprite: s32'jko003_01', 2
   sprite: s32'jko003_02', 2
   sprite: s32'jko003_03', 2
@@ -43,7 +43,7 @@ beginState: s32'EventFall'
     Unknown94: 0, -732000
     Unknown99: 0, 500000
     physicsXImpulse: 0, 20000
-    Unknown135: 
+    resetGravity: 
     upon: (TOUCH_GROUND)
       Unknown268: 1
       Unknown14: s32'landing'
@@ -58,7 +58,7 @@ beginState: s32'EventFall'
   gotoLabel: s32'jump_loop'
   beginLabel: s32'landing'
   sprite: s32'jko033_00', 3
-  Unknown176: 1
+  haltMomentum: 1
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'
   sprite: s32'jko033_01', 3
   sprite: s32'jko033_02', 3
@@ -74,7 +74,7 @@ beginState: s32'EventFall'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event020'
@@ -84,7 +84,7 @@ beginState: s32'Event020'
   physicsYImpulse: 0, 60000
   Unknown287: 0
   cmnSfx: s32'SE_BTL_CMN_JumpEX'
-  Unknown448: s32'cmn_hijump_obj', 100
+  createParticle: s32'cmn_hijump_obj', (PLAYER)
   sprite: s32'jko020_02', 3
   sprite: s32'jko020_03', 3
   sprite: s32'jko020_04', 3
@@ -93,8 +93,8 @@ beginState: s32'Event020'
   sprite: s32'jko020_07', 2
   sprite: s32'jko020_08', 2
   sprite: s32'jko020_09', 3
-  Unknown2055: 0
-  Unknown176: 1
+  displayModel: 0
+  haltMomentum: 1
   Unknown2036: 3, 131
   endState: 
 
@@ -105,7 +105,7 @@ beginState: s32'Event020_2'
   physicsYImpulse: 0, 60000
   Unknown287: 0
   cmnSfx: s32'SE_BTL_CMN_JumpEX'
-  Unknown448: s32'cmn_hijump_obj', 100
+  createParticle: s32'cmn_hijump_obj', (PLAYER)
   sprite: s32'jko020_02', 3
   sprite: s32'jko020_03', 3
   sprite: s32'jko020_04', 3
@@ -114,8 +114,8 @@ beginState: s32'Event020_2'
   sprite: s32'jko020_07', 2
   sprite: s32'jko020_08', 2
   sprite: s32'jko020_09', 3
-  Unknown2055: 0
-  Unknown176: 1
+  displayModel: 0
+  haltMomentum: 1
   Unknown2036: 3, 131
   endState: 
 
@@ -186,7 +186,7 @@ beginState: s32'Event001'
   sprite: s32'jko001_24', 6
   sprite: s32'jko001_25', 6
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event300'
@@ -225,7 +225,7 @@ beginState: s32'Event300'
   sprite: s32'jko300_22', 6
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-  Unknown24: s32'TypeA_Loop', 2, 45
+  Unknown24: s16'TypeA_Loop', s16'', 2, 45
   beginLabel: s32'TypeA_Next'
   sprite: s32'jko300_23', 6
   sprite: s32'jko300_24', 6
@@ -234,7 +234,7 @@ beginState: s32'Event300'
   sprite: s32'jko300_27', 6
   sprite: s32'jko300_28', 6
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event301'
@@ -295,11 +295,11 @@ beginState: s32'Event301'
   sprite: s32'jko301_29', 6
   sprite: s32'jko301_30', 6
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event302'
-  Unknown24: s32'Apoint', 2, 60
+  Unknown24: s16'Apoint', s16'', 2, 60
   sprite: s32'jko302_00', 5
   sprite: s32'jko302_01', 5
   sprite: s32'jko302_02', 5
@@ -340,10 +340,10 @@ beginState: s32'Event302'
   sprite: s32'jko302_18', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 46, (STATIC), -1
-  Unknown24: s32'Cpoint', 2, 46
+  Unknown24: s16'Cpoint', s16'', 2, 46
   sprite: s32'jko302_19', 5
   endLabel: 
-  Unknown24: s32'Dpoint', 2, 60
+  Unknown24: s16'Dpoint', s16'', 2, 60
   sprite: s32'jko302_20', 5
   sprite: s32'jko302_21', 5
   sprite: s32'jko302_22', 5
@@ -384,7 +384,7 @@ beginState: s32'Event302'
   sprite: s32'jko302_47', 5
   beginLabel: s32'Epoint'
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event305'
@@ -397,7 +397,7 @@ beginState: s32'Event305'
   sprite: s32'jko305_03', 7
   characterSfx: s32'SE_BTL_JKO_07_1'
   sprite: s32'jko305_04', 7
-  Unknown446: s32'JKO_305_Eff', 100
+  createObject: s32'JKO_305_Eff', (PLAYER)
   Unknown2177: 3, 100
   sprite: s32'jko305_05', 7
   characterSfx: s32'SE_BTL_JKO_13_1'
@@ -406,12 +406,12 @@ beginState: s32'Event305'
   characterSfx: s32'SE_BTL_JKO_07_1'
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeA_loop', 2, 45
+  Unknown24: s16'TypeA_loop', s16'', 2, 45
   sprite: s32'jko305_08', 3
   sprite: s32'jko305_09', 3
   sprite: s32'jko305_10', 3
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event306'
@@ -426,7 +426,7 @@ beginState: s32'Event306'
   sprite: s32'jko306_07', 6
   sprite: s32'jko306_08', 6
   sprite: s32'jko306_09', 6
-  Unknown446: s32'JKO_306_Eff', 100
+  createObject: s32'JKO_306_Eff', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_12'
   sprite: s32'jko306_10', 6
   cmnSfx: s32'GG2_046'
@@ -437,11 +437,11 @@ beginState: s32'Event306'
   sprite: s32'jko306_15', 6
   sprite: s32'jko306_16', 6
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event307'
-  Unknown24: s32'Apoint', 2, 60
+  Unknown24: s16'Apoint', s16'', 2, 60
   sprite: s32'jko307_00', 5
   sprite: s32'jko307_01', 5
   sprite: s32'jko307_02', 5
@@ -490,7 +490,7 @@ beginState: s32'Event307'
   sprite: s32'jko307_19', 5
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   sprite: s32'jko307_20', 5
-  Unknown24: s32'Cpoint', 2, 60
+  Unknown24: s16'Cpoint', s16'', 2, 60
   sprite: s32'jko307_21', 5
   sprite: s32'jko307_22', 5
   sprite: s32'jko307_23', 5
@@ -532,7 +532,7 @@ beginState: s32'Event307'
   sprite: s32'jko307_45', 5
   beginLabel: s32'Dpoint'
   sprite: s32'keep', 1
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'Event615'
@@ -596,7 +596,7 @@ beginState: s32'Event616'
   endLabel: 
   beginLabel: s32'TypeB_loop'
   sprite: s32'jko616_15', 8
-  Unknown448: s32'jko_616win_bake', 100
+  createParticle: s32'jko_616win_bake', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_00_1'
   sprite: s32'jko616_16', 8
   sprite: s32'jko616_17', 8
@@ -660,7 +660,7 @@ beginState: s32'Event350'
   sprite: s32'jko350_16', 2
   sprite: s32'jko350_17', 2
   endLabel: 
-  Unknown27: s32'EventStand'
+  jumpToState: s32'EventStand'
   endState: 
 
 beginState: s32'EventFusion'
@@ -700,13 +700,13 @@ beginState: s32'EventFusion'
   sprite: s32'jko030_15', 4
   sprite: s32'jko030_16', 4
   physicsXImpulse: 0, 0
-  Unknown176: 1
-  Unknown2055: 0
+  haltMomentum: 1
+  displayModel: 0
   sprite: s32'jko030_16', 10
   endState: 
 
 beginSubroutine: s32'PreInit'
-  Unknown1264: s16'jko'
+  charaName: s16'jko'
   endSubroutine: 
 
 beginSubroutine: s32'PreInit2nd'
@@ -717,11 +717,11 @@ beginSubroutine: s32'RoundInit'
   walkFSpeed: 6600
   walkBSpeed: 5000
   initDashFSpeed: 12900
-  Unknown1226: 630
-  Unknown1227: 100
-  Unknown1215: 15750
-  Unknown1216: 5250
-  Unknown1217: 700
+  fDashAccelSpeed: 630
+  fDashFriction: 100
+  bDashXSpeed: 15750
+  bDashYSpeed: 5250
+  bDashGravity: 700
   forwardJumpDistance: 8750
   backwardJumpDistance: 8750
   jumpHeight: 40000
@@ -729,33 +729,33 @@ beginSubroutine: s32'RoundInit'
   forwardSuperJumpDistance: 8750
   backwardSuperJumpDistance: 8750
   superJumpHeight: 43700
-  Unknown1225: 1900
+  superJumpGravity: 1900
   Unknown1232: 105000
-  Unknown1233: 12
-  Unknown1251: 30625
-  Unknown1242: 17
-  Unknown1234: 10
+  airFDashTime: 12
+  airdashFSpeed: 30625
+  airFDashNoAttackTime: 5
+  airBDashTime: 10
   airDashBackVelocity: 22750
-  Unknown1243: 5
+  airBDashNoAttackTime: 5
   doubleJumpCount: 1
   airDashCount: 1
-  Unknown1236: 30
-  Unknown1237: 2
+  defence: 30
+  guts: 2
   Unknown1248: 28
   Unknown1249: 155
   recievedHitPushbackPercentage: 105
-  Unknown1244: 5
-  Unknown1245: 3
-  Unknown1246: 10
-  Unknown1247: 5
-  Unknown1253: 110000
-  Unknown1254: 300000
-  Unknown1255: 120000
-  Unknown1256: 250000
-  Unknown1257: 100000
-  Unknown1258: 275000
-  Unknown1259: -125000
-  Unknown1260: 270000
+  forwardWalkTension: 5
+  forwardJumpTension: 3
+  forwardDashTension: 10
+  airFDashTension: 5
+  pushboxWidthStand: 110000
+  pushboxHeightStand: 300000
+  pushboxWidthCrouch: 120000
+  pushboxHeightCrouch: 250000
+  pushboxWidthAir: 100000
+  pushboxHeightAir: 275000
+  pushboxHeightLowAir: -125000
+  closeSlashRange: 270000
   Unknown1262: 3
   Unknown1288: 0
   Unknown1268: 0
@@ -768,7 +768,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_P)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -327, -361, 235, 103
     Unknown1564: 
     Unknown1538: 75
@@ -780,7 +780,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_P)
     moveInput: (INPUT_ANY_FORWARD)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -364, -475, 303, 285
     Unknown1568: 
     Unknown1538: 75
@@ -790,7 +790,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (CROUCHING)
     moveInput: (INPUT_PRESS_P)
     moveInput: (INPUT_ANY_DOWN)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -295, -204, 224, 146
     Unknown1564: 
     Unknown1538: 75
@@ -801,7 +801,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_K)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -454, -392, 356, 232
     Unknown1564: 
     endMove: 
@@ -810,7 +810,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (CROUCHING)
     moveInput: (INPUT_PRESS_K)
     moveInput: (INPUT_ANY_DOWN)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -369, -152, 332, 168
     Unknown1564: 
     Unknown1566: 
@@ -820,8 +820,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_S)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 72
-    addMoveFlag: 16
+    addMoveFlag: (CLOSE_SLASH)
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -265, -352, 234, 357
     Unknown1560: 
     Unknown1558: 
@@ -833,8 +833,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_S)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 73
-    addMoveFlag: 16
+    addMoveFlag: (FAR_SLASH)
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -466, -330, 368, 326
     Unknown1560: 
     Unknown1538: 125
@@ -844,7 +844,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (CROUCHING)
     moveInput: (INPUT_PRESS_S)
     moveInput: (INPUT_ANY_DOWN)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -187, -516, 302, 390
     Unknown1560: 
     Unknown1538: 125
@@ -855,7 +855,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_H)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -583, -345, 581, 265
     Unknown1560: 
     Unknown1538: 125
@@ -866,7 +866,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_H)
     moveInput: (INPUT_ANY_FORWARD)
     moveInput: (INPUT_DISALLOW_UP)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -745, -680, 623, 329
     Unknown1560: 
     Unknown1538: 75
@@ -876,7 +876,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (CROUCHING)
     moveInput: (INPUT_PRESS_H)
     moveInput: (INPUT_ANY_DOWN)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -294, -230, 295, 241
     Unknown1560: 
     Unknown1538: 125
@@ -892,7 +892,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (NORMAL)
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_D)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -745, -680, 623, 329
     Unknown1565: 
     Unknown1558: 
@@ -909,26 +909,26 @@ beginSubroutine: s32'RoundInit'
     endMove: 
   addMove: s32'NmlAtk5F'
     moveType: (NORMAL)
-    Unknown1414: 1
+    moveSubType: 1
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_TAUNT)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1538: 0
     endMove: 
   addMove: s32'NmlAtk6F'
     moveType: (NORMAL)
-    Unknown1414: 2
+    moveSubType: 2
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_TAUNT)
     moveInput: (INPUT_ANY_FORWARD)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1538: 0
     endMove: 
   addMove: s32'NmlAtkAir5A'
     moveType: (NORMAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -184, -357, 203, 216
     Unknown1560: 
     Unknown1565: 
@@ -937,7 +937,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (NORMAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -184, -357, 203, 216
     Unknown1560: 
     Unknown1565: 
@@ -946,7 +946,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (NORMAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -232, -189, 203, 216
     Unknown1560: 
     Unknown1565: 
@@ -955,7 +955,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (NORMAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_H)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -242, -201, 487, 200
     Unknown1560: 
     Unknown1565: 
@@ -964,7 +964,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (NORMAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_D)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -242, -201, 487, 200
     Unknown1560: 
     Unknown1565: 
@@ -972,16 +972,16 @@ beginSubroutine: s32'RoundInit'
   addMove: s32'DebugSkillEx'
     moveType: (SPECIAL)
     characterState: (NONE)
-    moveInput: 47
-    addMoveFlag: 81
+    moveInput: (INPUT_RELEASE_R)
+    addMoveFlag: (DEBUG_EX)
     endMove: 
   addMove: s32'PickUpGhost'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_2)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 16
-    addMoveFlag: 13
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_4_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -992,34 +992,34 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_P)
     Unknown1419: 2
-    addMoveFlag: 16
-    addMoveFlag: 92
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_203_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'SummonGhostB'
-    Unknown1421: s32'SummonGhostA'
+    moveAlias: s32'SummonGhostA'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_P)
     Unknown1419: 4
-    addMoveFlag: 16
-    addMoveFlag: 92
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_203_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'SummonGhostC'
-    Unknown1421: s32'SummonGhostA'
+    moveAlias: s32'SummonGhostA'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_P)
     Unknown1419: 8
-    addMoveFlag: 16
-    addMoveFlag: 92
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_203_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1029,8 +1029,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 16
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1040,8 +1040,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 16
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
@@ -1052,7 +1052,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_K)
     moveInput: 155
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1061,7 +1061,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
@@ -1072,8 +1072,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_H)
-    addMoveFlag: 16
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1083,9 +1083,9 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_H)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1435: 1
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1095,7 +1095,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_H)
     moveInput: 155
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1104,7 +1104,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_H)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
@@ -1115,8 +1115,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 16
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1126,8 +1126,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 16
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
@@ -1138,7 +1138,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_S)
     moveInput: 155
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1147,7 +1147,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
@@ -1158,7 +1158,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1525: -328, -248, 202, 252
     Unknown1560: 
     Unknown1538: 75
@@ -1169,7 +1169,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1435: 1
     Unknown1525: -328, -248, 202, 252
     Unknown1560: 
@@ -1181,7 +1181,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1525: -328, -248, 202, 252
     Unknown1560: 
     Unknown1538: 75
@@ -1192,7 +1192,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_236)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1525: -328, -248, 202, 252
     Unknown1560: 
@@ -1200,78 +1200,78 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 300
     endMove: 
   addMove: s32'ThrowGhostP'
-    Unknown1421: s32'ThrowGhost'
+    moveAlias: s32'ThrowGhost'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'ThrowGhostK'
-    Unknown1421: s32'ThrowGhost'
+    moveAlias: s32'ThrowGhost'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'ThrowGhostS'
-    Unknown1421: s32'ThrowGhost'
+    moveAlias: s32'ThrowGhost'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'ThrowGhostHS'
-    Unknown1421: s32'ThrowGhost'
+    moveAlias: s32'ThrowGhost'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_H)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'ThrowGhostD'
-    Unknown1421: s32'ThrowGhost'
+    moveAlias: s32'ThrowGhost'
     moveType: (SPECIAL)
     characterState: (STANDING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_D)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
   addMove: s32'AirThrowGhostP'
-    Unknown1421: s32'AirThrowGhost'
+    moveAlias: s32'AirThrowGhost'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
@@ -1279,13 +1279,13 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 300
     endMove: 
   addMove: s32'AirThrowGhostK'
-    Unknown1421: s32'AirThrowGhost'
+    moveAlias: s32'AirThrowGhost'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_K)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
@@ -1293,13 +1293,13 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 300
     endMove: 
   addMove: s32'AirThrowGhostS'
-    Unknown1421: s32'AirThrowGhost'
+    moveAlias: s32'AirThrowGhost'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_S)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
@@ -1307,13 +1307,13 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 300
     endMove: 
   addMove: s32'AirThrowGhostHS'
-    Unknown1421: s32'AirThrowGhost'
+    moveAlias: s32'AirThrowGhost'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_H)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
@@ -1321,13 +1321,13 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 300
     endMove: 
   addMove: s32'AirThrowGhostD'
-    Unknown1421: s32'AirThrowGhost'
+    moveAlias: s32'AirThrowGhost'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 167
+    moveInput: (INPUT_NOT_9)
     moveInput: (INPUT_PRESS_D)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1525: -869, -502, 441, 502
     Unknown1560: 
@@ -1339,8 +1339,8 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 16
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_3_FALSE)
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1350,9 +1350,9 @@ beginSubroutine: s32'RoundInit'
     characterState: (JUMPING)
     moveInput: (INPUT_214)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 16
+    addMoveFlag: (VARIABLE_3_FALSE)
     Unknown1435: 1
-    addMoveFlag: 15
+    addMoveFlag: (VARIABLE_6_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1362,7 +1362,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_P)
     moveInput: 155
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1371,7 +1371,7 @@ beginSubroutine: s32'RoundInit'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_P)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
@@ -1382,7 +1382,7 @@ beginSubroutine: s32'RoundInit'
     characterState: (STANDING)
     moveInput: (INPUT_PRESS_D)
     moveInput: 155
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
@@ -1391,16 +1391,52 @@ beginSubroutine: s32'RoundInit'
     moveType: (SPECIAL)
     characterState: (JUMPING)
     moveInput: (INPUT_PRESS_D)
-    addMoveFlag: 12
+    addMoveFlag: (VARIABLE_3_TRUE)
     Unknown1435: 1
     Unknown1560: 
     Unknown1538: 75
     Unknown1540: 300
     endMove: 
+  addMove: s32'Zest'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_PRESS_D)
+    moveInput: (INPUT_ANY_DOWNDOWN)
+    addMoveFlag: (VARIABLE_3_FALSE)
+	addMoveFlag: 5
+    Unknown1525: -225, -650, 251, 652
+    endMove: 
+  addMove: s32'IronballGenocide'
+    moveType: (SPECIAL)
+    characterState: (STANDING)
+    moveInput: (INPUT_623)
+    moveInput: (INPUT_PRESS_P)
+    addMoveFlag: 16
+    Unknown1525: -579, -214, 319, 220
+    endMove: 
+  addMove: s32'UntieChironChain'
+    moveType: (SPECIAL)
+    characterState: (JUMPING)
+    moveInput: (INPUT_236)
+    moveInput: (INPUT_PRESS_D)
+    Unknown1419: 1
+    addMoveFlag: 16
+    addMoveFlag: 5
+    Unknown1450: 1
+    Unknown1525: -473, -2, 327, 424
+    endMove:
+  addMove: s32'AirIronballGenocide'
+    moveType: (SPECIAL)
+    characterState: (JUMPING)
+    moveInput: (INPUT_623)
+    moveInput: (INPUT_PRESS_P)
+    addMoveFlag: 16
+    Unknown1525: -473, -2, 327, 424
+    endMove: 
   addMove: s32'ElysionDriver'
     moveType: (OVERDRIVE)
     characterState: (STANDING)
-    addMoveFlag: 3
+    addMoveFlag: (REQUIRES_50_TENSION)
     moveInput: (INPUT_632146)
     moveInput: (INPUT_PRESS_P)
     addMoveFlag: 126
@@ -1411,10 +1447,10 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 600
     endMove: 
   addMove: s32'PowerUp_S'
-    Unknown1421: s32'PowerUp'
+    moveAlias: s32'PowerUp'
     moveType: (OVERDRIVE)
     characterState: (STANDING)
-    addMoveFlag: 3
+    addMoveFlag: (REQUIRES_50_TENSION)
     moveInput: (INPUT_236236)
     moveInput: (INPUT_PRESS_S)
     addMoveFlag: 126
@@ -1422,10 +1458,10 @@ beginSubroutine: s32'RoundInit'
     Unknown1540: 600
     endMove: 
   addMove: s32'PowerUp_HS'
-    Unknown1421: s32'PowerUp'
+    moveAlias: s32'PowerUp'
     moveType: (OVERDRIVE)
     characterState: (STANDING)
-    addMoveFlag: 3
+    addMoveFlag: (REQUIRES_50_TENSION)
     moveInput: (INPUT_236236)
     moveInput: (INPUT_PRESS_H)
     addMoveFlag: 126
@@ -1501,6 +1537,7 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'AirThrowGhostK'
   registerMove: s32'AirThrowGhostP'
   registerMove: s32'AirThrowGhostD'
+  registerMove: s32'Zest'
   registerMove: s32'KickGhost'
   registerMove: s32'AirKickGhost'
   registerMove: s32'PickKickGhost'
@@ -1516,6 +1553,9 @@ beginSubroutine: s32'RoundInit'
   registerMove: s32'AirAtkOrderGhost'
   registerMove: s32'ReturnGhost'
   registerMove: s32'AirReturnGhost'
+  registerMove: s32'IronballGenocide'
+  registerMove: s32'UntieChironChain'
+  registerMove: s32'AirIronballGenocide'
   registerMove: s32'PowerUp_HS'
   registerMove: s32'PowerUp_S'
   registerMove: s32'ElysionDriver'
@@ -1589,177 +1629,177 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'LandThrow', s32'jko311_01'
   Unknown1328: s32'AirThrow', s32'jko321_01'
   Unknown1328: s32'DMG_CELL_KIRIMOMI_FIRST', s32'jko074_00'
-  Unknown1883: 0
-  Unknown1896: 0, 0
-  Unknown1888: 0, 15000
-  Unknown1887: 0, 5000
+  resetExGauge: 0
+  exGaugeDisplay: 0, 0
+  exGaugeMaxValue: 0, 15000
+  exGaugeValue: 0, 5000
   Unknown1897: 0, 1
-  Unknown1883: 1
-  Unknown1896: 1, 0
-  Unknown1888: 1, 15000
-  Unknown1887: 1, 5000
+  resetExGauge: 1
+  exGaugeDisplay: 1, 0
+  exGaugeMaxValue: 1, 15000
+  exGaugeValue: 1, 5000
   Unknown1897: 1, 1
-  Unknown1883: 2
-  Unknown1896: 2, 0
-  Unknown1888: 2, 20000
-  Unknown1887: 2, 0
+  resetExGauge: 2
+  exGaugeDisplay: 2, 0
+  exGaugeMaxValue: 2, 20000
+  exGaugeValue: 2, 0
   Unknown1897: 2, 0
-  Unknown1883: 3
-  Unknown1896: 3, 0
-  Unknown1888: 3, 20000
-  Unknown1887: 3, 0
+  resetExGauge: 3
+  exGaugeDisplay: 3, 0
+  exGaugeMaxValue: 3, 20000
+  exGaugeValue: 3, 0
   Unknown1897: 3, 0
-  Unknown1883: 4
-  Unknown1896: 4, 0
-  Unknown1888: 4, 20000
-  Unknown1887: 4, 0
+  resetExGauge: 4
+  exGaugeDisplay: 4, 0
+  exGaugeMaxValue: 4, 20000
+  exGaugeValue: 4, 0
   Unknown1897: 4, 0
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
-  Unknown2057: s32'Low'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Mask_low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Ball'
-  Unknown2059: 
-  Unknown2057: s32'Low_NoMask'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Head_Low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Ball'
-  Unknown2059: 
-  Unknown2057: s32'nohead'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Ball'
-  Unknown2059: 
-  Unknown2057: s32'nohead_NoMask'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Ball'
-  Unknown2059: 
-  Unknown2057: s32'headonly'
-  Unknown2058: s32'Mask_low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Halo'
-  Unknown2059: 
-  Unknown2057: s32'headonly_NoMask'
-  Unknown2058: s32'Head_Low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Halo'
-  Unknown2059: 
-  Unknown2057: s32'CmnCutSceneDamage_Kakusei'
+  linkPawn: s32''
+  beginMeshSet: s32'Low'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Mask_low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Ball'
+  endMeshSet: 
+  beginMeshSet: s32'Low_NoMask'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Head_Low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Ball'
+  endMeshSet: 
+  beginMeshSet: s32'nohead'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Ball'
+  endMeshSet: 
+  beginMeshSet: s32'nohead_NoMask'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Ball'
+  endMeshSet: 
+  beginMeshSet: s32'headonly'
+  addToMeshSet: s32'Mask_low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Halo'
+  endMeshSet: 
+  beginMeshSet: s32'headonly_NoMask'
+  addToMeshSet: s32'Head_Low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Halo'
+  endMeshSet: 
+  beginMeshSet: s32'CmnCutSceneDamage_Kakusei'
   Unknown47: s16'pot'
   if: (VARIABLE), 0
-    Unknown2058: s32'Body'
-    Unknown2058: s32'Head_High_Hair'
-    Unknown2058: s32'Manpu'
-    Unknown2058: s32'Halo'
-    Unknown2058: s32'Mask_low'
+    addToMeshSet: s32'Body'
+    addToMeshSet: s32'Head_High_Hair'
+    addToMeshSet: s32'Manpu'
+    addToMeshSet: s32'Halo'
+    addToMeshSet: s32'Mask_low'
     endIf: 
   Unknown47: s16'fau'
   if: (VARIABLE), 0
-    Unknown2058: s32'Ball'
-    Unknown2058: s32'Body'
-    Unknown2058: s32'mask_low'
-    Unknown2058: s32'Head_High_hair'
-    Unknown2058: s32'Halo'
-    Unknown2058: s32'Weapon'
-    Unknown2058: s32'Manpu'
-    Unknown2058: s32'Manpudetail'
-    Unknown2058: s32'Mask_options'
-    Unknown2058: s32'Ball_obake_add'
-    Unknown2058: s32'Servant_mask_B_add'
-    Unknown2058: s32'Servant_B_add'
-    Unknown2058: s32'Body_add'
-    Unknown2058: s32'Mask_low_add'
-    Unknown2058: s32'Head_High_hair_add'
-    Unknown2058: s32'Halo_add'
+    addToMeshSet: s32'Ball'
+    addToMeshSet: s32'Body'
+    addToMeshSet: s32'mask_low'
+    addToMeshSet: s32'Head_High_hair'
+    addToMeshSet: s32'Halo'
+    addToMeshSet: s32'Weapon'
+    addToMeshSet: s32'Manpu'
+    addToMeshSet: s32'Manpudetail'
+    addToMeshSet: s32'Mask_options'
+    addToMeshSet: s32'Ball_obake_add'
+    addToMeshSet: s32'Servant_mask_B_add'
+    addToMeshSet: s32'Servant_B_add'
+    addToMeshSet: s32'Body_add'
+    addToMeshSet: s32'Mask_low_add'
+    addToMeshSet: s32'Head_High_hair_add'
+    addToMeshSet: s32'Halo_add'
     endIf: 
-  Unknown2059: 
-  Unknown2057: s32'CmnCutSceneDamage_Kakusei_NoMas'
+  endMeshSet: 
+  beginMeshSet: s32'CmnCutSceneDamage_Kakusei_NoMas'
   Unknown47: s16'pot'
   if: (VARIABLE), 0
-    Unknown2058: s32'Body'
-    Unknown2058: s32'Head_High'
-    Unknown2058: s32'Head_High_Hair'
-    Unknown2058: s32'Manpu'
-    Unknown2058: s32'Halo'
+    addToMeshSet: s32'Body'
+    addToMeshSet: s32'Head_High'
+    addToMeshSet: s32'Head_High_Hair'
+    addToMeshSet: s32'Manpu'
+    addToMeshSet: s32'Halo'
     endIf: 
   Unknown47: s16'fau'
   if: (VARIABLE), 0
-    Unknown2058: s32'ball'
-    Unknown2058: s32'body'
-    Unknown2058: s32'Head_High'
-    Unknown2058: s32'Head_High_Hair'
-    Unknown2058: s32'Halo'
-    Unknown2058: s32'Weapon'
-    Unknown2058: s32'manpu'
-    Unknown2058: s32'Manpudetail'
+    addToMeshSet: s32'ball'
+    addToMeshSet: s32'body'
+    addToMeshSet: s32'Head_High'
+    addToMeshSet: s32'Head_High_Hair'
+    addToMeshSet: s32'Halo'
+    addToMeshSet: s32'Weapon'
+    addToMeshSet: s32'manpu'
+    addToMeshSet: s32'Manpudetail'
     endIf: 
-  Unknown2059: 
-  Unknown2057: s32'jko500cs'
-  Unknown2058: s32'Ball'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'mask_low'
-  Unknown2058: s32'Head_High_Hair'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2059: 
-  Unknown2057: s32'jko500cs_NoMask'
-  Unknown2058: s32'Ball'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Head_High'
-  Unknown2058: s32'Head_High_Hair'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2059: 
-  Unknown2057: s32'jko800cs'
-  Unknown2058: s32'Ball'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Head_High_Hair'
-  Unknown2058: s32'Head_high_options'
-  Unknown2058: s32'Manpu'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Add_hair'
-  Unknown2058: s32'Mask_options'
-  Unknown2058: s32'Mask_low'
-  Unknown2059: 
-  Unknown2057: s32'jko800cs_NoMask'
-  Unknown2058: s32'Ball'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Head_Low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Head_High'
-  Unknown2058: s32'Head_High_Hair'
-  Unknown2058: s32'Head_high_options'
-  Unknown2058: s32'Manpu'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Add_hair'
-  Unknown2059: 
-  Unknown2057: s32'MS_1'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Mask_low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Ball'
-  Unknown2059: 
-  Unknown2057: s32'MS_1_NoMask'
-  Unknown2058: s32'Body'
-  Unknown2058: s32'Head_Low'
-  Unknown2058: s32'Head_Low_hair'
-  Unknown2058: s32'Halo'
-  Unknown2058: s32'Weapon'
-  Unknown2058: s32'Ball'
-  Unknown2058: s32'manpu'
-  Unknown2059: 
+  endMeshSet: 
+  beginMeshSet: s32'jko500cs'
+  addToMeshSet: s32'Ball'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'mask_low'
+  addToMeshSet: s32'Head_High_Hair'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  endMeshSet: 
+  beginMeshSet: s32'jko500cs_NoMask'
+  addToMeshSet: s32'Ball'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Head_High'
+  addToMeshSet: s32'Head_High_Hair'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  endMeshSet: 
+  beginMeshSet: s32'jko800cs'
+  addToMeshSet: s32'Ball'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Head_High_Hair'
+  addToMeshSet: s32'Head_high_options'
+  addToMeshSet: s32'Manpu'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Add_hair'
+  addToMeshSet: s32'Mask_options'
+  addToMeshSet: s32'Mask_low'
+  endMeshSet: 
+  beginMeshSet: s32'jko800cs_NoMask'
+  addToMeshSet: s32'Ball'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Head_Low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Head_High'
+  addToMeshSet: s32'Head_High_Hair'
+  addToMeshSet: s32'Head_high_options'
+  addToMeshSet: s32'Manpu'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Add_hair'
+  endMeshSet: 
+  beginMeshSet: s32'MS_1'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Mask_low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Ball'
+  endMeshSet: 
+  beginMeshSet: s32'MS_1_NoMask'
+  addToMeshSet: s32'Body'
+  addToMeshSet: s32'Head_Low'
+  addToMeshSet: s32'Head_Low_hair'
+  addToMeshSet: s32'Halo'
+  addToMeshSet: s32'Weapon'
+  addToMeshSet: s32'Ball'
+  addToMeshSet: s32'manpu'
+  endMeshSet: 
   Unknown2324: s32'jko101_00', 1
   Unknown2324: s32'jko101_01', 1
   Unknown2324: s32'jko101_02', 1
@@ -1768,8 +1808,8 @@ beginSubroutine: s32'RoundInit'
   Unknown2324: s32'jko101_06', 1
   Unknown2324: s32'jko101_07', 1
   Unknown2324: s32'jko101_08', 1
-  Unknown2068: 
-  Unknown2066: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   Unknown601: s16'vxxx003', 1, 3, 100
   Unknown601: s16'vxxx004', 1, -1, 100
   Unknown601: s16'vxxx103', 1, 3, 100
@@ -2059,13 +2099,13 @@ beginSubroutine: s32'OnFrameStep'
       endIf: 
     endIf: 
   if: (VARIABLE), 3
-    Unknown2361: 1
-    Unknown2356: 1
+    disableCrouch: 1
+    disableThrow: 1
     Unknown2366: 1
     endIf: 
   ifNot: (VARIABLE), 3
-    Unknown2361: 0
-    Unknown2356: 0
+    disableCrouch: 0
+    disableThrow: 0
     Unknown2366: 0
     endIf: 
   storeValue: (VARIABLE), 5, (STATIC), 0
@@ -2350,114 +2390,114 @@ beginSubroutine: s32'OnActionBeginPre'
   endSubroutine: 
 
 beginSubroutine: s32'OnActionBegin'
-  Unknown2033: 3, s32'CmnActFWalk'
+  checkCurrentStateName: 3, s32'CmnActFWalk'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActBWalk'
+  checkCurrentStateName: 3, s32'CmnActBWalk'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActFDash'
+  checkCurrentStateName: 3, s32'CmnActFDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActBDash'
+  checkCurrentStateName: 3, s32'CmnActBDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActAirFDash'
+  checkCurrentStateName: 3, s32'CmnActAirFDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActAirBDash'
+  checkCurrentStateName: 3, s32'CmnActAirBDash'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
-  Unknown2033: 3, s32'CmnActJumpPre'
+  checkCurrentStateName: 3, s32'CmnActJumpPre'
   if: (VARIABLE), 0
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   storeValue: (VARIABLE), 56, (STATIC), 0
   storeValue: (VARIABLE), 57, (STATIC), 0
   ifNot: (VARIABLE), 56
-    Unknown2033: 3, s32'NmlAtk5A'
+    checkCurrentStateName: 3, s32'NmlAtk5A'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 1
       endIf: 
-    Unknown2033: 3, s32'NmlAtk6A'
+    checkCurrentStateName: 3, s32'NmlAtk6A'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 2
       endIf: 
-    Unknown2033: 3, s32'NmlAtk2A'
+    checkCurrentStateName: 3, s32'NmlAtk2A'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 1
       endIf: 
-    Unknown2033: 3, s32'NmlAtk5B'
+    checkCurrentStateName: 3, s32'NmlAtk5B'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 1
       endIf: 
-    Unknown2033: 3, s32'NmlAtk2B'
+    checkCurrentStateName: 3, s32'NmlAtk2B'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 1
       endIf: 
-    Unknown2033: 3, s32'NmlAtk5CNear'
+    checkCurrentStateName: 3, s32'NmlAtk5CNear'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 2
       endIf: 
-    Unknown2033: 3, s32'NmlAtk5CFar'
+    checkCurrentStateName: 3, s32'NmlAtk5CFar'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 2
       endIf: 
-    Unknown2033: 3, s32'NmlAtk2C'
+    checkCurrentStateName: 3, s32'NmlAtk2C'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 5
       endIf: 
-    Unknown2033: 3, s32'NmlAtk5D'
+    checkCurrentStateName: 3, s32'NmlAtk5D'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 2
       endIf: 
-    Unknown2033: 3, s32'NmlAtk2D'
+    checkCurrentStateName: 3, s32'NmlAtk2D'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 9
       endIf: 
-    Unknown2033: 3, s32'NmlAtk5E'
+    checkCurrentStateName: 3, s32'NmlAtk5E'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 5
       endIf: 
-    Unknown2033: 3, s32'NmlAtk2E'
+    checkCurrentStateName: 3, s32'NmlAtk2E'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 2
       endIf: 
-    Unknown2033: 3, s32'NmlAtkAir5A'
+    checkCurrentStateName: 3, s32'NmlAtkAir5A'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 1
       endIf: 
-    Unknown2033: 3, s32'NmlAtkAir5B'
+    checkCurrentStateName: 3, s32'NmlAtkAir5B'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 1
       endIf: 
-    Unknown2033: 3, s32'NmlAtkAir5C'
+    checkCurrentStateName: 3, s32'NmlAtkAir5C'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 8
       endIf: 
-    Unknown2033: 3, s32'NmlAtkAir5D'
+    checkCurrentStateName: 3, s32'NmlAtkAir5D'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 2
       endIf: 
-    Unknown2033: 3, s32'KickGhost'
+    checkCurrentStateName: 3, s32'KickGhost'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 3
       endIf: 
-    Unknown2033: 3, s32'AirKickGhost'
+    checkCurrentStateName: 3, s32'AirKickGhost'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 3
       endIf: 
-    Unknown2033: 3, s32'PickKickGhost'
+    checkCurrentStateName: 3, s32'PickKickGhost'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 3
       endIf: 
-    Unknown2033: 3, s32'AirPickkickGhost'
+    checkCurrentStateName: 3, s32'AirPickkickGhost'
     if: (VARIABLE), 0
       storeValue: (VARIABLE), 57, (STATIC), 3
       endIf: 
@@ -2505,7 +2545,7 @@ beginSubroutine: s32'Mask_MeshSetCheck'
   ifNot: (VARIABLE), 60
     ifOperation: (IS_NOT_EQUAL), (VARIABLE), 60, (VARIABLE), 59
       storeValue: (VARIABLE), 59, (VARIABLE), 60
-      Unknown2064: s32'Low'
+      setDefaultMeshSet: s32'Low'
       Unknown2320: 
       Unknown2319: s32'nohead', s32'nohead'
       Unknown2319: s32'headonly', s32'headonly'
@@ -2513,14 +2553,14 @@ beginSubroutine: s32'Mask_MeshSetCheck'
       Unknown2319: s32'jko500cs', s32'jko500cs'
       Unknown2319: s32'jko800cs', s32'jko800cs'
       Unknown2319: s32'CmnCutSceneDamage_Kakusei', s32'CmnCutSceneDamage_Kakusei'
-      Unknown2198: 
-      Unknown2197: s32'jko_fau500cs', s32'jko_fau500cs_00'
+      animNameExchangeClear: 
+      animNameExchange: s32'jko_fau500cs', s32'jko_fau500cs_00'
       endIf: 
     endIf: 
   else: 
     ifOperation: (IS_NOT_EQUAL), (VARIABLE), 60, (VARIABLE), 59
       storeValue: (VARIABLE), 59, (VARIABLE), 60
-      Unknown2064: s32'Low_NoMask'
+      setDefaultMeshSet: s32'Low_NoMask'
       Unknown2320: 
       Unknown2319: s32'nohead', s32'nohead_NoMask'
       Unknown2319: s32'headonly', s32'headonly_NoMask'
@@ -2528,8 +2568,8 @@ beginSubroutine: s32'Mask_MeshSetCheck'
       Unknown2319: s32'jko500cs', s32'jko500cs_NoMask'
       Unknown2319: s32'jko800cs', s32'jko800cs_NoMask'
       Unknown2319: s32'CmnCutSceneDamage_Kakusei', s32'CmnCutSceneDamage_Kakusei_NoMas'
-      Unknown2198: 
-      Unknown2197: s32'jko_fau500cs', s32'jko_fau500cs_01'
+      animNameExchangeClear: 
+      animNameExchange: s32'jko_fau500cs', s32'jko_fau500cs_01'
       endIf: 
     endElse: 
   endSubroutine: 
@@ -2619,19 +2659,19 @@ beginState: s32'CmnActEntryToStand2P'
   endState: 
 
 beginState: s32'CmnActStand'
-  Unknown24: s32'Hold_Ghost', 2, 3
-  Unknown2030: s32'CmnActFWalk'
-  Unknown24: s32'FWalk', 2, 0
-  Unknown2030: s32'CmnActBWalk'
-  Unknown24: s32'BWalk', 2, 0
-  Unknown2030: s32'PickUpGhost'
-  Unknown24: s32'PickUpGhost', 2, 0
-  Unknown2030: s32'CmnActBurst'
-  Unknown24: s32'Burst_Hajikare', 2, 0
-  Unknown2030: s32'CmnActHajikareAir'
-  Unknown24: s32'Burst_Hajikare', 2, 0
-  Unknown2030: s32'CmnActLandingStiff'
-  Unknown24: s32'LandingStiff', 2, 0
+  Unknown24: s16'Hold_Ghost', s16'', 2, 3
+  checkLastStateName: s32'CmnActFWalk'
+  Unknown24: s16'FWalk', s16'', 2, 0
+  checkLastStateName: s32'CmnActBWalk'
+  Unknown24: s16'BWalk', s16'', 2, 0
+  checkLastStateName: s32'PickUpGhost'
+  Unknown24: s16'PickUpGhost', s16'', 2, 0
+  checkLastStateName: s32'CmnActBurst'
+  Unknown24: s16'Burst_Hajikare', s16'', 2, 0
+  checkLastStateName: s32'CmnActHajikareAir'
+  Unknown24: s16'Burst_Hajikare', s16'', 2, 0
+  checkLastStateName: s32'CmnActLandingStiff'
+  Unknown24: s16'LandingStiff', s16'', 2, 0
   beginLabel: s32'loop'
   sprite: s32'jko000_00', 8
   Unknown634: 1, 3
@@ -2645,8 +2685,8 @@ beginState: s32'CmnActStand'
   sprite: s32'jko000_08', 8
   sprite: s32'jko000_09', 8
   endLabel: 
-  gotoIfOperation: s32'loop', 22, (STATIC), 80, (STATIC), 100
-  Unknown25: s32'loop', 2, 86
+  gotoIfOperation: s32'loop', (PERCENT), (STATIC), 80, (STATIC), 100
+  Unknown25: s16'loop', s16'', 2, 86
   storeValue: (VARIABLE), 87, (STATIC), 600
   sprite: s32'jko001_00', 4
   sprite: s32'jko001_01', 4
@@ -2721,21 +2761,21 @@ beginState: s32'CmnActStand'
   gotoLabel: s32'loop'
   beginLabel: s32'Hold_Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
       Unknown14: s32'PickUpGhost'
       endIf: 
     endUpon: 
-  Unknown2030: s32'CmnActFWalk'
-  Unknown24: s32'Hold_FWalk', 2, 0
-  Unknown2030: s32'CmnActBWalk'
-  Unknown24: s32'Hold_BWalk', 2, 0
-  Unknown2030: s32'CmnActLandingStiff'
-  Unknown24: s32'Hold_LandingStiff', 2, 0
+  checkLastStateName: s32'CmnActFWalk'
+  Unknown24: s16'Hold_FWalk', s16'', 2, 0
+  checkLastStateName: s32'CmnActBWalk'
+  Unknown24: s16'Hold_BWalk', s16'', 2, 0
+  checkLastStateName: s32'CmnActLandingStiff'
+  Unknown24: s16'Hold_LandingStif', s16'f', 2, 0
   beginLabel: s32'Hold_StandPreLandingStiff'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
       Unknown14: s32'PickUpGhost'
@@ -2772,7 +2812,7 @@ beginState: s32'CmnActStand'
   gotoIfOperation: s32'Hold_LandingStiff1', (IS_EQUAL), (VARIABLE), 387, (STATIC), 1
   sprite: s32'jko415_11', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 320000
+    exPointFReset: (PLAYER), 0, 320000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
       Unknown14: s32'PickUpGhost'
@@ -2781,7 +2821,7 @@ beginState: s32'CmnActStand'
   beginLabel: s32'Hold_LandingStiff1'
   sprite: s32'jko415_12', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 380000
+    exPointFReset: (PLAYER), 0, 380000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
       Unknown14: s32'PickUpGhost'
@@ -2795,7 +2835,7 @@ beginState: s32'CmnActStandTurn'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_NoBlend'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko003_00', 3
   sprite: s32'jko003_01', 2
   sprite: s32'jko003_02', 2
@@ -2804,7 +2844,7 @@ beginState: s32'CmnActStandTurn'
   exitState: 
   beginLabel: s32'Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko418_00', 3
   sprite: s32'jko418_01', 2
@@ -2836,8 +2876,8 @@ beginState: s32'CmnActCrouch'
   sprite: s32'jko010_16', 6
   sprite: s32'jko010_17', 6
   endLabel: 
-  gotoIfOperation: s32'loop', 22, (STATIC), 80, (STATIC), 100
-  Unknown25: s32'loop', 2, 86
+  gotoIfOperation: s32'loop', (PERCENT), (STATIC), 80, (STATIC), 100
+  Unknown25: s16'loop', s16'', 2, 86
   storeValue: (VARIABLE), 87, (STATIC), 600
   sprite: s32'jko011_00', 4
   sprite: s32'jko011_01', 4
@@ -2862,7 +2902,7 @@ beginState: s32'CmnActCrouch'
   sprite: s32'jko011_15', 4
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32're_loop', 2, 45
+  Unknown24: s16're_loop', s16'', 2, 45
   sprite: s32'jko011_16', 7
   sprite: s32'jko011_17', 5
   sprite: s32'jko011_18', 6
@@ -2893,9 +2933,9 @@ beginState: s32'CmnActJumpPre'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnJumpPre'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
-  Unknown24: s32'FJumpPre', 2, 11
-  Unknown24: s32'BJumpPre', 2, 10
+  Unknown24: s16'Ghost', s16'', 2, 3
+  Unknown24: s16'FJumpPre', s16'', 2, 11
+  Unknown24: s16'BJumpPre', s16'', 2, 10
   sprite: s32'jko020_00', 4
   exitState: 
   beginLabel: s32'FJumpPre'
@@ -2907,7 +2947,7 @@ beginState: s32'CmnActJumpPre'
   exitState: 
   beginLabel: s32'Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 350000
+    exPointFReset: (PLAYER), 0, 350000
     endUpon: 
   sprite: s32'jko415_00', 4
   endState: 
@@ -2916,9 +2956,9 @@ beginState: s32'CmnActJump'
   upon: (IMMEDIATE)
     endUpon: 
   beginLabel: s32'_Upper'
-  Unknown24: s32'GhostUpper', 2, 3
-  Unknown24: s32'UpperF', 2, 11
-  Unknown24: s32'UpperB', 2, 10
+  Unknown24: s16'GhostUpper', s16'', 2, 3
+  Unknown24: s16'UpperF', s16'', 2, 11
+  Unknown24: s16'UpperB', s16'', 2, 10
   beginLabel: s32'upperloop'
   sprite: s32'jko020_01', 1
   sprite: s32'jko020_02', 2
@@ -2929,33 +2969,33 @@ beginState: s32'CmnActJump'
   endLabel: 
   gotoLabel: s32'upperloop'
   beginLabel: s32'_UpperToTop'
-  Unknown24: s32'GhostUpperToTop', 2, 3
-  Unknown24: s32'UpperToTopF', 2, 11
-  Unknown24: s32'UpperToTopB', 2, 10
+  Unknown24: s16'GhostUpperToTop', s16'', 2, 3
+  Unknown24: s16'UpperToTopF', s16'', 2, 11
+  Unknown24: s16'UpperToTopB', s16'', 2, 10
   sprite: s32'jko020_07', 2
   sprite: s32'jko020_08', 2
   sprite: s32'jko020_09', 3
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_Top'
-  Unknown24: s32'GhostTop', 2, 3
-  Unknown24: s32'TopF', 2, 11
-  Unknown24: s32'TopB', 2, 10
+  Unknown24: s16'GhostTop', s16'', 2, 3
+  Unknown24: s16'TopF', s16'', 2, 11
+  Unknown24: s16'TopB', s16'', 2, 10
   sprite: s32'jko020_10', 3
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_TopToDown'
-  Unknown24: s32'GhostTopToDown', 2, 3
-  Unknown24: s32'TopToDownF', 2, 11
-  Unknown24: s32'TopToDownB', 2, 10
+  Unknown24: s16'GhostTopToDown', s16'', 2, 3
+  Unknown24: s16'TopToDownF', s16'', 2, 11
+  Unknown24: s16'TopToDownB', s16'', 2, 10
   sprite: s32'jko020_11', 3
   sprite: s32'jko020_12', 3
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_Down'
-  Unknown24: s32'GhostDown', 2, 3
-  Unknown24: s32'DownF', 2, 11
-  Unknown24: s32'DownB', 2, 10
+  Unknown24: s16'GhostDown', s16'', 2, 3
+  Unknown24: s16'DownF', s16'', 2, 11
+  Unknown24: s16'DownB', s16'', 2, 10
   sprite: s32'jko020_13', 3
   sprite: s32'jko020_14', 3
   endLabel: 
@@ -3034,7 +3074,7 @@ beginState: s32'CmnActJump'
   gotoLabel: s32'downloopB'
   beginLabel: s32'GhostUpper'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko415_01', 4
   storeValue: (VARIABLE), 204, (STATIC), 1
@@ -3060,13 +3100,13 @@ beginState: s32'CmnActJump'
   sprite: s32'jko415_07', 3
   storeValue: (VARIABLE), 204, (STATIC), 7
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 420000
+    exPointFReset: (PLAYER), 0, 420000
     endUpon: 
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'GhostDown'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 430000
+    exPointFReset: (PLAYER), 0, 430000
     endUpon: 
   sprite: s32'jko415_08', 3
   storeValue: (VARIABLE), 204, (STATIC), 8
@@ -3080,7 +3120,7 @@ beginState: s32'CmnActJumpLanding'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnJumpLanding'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 1
   gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 2
   sprite: s32'jko020_17', 3
@@ -3124,15 +3164,15 @@ beginState: s32'CmnActJumpLanding'
   beginLabel: s32'Ghost'
   sprite: s32'jko415_10', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 340000
+    exPointFReset: (PLAYER), 0, 340000
     endUpon: 
   sprite: s32'jko415_11', 4
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 320000
+    exPointFReset: (PLAYER), 0, 320000
     endUpon: 
   sprite: s32'jko415_12', 4
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 380000
+    exPointFReset: (PLAYER), 0, 380000
     endUpon: 
   endState: 
 
@@ -3140,7 +3180,7 @@ beginState: s32'CmnActLandingStiff'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnLandingStiff'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko020_17', 3
   storeValue: (VARIABLE), 387, (STATIC), 0
   sprite: s32'jko020_18', 3
@@ -3157,17 +3197,17 @@ beginState: s32'CmnActLandingStiff'
   beginLabel: s32'Ghost'
   sprite: s32'jko415_10', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 340000
+    exPointFReset: (PLAYER), 0, 340000
     endUpon: 
   storeValue: (VARIABLE), 387, (STATIC), 0
   sprite: s32'jko415_11', 4
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 320000
+    exPointFReset: (PLAYER), 0, 320000
     endUpon: 
   storeValue: (VARIABLE), 387, (STATIC), 1
   sprite: s32'jko415_12', 2147483647
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 380000
+    exPointFReset: (PLAYER), 0, 380000
     endUpon: 
   storeValue: (VARIABLE), 387, (STATIC), 2
   endLabel: 
@@ -3176,8 +3216,8 @@ beginState: s32'CmnActLandingStiff'
   endState: 
 
 beginState: s32'CmnActFWalk'
-  Unknown2193: 100, 0, 0
-  Unknown24: s32'Ghost', 2, 3
+  exPointFReset: (PLAYER), 0, 0
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko030_00', 2
   sprite: s32'jko030_01', 2
   sprite: s32'jko030_02', 4
@@ -3203,10 +3243,10 @@ beginState: s32'CmnActFWalk'
   gotoLabel: s32'loop'
   beginLabel: s32'Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
-      Unknown27: s32'_NEUTRAL'
+      jumpToState: s32'_NEUTRAL'
       endIf: 
     endUpon: 
   sprite: s32'jko411_00', 2
@@ -3234,8 +3274,8 @@ beginState: s32'CmnActFWalk'
   endState: 
 
 beginState: s32'CmnActBWalk'
-  Unknown2193: 100, 0, 0
-  Unknown24: s32'Ghost', 2, 3
+  exPointFReset: (PLAYER), 0, 0
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko031_00', 4
   sprite: s32'jko031_01', 4
   endLabel: 
@@ -3266,10 +3306,10 @@ beginState: s32'CmnActBWalk'
   gotoLabel: s32'loop'
   beginLabel: s32'Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
-      Unknown27: s32'_NEUTRAL'
+      jumpToState: s32'_NEUTRAL'
       endIf: 
     endUpon: 
   sprite: s32'jko411_00', 2
@@ -3302,7 +3342,7 @@ beginState: s32'CmnActFDash'
     callSubroutine: s32'cmnFDash'
     Unknown631: 0, s32'SE_BTL_CMN_Dash_Sprint_LP', 100
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko032_00', 2
   sprite: s32'jko032_01', 3
   sprite: s32'jko032_02', 3
@@ -3310,7 +3350,7 @@ beginState: s32'CmnActFDash'
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'jko032_04', 3
-  Unknown446: s32'Dash_bake', 100
+  createObject: s32'Dash_bake', (PLAYER)
   sprite: s32'jko032_05', 3
   sprite: s32'jko032_06', 3
   characterSfx: s32'SE_BTL_JKO_00_1'
@@ -3335,10 +3375,10 @@ beginState: s32'CmnActFDash'
   gotoLabel: s32'loop'
   beginLabel: s32'Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     ifNot: (VARIABLE), 3
       clearRegisteredUponCode: (FRAME_STEP)
-      Unknown27: s32'_NEUTRAL'
+      jumpToState: s32'_NEUTRAL'
       endIf: 
     endUpon: 
   sprite: s32'jko413_00', 3
@@ -3373,7 +3413,7 @@ beginState: s32'CmnActFDashStop'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnFDashStop'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko033_00', 2
   sprite: s32'jko033_01', 2
   sprite: s32'jko033_02', 2
@@ -3392,7 +3432,7 @@ beginState: s32'CmnActFDashStop'
   exitState: 
   beginLabel: s32'Ghost'
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko413_17', 3
   sprite: s32'jko413_18', 2
@@ -3405,7 +3445,7 @@ beginState: s32'CmnActBDash'
       endIf: 
     Unknown634: 1, 3
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko034_00', 3
   strikeInvulnerableForTime: 5
   Unknown2169: 0
@@ -3434,21 +3474,21 @@ beginState: s32'CmnActBDash'
   Unknown2229: 80
   sprite: s32'jko034_05', 2
   sprite: s32'keep', 2147483647
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endLabel: 
   beginLabel: s32'Ghost'
   sprite: s32'jko413_00', 3
-  Unknown176: 1
-  enableJumpCancelOnWhiff: 1
-  Unknown1364: 1
-  Unknown1348: 1
-  enableClashes: 1
+  haltMomentum: 1
+  enableJump: 1
+  enableBurst: 1
+  enableSpecials: 1
+  enableRomanCancelMove: 1
   Unknown2050: 1
   physicsXImpulseIfVelocityMatchesSign: -13000
   Unknown2277: 1
   Unknown2175: 2, 100
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     Unknown2294: 14
     if: (VARIABLE), 3
       ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 13, (STATIC), 120
@@ -3457,9 +3497,9 @@ beginState: s32'CmnActBDash'
       else: 
         physicsXImpulseIfVelocityMatchesSign: -38803
         endElse: 
-      checkInput: 102
+      checkInput: (INPUT_NOT_4)
       if: (VARIABLE), 0
-        checkInput: 63
+        checkInput: (INPUT_NOT_1)
         if: (VARIABLE), 0
           storeValue: (VARIABLE), 45, (STATIC), 1
           Unknown14: s32'End'
@@ -3468,12 +3508,12 @@ beginState: s32'CmnActBDash'
       endIf: 
     else: 
       clearRegisteredUponCode: (FRAME_STEP)
-      Unknown27: s32'_NEUTRAL'
+      jumpToState: s32'_NEUTRAL'
       endElse: 
     ifNot: (VARIABLE), 16
-      Unknown27: s32'_NEUTRAL'
+      jumpToState: s32'_NEUTRAL'
       endIf: 
-    ifOperation: 16, (VARIABLE), 13, (STATIC), 8
+    ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 8
       Unknown2277: 1
       Unknown2175: 3, 100
       endIf: 
@@ -3508,34 +3548,32 @@ beginState: s32'CmnActBDash'
   sprite: s32'jko413_17', 3
   clearRegisteredUponCode: (FRAME_STEP)
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko413_18', 2
   sprite: s32'keep', 2147483647
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnAirBDash'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko035_05', 2
-  Unknown446: s32'Air_dash', 100
+  createObject: s32'Air_dash', (PLAYER)
   sprite: s32'jko035_05', 2
   sprite: s32'jko035_06', 3
   sprite: s32'jko035_08', 3
-  callSubroutine: s32'cmnNandemoCancelC'
   sprite: s32'jko035_09', 3
   endLabel: 
   exitState: 
   beginLabel: s32'Ghost'
   sprite: s32'jko416_05', 2
-  Unknown446: s32'Air_dash_hold', 100
+  createObject: s32'Air_dash_hold', (PLAYER)
   sprite: s32'jko416_05', 2
   sprite: s32'jko416_06', 3
   sprite: s32'jko416_09', 3
-  callSubroutine: s32'cmnNandemoCancelC'
   sprite: s32'jko416_10', 3
   endState: 
 
@@ -3543,10 +3581,10 @@ beginState: s32'CmnActAirBDash'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnAirBDash'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko036_00', 2
   sprite: s32'jko036_01', 3
-  Unknown446: s32'Air_backdash', 100
+  createObject: s32'Air_backdash', (PLAYER)
   sprite: s32'jko036_02', 3
   sprite: s32'jko036_03', 3
   endLabel: 
@@ -3556,10 +3594,10 @@ beginState: s32'CmnActAirBDash'
     ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 4
       Unknown207: 100
       endIf: 
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko417_01', 2
-  Unknown446: s32'Air_backdash_hold', 100
+  createObject: s32'Air_backdash_hold', (PLAYER)
   sprite: s32'jko417_02', 2
   sprite: s32'jko417_03', 2
   sprite: s32'jko417_04', 2
@@ -3839,7 +3877,7 @@ beginState: s32'CmnActNokezoriCrouchLv5'
 
 beginState: s32'CmnActBDownUpper'
   callSubroutine: s32'cmnDamageCellDiffAir'
-  Unknown24: s32'diff', 2, 314
+  Unknown24: s16'diff', s16'', 2, 314
   sprite: s32'jko060_00', 3
   endLabel: 
   gotoLabel: s32'loop'
@@ -4011,8 +4049,8 @@ beginState: s32'CmnActVDownLoop'
 
 beginState: s32'CmnActFloatDamage'
   callSubroutine: s32'cmn_FloatDamage'
-  Unknown24: s32'head', 2, 320
-  Unknown24: s32'body', 2, 321
+  Unknown24: s16'head', s16'', 2, 320
+  Unknown24: s16'body', s16'', 2, 321
   Unknown1825: s32'FloatDamage_Error', 0, 0
   beginLabel: s32'head'
   sprite: s32'jko065_00', 1
@@ -4174,7 +4212,7 @@ beginState: s32'fuwafuwa'
 beginState: s32'CmnActKirimomiUpper'
   gotoIfOperation: s32'Reverse', (IS_EQUAL), (VARIABLE), 351, (STATIC), 10
   gotoIfOperation: s32'loop', (IS_EQUAL), (VARIABLE), 351, (STATIC), 11
-  Unknown24: s32'dust', 2, 158
+  Unknown24: s16'dust', s16'', 2, 158
   beginLabel: s32'loop'
   sprite: s32'jko074_00', 4
   sprite: s32'jko074_01', 4
@@ -4209,8 +4247,8 @@ beginState: s32'CmnActKirimomiUpper'
   sprite: s32'jko074_07', 5
   endLabel: 
   clearRegisteredUponCode: (FRAME_STEP)
-  Unknown2033: 22, s32'HomingJump'
-  Unknown25: s32'loop', 2, 0
+  checkCurrentStateName: 22, s32'HomingJump'
+  Unknown25: s16'loop', s16'', 2, 0
   sprite: s32'jko068_04', 3
   sprite: s32'jko068_05', 3
   sprite: s32'jko068_06', 4
@@ -4284,12 +4322,12 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'jko077_02', 6
-  Unknown448: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'jko077_04', 8
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'jko077_03', 8
-  Unknown448: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'jko077_04', 8
   endLabel: 
   gotoLabel: s32'loop'
@@ -4297,7 +4335,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'jko077_05', 4
-  Unknown448: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'jko077_06', 3
   sprite: s32'jko077_07', 3
   sprite: s32'jko077_08', 3
@@ -4341,7 +4379,7 @@ beginState: s32'CmnActJitabataLoop'
   sprite: s32'jko066_10', 2
   sprite: s32'jko066_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   beginLabel: s32'_Normal_End'
   sprite: s32'jko066_06', 4
   storeValue: (VARIABLE), 45, (STATIC), 2
@@ -4351,7 +4389,7 @@ beginState: s32'CmnActJitabataLoop'
   sprite: s32'jko066_10', 2
   sprite: s32'jko066_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   beginLabel: s32'_Slow_End'
   sprite: s32'jko066_06', 6
   storeValue: (VARIABLE), 45, (STATIC), 3
@@ -4361,7 +4399,7 @@ beginState: s32'CmnActJitabataLoop'
   sprite: s32'jko066_10', 2
   sprite: s32'jko066_11', 2
   endLabel: 
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'CmnActKizetsu'
@@ -4369,7 +4407,7 @@ beginState: s32'CmnActKizetsu'
   sprite: s32'jko071_01', 5
   beginLabel: s32'loop'
   sprite: s32'jko071_02', 5
-  Unknown446: s32'Kizetsu', 100
+  createObject: s32'Kizetsu', (PLAYER)
   sprite: s32'jko071_03', 5
   sprite: s32'jko071_04', 5
   sprite: s32'jko071_05', 5
@@ -4457,7 +4495,7 @@ beginState: s32'CmnActHizakuzure'
   endLabel: 
   Unknown2176: 1, 100
   Unknown658: 100, 1, 0
-  Unknown27: s32'CmnActFDownLoop'
+  jumpToState: s32'CmnActFDownLoop'
   endState: 
 
 beginState: s32'CmnActKorogari'
@@ -4559,10 +4597,10 @@ beginState: s32'CmnActQuickDown2Stand'
 
 beginState: s32'CmnActMidGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     endUpon: 
-  Unknown2030: s32'CmnActMidGuardEnd'
-  Unknown24: s32'_Top', 2, 0
+  checkLastStateName: s32'CmnActMidGuardEnd'
+  Unknown24: s16'_Top', s16'', 2, 0
   beginLabel: s32'_Pre'
   sprite: s32'jko040_00', 2
   sprite: s32'jko040_01', 2
@@ -4599,7 +4637,7 @@ beginState: s32'CmnActMidGuardEnd'
 
 beginState: s32'CmnActHighGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     storeValue: (VARIABLE), 45, (STATIC), 250000
     storeValue: (VARIABLE), 46, (STATIC), 0
     storeValue: (VARIABLE), 47, (STATIC), 0
@@ -4643,10 +4681,10 @@ beginState: s32'CmnActHighGuardEnd'
 
 beginState: s32'CmnActCrouchGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     endUpon: 
-  Unknown2030: s32'CmnActCrouchGuardEnd'
-  Unknown24: s32'_Top', 2, 0
+  checkLastStateName: s32'CmnActCrouchGuardEnd'
+  Unknown24: s16'_Top', s16'', 2, 0
   beginLabel: s32'_Pre'
   sprite: s32'jko043_00', 2
   sprite: s32'jko043_01', 2
@@ -4683,7 +4721,7 @@ beginState: s32'CmnActCrouchGuardEnd'
 
 beginState: s32'CmnActAirGuardLoop'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     callSubroutine: s32'cmnAirGuard'
     endUpon: 
   beginLabel: s32'_Pre'
@@ -4718,7 +4756,7 @@ beginState: s32'CmnActAirGuardEnd'
 
 beginState: s32'CmnActGuardLanding'
   upon: (IMMEDIATE)
-    enableClashes: 1
+    enableRomanCancelMove: 1
     callSubroutine: s32'cmnGuardLanding'
     endUpon: 
   sprite: s32'jko033_00', 1
@@ -4802,14 +4840,14 @@ beginState: s32'CmnActHajikareAir'
   sprite: s32'jko020_18', 2
   sprite: s32'jko020_19', 2
   sprite: s32'keep', 2147483647
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'CmnActAirTurn'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_NoBlend'
     endUpon: 
-  Unknown24: s32'Ghost', 2, 3
+  Unknown24: s16'Ghost', s16'', 2, 3
   sprite: s32'jko023_00', 3
   sprite: s32'jko023_01', 2
   sprite: s32'jko023_02', 2
@@ -4818,7 +4856,7 @@ beginState: s32'CmnActAirTurn'
   exitState: 
   beginLabel: s32'Ghost'
   sprite: s32'jko415_05', 1
-  Unknown2193: 100, 0, 410000
+  exPointFReset: (PLAYER), 0, 410000
   endState: 
 
 beginState: s32'CmnActLockWait'
@@ -4842,15 +4880,15 @@ beginState: s32'CmnActBurst'
     callSubroutine: s32'cmnBurst'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
       Unknown2040: 4, s32'Release', 0
-      Unknown53: 4, 2, 56, 23, 0, 0
+      storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
       Unknown2040: 5, s32'Release', 0
-      Unknown53: 5, 2, 56, 23, 0, 0
+      storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Release', 0
-      Unknown53: 6, 2, 56, 23, 0, 0
+      storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     storeValue: (VARIABLE), 3, (STATIC), 0
     endUpon: 
@@ -4859,8 +4897,8 @@ beginState: s32'CmnActBurst'
   sprite: s32'jko330_02', 2
   sprite: s32'jko330_03', 2
   sprite: s32'jko330_04', 2147483647
-  Unknown2193: 100, 0, 250000
-  Unknown446: s32'JKO_330', 130
+  exPointFReset: (PLAYER), 0, 250000
+  createObject: s32'JKO_330', (EX_POINT_F)
   endLabel: 
   beginLabel: s32'_Bakuhatsu'
   beginLabel: s32'loop'
@@ -4889,21 +4927,21 @@ beginState: s32'CmnActRomanCancel'
     callSubroutine: s32'cmnRomanCancel'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
       Unknown2040: 4, s32'Release', 0
-      Unknown53: 4, 2, 56, 23, 0, 0
+      storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
       Unknown2040: 5, s32'Release', 0
-      Unknown53: 5, 2, 56, 23, 0, 0
+      storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Release', 0
-      Unknown53: 6, 2, 56, 23, 0, 0
+      storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     storeValue: (VARIABLE), 3, (STATIC), 0
     endUpon: 
-  Unknown2193: 100, -10000, 250000
-  Unknown446: s32'JKO_350', 130
-  Unknown24: s32'air', 2, 30
+  exPointFReset: (PLAYER), -10000, 250000
+  createObject: s32'JKO_350', (EX_POINT_F)
+  Unknown24: s16'air', s16'', 2, 30
   beginLabel: s32'land'
   sprite: s32'jko350_01', 3
   sprite: s32'jko350_02', 3
@@ -4968,7 +5006,7 @@ beginState: s32'CmnActEntryWait'
   upon: (IMMEDIATE)
     endUpon: 
   sprite: s32'null', 2147483647
-  Unknown2055: 0
+  displayModel: 0
   endState: 
 
 beginState: s32'entry_default'
@@ -5000,34 +5038,34 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'keep', 2
   if: (VARIABLE), 3
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     endIf: 
-  Unknown24: s32'TypeC', 2, 52
-  Unknown24: s32'TypeB', 2, 324
+  Unknown24: s16'TypeC', s16'', 2, 52
+  Unknown24: s16'TypeB', s16'', 2, 324
   gotoIfOperation: s32'TypeA', (IS_EQUAL), (VARIABLE), 153, (STATIC), 1
   gotoIfOperation: s32'TypeB', (IS_EQUAL), (VARIABLE), 153, (STATIC), 2
-  gotoIfOperation: s32'TypeB', 22, (STATIC), 50, (STATIC), 100
+  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   beginLabel: s32'TypeA'
-  Unknown25: s32'TypeA_start', 2, 3
+  Unknown25: s16'TypeA_start', s16'', 2, 3
   sprite: s32'jko427_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko427_00', 3
   sprite: s32'jko427_01', 3
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
     Unknown2040: 4, s32'AirReturn', 0
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
     Unknown2040: 5, s32'AirReturn', 0
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
     Unknown2040: 6, s32'AirReturn', 0
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko427_02', 3
@@ -5078,25 +5116,25 @@ beginState: s32'CmnActRoundWin'
   endLabel: 
   gotoLabel: s32'TypeA_loop'
   beginLabel: s32'TypeB'
-  Unknown25: s32'TypeB_start', 2, 3
+  Unknown25: s16'TypeB_start', s16'', 2, 3
   sprite: s32'jko427_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko427_00', 3
   sprite: s32'jko427_01', 3
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
     Unknown2040: 4, s32'AirReturn', 0
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
     Unknown2040: 5, s32'AirReturn', 0
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
     Unknown2040: 6, s32'AirReturn', 0
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko427_02', 3
@@ -5131,7 +5169,7 @@ beginState: s32'CmnActRoundWin'
   endLabel: 
   beginLabel: s32'TypeB_loop'
   sprite: s32'jko616_15', 8
-  Unknown448: s32'jko_616win_bake', 100
+  createParticle: s32'jko_616win_bake', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_00_1'
   sprite: s32'jko616_16', 8
   sprite: s32'jko616_17', 8
@@ -5148,25 +5186,25 @@ beginState: s32'CmnActRoundWin'
   endLabel: 
   gotoLabel: s32'TypeB_loop'
   beginLabel: s32'TypeC'
-  Unknown25: s32'TypeC_start', 2, 3
+  Unknown25: s16'TypeC_start', s16'', 2, 3
   sprite: s32'jko427_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko427_00', 3
   sprite: s32'jko427_01', 3
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
     Unknown2040: 4, s32'AirReturn', 0
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
     Unknown2040: 5, s32'AirReturn', 0
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
     Unknown2040: 6, s32'AirReturn', 0
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko427_02', 3
@@ -5174,7 +5212,7 @@ beginState: s32'CmnActRoundWin'
   endLabel: 
   beginLabel: s32'TypeC_start'
   storeValue: (VARIABLE), 46, (STATIC), 1
-  Unknown25: s32'TypeC_Mask', 2, 60
+  Unknown25: s16'TypeC_Mask', s16'', 2, 60
   storeValue: (VARIABLE), 46, (STATIC), 0
   sprite: s32'jko308_00', 5
   Unknown1702: s32'Head_high_options', 1
@@ -5226,7 +5264,7 @@ beginState: s32'CmnActRoundWin'
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   sprite: s32'jko307_20', 5
   endLabel: 
-  Unknown24: s32'TypeC_Secret', 2, 46
+  Unknown24: s16'TypeC_Secret', s16'', 2, 46
   sprite: s32'jko307_21', 5
   sprite: s32'jko307_22', 5
   sprite: s32'jko307_23', 5
@@ -5298,32 +5336,32 @@ beginState: s32'CmnActMatchWin'
       Unknown2040: 5, s32'LandReturn', 0
       Unknown2040: 6, s32'LandReturn', 0
       Unknown2279: 0, 0, 0, 0
-      Unknown445: s32'svt800cs', 100
+      createObjectWithArg: s32'svt800cs', (PLAYER)
       Unknown2279: 0, 1, 0, 0
-      Unknown445: s32'svt800cs', 100
+      createObjectWithArg: s32'svt800cs', (PLAYER)
       Unknown2279: 0, 2, 0, 0
-      Unknown445: s32'svt800cs', 100
+      createObjectWithArg: s32'svt800cs', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
-      Unknown427: 1, 1
+      resetSaturation: 1, 1
       Unknown410: -1, 800, 50
       Unknown429: 1, 1
       Unknown425: -1, 1400, 50
       Unknown426: -1, 0, 50
       Unknown2560: 1
-      Unknown2045: s32'jko800cs', 0
-      Unknown2030: s32'WinActionWait'
+      playAnimation: s32'jko800cs', 0
+      checkLastStateName: s32'WinActionWait'
       if: (VARIABLE), 0
-        Unknown2052: s32'jko800cs', 23, 0, -1
+        playCameraAnimation: s32'jko800cs', 23, 0, -1
         endIf: 
       else: 
-        Unknown2052: s32'jko800cs', 23, 32, -1
+        playCameraAnimation: s32'jko800cs', 23, 32, -1
         endElse: 
       callSubroutine: s32'Mask_MeshSetCheck'
-      Unknown2060: s32'jko800cs'
+      swapMeshSet: s32'jko800cs'
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
-      Unknown428: 1, 1
+      resetDOF: 1, 1
       Unknown412: -1, 700, 0
       Unknown413: -1, 0, 0
       Unknown414: -1, 0, 0
@@ -5353,7 +5391,7 @@ beginState: s32'CmnActMatchWin'
         endIf: 
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 184
-      Unknown2244: 1
+      hideAllButSelf: 1
       endIf: 
     Unknown2498: 22, 2, 393
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 200
@@ -5369,12 +5407,12 @@ beginState: s32'CmnActMatchWin'
             ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 106, (STATIC), 10000
               if: (VARIABLE), 32
                 Unknown41: 22
-                Unknown95: 0, -10000
+                addRawPositionX: 0, -10000
                 Unknown40: 
                 endIf: 
               else: 
                 Unknown41: 22
-                Unknown95: 0, 10000
+                addRawPositionX: 0, 10000
                 Unknown40: 
                 endElse: 
               endIf: 
@@ -5427,25 +5465,25 @@ beginState: s32'CmnActLose'
     callSubroutine: s32'cmnactlose'
     Unknown1702: s32'Watch', 1
     endUpon: 
-  Unknown25: s32'start', 2, 3
+  Unknown25: s16'start', s16'', 2, 3
   sprite: s32'jko427_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko427_00', 3
   sprite: s32'jko427_01', 3
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
     Unknown2040: 4, s32'AirReturn', 0
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
     Unknown2040: 5, s32'AirReturn', 0
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
     Unknown2040: 6, s32'AirReturn', 0
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko427_02', 3
@@ -5464,7 +5502,7 @@ beginState: s32'CmnActLose'
   characterSfx: s32'SE_BTL_JKO_15_1'
   sprite: s32'jko640_09', 6
   sprite: s32'jko640_10', 6
-  Unknown448: s32'jko_lose', 100
+  createParticle: s32'jko_lose', (PLAYER)
   voiceLine: s16'vxxx408'
   endLabel: 
   Unknown1708: 
@@ -5486,7 +5524,7 @@ beginState: s32'CmnActLose'
   sprite: s32'jko640_08', 6
   sprite: s32'jko640_09', 6
   sprite: s32'jko640_10', 6
-  Unknown448: s32'jko_lose', 100
+  createParticle: s32'jko_lose', (PLAYER)
   endLabel: 
   Unknown1708: 
   beginLabel: s32'loop1'
@@ -5608,8 +5646,8 @@ beginState: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
       endUpon: 
     Unknown953: 1
@@ -5645,7 +5683,7 @@ beginState: s32'NmlAtk6A'
     groundHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 18000
     hitAirPushbackY: 0, 22000
-	enableJumpCancel: 1
+    enableJumpCancel: 1
     counterHitSoftKnockdown: 0
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown953: 1
@@ -5724,8 +5762,8 @@ beginState: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
       endUpon: 
     Unknown953: 1
@@ -5767,7 +5805,7 @@ beginState: s32'NmlAtk5B'
     hitAirPushbackY: 0, 50000
     Unknown770: 0, 60, 0, 4, 0, 16
     hitGravity: (STATIC), 0
-    Unknown783: 0, 250, 0, 5, 0, 15
+    hitGravityOverTime: 0, 250, 0, 5, 0, 15
     enableJumpCancel: 1
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk2B'
@@ -5788,7 +5826,7 @@ beginState: s32'NmlAtk5B'
   sprite: s32'jko201_00', 3
   sprite: s32'jko201_01', 3
   sprite: s32'jko201_02', 2
-  Unknown446: s32'JKO_201_Strike', 100
+  createObject: s32'JKO_201_Strike', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   characterSfx: s32'SE_BTL_JKO_01'
@@ -5821,7 +5859,7 @@ beginState: s32'NmlAtk2B'
     hitAirPushbackY: 0, 30000
     Unknown770: 0, 50, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
-    Unknown783: 0, 100, 0, 10, 0, 35
+    hitGravityOverTime: 0, 100, 0, 10, 0, 35
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
@@ -5840,7 +5878,7 @@ beginState: s32'NmlAtk2B'
   sprite: s32'jko231_01', 2
   sprite: s32'jko231_02', 2
   sprite: s32'jko231_03', 3
-  Unknown446: s32'JKO_231_Bake', 100
+  createObject: s32'JKO_231_Bake', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   characterSfx: s32'SE_BTL_JKO_01_2'
@@ -5876,7 +5914,7 @@ beginState: s32'NmlAtk5CNear'
     hitAirPushbackY: 0, 20000
     Unknown770: 0, 60, 0, 8, 0, 16
     hitGravity: (STATIC), 500
-    Unknown783: 0, 250, 0, 7, 0, 30
+    hitGravityOverTime: 0, 250, 0, 7, 0, 30
     enableJumpCancel: 1
     Unknown2171: 1
     addGatlingOption: s32'NmlAtk6A'
@@ -5933,7 +5971,7 @@ beginState: s32'NmlAtk5CFar'
     hitAirPushbackY: 0, 20000
     Unknown770: 0, 50, 0, 5, 0, 11
     hitGravity: (STATIC), 2000
-    Unknown783: 0, 100, 0, 5, 0, 35
+    hitGravityOverTime: 0, 100, 0, 5, 0, 35
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk2D'
@@ -5951,7 +5989,7 @@ beginState: s32'NmlAtk5CFar'
   sprite: s32'jko203_04', 2
   sprite: s32'jko203_05', 2
   sprite: s32'jko203_06', 2
-  Unknown446: s32'JKO_203_Strike', 100
+  createObject: s32'JKO_203_Strike', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -5990,7 +6028,7 @@ beginState: s32'NmlAtk2C'
     hitAirPushbackY: 0, 40000
     Unknown770: 0, 60, 0, 5, 0, 15
     hitGravity: (STATIC), 500
-    Unknown783: 0, 200, 0, 5, 0, 50
+    hitGravityOverTime: 0, 200, 0, 5, 0, 50
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk2D'
@@ -6006,8 +6044,8 @@ beginState: s32'NmlAtk2C'
   sprite: s32'jko232_01', 3
   sprite: s32'jko232_02', 3
   sprite: s32'jko232_03', 3
-  Unknown446: s32'JKO_232_Strike', 100
-  Unknown446: s32'JKO_232_Bake', 100
+  createObject: s32'JKO_232_Strike', (PLAYER)
+  createObject: s32'JKO_232_Bake', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -6054,21 +6092,21 @@ beginState: s32'NmlAtk5D'
   Unknown621: 2, -1
   sprite: s32'jko204_03', 2
   sprite: s32'jko204_04', 2
-  Unknown446: s32'JKO_204_Windring01', 100
+  createObject: s32'JKO_204_Windring01', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   characterSfx: s32'SE_BTL_JKO_02_1'
   sprite: s32'jko204_05', 3
-  Unknown446: s32'JKO_204_Bake01', 100
+  createObject: s32'JKO_204_Bake01', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   physicsXImpulse: 0, 40000
   Unknown2229: 92
   sprite: s32'jko204_06', 3
-  Unknown446: s32'JKO_204_Windring02', 100
+  createObject: s32'JKO_204_Windring02', (PLAYER)
   Unknown1803: s32'JKO_204_Bake01', 23
   characterSfx: s32'SE_BTL_JKO_02_2'
   sprite: s32'jko204_07', 2
-  Unknown446: s32'JKO_204_Bake02', 100
+  createObject: s32'JKO_204_Bake02', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   hit: 
   callSubroutine: s32'NaguriClear'
@@ -6129,7 +6167,7 @@ beginState: s32'NmlAtk6D'
     hitAirPushbackY: 0, 30000
     Unknown770: 0, 60, 0, 8, 0, 16
     hitGravity: (STATIC), 500
-    Unknown783: 0, 150, 0, 14, 0, 30
+    hitGravityOverTime: 0, 150, 0, 14, 0, 30
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), -250000
@@ -6142,8 +6180,8 @@ beginState: s32'NmlAtk6D'
   sprite: s32'jko213_02', 2
   characterSfx: s32'SE_BTL_JKO_00_1'
   sprite: s32'jko213_03', 2
-  Unknown446: s32'JKO_213_Bake', 100
-  Unknown446: s32'JKO_213_Strike', 100
+  createObject: s32'JKO_213_Bake', (PLAYER)
+  createObject: s32'JKO_213_Strike', (PLAYER)
   hit: 
   storeValue: (VARIABLE), 57, (STATIC), 5
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
@@ -6215,12 +6253,13 @@ beginState: s32'NmlAtk2D'
     hitAirPushbackY: 0, -100000
     Unknown770: 0, 70, 0, 6, 0, 12
     hitGravity: (STATIC), 0
-    Unknown808: 500
-    Unknown783: 0, 200, 0, 9, 0, 30
+    groundBounceGravity: 500
+    hitGravityOverTime: 0, 200, 0, 9, 0, 30
     groundBounceYVelocityPercent: 100
     groundBounceXVelocity: 15000
     groundBounceYVelocity: 31000
     groundBounceCount: 1
+	enableJumpCancel: 1
     Unknown858: s32'CmnActBlowoff'
     Unknown953: 3
     storeValue: (VARIABLE), 343, (STATIC), -250000
@@ -6236,11 +6275,11 @@ beginState: s32'NmlAtk2D'
   sprite: s32'jko233_02', 2
   sprite: s32'jko233_03', 4
   sprite: s32'jko233_04', 4
-  Unknown176: 1
+  haltMomentum: 1
   sprite: s32'jko233_05', 3
   hit: 
-  Unknown446: s32'JKO_233_Strike', 100
-  Unknown446: s32'JKO_233_Bake', 100
+  createObject: s32'JKO_233_Strike', (PLAYER)
+  createObject: s32'JKO_233_Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   characterSfx: s32'SE_BTL_JKO_01_2'
   Unknown621: 2, -1
@@ -6250,7 +6289,7 @@ beginState: s32'NmlAtk2D'
   storeValue: (VARIABLE), 57, (STATIC), 0
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
   sprite: s32'jko233_08', 5
-  Unknown446: s32'JKO_233_landsmoke', 100
+  createObject: s32'JKO_233_landsmoke', (PLAYER)
   sprite: s32'jko233_09', 4
   sprite: s32'jko233_10', 3
   sprite: s32'jko233_11', 3
@@ -6260,7 +6299,7 @@ beginState: s32'NmlAtk2D'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, -50000, 0
+    exPointFReset: (PLAYER_LAND), -50000, 0
     callSubroutine: s32'cmn_DustAttack'
     callSubroutine: s32'NaguriClear'
     damage: 0, 40
@@ -6314,7 +6353,7 @@ beginState: s32'NmlAtk5E'
   beginLabel: s32'atk'
   sprite: s32'jko205_07', 2
   sprite: s32'jko205_08', 3
-  Unknown446: s32'JKO_205_Attack', 100
+  createObject: s32'JKO_205_Attack', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
   hit: 
   sprite: s32'jko205_09', 4
@@ -6401,7 +6440,7 @@ beginState: s32'HomingJump'
   sprite: s32'jko025_04', 3
   sprite: s32'jko025_05', 1
   sprite: s32'keep', 1
-  Unknown27: s32'HomingJumpLoop'
+  jumpToState: s32'HomingJumpLoop'
   endState: 
 
 beginState: s32'HomingJumpLoop'
@@ -6433,13 +6472,13 @@ beginState: s32'DustFinish'
   sprite: s32'jko500_05', 2
   sprite: s32'jko500_06', 2
   grabOrRelease: 
-  Unknown546: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'jko500_07', 3
   recoveryState: 
-  Unknown446: s32'501_fail_ase', 100
+  createObject: s32'501_fail_ase', (PLAYER)
   sprite: s32'jko500_08', 3
   sprite: s32'jko500_09', 3
-  Unknown446: s32'501_fail_bake', 100
+  createObject: s32'501_fail_bake', (PLAYER)
   sprite: s32'jko500_10', 3
   sprite: s32'jko500_11', 3
   Unknown2229: 90
@@ -6491,8 +6530,8 @@ beginState: s32'NmlAtk2E'
   if: (VARIABLE), 324
     Unknown2279: 0, 1, 0, 0
     endIf: 
-  Unknown446: s32'JKO_234_Ballring', 100
-  Unknown445: s32'JKO_234_Ring', 100
+  createObject: s32'JKO_234_Ballring', (PLAYER)
+  createObjectWithArg: s32'JKO_234_Ring', (PLAYER)
   cmnSfx: s32'SE_SWINGG'
   hit: 
   addPositionX: 100000
@@ -6520,8 +6559,8 @@ beginState: s32'NmlAtk5F'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
-  gotoIfOperation: s32'TypeC', 22, (STATIC), 33, (STATIC), 100
-  gotoIfOperation: s32'TypeB', 22, (STATIC), 50, (STATIC), 100
+  gotoIfOperation: s32'TypeC', (PERCENT), (STATIC), 33, (STATIC), 100
+  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   beginLabel: s32'TypeA'
   sprite: s32'jko300_00', 6
   Unknown1702: s32'Ball_options', 1
@@ -6631,7 +6670,7 @@ beginState: s32'NmlAtk5F'
   endLabel: 
   exitState: 
   beginLabel: s32'TypeC'
-  Unknown25: s32'TypeC_Mask', 2, 60
+  Unknown25: s16'TypeC_Mask', s16'', 2, 60
   sprite: s32'jko303_00', 5
   Unknown1702: s32'Head_high_options', 1
   Unknown1702: s32'Head_Low', 1
@@ -6657,7 +6696,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'jko302_06', 5
   sprite: s32'jko302_07', 5
   upon: (FRAME_STEP)
-    checkInput: 46
+    checkInput: (INPUT_HOLD_R)
     if: (VARIABLE), 0
       clearRegisteredUponCode: (FRAME_STEP)
       storeValue: (VARIABLE), 45, (STATIC), 1
@@ -6690,10 +6729,10 @@ beginState: s32'NmlAtk5F'
   sprite: s32'jko302_18', 5
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 46, (STATIC), -1
-  Unknown24: s32'TypeC_loop', 2, 46
+  Unknown24: s16'TypeC_loop', s16'', 2, 46
   sprite: s32'jko302_19', 5
   endLabel: 
-  Unknown24: s32'TypeC_Secret', 2, 45
+  Unknown24: s16'TypeC_Secret', s16'', 2, 45
   sprite: s32'jko302_20', 5
   sprite: s32'jko302_21', 5
   sprite: s32'jko302_22', 5
@@ -6746,8 +6785,8 @@ beginState: s32'NmlAtk6F'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
-  gotoIfOperation: s32'TypeC', 22, (STATIC), 33, (STATIC), 100
-  gotoIfOperation: s32'TypeB', 22, (STATIC), 50, (STATIC), 100
+  gotoIfOperation: s32'TypeC', (PERCENT), (STATIC), 33, (STATIC), 100
+  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   storeValue: (VARIABLE), 45, (STATIC), 3
   voiceLine: s16'vxxx411demo'
   beginLabel: s32'TypeA_loop'
@@ -6758,7 +6797,7 @@ beginState: s32'NmlAtk6F'
   sprite: s32'jko305_03', 7
   characterSfx: s32'SE_BTL_JKO_07_1'
   sprite: s32'jko305_04', 7
-  Unknown446: s32'JKO_305_Eff', 100
+  createObject: s32'JKO_305_Eff', (PLAYER)
   Unknown2177: 3, 100
   sprite: s32'jko305_05', 7
   characterSfx: s32'SE_BTL_JKO_13_1'
@@ -6767,7 +6806,7 @@ beginState: s32'NmlAtk6F'
   characterSfx: s32'SE_BTL_JKO_07_1'
   endLabel: 
   modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  Unknown24: s32'TypeA_loop', 2, 45
+  Unknown24: s16'TypeA_loop', s16'', 2, 45
   sprite: s32'jko305_08', 3
   sprite: s32'jko305_09', 3
   sprite: s32'jko305_10', 3
@@ -6786,7 +6825,7 @@ beginState: s32'NmlAtk6F'
   sprite: s32'jko306_07', 6
   sprite: s32'jko306_08', 6
   sprite: s32'jko306_09', 6
-  Unknown446: s32'JKO_306_Eff', 100
+  createObject: s32'JKO_306_Eff', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_12'
   sprite: s32'jko306_10', 6
   cmnSfx: s32'GG2_046'
@@ -6799,7 +6838,7 @@ beginState: s32'NmlAtk6F'
   endLabel: 
   exitState: 
   beginLabel: s32'TypeC'
-  Unknown25: s32'TypeC_Mask', 2, 60
+  Unknown25: s16'TypeC_Mask', s16'', 2, 60
   sprite: s32'jko308_00', 5
   Unknown1702: s32'Head_high_options', 1
   Unknown1702: s32'Head_Low', 1
@@ -6835,7 +6874,7 @@ beginState: s32'NmlAtk6F'
   characterSfx: s32'SE_BTL_JKO_15'
   sprite: s32'jko307_06', 5
   upon: (FRAME_STEP)
-    checkInput: 46
+    checkInput: (INPUT_HOLD_R)
     if: (VARIABLE), 0
       clearRegisteredUponCode: (FRAME_STEP)
       storeValue: (VARIABLE), 46, (STATIC), 1
@@ -6868,7 +6907,7 @@ beginState: s32'NmlAtk6F'
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   sprite: s32'jko307_20', 5
   endLabel: 
-  Unknown24: s32'TypeC_Secret', 2, 46
+  Unknown24: s16'TypeC_Secret', s16'', 2, 46
   sprite: s32'jko307_21', 5
   sprite: s32'jko307_22', 5
   sprite: s32'jko307_23', 5
@@ -6941,8 +6980,8 @@ beginState: s32'NmlAtkAir5A'
     addWhiffCancelOption: s32'NmlAtkAir5C'
     addWhiffCancelOption: s32'NmlAtkAir5D'
     addWhiffCancelOption: s32'NmlAtkAir5E'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
       endUpon: 
     Unknown953: 1
@@ -7051,8 +7090,8 @@ beginState: s32'NmlAtkAir5C'
   sprite: s32'jko252_01', 4
   sprite: s32'jko252_02', 3
   sprite: s32'jko252_03', 3
-  Unknown446: s32'JKO_252_Strike', 100
-  Unknown446: s32'JKO_252_Bake', 100
+  createObject: s32'JKO_252_Strike', (PLAYER)
+  createObject: s32'JKO_252_Bake', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   characterSfx: s32'SE_BTL_JKO_01_1'
@@ -7099,7 +7138,7 @@ beginState: s32'NmlAtkAir5D'
   sprite: s32'jko253_01', 2
   sprite: s32'jko253_02', 2
   sprite: s32'jko253_03', 2
-  Unknown446: s32'JKO_253_Windring', 100
+  createObject: s32'JKO_253_Windring', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'jko253_04', 2
   sprite: s32'jko253_05', 3
@@ -7175,14 +7214,14 @@ beginState: s32'NmlAtkAir5E'
   setGravity: 1500
   physicsXImpulse: 0, -10000
   physicsYImpulse: 0, 10000
-  Unknown2193: 100, 60000, 160000
-  Unknown446: s32'JKO_254_Shot', 130
+  exPointFReset: (PLAYER), 60000, 160000
+  createObject: s32'JKO_254_Shot', (EX_POINT_F)
   sprite: s32'jko254_08', 3
   sprite: s32'jko254_09', 2
   sprite: s32'jko254_10', 2
   sprite: s32'jko254_11', 2
   sprite: s32'jko020_11', 3
-  Unknown135: 
+  resetGravity: 
   sprite: s32'jko020_12', 3
   sprite: s32'jko020_13', 3
   sprite: s32'jko020_14', 3
@@ -7243,12 +7282,12 @@ beginState: s32'ThrowExe'
     callSubroutine: s32'cmnthrow_RedromanSenkoInput'
     callSubroutine: s32'cmnNohosei'
     callSubroutine: s32'cmnAtkTemplNage_LandBase'
-    Unknown711: 4
+    attackLevel: 4
     damage: 0, 60
     Unknown1108: 75
     Unknown1067: 4, 230000, 0
     hitStop: 12
-    Unknown1111: 0
+    disableHitstop: 0
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_STRONG)
     airHitEffect: (AIR_STRONG)
@@ -7257,7 +7296,7 @@ beginState: s32'ThrowExe'
     hitAirPushbackY: 0, 40000
     Unknown770: 0, 60, 0, 12, 0, 16
     hitGravity: (STATIC), 0
-    Unknown783: 0, 450, 0, 12, 0, 16
+    hitGravityOverTime: 0, 450, 0, 12, 0, 16
     endUpon: 
   sprite: s32'keep', 1
   Unknown547: 1
@@ -7266,13 +7305,13 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 240000
-  Unknown448: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 240000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 11
-  Unknown2193: 100, 180000, 0
-  Unknown546: 130, 100, 0
-  Unknown446: s32'Cam_Throw', 100
+  exPointFReset: (PLAYER), 180000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
+  createObject: s32'Cam_Throw', (PLAYER)
   sprite: s32'jko310_01', 10
   sprite: s32'jko310_02', 3
   voiceLine: s16'vxxx106'
@@ -7282,12 +7321,12 @@ beginState: s32'ThrowExe'
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
-  Unknown446: s32'JKO_310_Bake', 100
+  createObject: s32'JKO_310_Bake', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'jko310_05', 3
   sprite: s32'jko310_06', 3
-  Unknown446: s32'JKO_310_Strike', 100
+  createObject: s32'JKO_310_Strike', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_00_1'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'jko310_07', 3
@@ -7338,7 +7377,7 @@ beginState: s32'AirThrowExe'
     callSubroutine: s32'cmnthrow_Redroman'
     callSubroutine: s32'cmnNohosei'
     callSubroutine: s32'cmnAtkTemplNage_AirBase'
-    Unknown711: 4
+    attackLevel: 4
     damage: 0, 60
     Unknown1108: 75
     Unknown1067: 4, 230000, 0
@@ -7350,7 +7389,7 @@ beginState: s32'AirThrowExe'
     hitAirPushbackY: 0, 30000
     Unknown770: 0, 60, 0, 12, 0, 16
     hitGravity: (STATIC), 500
-    Unknown783: 0, 300, 0, 8, 0, 16
+    hitGravityOverTime: 0, 300, 0, 8, 0, 16
     endUpon: 
   sprite: s32'keep', 1
   Unknown547: 1
@@ -7359,12 +7398,12 @@ beginState: s32'AirThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 240000
-  Unknown448: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 240000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 34
-  Unknown2193: 100, 180000, 0
-  Unknown546: 130, 100, 0
+  exPointFReset: (PLAYER), 180000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
   callSubroutine: s32'cmnCam_AirThrow'
   sprite: s32'jko320_01', 10
   sprite: s32'jko320_02', 3
@@ -7375,11 +7414,11 @@ beginState: s32'AirThrowExe'
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
-  Unknown446: s32'JKO_320_Bake', 100
+  createObject: s32'JKO_320_Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'jko320_05', 3
   sprite: s32'jko320_06', 3
-  Unknown446: s32'JKO_320_Strike', 100
+  createObject: s32'JKO_320_Strike', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_01_1'
   sprite: s32'jko320_07', 3
   sprite: s32'jko320_08', 3
@@ -7419,8 +7458,8 @@ beginState: s32'SummonGhostA'
     endUpon: 
   sprite: s32'jko400_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, -10000, 500000
-  Unknown446: s32'CreateGhost', 130
+  exPointFReset: (PLAYER), -10000, 500000
+  createObject: s32'CreateGhost', (EX_POINT_F)
   sprite: s32'jko400_01', 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   sprite: s32'jko400_02', 3
@@ -7428,7 +7467,7 @@ beginState: s32'SummonGhostA'
   sprite: s32'jko400_03', 2
   sprite: s32'jko400_04', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   sprite: s32'jko400_05', 2
   clearRegisteredUponCode: 12
@@ -7437,37 +7476,37 @@ beginState: s32'SummonGhostA'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 27, (STATIC), 480
     Unknown2279: 0, 0, 0, 0
-    Unknown445: s32'Servant_Summon', 130
+    createObjectWithArg: s32'Servant_Summon', (EX_POINT_F)
     Unknown43: 4, 1
     endIf: 
   checkCurrentStateEntryName: s32'SummonGhostB'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 28, (STATIC), 480
     Unknown2279: 0, 1, 0, 0
-    Unknown445: s32'Servant_Summon', 130
+    createObjectWithArg: s32'Servant_Summon', (EX_POINT_F)
     Unknown43: 5, 1
     endIf: 
   checkCurrentStateEntryName: s32'SummonGhostC'
   if: (VARIABLE), 0
     storeValue: (VARIABLE), 29, (STATIC), 480
     Unknown2279: 0, 2, 0, 0
-    Unknown445: s32'Servant_Summon', 130
+    createObjectWithArg: s32'Servant_Summon', (EX_POINT_F)
     Unknown43: 6, 1
     endIf: 
   sprite: s32'jko400_06', 2
   endLabel: 
-  Unknown24: s32'PickUp', 2, 45
+  Unknown24: s16'PickUp', s16'', 2, 45
   sprite: s32'jko400_07', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 160000, 250000
+    exPointFReset: (PLAYER), 160000, 250000
     endUpon: 
   sprite: s32'jko400_08', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 170000, 130000
+    exPointFReset: (PLAYER), 170000, 130000
     endUpon: 
   sprite: s32'jko400_09', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 170000, 130000
+    exPointFReset: (PLAYER), 170000, 130000
     endUpon: 
   sprite: s32'jko400_10', 2
   sprite: s32'jko400_11', 3
@@ -7477,20 +7516,20 @@ beginState: s32'SummonGhostA'
   sprite: s32'keep', 1
   checkCurrentStateEntryName: s32'SummonGhostA'
   if: (VARIABLE), 0
-    Unknown53: 4, 2, 56, 23, 0, 1
-    Unknown53: 4, 2, 46, 23, 2, 45
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 1
+    storeValueFromObject: 4, (VARIABLE), 46, (SELF), (VARIABLE), 45
     storeValue: (VARIABLE), 3, (STATIC), 1
     endIf: 
   checkCurrentStateEntryName: s32'SummonGhostB'
   if: (VARIABLE), 0
-    Unknown53: 5, 2, 56, 23, 0, 1
-    Unknown53: 5, 2, 46, 23, 2, 45
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 1
+    storeValueFromObject: 5, (VARIABLE), 46, (SELF), (VARIABLE), 45
     storeValue: (VARIABLE), 3, (STATIC), 2
     endIf: 
   checkCurrentStateEntryName: s32'SummonGhostC'
   if: (VARIABLE), 0
-    Unknown53: 6, 2, 56, 23, 0, 1
-    Unknown53: 6, 2, 46, 23, 2, 45
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 1
+    storeValueFromObject: 6, (VARIABLE), 46, (SELF), (VARIABLE), 45
     storeValue: (VARIABLE), 3, (STATIC), 3
     endIf: 
   endState: 
@@ -7593,7 +7632,7 @@ beginState: s32'PickUpGhost'
   sprite: s32'jko400_10', 2
   sprite: s32'jko400_09', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 170000, 130000
+    exPointFReset: (PLAYER), 170000, 130000
     endUpon: 
   storeValue: (VARIABLE), 45, (VARIABLE), 53
   storeValue: (VARIABLE), 46, (VARIABLE), 54
@@ -7703,15 +7742,15 @@ beginState: s32'PickUpGhost'
   characterSfx: s32'SE_BTL_JKO_12'
   sprite: s32'jko400_08', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 170000, 130000
+    exPointFReset: (PLAYER), 170000, 130000
     endUpon: 
   sprite: s32'jko400_07', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 160000, 250000
+    exPointFReset: (PLAYER), 160000, 250000
     endUpon: 
   sprite: s32'jko400_06', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 0, 410000
+    exPointFReset: (PLAYER), 0, 410000
     endUpon: 
   endState: 
 
@@ -7728,7 +7767,7 @@ beginState: s32'ThrowGhost'
       endIf: 
     Unknown1058: 1
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     storeValue: (VARIABLE), 344, (STATIC), 0
     storeValue: (VARIABLE), 345, (STATIC), 60000
@@ -7764,13 +7803,13 @@ beginState: s32'ThrowGhost'
   voiceLine: s16'vxxx206'
   characterSfx: s32'SE_BTL_JKO_13'
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko419_05', 2
@@ -7795,7 +7834,7 @@ beginState: s32'AirThrowGhost'
       Unknown2040: 6, s32'AirThrow', 0
       endIf: 
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     Unknown1058: 1
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -7832,13 +7871,13 @@ beginState: s32'AirThrowGhost'
   voiceLine: s16'vxxx206'
   characterSfx: s32'SE_BTL_JKO_13'
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko420_05', 2
@@ -7909,7 +7948,7 @@ beginSubroutine: s32'KickAirMoveEnd'
   Unknown111: 70
   Unknown115: 
   Unknown116: 70
-  Unknown135: 
+  resetGravity: 
   endSubroutine: 
 
 beginState: s32'KickGhost'
@@ -7937,8 +7976,8 @@ beginState: s32'KickGhost'
       wallBounceYVelocity: 20000
       endUpon: 
     callSubroutine: s32'KickChain'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endUpon: 
     Unknown953: 1
@@ -7955,7 +7994,7 @@ beginState: s32'KickGhost'
   sprite: s32'jko402_05', 1
   voiceLine: s16'vxxx205'
   sprite: s32'jko402_06', 3
-  Unknown446: s32'JKO_SVT_Kick', 100
+  createObject: s32'JKO_SVT_Kick', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'jko402_07', 4
@@ -7984,10 +8023,10 @@ beginState: s32'AirKickGhost'
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, 11000
     rollDuration: 1
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     callSubroutine: s32'KickChain'
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endUpon: 
     Unknown953: 1
@@ -8006,7 +8045,7 @@ beginState: s32'AirKickGhost'
   sprite: s32'jko403_05', 1
   voiceLine: s16'vxxx205'
   sprite: s32'jko403_06', 3
-  Unknown446: s32'JKO_SVT_KickAir', 100
+  createObject: s32'JKO_SVT_KickAir', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   callSubroutine: s32'KickAirMoveEnd'
@@ -8047,10 +8086,10 @@ beginState: s32'PickKickGhost'
       endUpon: 
     callSubroutine: s32'KickChain'
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endUpon: 
     Unknown953: 1
@@ -8067,7 +8106,7 @@ beginState: s32'PickKickGhost'
   sprite: s32'jko421_05', 1
   voiceLine: s16'vxxx205'
   sprite: s32'jko421_06', 3
-  Unknown446: s32'JKO_SVT_Kick', 100
+  createObject: s32'JKO_SVT_Kick', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'jko421_07', 4
@@ -8098,13 +8137,13 @@ beginState: s32'AirPickkickGhost'
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, 11000
     rollDuration: 1
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     callSubroutine: s32'KickChain'
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
-    upon: 8
-      clearRegisteredUponCode: 8
+    upon: (HIT_OR_GUARD_ANY)
+      clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endUpon: 
     Unknown953: 1
@@ -8124,7 +8163,7 @@ beginState: s32'AirPickkickGhost'
   sprite: s32'jko422_05', 1
   voiceLine: s16'vxxx205'
   sprite: s32'jko422_06', 3
-  Unknown446: s32'JKO_SVT_KickAir', 100
+  createObject: s32'JKO_SVT_KickAir', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   callSubroutine: s32'KickAirMoveEnd'
@@ -8154,8 +8193,8 @@ beginState: s32'JibakuGhost'
     endUpon: 
   sprite: s32'jko434_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 130000, 400000
-  Unknown446: s32'JKO_BombOrder', 130
+  exPointFReset: (PLAYER), 130000, 400000
+  createObject: s32'JKO_BombOrder', (EX_POINT_F)
   sprite: s32'jko434_01', 2
   sprite: s32'jko434_02', 3
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -8179,8 +8218,8 @@ beginState: s32'AirJibakuGhost'
     endUpon: 
   sprite: s32'jko435_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 160000, 450000
-  Unknown446: s32'JKO_BombOrder', 130
+  exPointFReset: (PLAYER), 160000, 450000
+  createObject: s32'JKO_BombOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   sprite: s32'jko435_01', 2
   sprite: s32'jko435_02', 3
@@ -8215,17 +8254,17 @@ beginState: s32'PickJibakuGhost'
     endUpon: 
   sprite: s32'jko425_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 15000, 420000
+    exPointFReset: (PLAYER), 15000, 420000
     endUpon: 
-  Unknown2193: 100, 160000, 370000
-  Unknown446: s32'JKO_BombOrder', 130
+  exPointFReset: (PLAYER), 160000, 370000
+  createObject: s32'JKO_BombOrder', (EX_POINT_F)
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko425_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'ReleaseGhostCancelEnd'
   sprite: s32'jko425_01', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 45000, 420000
+    exPointFReset: (PLAYER), 45000, 420000
     endUpon: 
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   if: (VARIABLE), 6
@@ -8264,7 +8303,7 @@ beginState: s32'PickJibakuGhost'
   sprite: s32'jko425_06', 3
   sprite: s32'jko425_07', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 30000, 410000
+    exPointFReset: (PLAYER), 30000, 410000
     endUpon: 
   endState: 
 
@@ -8283,10 +8322,10 @@ beginState: s32'AirPickJibakuGhost'
     endUpon: 
   sprite: s32'jko426_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 15000, 420000
+    exPointFReset: (PLAYER), 15000, 420000
     endUpon: 
-  Unknown2193: 100, 160000, 370000
-  Unknown446: s32'JKO_BombOrder', 130
+  exPointFReset: (PLAYER), 160000, 370000
+  createObject: s32'JKO_BombOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko426_00', 1
@@ -8295,7 +8334,7 @@ beginState: s32'AirPickJibakuGhost'
   callSubroutine: s32'ReleaseGhostCancelEnd'
   sprite: s32'jko426_01', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 45000, 420000
+    exPointFReset: (PLAYER), 45000, 420000
     endUpon: 
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   if: (VARIABLE), 6
@@ -8335,7 +8374,7 @@ beginState: s32'AirPickJibakuGhost'
   sprite: s32'jko426_06', 3
   sprite: s32'jko426_07', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 30000, 410000
+    exPointFReset: (PLAYER), 30000, 410000
     endUpon: 
   endState: 
 
@@ -8345,8 +8384,8 @@ beginState: s32'ReturnGhost'
     Unknown1702: s32'Whistle', 1
     endUpon: 
   sprite: s32'jko432_00', 1
-  Unknown2193: 100, 130000, 400000
-  Unknown446: s32'JKO_HomeOrder', 130
+  exPointFReset: (PLAYER), 130000, 400000
+  createObject: s32'JKO_HomeOrder', (EX_POINT_F)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'jko432_01', 2
   sprite: s32'jko432_02', 3
@@ -8373,8 +8412,8 @@ beginState: s32'AirReturnGhost'
     endUpon: 
   sprite: s32'jko433_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 160000, 450000
-  Unknown446: s32'JKO_HomeOrder', 130
+  exPointFReset: (PLAYER), 160000, 450000
+  createObject: s32'JKO_HomeOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   sprite: s32'jko433_01', 2
   sprite: s32'jko433_02', 3
@@ -8398,7 +8437,7 @@ beginState: s32'PickReturnGhost'
   upon: (IMMEDIATE)
     Unknown1058: 1
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
       Unknown2040: 4, s32'Neutral', 0
@@ -8411,9 +8450,9 @@ beginState: s32'PickReturnGhost'
       endIf: 
     endUpon: 
   sprite: s32'jko423_00', 2
-  Unknown2193: 100, 130000, 370000
+  exPointFReset: (PLAYER), 130000, 370000
   Unknown2279: 0, 1, 0, 0
-  Unknown445: s32'JKO_HomeOrder', 130
+  createObjectWithArg: s32'JKO_HomeOrder', (EX_POINT_F)
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko423_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -8439,13 +8478,13 @@ beginState: s32'PickReturnGhost'
   sprite: s32'jko423_01', 2
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   voiceLine: s16'vxxx204'
@@ -8461,7 +8500,7 @@ beginState: s32'AirPickReturnGhost'
   upon: (IMMEDIATE)
     Unknown1058: 1
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
       Unknown2040: 4, s32'Neutral', 0
@@ -8474,9 +8513,9 @@ beginState: s32'AirPickReturnGhost'
       endIf: 
     endUpon: 
   sprite: s32'jko424_00', 2
-  Unknown2193: 100, 160000, 370000
+  exPointFReset: (PLAYER), 160000, 370000
   Unknown2279: 0, 1, 0, 0
-  Unknown445: s32'JKO_HomeOrder', 130
+  createObjectWithArg: s32'JKO_HomeOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko424_00', 1
@@ -8504,13 +8543,13 @@ beginState: s32'AirPickReturnGhost'
   sprite: s32'jko424_01', 2
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   voiceLine: s16'vxxx204'
@@ -8526,8 +8565,8 @@ beginState: s32'AirPickReturnGhost'
 
 beginSubroutine: s32'ReleaseGhostCancel'
   if: (VARIABLE), 92
-    Unknown1364: 1
-    Unknown2438: 1
+    enableBurst: 1
+    forceEnableBlueRomanCancel: 1
     endIf: 
   enableWhiffCancel: 1
   addWhiffCancelOption: s32'ElysionDriver'
@@ -8537,18 +8576,18 @@ beginSubroutine: s32'ReleaseGhostCancel'
 
 beginSubroutine: s32'ReleaseGhostCancelEnd'
   if: (VARIABLE), 92
-    Unknown1364: 0
-    Unknown2438: 0
+    enableBurst: 0
+    forceEnableBlueRomanCancel: 0
     endIf: 
-  Unknown1657: s32'ElysionDriver'
-  Unknown1657: s32'PowerUp_S'
-  Unknown1657: s32'PowerUp_HS'
+  removeWhiffCancelOption: s32'ElysionDriver'
+  removeWhiffCancelOption: s32'PowerUp_S'
+  removeWhiffCancelOption: s32'PowerUp_HS'
   endSubroutine: 
 
 beginSubroutine: s32'AirOrder_Move'
   Unknown109: 
   Unknown114: 
-  Unknown176: 1
+  haltMomentum: 1
   Unknown1824: 6, 1
   storeValue: (VARIABLE), 336, (STATIC), 1
   endSubroutine: 
@@ -8561,7 +8600,7 @@ beginSubroutine: s32'AirOrder_MoveEnd'
   Unknown111: 70
   Unknown115: 
   Unknown116: 70
-  Unknown135: 
+  resetGravity: 
   endSubroutine: 
 
 beginState: s32'ReleaseGhost'
@@ -8577,7 +8616,7 @@ beginState: s32'ReleaseGhost'
       Unknown2040: 6, s32'Neutral', 0
       endIf: 
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     endUpon: 
   sprite: s32'jko427_00', 2
@@ -8589,15 +8628,15 @@ beginState: s32'ReleaseGhost'
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
     Unknown2040: 4, s32'Release', 0
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
     Unknown2040: 5, s32'Release', 0
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
     Unknown2040: 6, s32'Release', 0
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko427_02', 3
@@ -8618,7 +8657,7 @@ beginState: s32'AirReleaseGhost'
       Unknown2040: 6, s32'Neutral', 0
       endIf: 
     upon: (FRAME_STEP)
-      Unknown2193: 100, 0, 410000
+      exPointFReset: (PLAYER), 0, 410000
       endUpon: 
     endUpon: 
   sprite: s32'jko428_00', 2
@@ -8630,15 +8669,15 @@ beginState: s32'AirReleaseGhost'
   clearRegisteredUponCode: (FRAME_STEP)
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
     Unknown2040: 4, s32'Release', 0
-    Unknown53: 4, 2, 56, 23, 0, 0
+    storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
     Unknown2040: 5, s32'Release', 0
-    Unknown53: 5, 2, 56, 23, 0, 0
+    storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
     Unknown2040: 6, s32'Release', 0
-    Unknown53: 6, 2, 56, 23, 0, 0
+    storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
     endIf: 
   storeValue: (VARIABLE), 3, (STATIC), 0
   sprite: s32'jko428_02', 3
@@ -8652,8 +8691,8 @@ beginState: s32'AtemiGhost'
     endUpon: 
   sprite: s32'jko436_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 130000, 400000
-  Unknown446: s32'JKO_ShieldOrder', 130
+  exPointFReset: (PLAYER), 130000, 400000
+  createObject: s32'JKO_ShieldOrder', (EX_POINT_F)
   sprite: s32'jko436_01', 2
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   voiceLine: s16'vxxx202'
@@ -8677,8 +8716,8 @@ beginState: s32'AirAtemiGhost'
     endUpon: 
   sprite: s32'jko437_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 130000, 400000
-  Unknown446: s32'JKO_ShieldOrder', 130
+  exPointFReset: (PLAYER), 130000, 400000
+  createObject: s32'JKO_ShieldOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   sprite: s32'jko437_01', 2
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
@@ -8711,8 +8750,8 @@ beginState: s32'PickAtemiGhost'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Neutral', 0
       endIf: 
-    upon: 23
-      clearRegisteredUponCode: 23
+    upon: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
       enableWhiffCancel: 1
       addWhiffCancelOption: s32'ThrowGhostP'
       addWhiffCancelOption: s32'ThrowGhostK'
@@ -8724,17 +8763,17 @@ beginState: s32'PickAtemiGhost'
     endUpon: 
   sprite: s32'jko425_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 15000, 420000
+    exPointFReset: (PLAYER), 15000, 420000
     endUpon: 
-  Unknown2193: 100, 160000, 370000
-  Unknown446: s32'JKO_ShieldOrder', 130
+  exPointFReset: (PLAYER), 160000, 370000
+  createObject: s32'JKO_ShieldOrder', (EX_POINT_F)
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko425_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'ReleaseGhostCancelEnd'
   sprite: s32'jko425_01', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 36000, 420000
+    exPointFReset: (PLAYER), 36000, 420000
     endUpon: 
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   if: (VARIABLE), 6
@@ -8761,7 +8800,7 @@ beginState: s32'PickAtemiGhost'
   sprite: s32'jko425_06', 3
   sprite: s32'jko425_07', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 30000, 410000
+    exPointFReset: (PLAYER), 30000, 410000
     endUpon: 
   endState: 
 
@@ -8777,8 +8816,8 @@ beginState: s32'AirPickAtemiGhost'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Neutral', 0
       endIf: 
-    upon: 23
-      clearRegisteredUponCode: 23
+    upon: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
       enableWhiffCancel: 1
       addWhiffCancelOption: s32'AirThrowGhostP'
       addWhiffCancelOption: s32'AirThrowGhostK'
@@ -8790,10 +8829,10 @@ beginState: s32'AirPickAtemiGhost'
     endUpon: 
   sprite: s32'jko426_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 30000, 420000
+    exPointFReset: (PLAYER), 30000, 420000
     endUpon: 
-  Unknown2193: 100, 160000, 370000
-  Unknown446: s32'JKO_ShieldOrder', 130
+  exPointFReset: (PLAYER), 160000, 370000
+  createObject: s32'JKO_ShieldOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko426_00', 1
@@ -8802,7 +8841,7 @@ beginState: s32'AirPickAtemiGhost'
   callSubroutine: s32'ReleaseGhostCancelEnd'
   sprite: s32'jko426_01', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 36000, 440000
+    exPointFReset: (PLAYER), 36000, 440000
     endUpon: 
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   if: (VARIABLE), 6
@@ -8830,7 +8869,7 @@ beginState: s32'AirPickAtemiGhost'
   sprite: s32'jko426_06', 3
   sprite: s32'jko426_07', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 30000, 440000
+    exPointFReset: (PLAYER), 30000, 440000
     endUpon: 
   endState: 
 
@@ -8843,8 +8882,8 @@ beginState: s32'AtkOrderGhost'
     endUpon: 
   sprite: s32'jko430_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 130000, 400000
-  Unknown446: s32'JKO_AtkOrder', 130
+  exPointFReset: (PLAYER), 130000, 400000
+  createObject: s32'JKO_AtkOrder', (EX_POINT_F)
   sprite: s32'jko430_01', 3
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown2040: 4, s32'AtkOrder', 0
@@ -8869,8 +8908,8 @@ beginState: s32'AirAtkOrderGhost'
     endUpon: 
   sprite: s32'jko431_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 160000, 450000
-  Unknown446: s32'JKO_AtkOrder', 130
+  exPointFReset: (PLAYER), 160000, 450000
+  createObject: s32'JKO_AtkOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   sprite: s32'jko431_01', 3
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -8900,8 +8939,8 @@ beginState: s32'PickAtkOrderGhost'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Neutral', 0
       endIf: 
-    upon: 23
-      clearRegisteredUponCode: 23
+    upon: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
       enableWhiffCancel: 1
       addWhiffCancelOption: s32'ThrowGhostP'
       addWhiffCancelOption: s32'ThrowGhostK'
@@ -8916,17 +8955,17 @@ beginState: s32'PickAtkOrderGhost'
     endUpon: 
   sprite: s32'jko425_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 15000, 420000
+    exPointFReset: (PLAYER), 15000, 420000
     endUpon: 
-  Unknown2193: 100, 160000, 370000
-  Unknown446: s32'JKO_AtkOrder', 130
+  exPointFReset: (PLAYER), 160000, 370000
+  createObject: s32'JKO_AtkOrder', (EX_POINT_F)
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko425_00', 1
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'ReleaseGhostCancelEnd'
   sprite: s32'jko425_01', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 36000, 420000
+    exPointFReset: (PLAYER), 36000, 420000
     endUpon: 
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   if: (VARIABLE), 6
@@ -8953,7 +8992,7 @@ beginState: s32'PickAtkOrderGhost'
   sprite: s32'jko425_06', 3
   sprite: s32'jko425_07', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 20000, 410000
+    exPointFReset: (PLAYER), 20000, 410000
     endUpon: 
   endState: 
 
@@ -8969,8 +9008,8 @@ beginState: s32'AirPickAtkOrderGhost'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Neutral', 0
       endIf: 
-    upon: 23
-      clearRegisteredUponCode: 23
+    upon: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
       enableWhiffCancel: 1
       addWhiffCancelOption: s32'AirThrowGhostP'
       addWhiffCancelOption: s32'AirThrowGhostK'
@@ -8985,10 +9024,10 @@ beginState: s32'AirPickAtkOrderGhost'
     endUpon: 
   sprite: s32'jko426_00', 2
   upon: (FRAME_STEP)
-    Unknown2193: 100, 15000, 420000
+    exPointFReset: (PLAYER), 15000, 420000
     endUpon: 
-  Unknown2193: 100, 160000, 370000
-  Unknown446: s32'JKO_AtkOrder', 130
+  exPointFReset: (PLAYER), 160000, 370000
+  createObject: s32'JKO_AtkOrder', (EX_POINT_F)
   callSubroutine: s32'AirOrder_Move'
   callSubroutine: s32'ReleaseGhostCancel'
   sprite: s32'jko426_00', 1
@@ -8997,7 +9036,7 @@ beginState: s32'AirPickAtkOrderGhost'
   callSubroutine: s32'ReleaseGhostCancelEnd'
   sprite: s32'jko426_01', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 36000, 420000
+    exPointFReset: (PLAYER), 36000, 420000
     endUpon: 
   callSubroutineWithArgs: s32'OrderCost', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   if: (VARIABLE), 6
@@ -9025,51 +9064,658 @@ beginState: s32'AirPickAtkOrderGhost'
   sprite: s32'jko426_06', 3
   sprite: s32'jko426_07', 3
   upon: (FRAME_STEP)
-    Unknown2193: 100, 20000, 410000
+    exPointFReset: (PLAYER), 20000, 410000
     endUpon: 
   endState: 
 
+beginState: s32'Zest'
+  upon: (IMMEDIATE)
+    tensionUsage: 2500
+	tensionCooldown: 120
+    callSubroutine: s32'cmn_AtkLv2'
+    callSubroutine: s32'cmn_countertype_middle'
+    damage: 0, 30
+    storeValue: (VARIABLE), 338, (STATIC), 1000
+    storeValue: (VARIABLE), 339, (STATIC), 0
+    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutine: s32'cmn_hosei'
+    groundHitEffect: (AIR_FACE_UP)
+    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    hitAirPushbackX: 0, 3000
+    hitAirPushbackY: 0, 22000
+    Unknown2169: 0
+    upon: (TOUCH_GROUND)
+      Unknown14: s32'landing'
+      endUpon: 
+    Unknown953: 2
+    storeValue: (VARIABLE), 343, (STATIC), -200000
+    storeValue: (VARIABLE), 344, (STATIC), 0
+    storeValue: (VARIABLE), 345, (STATIC), 0
+    Unknown1118: s32'SE_BTL_CMN_Hit_Grap_L'
+    guardSoundEffect: s32'SE_BTL_CMN_Guard_Grap_L'
+    callSubroutine: s32'cmnMutekiRC'
+    upon: (HIT)
+      Unknown2239: 1
+      endUpon: 
+    upon: (HIT_OR_GUARD)
+      extendPushboxX: 100000
+      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+      endUpon: 
+    endUpon: 
+  sprite: s32'jko408_00', 2
+  createParticle: s32'cmn_forcebreak', (HEART)
+  cmnSfx: s32'SE_BTL_SYS_Skill'
+  setStrikeInvulnerable: 1
+  sprite: s32'jko408_00', 1
+  sprite: s32'jko408_01', 2
+  sprite: s32'jko408_02', 3
+  sprite: s32'jko408_03', 3
+  hit: 
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
+  sprite: s32'jko408_04', 3
+  sprite: s32'jko408_05', 3
+  sprite: s32'jko408_06', 1
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
+  Unknown707: 
+  callSubroutine: s32'cmn_AtkLv2'
+  callSubroutine: s32'cmn_countertype_middle'
+  damage: 0, 25
+  storeValue: (VARIABLE), 338, (STATIC), 1000
+  storeValue: (VARIABLE), 339, (STATIC), 0
+  storeValue: (VARIABLE), 340, (STATIC), 1
+  callSubroutine: s32'cmn_hosei'
+  groundHitEffect: (AIR_FACE_UP)
+  callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  hitAirPushbackX: 0, 17000
+  hitAirPushbackY: 0, 33000
+  Unknown2169: 0
+  Unknown953: 2
+  Unknown1118: s32'SE_BTL_CMN_Hit_Grap_L'
+  guardSoundEffect: s32'SE_BTL_CMN_Guard_Grap_L'
+  callSubroutine: s32'cmnMutekiRC'
+  upon: (HIT)
+    Unknown2239: 1
+    endUpon: 
+  upon: (HIT_OR_GUARD)
+    extendPushboxX: 100000
+    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    endUpon: 
+  physicsXImpulse: 0, 7000
+  physicsYImpulse: 0, 32000
+  Unknown136: 
+  hit: 
+  setStrikeInvulnerable: 0
+  sprite: s32'jko408_07', 1
+  sprite: s32'jko408_08', 1
+  sprite: s32'jko408_09', 1
+  sprite: s32'jko408_06', 1
+  sprite: s32'jko408_07', 1
+  sprite: s32'jko408_08', 1
+  sprite: s32'jko408_09', 1
+  sprite: s32'jko408_06', 1
+  sprite: s32'jko408_10', 4
+  Unknown448: s32'jko_408eff_yoin', 100
+  recoveryState: 
+  sprite: s32'jko408_11', 3
+  sprite: s32'jko408_12', 3
+  sprite: s32'jko408_13', 3
+  sprite: s32'jko408_14', 3
+  sprite: s32'jko408_15', 2
+  beginLabel: s32'loop'
+  sprite: s32'jko408_16', 3
+  sprite: s32'jko408_17', 3
+  endLabel: 
+  gotoLabel: s32'loop'
+  beginLabel: s32'landing'
+  sprite: s32'jko408_18', 3
+  sprite: s32'jko408_19', 3
+  sprite: s32'jko408_20', 3
+  sprite: s32'jko408_21', 3
+  sprite: s32'jko408_22', 3
+  endLabel: 
+  endState: 
+  
+beginState: s32'UntieChironChain'
+  upon: (IMMEDIATE)
+    tensionUsage: 2500
+	tensionCooldown: 120
+    Unknown1058: 1
+    Unknown953: 1
+    storeValue: (VARIABLE), 344, (STATIC), 100000
+    storeValue: (VARIABLE), 345, (STATIC), 130000
+    storeValue: (VARIABLE), 350, (STATIC), -60000
+    callSubroutine: s32'cmnLandingStiffadd_Timer'
+    endUpon: 
+  sprite: s32'jko254_00', 2
+  createParticle: s32'cmn_forcebreak', (HEART)
+  cmnSfx: s32'SE_BTL_SYS_Skill'
+  Unknown1702: s32'Ball_baloon', 1
+  sprite: s32'jko254_01', 1
+  Unknown111: 20
+  Unknown116: 50
+  setGravity: 500
+  sprite: s32'jko254_01', 2
+  sprite: s32'jko254_02', 3
+  characterSfx: s32'SE_BTL_JKO_00_1'
+  sprite: s32'jko254_03', 3
+  sprite: s32'jko254_04', 3
+  sprite: s32'jko254_05', 3
+  exPointFReset: (PLAYER), 60000, 160000
+  createObject: s32'JKO_254_Shot', (EX_POINT_F)
+  characterSfx: s32'SE_BTL_JKO_01'
+  sprite: s32'jko254_06', 3
+  voiceLine: s16'vxxx207'
+  sprite: s32'jko254_07', 3
+  sprite: s32'jko254_08', 3
+  exPointFReset: (PLAYER), 60000, 160000
+  createObject: s32'JKO_254_Shot', (EX_POINT_F)
+  sprite: s32'jko254_06', 3
+  sprite: s32'jko254_07', 3
+  sprite: s32'jko254_08', 3
+  exPointFReset: (PLAYER), 60000, 160000
+  createObject: s32'JKO_254_Shot', (EX_POINT_F)
+  sprite: s32'jko254_06', 3
+  sprite: s32'jko254_07', 3
+  setGravity: 2275
+  sprite: s32'jko254_08', 3
+  sprite: s32'jko254_09', 2
+  sprite: s32'jko254_10', 2
+  sprite: s32'jko254_11', 2
+  resetGravity: 
+  endState: 
+  
+beginState: s32'IronballGenocide'
+  upon: (IMMEDIATE)
+    callSubroutine: s32'cmnAtkTemplNageDageki'
+    callSubroutineWithArgs: s32'cmnSpecialAtkThrowInit', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    disableWallBreak: 1
+    canGrab: 1
+    Unknown1042: s32'IronballGenocideEx'
+    upon: (HIT)
+      disableHitstop: 1
+      Unknown23: 2
+      Unknown99: 0, 1
+      endUpon: 
+    attackLevel: 4
+    damage: 0, 10
+    Unknown1027: 800000, -200000, 400000, -400000
+    endUpon: 
+  sprite: s32'jko404_00', 2
+  sprite: s32'jko404_01', 2
+  sprite: s32'jko404_02', 1
+  sprite: s32'jko404_03', 1
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
+  sprite: s32'jko404_04', 1
+  sprite: s32'jko404_05', 1
+  sprite: s32'jko404_05', 1
+  sprite: s32'jko404_06', 1
+  sprite: s32'jko404_07', 2
+  physicsXImpulse: 0, 27000
+  hit: 
+  sprite: s32'jko404_08', 3
+  Unknown2229: 90
+  sprite: s32'jko404_09', 4
+  sprite: s32'jko404_10', 3
+  sprite: s32'jko404_11', 3
+  recoveryState: 
+  sprite: s32'jko404_12', 3
+  sprite: s32'jko404_13', 3
+  sprite: s32'jko404_14', 4
+  sprite: s32'jko404_15', 4
+  sprite: s32'jko404_16', 2
+  sprite: s32'jko404_17', 2
+  sprite: s32'jko404_18', 2
+  endState: 
+
+beginState: s32'AirIronballGenocide'
+  upon: (IMMEDIATE)
+    callSubroutine: s32'cmnAtkTemplNageDageki'
+    callSubroutineWithArgs: s32'cmnSpecialAtkThrowInit', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    disableWallBreak: 1
+	canGrab: 1
+    Unknown1042: s32'AirIronballGenocideEx'
+    attackLevel: 4
+    damage: 0, 10
+    Unknown1027: 800000, -200000, 400000, -400000
+    upon: 2
+      Unknown14: s32'landing'
+      endUpon: 
+    upon: (HIT)
+      disableHitstop: 1
+      Unknown23: 2
+      Unknown99: 0, 1
+      endUpon: 
+    endUpon: 
+  sprite: s32'jko406_00', 2
+  Unknown176: 1
+  sprite: s32'jko406_01', 1
+  sprite: s32'jko406_02', 1
+  addVelocityY: 0, 12000
+  sprite: s32'jko406_03', 1
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
+  Unknown2230: 90
+  sprite: s32'jko406_04', 1
+  sprite: s32'jko406_05', 1
+  sprite: s32'jko406_06', 2
+  sprite: s32'jko406_07', 1
+  addVelocityX: 0, 27000
+  hit: 
+  sprite: s32'jko406_08', 2
+  Unknown2229: 90
+  sprite: s32'jko406_09', 3
+  sprite: s32'jko406_10', 3
+  recoveryState: 
+  sprite: s32'jko406_11', 3
+  sprite: s32'jko406_12', 3
+  Unknown176: 1
+  Unknown136: 
+  sprite: s32'jko406_13', 3
+  sprite: s32'jko406_14', 4
+  sprite: s32'jko406_15', 4
+  sprite: s32'jko406_16', 2
+  sprite: s32'jko406_17', 2
+  sprite: s32'jko406_18', 2
+  sprite: s32'jko020_12', 3
+  sprite: s32'jko020_13', 3
+  sprite: s32'jko020_14', 3
+  beginLabel: s32'loop'
+  sprite: s32'jko020_15', 3
+  sprite: s32'jko020_16', 3
+  Unknown3: 
+  gotoLabel: s32'loop'
+  beginLabel: s32'landing'
+  sprite: s32'jko020_17', 4
+  sprite: s32'jko020_18', 2
+  sprite: s32'jko020_19', 2
+  sprite: s32'jko020_20', 2
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'jko020_21', 2
+  sprite: s32'jko020_22', 2
+  endState: 
+
+
+beginState: s32'IronballGenocideEx'
+  upon: (IMMEDIATE)
+    Unknown1673: 18, 0
+    callSubroutine: s32'cmnthrow_RedromanSenkoInput'
+    callSubroutine: s32'cmnNohosei'
+    callSubroutine: s32'cmnAtkTemplNage_LandBase'
+    damage: 0, 40
+    groundHitEffect: (AIR_FACE_UP)
+    airHitEffect: (AIR_LAUNCH)
+    Unknown1139: 0
+    Unknown1142: 1
+    disableHitstop: 1
+    hitAirPushbackX: 0, 0
+    hitAirPushbackY: 0, -30000
+	hitSoftKnockdown: 0
+    hitGravity: 0, 2275
+    upon: 2
+      Unknown14: s32'landing'
+      endUpon: 
+    Unknown2169: 0
+    upon: (ON_HIT_OR_BLOCK)
+      Unknown14: s32'Attack'
+      endUpon: 
+    upon: 24
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, -15000
+      hitAirPushbackY: 0, -30000
+      groundBounceCount: 1
+      hitGravity: 0, 0
+      groundBounceYVelocityPercent: 40
+      Unknown1165: s32'1HaisyutuLand'
+      endUpon: 
+    upon: 25
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, 0
+      hitAirPushbackY: 0, -30000
+      groundBounceCount: 1
+      hitGravity: 0, 0
+      groundBounceYVelocityPercent: 40
+      endUpon: 
+    upon: 26
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, 15000
+      hitAirPushbackY: 0, -30000
+      groundBounceCount: 1
+      hitGravity: 0, 0
+      groundBounceYVelocityPercent: 40
+      endUpon: 
+    upon: 27
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, -30000
+      hitAirPushbackY: 0, 20000
+      endUpon: 
+    upon: 29
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, 30000
+      hitAirPushbackY: 0, 20000
+      endUpon: 
+    upon: 30
+      airHitEffect: (AIR_LAUNCH)
+      hitAirPushbackX: 0, -35000
+      hitAirPushbackY: 0, 60000
+      endUpon: 
+    upon: 31
+      airHitEffect: (AIR_LAUNCH)
+      hitAirPushbackX: 0, 0
+      hitAirPushbackY: 0, 70000
+      endUpon: 
+    upon: 32
+      airHitEffect: (AIR_LAUNCH)
+      hitAirPushbackX: 0, 35000
+      hitAirPushbackY: 0, 60000
+      Unknown1165: s32'9HaisyutuLand'
+      endUpon: 
+    Unknown2169: 0
+    Unknown1018: 1
+    Unknown1127: 1
+    Unknown1128: 1
+    Unknown2174: 
+    setNoCollision: 0
+    Unknown54: 8, 2, 5, 0, 262144
+    Unknown1918: s32'CmdThrowSuccess', 0, 0, 0, 0, 0, 0, 0, 0
+    endUpon: 
+  sprite: s32'jko405_00', 2
+  callSubroutine: s32'cmn_ThrowRC'
+  callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  Unknown544: 33
+  Unknown2193: 100, 430000, 200000
+  Unknown546: 130, 103, 0
+  sprite: s32'jko405_01', 2
+  sprite: s32'jko405_02', 2
+  sprite: s32'jko405_03', 1
+  sprite: s32'jko405_04', 1
+  sprite: s32'jko405_05', 3
+  sprite: s32'jko405_06', 6
+  sprite: s32'jko405_07', 3
+  Unknown2077: s32'DustHit', 500, 1, 20, 1
+  Unknown448: s32'jko_405eff', 100
+  Unknown2193: 100, 150000, 240000
+  Unknown546: 130, 103, 0
+  Unknown41: 22
+  Unknown2055: 0
+  Unknown40: 
+  sprite: s32'jko405_08', 6
+  sprite: s32'jko405_09', 3
+  sprite: s32'jko405_10', 3
+  sprite: s32'jko405_11', 3
+  sprite: s32'jko405_12', 3
+  sprite: s32'jko405_13', 3
+  sprite: s32'jko405_14', 3
+  sprite: s32'jko405_15', 3
+  Unknown2193: 100, 150000, 240000
+  sprite: s32'jko405_16', 3
+  sprite: s32'jko405_17', 5
+  sprite: s32'jko405_18', 5
+  sprite: s32'jko405_19', 5
+  sprite: s32'jko405_17', 5
+  sprite: s32'jko405_18', 5
+  sprite: s32'jko405_19', 5
+  beginLabel: s32'Attack'
+  sprite: s32'jko405_20', 3
+  sprite: s32'jko405_21', 3
+  sprite: s32'jko405_22', 3
+  sprite: s32'jko405_23', 3
+  upon: (AFTER_EXIT)
+    Unknown98: 0
+    endUpon: 
+  sprite: s32'jko405_24', 8
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
+  Unknown2193: 100, 150000, 240000
+  Unknown546: 130, 103, 0
+  Unknown41: 22
+  Unknown2055: 1
+  Unknown40: 
+  grabOrRelease: 
+  upon: (HIT)
+    callSubroutine: s32'cmnAtkTemplNageFinish'
+    setForcedProration: 60
+    endUpon: 
+  Unknown3: 
+  Unknown13: s32'End_Air', 10, 2, 18, 0, 1
+  beginLabel: s32'End_Land'
+  sprite: s32'jko405_25', 6
+  Unknown98: 0
+  sprite: s32'jko405_26', 6
+  sprite: s32'jko405_27', 6
+  sprite: s32'jko405_28', 6
+  Unknown3: 
+  Unknown18: 
+  beginLabel: s32'End_Air'
+  sprite: s32'jko407_00', 4
+  Unknown136: 
+  sprite: s32'jko407_01', 4
+  sprite: s32'jko407_02', 4
+  sprite: s32'jko407_03', 4
+  sprite: s32'jko020_12', 3
+  sprite: s32'jko020_13', 3
+  sprite: s32'jko020_14', 3
+  beginLabel: s32'loop'
+  sprite: s32'jko020_15', 3
+  sprite: s32'jko020_16', 3
+  Unknown3: 
+  gotoLabel: s32'loop'
+  beginLabel: s32'landing'
+  sprite: s32'jko020_17', 4
+  sprite: s32'jko020_18', 2
+  sprite: s32'jko020_19', 2
+  sprite: s32'jko020_20', 2
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'jko020_21', 2
+  sprite: s32'jko020_22', 2
+  endState: 
+
+beginState: s32'AirIronballGenocideEx'
+  upon: (IMMEDIATE)
+    Unknown1673: 18, 0
+    callSubroutine: s32'cmnthrow_RedromanSenkoInput'
+    callSubroutine: s32'cmnNohosei'
+    callSubroutine: s32'cmnAtkTemplNage_AirBase'
+    damage: 0, 40
+    groundHitEffect: (AIR_FACE_UP)
+    airHitEffect: (AIR_LAUNCH)
+    Unknown1139: 0
+    Unknown1142: 1
+    disableHitstop: 1
+    hitAirPushbackX: 0, 0
+    hitAirPushbackY: 0, -30000
+	hitSoftKnockdown: 0
+    hitGravity: 0, 2275
+    upon: (ON_HIT_OR_BLOCK)
+      Unknown14: s32'Attack'
+      endUpon: 
+    upon: 24
+      Unknown1165: s32'1HaisyutuAir'
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, -15000
+      hitAirPushbackY: 0, -60000
+      groundBounceCount: 1
+      hitGravity: 0, 0
+      groundBounceYVelocityPercent: 30
+      endUpon: 
+    upon: 25
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, 0
+      hitAirPushbackY: 0, -60000
+      groundBounceCount: 1
+      hitGravity: 0, 0
+      groundBounceYVelocityPercent: 30
+      endUpon: 
+    upon: 26
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, 15000
+      hitAirPushbackY: 0, -60000
+      groundBounceCount: 1
+      hitGravity: 0, 0
+      groundBounceYVelocityPercent: 30
+      endUpon: 
+    upon: 27
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, -30000
+      hitAirPushbackY: 0, 25000
+      endUpon: 
+    upon: 29
+      airHitEffect: (AIR_FACE_UP)
+      hitAirPushbackX: 0, 30000
+      hitAirPushbackY: 0, 25000
+      endUpon: 
+    upon: 30
+      airHitEffect: (AIR_LAUNCH)
+      hitAirPushbackX: 0, -35000
+      hitAirPushbackY: 0, 60000
+      endUpon: 
+    upon: 31
+      airHitEffect: (AIR_LAUNCH)
+      hitAirPushbackX: 0, 0
+      hitAirPushbackY: 0, 70000
+      endUpon: 
+    upon: 32
+      airHitEffect: (AIR_LAUNCH)
+      hitAirPushbackX: 0, 35000
+      hitAirPushbackY: 0, 60000
+      endUpon: 
+    upon: 2
+      Unknown14: s32'landing'
+      endUpon: 
+    Unknown2169: 0
+    Unknown1018: 1
+    Unknown1127: 1
+    Unknown1128: 1
+    Unknown2174: 
+    setNoCollision: 0
+    Unknown54: 8, 2, 5, 0, 262144
+    Unknown1918: s32'CmdThrowSuccess', 0, 0, 0, 0, 0, 0, 0, 0
+    endUpon: 
+  sprite: s32'jko405_00', 2
+  callSubroutine: s32'cmn_ThrowRC'
+  callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  Unknown544: 33
+  Unknown2193: 100, 430000, 200000
+  Unknown546: 130, 103, 0
+  sprite: s32'jko405_01', 2
+  sprite: s32'jko405_02', 2
+  sprite: s32'jko405_03', 1
+  sprite: s32'jko405_04', 1
+  sprite: s32'jko405_05', 3
+  sprite: s32'jko405_06', 6
+  sprite: s32'jko405_07', 3
+  Unknown2077: s32'DustHit', 500, 1, 20, 1
+  Unknown448: s32'jko_405eff', 100
+  Unknown2193: 100, 150000, 240000
+  Unknown546: 130, 103, 0
+  Unknown41: 22
+  Unknown2055: 0
+  Unknown40: 
+  sprite: s32'jko405_08', 6
+  sprite: s32'jko405_09', 3
+  sprite: s32'jko405_10', 3
+  sprite: s32'jko405_11', 3
+  sprite: s32'jko405_12', 3
+  sprite: s32'jko405_13', 3
+  sprite: s32'jko405_14', 3
+  sprite: s32'jko405_15', 3
+  Unknown2193: 100, 150000, 240000
+  sprite: s32'jko405_16', 3
+  sprite: s32'jko405_17', 5
+  sprite: s32'jko405_18', 5
+  sprite: s32'jko405_19', 5
+  sprite: s32'jko405_17', 5
+  sprite: s32'jko405_18', 5
+  sprite: s32'jko405_19', 5
+  beginLabel: s32'Attack'
+  sprite: s32'jko405_20', 3
+  sprite: s32'jko405_21', 3
+  sprite: s32'jko405_22', 3
+  sprite: s32'jko405_23', 3
+  sprite: s32'jko405_24', 8
+  cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
+  Unknown2193: 100, 150000, 240000
+  Unknown546: 130, 103, 0
+  Unknown41: 22
+  Unknown2055: 1
+  Unknown40: 
+  grabOrRelease: 
+  upon: (HIT)
+    callSubroutine: s32'cmnAtkTemplNageFinish'
+    setForcedProration: 60
+    endUpon: 
+  Unknown3: 
+  Unknown13: s32'End_Air', 10, 2, 18, 0, 1
+  beginLabel: s32'End_Land'
+  sprite: s32'jko405_25', 4
+  Unknown98: 0
+  sprite: s32'jko405_26', 4
+  sprite: s32'jko405_27', 4
+  sprite: s32'jko405_28', 4
+  Unknown3: 
+  Unknown18: 
+  beginLabel: s32'End_Air'
+  sprite: s32'jko407_00', 6
+  Unknown136: 
+  sprite: s32'jko407_01', 6
+  sprite: s32'jko407_02', 6
+  sprite: s32'jko407_03', 6
+  sprite: s32'jko020_12', 3
+  sprite: s32'jko020_13', 3
+  sprite: s32'jko020_14', 3
+  beginLabel: s32'loop'
+  sprite: s32'jko020_15', 3
+  sprite: s32'jko020_16', 3
+  Unknown3: 
+  gotoLabel: s32'loop'
+  beginLabel: s32'landing'
+  sprite: s32'jko020_17', 4
+  sprite: s32'jko020_18', 2
+  sprite: s32'jko020_19', 2
+  sprite: s32'jko020_20', 2
+  callSubroutine: s32'cmnNandemoCancel'
+  sprite: s32'jko020_21', 2
+  sprite: s32'jko020_22', 2
+  endState: 
+  
 beginState: s32'ElysionDriver'
   upon: (IMMEDIATE)
-    Unknown176: 1
-    Unknown1971: 1
+    haltMomentum: 1
+    pauseTimer: 1
     Unknown1058: 1
     Unknown2249: 0
     Unknown1082: 1
     callSubroutine: s32'cmnAtkTemplNageLand'
     callSubroutineWithArgs: s32'cmnSpecialAtkThrowInit', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown1042: s32'ElysionDriverEx'
-    Unknown1043: 1
+    canGrabDuringHitstun: 1
     throwRange: 250000
     Unknown1027: -1, -1, 380000, -105000
     Unknown1067: 1, 150000, 0
     callSubroutine: s32'cmnNohosei_kakusei'
     Unknown2526: 0, 0, 0, 0, 0, 0
     Unknown2591: 0, 0, 0, 0, 0, 0
-    upon: 99
-      clearRegisteredUponCode: 99
-      clearRegisteredUponCode: 50
+    upon: (WALL_BREAK)
+      clearRegisteredUponCode: (WALL_BREAK)
+      clearRegisteredUponCode: (SUPERFREEZE)
       Unknown2560: 0
-      Unknown1972: 0
-      Unknown428: 0, 10
-      Unknown427: 0, 10
+      hideUI: 0
+      resetDOF: 0, 10
+      resetSaturation: 0, 10
       Unknown429: 0, 10
-      Unknown27: s32'WSB_Master_Wait'
+      jumpToState: s32'WSB_Master_Wait'
       upon: (BEFORE_EXIT)
         callSubroutine: s32'Mask_MeshSetCheck'
         endUpon: 
       endUpon: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
       Unknown2040: 4, s32'Release', 0
-      Unknown53: 4, 2, 56, 23, 0, 0
+      storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
       Unknown2040: 5, s32'Release', 0
-      Unknown53: 5, 2, 56, 23, 0, 0
+      storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Release', 0
-      Unknown53: 6, 2, 56, 23, 0, 0
+      storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     storeValue: (VARIABLE), 3, (STATIC), 0
     endUpon: 
@@ -9079,29 +9725,29 @@ beginState: s32'ElysionDriver'
   sprite: s32'jko530_01', 3
   sprite: s32'jko530_02', 3
   sprite: s32'jko530_02', 172
-  enableClashes: 0
-  Unknown271: 1, 119, 174, 180
-  upon: 50
-    clearRegisteredUponCode: 50
+  enableRomanCancelMove: 0
+  superFreeze: 1, 119, 174, 180
+  upon: (SUPERFREEZE)
+    clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnCameraSettings'
     cmnSfx: s32'SE_BTL_SYS_Skill'
     callSubroutine: s32'cmnWorldStop_Tension'
     callSubroutine: s32'cmnDeleteAllHalfCamera'
-    Unknown2097: 
+    resetCamera: 
     Unknown2560: 1
-    Unknown1972: 1
+    hideUI: 1
     ifNot: (VARIABLE), 60
-      Unknown2045: s32'jko500cs', 0
-      Unknown2052: s32'jko500cs', 23, 10, 10
+      playAnimation: s32'jko500cs', 0
+      playCameraAnimation: s32'jko500cs', 23, 10, 10
       endIf: 
     else: 
-      Unknown2045: s32'jko501cs', 0
-      Unknown2052: s32'jko501cs', 23, 10, 10
+      playAnimation: s32'jko501cs', 0
+      playCameraAnimation: s32'jko501cs', 23, 10, 10
       endElse: 
     callSubroutine: s32'Mask_MeshSetCheck'
-    Unknown2060: s32'jko500cs'
-    Unknown428: 1, 1
+    swapMeshSet: s32'jko500cs'
+    resetDOF: 1, 1
     Unknown412: -1, 700, 0
     Unknown413: -1, 0, 0
     Unknown414: -1, 0, 0
@@ -9111,11 +9757,11 @@ beginState: s32'ElysionDriver'
     Unknown429: 1, 1
     Unknown425: -1, 1400, 20
     Unknown426: -1, 0, 20
-    Unknown427: 1, 1
+    resetSaturation: 1, 1
     Unknown410: -1, 840, 8
     upon: (FRAME_STEP)
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 4
-        Unknown446: s32'CS501_smoke', 100
+        createObject: s32'CS501_smoke', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 12
         characterSfx: s32'SE_BTL_JKO_KAKUSEI_00'
@@ -9151,10 +9797,10 @@ beginState: s32'ElysionDriver'
         Unknown40: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 43
-        Unknown2244: 1
+        hideAllButSelf: 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 131
-        Unknown2244: 0
+        hideAllButSelf: 0
         endIf: 
       endUpon: 
     endUpon: 
@@ -9165,7 +9811,7 @@ beginState: s32'ElysionDriver'
   sprite: s32'jko500_05', 2
   Unknown2331: 1
   grabOrRelease: 
-  Unknown546: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'jko500_06', 1
   setThrowInvulnerable: 0
   setStrikeInvulnerable: 0
@@ -9175,16 +9821,16 @@ beginState: s32'ElysionDriver'
   characterSfx: s32'SE_BTL_JKO_KAKUSEI_03'
   voiceLine: s16'vxxx253'
   sprite: s32'jko500_07', 3
-  Unknown446: s32'501_fail_ase', 100
+  createObject: s32'501_fail_ase', (PLAYER)
   sprite: s32'jko500_08', 3
   sprite: s32'jko500_09', 3
-  Unknown446: s32'501_fail_bake', 100
+  createObject: s32'501_fail_bake', (PLAYER)
   sprite: s32'jko500_10', 3
   sprite: s32'jko500_11', 3
   sprite: s32'jko500_12', 3
   sprite: s32'jko500_13', 3
-  Unknown32: s32'501_fail_bake'
-  Unknown446: s32'501_fail_bake', 100
+  deactivateObjectByName: s32'501_fail_bake'
+  createObject: s32'501_fail_bake', (PLAYER)
   sprite: s32'jko500_14', 3
   sprite: s32'jko500_11', 3
   sprite: s32'jko500_12', 3
@@ -9207,7 +9853,7 @@ beginState: s32'ElysionDriverEx'
     callSubroutine: s32'cmnNohosei'
     callSubroutine: s32'cmnAtkTemplDagekiLock'
     callSubroutine: s32'cmnAtkTemplNageDageki'
-    Unknown711: 4
+    attackLevel: 4
     damage: 0, 179
     Unknown1108: -90
     Unknown1142: 1
@@ -9217,7 +9863,7 @@ beginState: s32'ElysionDriverEx'
     Unknown1073: 1
     Unknown1059: 0
     hitStop: 42
-    Unknown1111: 0
+    disableHitstop: 0
     groundHitEffect: (AIR_FACE_UP)
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 0
@@ -9232,11 +9878,11 @@ beginState: s32'ElysionDriverEx'
       endUpon: 
     upon: 47
       Unknown41: 22
-      Unknown2066: 
-      Unknown2055: 1
+      changeDefaultMeshSet: 
+      displayModel: 1
       Unknown40: 
       endUpon: 
-    Unknown1971: 1
+    pauseTimer: 1
     Unknown2249: 0
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -250000
@@ -9250,7 +9896,7 @@ beginState: s32'ElysionDriverEx'
   sprite: s32'jko500_05', 1
   Unknown240: 
   Unknown544: 11
-  Unknown546: 125, 100, 0
+  setGripPosition: (FRONT_1_BODY), (PLAYER), 0
   Unknown2189: 2, 5
   Unknown2121: s32'Cam_Finish_Driver'
   Unknown548: 
@@ -9265,16 +9911,16 @@ beginState: s32'ElysionDriverEx'
     Unknown40: 
     endUpon: 
   sprite: s32'jko501_00', 2
-  Unknown446: s32'Cam_Driver', 100
+  createObject: s32'Cam_Driver', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_KAKUSEI_01'
   voiceLine: s16'vxxx254'
   Unknown1702: s32'ironmaiden', 1
   Unknown1702: s32'Ball_megamouth', 1
   sprite: s32'jko501_01', 3
-  Unknown446: s32'501_catch', 100
-  Unknown2341: s32'Impact', 1800, 0, 28, s32'shake_easeout', 0
-  Unknown2193: 100, 150000, 0
-  Unknown485: s32'bg_down', 130
+  createObject: s32'501_catch', (PLAYER)
+  cameraShakeEX: s32'Impact', 1800, 0, 28, 1801545843, s32'e_easeout'
+  exPointFReset: (PLAYER), 150000, 0
+  createParticleWithArg: s32'bg_down', (EX_POINT_F)
   sprite: s32'jko501_02', 3
   sprite: s32'jko501_03', 3
   sprite: s32'jko501_04', 3
@@ -9284,14 +9930,14 @@ beginState: s32'ElysionDriverEx'
   sprite: s32'jko501_08', 3
   sprite: s32'jko501_09', 3
   sprite: s32'jko501_10', 3
-  Unknown2193: 100, 50000, 0
+  exPointFReset: (PLAYER), 50000, 0
   Unknown449: s32'bg_jump', 130
   sprite: s32'jko501_11', 3
-  Unknown446: s32'501_rise', 100
+  createObject: s32'501_rise', (PLAYER)
   physicsXImpulse: 0, -3000
   physicsYImpulse: 0, 84000
   setGravity: 275
-  Unknown392: 200
+  setMotionBlurAmount: 200
   sprite: s32'jko501_12', 3
   sprite: s32'jko501_13', 3
   sprite: s32'jko501_14', 3
@@ -9323,7 +9969,7 @@ beginState: s32'ElysionDriverEx'
   setGravity: 12000
   addVelocityY: 0, -5000
   beginLabel: s32'loop'
-  Unknown446: s32'501_fall', 100
+  createObject: s32'501_fall', (PLAYER)
   sprite: s32'jko501_33', 2
   sprite: s32'jko501_34', 2
   endLabel: 
@@ -9331,10 +9977,10 @@ beginState: s32'ElysionDriverEx'
   beginLabel: s32'Landing'
   sprite: s32'jko501_35', 9
   grabOrRelease: 
-  Unknown2341: s32'Impact', 2600, 0, 52, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 2600, 0, 52, 1801545843, s32'e_easeout'
   Unknown1803: s32'Cam_Driver', 30
-  Unknown446: s32'501_landing', 100
-  Unknown446: s32'501_landing_stop', 100
+  createObject: s32'501_landing', (PLAYER)
+  createObject: s32'501_landing_stop', (PLAYER)
   characterSfx: s32'SE_BTL_JKO_KAKUSEI_02'
   voiceLine: s16'vxxx255'
   sprite: s32'jko501_36', 3
@@ -9355,14 +10001,14 @@ beginState: s32'ElysionDriverEx'
   hitAirPushbackY: 0, 25000
   hitGravity: (STATIC), 3000
   callSubroutine: s32'cmn_AtkTemplWSB'
-  Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
-  Unknown788: 1
-  Unknown955: 15
+  attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+  forceWallBreak: 1
+  wallBreakLimitTime: 15
   Unknown953: 1
   upon: (HIT)
     callSubroutineWithArgs: s32'cmnAtkTemplNageFinish', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     endUpon: 
-  Unknown393: 
+  resetMotionBlurAmount: 
   sprite: s32'jko501_39', 3
   sprite: s32'jko501_40', 3
   sprite: s32'jko501_41', 3
@@ -9371,15 +10017,15 @@ beginState: s32'ElysionDriverEx'
   endState: 
 
 beginSubroutine: s32'PowerUp'
-  Unknown1971: 1
+  pauseTimer: 1
   Unknown1058: 1
   Unknown2249: 0
   Unknown2526: 0, 0, 0, 0, 0, 0
   Unknown2591: 0, 0, 0, 0, 0, 0
-  upon: 99
-    Unknown27: s32'WSB_Master_Wait'
-    clearRegisteredUponCode: 99
-    clearRegisteredUponCode: 50
+  upon: (WALL_BREAK)
+    jumpToState: s32'WSB_Master_Wait'
+    clearRegisteredUponCode: (WALL_BREAK)
+    clearRegisteredUponCode: (SUPERFREEZE)
     endUpon: 
   checkCurrentStateEntryName: s32'PowerUp_S'
   if: (VARIABLE), 0
@@ -9404,28 +10050,28 @@ beginState: s32'PowerUp'
     callSubroutine: s32'PowerUp'
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
       Unknown2040: 4, s32'Release', 0
-      Unknown53: 4, 2, 56, 23, 0, 0
+      storeValueFromObject: 4, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 2
       Unknown2040: 5, s32'Release', 0
-      Unknown53: 5, 2, 56, 23, 0, 0
+      storeValueFromObject: 5, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 3
       Unknown2040: 6, s32'Release', 0
-      Unknown53: 6, 2, 56, 23, 0, 0
+      storeValueFromObject: 6, (VARIABLE), 56, (SELF), (STATIC), 0
       endIf: 
     storeValue: (VARIABLE), 3, (STATIC), 0
     endUpon: 
   sprite: s32'jko502_00', 2
   sprite: s32'jko502_00', 32
-  enableClashes: 0
-  Unknown271: 1, 119, 65, 66
-  upon: 50
-    clearRegisteredUponCode: 50
+  enableRomanCancelMove: 0
+  superFreeze: 1, 119, 65, 66
+  upon: (SUPERFREEZE)
+    clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnWorldStop_Tension'
     cmnSfx: s32'SE_BTL_SYS_SKill'
-    Unknown448: s32'cmn_kakusei_hatudo', 119
+    createParticle: s32'cmn_kakusei_hatudo', (HEART)
     Unknown1694: 0, 500, 0, 28, 0, 4, 0, 4
     upon: (BEFORE_EXIT)
       tensionCooldown: 460
@@ -9443,7 +10089,7 @@ beginState: s32'PowerUp'
     if: (VARIABLE), 0
       Unknown2279: 0, 1, 0, 0
       endIf: 
-    Unknown445: s32'Cam_Buff', 100
+    createObjectWithArg: s32'Cam_Buff', (PLAYER)
     recoveryState: 
     endUpon: 
   sprite: s32'jko502_01', 3
@@ -9482,8 +10128,8 @@ beginState: s32'PowerUp'
   if: (VARIABLE), 0
     Unknown2279: 0, 1, 0, 0
     endIf: 
-  Unknown2193: 100, 110000, 410000
-  Unknown445: s32'JKO_PowerUp', 130
+  exPointFReset: (PLAYER), 110000, 410000
+  createObjectWithArg: s32'JKO_PowerUp', (EX_POINT_F)
   sprite: s32'jko502_09', 2
   sprite: s32'jko000_09', 8
   endState: 
@@ -9508,7 +10154,7 @@ beginState: s32'WSB_Master_Slide'
   endLabel: 
   beginLabel: s32'dash_loop'
   sprite: s32'jko032_04', 3
-  Unknown446: s32'Dash_bake', 100
+  createObject: s32'Dash_bake', (PLAYER)
   sprite: s32'jko032_05', 3
   sprite: s32'jko032_06', 3
   characterSfx: s32'JKO_02'
@@ -9547,7 +10193,7 @@ beginState: s32'WSB_Master_Slide'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Slide'
@@ -9630,7 +10276,7 @@ beginState: s32'WSB_Slave_Slide'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Master_Up'
@@ -9646,7 +10292,7 @@ beginState: s32'WSB_Master_Up'
   endLabel: 
   beginLabel: s32'dash_loop'
   sprite: s32'jko032_04', 3
-  Unknown446: s32'Dash_bake', 100
+  createObject: s32'Dash_bake', (PLAYER)
   sprite: s32'jko032_05', 3
   sprite: s32'jko032_06', 3
   characterSfx: s32'JKO_02'
@@ -9699,7 +10345,7 @@ beginState: s32'WSB_Master_Up'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Up'
@@ -9795,7 +10441,7 @@ beginState: s32'WSB_Slave_Up'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Master_Down'
@@ -9811,7 +10457,7 @@ beginState: s32'WSB_Master_Down'
   endLabel: 
   beginLabel: s32'dash_loop'
   sprite: s32'jko032_04', 3
-  Unknown446: s32'Dash_bake', 100
+  createObject: s32'Dash_bake', (PLAYER)
   sprite: s32'jko032_05', 3
   sprite: s32'jko032_06', 3
   characterSfx: s32'JKO_02'
@@ -9862,7 +10508,7 @@ beginState: s32'WSB_Master_Down'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Down'
@@ -9949,7 +10595,7 @@ beginState: s32'WSB_Slave_Down'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Master_Bound'
@@ -9990,7 +10636,7 @@ beginState: s32'WSB_Master_Bound'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Slave_Bound'
@@ -10100,7 +10746,7 @@ beginState: s32'WSB_Slave_Bound'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WSB_Assist'
@@ -10134,7 +10780,7 @@ beginState: s32'WSB_Assist'
   sprite: s32'jko033_12', 3
   sprite: s32'jko033_13', 3
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Master_DS'
@@ -10168,7 +10814,7 @@ beginState: s32'WorldSideBreak_Master_DS'
   sprite: s32'jko033_12', 3
   sprite: s32'jko033_13', 3
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Slave_DS'
@@ -10216,7 +10862,7 @@ beginState: s32'WorldSideBreak_Slave_DS'
   sprite: s32'jko061_09', 2
   sprite: s32'jko061_10', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Master_DF'
@@ -10236,7 +10882,7 @@ beginState: s32'WorldSideBreak_Master_DF'
   sprite: s32'jko020_21', 5
   sprite: s32'jko020_22', 5
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'WorldSideBreak_Slave_DF'
@@ -10263,7 +10909,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'jko033_00', 1
-  Unknown448: s32'cmn_dashbrake_default', 143
+  createParticle: s32'cmn_dashbrake_default', (EX_POINT_PG)
   sprite: s32'jko033_01', 1
   sprite: s32'jko033_02', 1
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'
@@ -10279,7 +10925,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   sprite: s32'jko033_12', 2
   sprite: s32'jko033_13', 2
   sprite: s32'keep', 1
-  Unknown27: s32'_NEUTRAL'
+  jumpToState: s32'_NEUTRAL'
   endState: 
 
 beginState: s32'vsJKO_ElysionDriver'

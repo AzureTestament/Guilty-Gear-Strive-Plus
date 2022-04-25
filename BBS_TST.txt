@@ -147,7 +147,7 @@ beginState: s32'Event301'
   characterSfx: s32'SE_BTL_TST_09'
   sprite: s32'tst301_10', 6
   sprite: s32'tst301_11', 6
-  createObject: s32'TST_301_blood', 100
+  createObject: s32'TST_301_blood', (PLAYER)
   sprite: s32'tst301_12', 8
   characterSfx: s32'SE_BTL_TST_11'
   sprite: s32'tst301_13', 7
@@ -182,7 +182,7 @@ beginState: s32'Event301'
   beginLabel: s32'TypeB_Next'
   sprite: s32'tst301_30', 5
   deactivateObjectByName: s32'TST_301_blood'
-  createObject: s32'TST_301_bloodend', 100
+  createObject: s32'TST_301_bloodend', (PLAYER)
   sprite: s32'tst301_31', 5
   sprite: s32'tst301_32', 5
   characterSfx: s32'SE_BTL_TST_09'
@@ -225,7 +225,7 @@ beginState: s32'Event301_hold'
   characterSfx: s32'SE_BTL_TST_09'
   sprite: s32'tst301_10', 6
   sprite: s32'tst301_11', 6
-  createObject: s32'TST_301_blood', 100
+  createObject: s32'TST_301_blood', (PLAYER)
   sprite: s32'tst301_12', 8
   characterSfx: s32'SE_BTL_TST_11'
   sprite: s32'tst301_13', 7
@@ -256,7 +256,7 @@ beginState: s32'Event301toStand'
   sprite: s32'tst301_30', 5
   Unknown1803: s32'Crow301', 24
   deactivateObjectByName: s32'TST_301_blood'
-  createObject: s32'TST_301_bloodend', 100
+  createObject: s32'TST_301_bloodend', (PLAYER)
   sprite: s32'tst301_31', 5
   sprite: s32'tst301_32', 5
   characterSfx: s32'SE_BTL_TST_09'
@@ -609,11 +609,11 @@ beginSubroutine: s32'RoundInit'
   walkFSpeed: 5600
   walkBSpeed: 4500
   initDashFSpeed: 11500
-  Unknown1226: 560
-  Unknown1227: 95
-  Unknown1215: 15700
-  Unknown1216: 5200
-  Unknown1217: 700
+  fDashAccelSpeed: 560
+  fDashFriction: 95
+  bDashXSpeed: 15700
+  bDashYSpeed: 5200
+  bDashGravity: 700
   forwardJumpDistance: 8750
   backwardJumpDistance: 8750
   jumpHeight: 37500
@@ -621,33 +621,33 @@ beginSubroutine: s32'RoundInit'
   forwardSuperJumpDistance: 8750
   backwardSuperJumpDistance: 8750
   superJumpHeight: 48000
-  Unknown1225: 1800
+  superJumpGravity: 1800
   Unknown1232: 105000
-  Unknown1233: 12
+  airFDashTime: 12
   airdashFSpeed: 29000
-  Unknown1242: 17
-  Unknown1234: 10
+  airFDashNoAttackTime: 5
+  airBDashTime: 10
   airDashBackVelocity: 22000
-  Unknown1243: 5
+  airBDashNoAttackTime: 5
   doubleJumpCount: 1
   airDashCount: 1
-  Unknown1236: 12
-  Unknown1237: 1
+  defence: 12
+  guts: 1
   Unknown1248: 34
   Unknown1249: 160
   recievedHitPushbackPercentage: 100
-  Unknown1244: 5
-  Unknown1245: 3
-  Unknown1246: 9
-  Unknown1247: 4
-  Unknown1253: 110000
-  Unknown1254: 300000
-  Unknown1255: 120000
-  Unknown1256: 250000
-  Unknown1257: 100000
-  Unknown1258: 275000
-  Unknown1259: -125000
-  Unknown1260: 270000
+  forwardWalkTension: 5
+  forwardJumpTension: 3
+  forwardDashTension: 9
+  airFDashTension: 4
+  pushboxWidthStand: 110000
+  pushboxHeightStand: 300000
+  pushboxWidthCrouch: 120000
+  pushboxHeightCrouch: 250000
+  pushboxWidthAir: 100000
+  pushboxHeightAir: 275000
+  pushboxHeightLowAir: -125000
+  closeSlashRange: 270000
   Unknown1262: 3
   Unknown1288: 1
   Unknown1268: 0
@@ -1121,7 +1121,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'LandThrow', s32'tst311_01'
   Unknown1328: s32'AirThrow', s32'tst321_01'
   Unknown1328: s32'DMG_CELL_KIRIMOMI_FIRST', s32'tst074_00'
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
+  linkPawn: s32''
   beginMeshSet: s32'nohead'
   addToMeshSet: s32'Body'
   addToMeshSet: s32'Weapon'
@@ -1682,8 +1682,8 @@ beginSubroutine: s32'RoundInit'
   Unknown2324: s32'tst113_00', 1
   Unknown2324: s32'tst113_01', 1
   Unknown2324: s32'tst113_02', 1
-  Unknown2068: 
-  Unknown2066: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   Unknown601: s16'vxxx103', 1, 3, 100
   Unknown601: s16'vxxx104', 1, -1, 100
   Unknown601: s16'vxxx200', 1, 3, 100
@@ -1792,7 +1792,7 @@ beginSubroutine: s32'RoundInit'
       if: (VARIABLE), 89
         Unknown51: 7
         ifNot: (VARIABLE), 0
-          createObject: s32'Marking', 132
+          createObject: s32'Marking', (ENEMY_CENTER)
           Unknown43: 7, 1
           endIf: 
         endIf: 
@@ -1859,7 +1859,7 @@ beginSubroutine: s32'OnFrameStep'
         Unknown51: 7
         ifNot: (VARIABLE), 0
           if: (VARIABLE), 16
-            createObject: s32'Marking', 132
+            createObject: s32'Marking', (ENEMY_CENTER)
             Unknown43: 7, 1
             endIf: 
           endIf: 
@@ -1868,8 +1868,8 @@ beginSubroutine: s32'OnFrameStep'
     endIf: 
   Unknown51: 4
   ifNot: (VARIABLE), 0
-    Unknown2193: 100, -160000, 500000
-    createObject: s32'CrowNeutral', 130
+    exPointFReset: (PLAYER), -160000, 500000
+    createObject: s32'CrowNeutral', (EX_POINT_F)
     Unknown43: 4, 1
     endIf: 
   storeValue: (VARIABLE), 54, (STATIC), 0
@@ -2639,12 +2639,11 @@ beginState: s32'CmnActAirFDash'
     endUpon: 
   sprite: s32'tst035_04', 1
   sprite: s32'tst035_04', 2
-  sprite: s32'tst035_05', 3
+  sprite: s32'tst035_05', 2
   sprite: s32'tst035_06', 3
-  callSubroutine: s32'cmnNandemoCancelC'
   sprite: s32'tst035_07', 3
-  sprite: s32'tst035_08', 3
-  sprite: s32'tst035_09', 3
+  sprite: s32'tst035_08', 2
+  sprite: s32'tst035_09', 2
   endState: 
 
 beginState: s32'CmnActAirBDash'
@@ -3384,11 +3383,11 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'tst077_02', 6
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'tst077_03', 8
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'tst077_04', 8
   endLabel: 
   gotoLabel: s32'loop'
@@ -3396,7 +3395,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'tst077_05', 3
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'tst077_06', 3
   sprite: s32'tst077_07', 3
   sprite: s32'tst077_08', 3
@@ -4064,13 +4063,13 @@ beginState: s32'CmnActRoundWin'
 beginState: s32'CmnActMatchWin'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnactmatchwin'
-    Unknown2045: s32'tst800cs', 0
+    playAnimation: s32'tst800cs', 0
     checkLastStateName: s32'WinActionWait'
     if: (VARIABLE), 0
-      Unknown2052: s32'tst800cs', 23, 0, -1
+      playCameraAnimation: s32'tst800cs', 23, 0, -1
       endIf: 
     else: 
-      Unknown2052: s32'tst800cs', 23, 15, -1
+      playCameraAnimation: s32'tst800cs', 23, 15, -1
       endElse: 
     Unknown2560: 1
     swapMeshSet: s32'MatchWin'
@@ -4188,13 +4187,13 @@ beginState: s32'CmnActMatchWin'
       outlineScale: 600
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 43
-      createObject: s32'TST_CSwin_krowfly', 100
+      createObject: s32'TST_CSwin_krowfly', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 62
-      createObject: s32'TST_CSwin_blood', 100
+      createObject: s32'TST_CSwin_blood', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 74
-      createObject: s32'TST_CSwin_flash', 100
+      createObject: s32'TST_CSwin_flash', (PLAYER)
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 74
       Unknown2589: s32'PP_colorburn01', 1, 5
@@ -4205,10 +4204,10 @@ beginState: s32'CmnActMatchWin'
       Unknown2589: s32'PP_blur01', 0, 5
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 83
-      createObject: s32'TST_CSwin_drop', 100
+      createObject: s32'TST_CSwin_drop', (PLAYER)
       endIf: 
-    onFrame: 0, 148
-      Unknown2244: 1
+    ifOnFrame: 0, 148
+      hideAllButSelf: 1
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 90
       Unknown606: 1
@@ -4437,7 +4436,7 @@ beginState: s32'NmlAtk6A'
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 15000
     hitAirPushbackY: 0, 35000
-	enableJumpCancel: 1
+    enableJumpCancel: 1
     counterHitSoftKnockdown: 0
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: (HIT_OR_GUARD)
@@ -4458,7 +4457,7 @@ beginState: s32'NmlAtk6A'
   sprite: s32'tst210_03', 1
   sprite: s32'tst210_04', 3
   hit: 
-  createObject: s32'TST_210_Atk', 100
+  createObject: s32'TST_210_Atk', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'tst210_05', 3
   sprite: s32'tst210_06', 4
@@ -4689,7 +4688,7 @@ beginState: s32'NmlAtk5CNear'
   sprite: s32'tst202_02', 2
   Unknown621: 1, -1
   sprite: s32'tst202_03', 3
-  createObject: s32'TST_202_Slash', 100
+  createObject: s32'TST_202_Slash', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_M'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -4745,7 +4744,7 @@ beginState: s32'NmlAtk5CFar'
   sprite: s32'tst203_02', 3
   sprite: s32'tst203_03', 3
   sprite: s32'tst203_04', 3
-  createObject: s32'TST_203_Slash', 100
+  createObject: s32'TST_203_Slash', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_M'
   Unknown621: 1, -1
@@ -4804,7 +4803,7 @@ beginState: s32'NmlAtk2C'
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_M'
   Unknown621: 1, -1
   sprite: s32'tst232_04', 3
-  createObject: s32'TST_232_Slash', 100
+  createObject: s32'TST_232_Slash', (PLAYER)
   hit: 
   sprite: s32'tst232_05', 4
   callSubroutine: s32'cmn_AttackEnd'
@@ -4852,7 +4851,7 @@ beginState: s32'NmlAtk5D'
   sprite: s32'tst204_03', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   sprite: s32'tst204_04', 2
-  createObject: s32'TST_204_Slash01', 100
+  createObject: s32'TST_204_Slash01', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
   Unknown2121: s32'tst_FinishCamera_Zoom'
@@ -4864,7 +4863,7 @@ beginState: s32'NmlAtk5D'
   sprite: s32'tst204_09', 3
   sprite: s32'tst204_10', 4
   sprite: s32'tst204_11', 5
-  createObject: s32'TST_204_Slash02', 100
+  createObject: s32'TST_204_Slash02', (PLAYER)
   sprite: s32'tst204_12', 4
   callSubroutine: s32'cmnNandemoCancel'
   sprite: s32'tst204_13', 3
@@ -4927,7 +4926,7 @@ beginState: s32'NmlAtk6D'
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   extendPushboxX: 50000
   sprite: s32'tst213_07', 3
-  createObject: s32'TST_213_Slash', 100
+  createObject: s32'TST_213_Slash', (PLAYER)
   Unknown1702: s32'Toge', 0
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -4984,7 +4983,7 @@ beginState: s32'NmlAtk2D'
   sprite: s32'tst233_04', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   sprite: s32'tst233_05', 3
-  createObject: s32'TST_233_Slash', 100
+  createObject: s32'TST_233_Slash', (PLAYER)
   hit: 
   Unknown621: 2, -1
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -5001,7 +5000,7 @@ beginState: s32'NmlAtk2D'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, 0, 0
+    exPointFReset: (PLAYER_LAND), 0, 0
     callSubroutine: s32'cmn_DustAttack'
     damage: 0, 40
     callSubroutine: s32'cmn_AtkTemplFloatDamageBody'
@@ -5027,7 +5026,7 @@ beginState: s32'NmlAtk5E'
     endUpon: 
   sprite: s32'tst205_00', 3
   sprite: s32'tst205_01', 2
-  createObject: s32'TST_205hole', 100
+  createObject: s32'TST_205hole', (PLAYER)
   sprite: s32'tst205_01', 1
   Unknown26: 3, 2, 52
   sprite: s32'tst205_02', 3
@@ -5043,7 +5042,7 @@ beginState: s32'NmlAtk5E'
   sprite: s32'tst205_07', 3
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 2, (STATIC), 1, (STATIC), 0, (STATIC), 0
   deactivateObjectByName: s32'TST_205hole'
-  createObject: s32'TST_205hand', 100
+  createObject: s32'TST_205hand', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
   sprite: s32'tst205_08', 4
@@ -5175,7 +5174,7 @@ beginState: s32'DustFinish'
   sprite: s32'tst403_07', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   sprite: s32'tst403_08', 2
-  createObject: s32'TST_403_Projectile_shot', 100
+  createObject: s32'TST_403_Projectile_shot', (PLAYER)
   hit: 
   Unknown1181: '0x01000000CDFEFFFFC8FEFFFF14010000C3000000'
   addVelocityX: 0, 10000
@@ -5229,11 +5228,11 @@ beginState: s32'NmlAtk2E'
   sprite: s32'tst234_00', 3
   sprite: s32'tst234_01', 4
   sprite: s32'tst234_02', 3
-  createObject: s32'TST_234_Atk', 100
+  createObject: s32'TST_234_Atk', (PLAYER)
   sprite: s32'tst234_03', 3
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   sprite: s32'tst234_04', 3
-  createObject: s32'TST_234_Floor', 100
+  createObject: s32'TST_234_Floor', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   Unknown621: 2, -1
@@ -5316,7 +5315,7 @@ beginState: s32'NmlAtk5F'
   characterSfx: s32'SE_BTL_TST_09'
   sprite: s32'tst301_10', 6
   sprite: s32'tst301_11', 6
-  createObject: s32'TST_301_blood', 100
+  createObject: s32'TST_301_blood', (PLAYER)
   sprite: s32'tst301_12', 8
   characterSfx: s32'SE_BTL_TST_11'
   sprite: s32'tst301_13', 7
@@ -5363,7 +5362,7 @@ beginState: s32'NmlAtk5F'
   beginLabel: s32'TypeB_NextB'
   sprite: s32'tst301_30', 5
   deactivateObjectByName: s32'TST_301_blood'
-  createObject: s32'TST_301_bloodend', 100
+  createObject: s32'TST_301_bloodend', (PLAYER)
   sprite: s32'tst301_31', 5
   sprite: s32'tst301_32', 5
   characterSfx: s32'SE_BTL_TST_09'
@@ -5581,7 +5580,7 @@ beginState: s32'NmlAtkAir5B'
   sprite: s32'tst251_00', 3
   sprite: s32'tst251_01', 4
   sprite: s32'tst251_02', 2
-  createObject: s32'TST_251_Bake', 100
+  createObject: s32'TST_251_Bake', (PLAYER)
   Unknown1702: s32'Toge', 0
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -5632,7 +5631,7 @@ beginState: s32'NmlAtkAir5C'
   sprite: s32'tst252_02', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   sprite: s32'tst252_03', 3
-  createObject: s32'TST_252_Slash', 100
+  createObject: s32'TST_252_Slash', (PLAYER)
   hit: 
   Unknown621: 1, -1
   sprite: s32'tst252_04', 4
@@ -5678,7 +5677,7 @@ beginState: s32'NmlAtkAir5D'
   sprite: s32'tst253_01', 6
   sprite: s32'tst253_02', 2
   sprite: s32'tst253_03', 2
-  createObject: s32'TST_253_Slash', 100
+  createObject: s32'TST_253_Slash', (PLAYER)
   hit: 
   Unknown621: 2, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
@@ -5726,7 +5725,7 @@ beginState: s32'NmlAtkAir5E'
   setCarriedMomentumPercentage: 15
   sprite: s32'tst254_01', 4
   sprite: s32'tst254_02', 3
-  createObject: s32'TST_254_Slash', 100
+  createObject: s32'TST_254_Slash', (PLAYER)
   characterSfx: s32'SE_BTL_TST_08'
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_S'
   sprite: s32'tst254_03', 2
@@ -5736,7 +5735,7 @@ beginState: s32'NmlAtkAir5E'
   physicsXImpulse: 0, -8000
   physicsYImpulse: 0, 6000
   setGravity: 1500
-  Unknown135: 
+  resetGravity: 
   sprite: s32'tst254_05', 3
   callSubroutine: s32'cmn_AttackEnd'
   sprite: s32'tst254_06', 3
@@ -5819,20 +5818,20 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 13
-  Unknown2193: 100, 120000, 0
-  setGripPosition: 130, 100, 0
+  exPointFReset: (PLAYER), 120000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
   Unknown1702: s32'Cape', 1
   Unknown1702: s32'Cape_siwa', 1
-  createObject: s32'Cam_Throw', 100
+  createObject: s32'Cam_Throw', (PLAYER)
   sprite: s32'tst310_01', 7
   sprite: s32'tst310_02', 4
   sprite: s32'tst310_03', 2
-  Unknown2193: 100, 140000, 0
-  setGripPosition: 130, 100, 0
+  exPointFReset: (PLAYER), 140000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
   sprite: s32'tst310_04', 3
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
@@ -5848,7 +5847,7 @@ beginState: s32'ThrowExe'
   groundHitEffect: (STAGGER)
   airHitEffect: (STAGGER)
   staggerDuration: 600
-  noCounterUI: 1
+  noStaggerUi: 1
   Unknown1059: 1
   Unknown1157: 1
   Unknown1142: 1
@@ -5860,7 +5859,7 @@ beginState: s32'ThrowExe'
   voiceLine: s16'vxxx106'
   sprite: s32'tst310_09', 7
   sprite: s32'tst310_10', 2
-  createObject: s32'TST_310_Slash', 100
+  createObject: s32'TST_310_Slash', (PLAYER)
   hit: 
   addPositionX: 80000
   attackLevel: 4
@@ -5948,23 +5947,23 @@ beginState: s32'AirThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1211, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 0, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: 0, 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 34
-  Unknown2193: 100, 120000, 320000
-  setGripPosition: 130, 116, 0
-  Unknown2193: 100, 200000, 0
-  createObject: s32'TST_320_waradoll', 130
+  exPointFReset: (PLAYER), 120000, 320000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
+  exPointFReset: (PLAYER), 200000, 0
+  createObject: s32'TST_320_waradoll', (EX_POINT_F)
   voiceLine: s16'vxxx106'
   Unknown1702: s32'waradoll', 1
-  createObject: s32'Cam_AirThrow', 100
+  createObject: s32'Cam_AirThrow', (PLAYER)
   sprite: s32'tst320_01', 3
   sprite: s32'tst320_02', 4
-  Unknown2193: 100, 150000, 320000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 150000, 320000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_03', 2
-  createObject: s32'TST_wara_push', 100
+  createObject: s32'TST_wara_push', (PLAYER)
   Unknown41: 22
   displayModel: 0
   physicsXImpulse: 0, -10000
@@ -5972,32 +5971,32 @@ beginState: s32'AirThrowExe'
   Unknown40: 
   physicsXImpulse: 0, -10000
   Unknown2229: 85
-  Unknown2193: 100, 180000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 180000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1311, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'tst320_04', 3
-  Unknown2193: 100, 180000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 180000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_05', 5
-  Unknown2193: 100, 200000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 200000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_06', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1411, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 220000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 220000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_07', 4
   Unknown41: 22
   haltMomentum: 1
   Unknown40: 
   haltMomentum: 1
-  Unknown2193: 100, 240000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 240000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_08', 4
-  Unknown2193: 100, 250000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 250000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_09', 4
-  Unknown2193: 100, 255000, 260000
-  setGripPosition: 130, 116, 0
+  exPointFReset: (PLAYER), 255000, 260000
+  setGripPosition: (EX_POINT_F), (ABDOMINAL), 0
   sprite: s32'tst320_10', 6
   sprite: s32'tst320_11', 4
   sprite: s32'tst320_12', 3
@@ -6062,7 +6061,7 @@ beginState: s32'AirThrowExe'
   Unknown1142: 1
   Unknown1067: 4, 300000, 0
   Unknown1157: 1
-  Unknown1127: 1
+  noGravityScaling: 1
   callSubroutine: s32'cmnNohosei'
   Unknown1064: s32''
   redRomanCancelTime: 0
@@ -6083,7 +6082,7 @@ beginState: s32'AirThrowExe'
   sprite: s32'tst020_10', 2
   sprite: s32'tst020_11', 2
   sprite: s32'tst020_12', 2
-  Unknown135: 
+  resetGravity: 
   sprite: s32'tst020_13', 3
   sprite: s32'tst020_14', 3
   beginLabel: s32'loop'
@@ -6211,9 +6210,9 @@ beginState: s32'TST_Special1'
     endUpon: 
   sprite: s32'tst400_00', 2
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'TST_400_Projectile_blood_clot01', 100
+  createObject: s32'TST_400_Projectile_blood_clot01', (PLAYER)
   sprite: s32'tst400_01', 3
-  createObject: s32'TST_400_Projectile_start', 100
+  createObject: s32'TST_400_Projectile_start', (PLAYER)
   characterSfx: s32'SE_BTL_TST_00'
   sprite: s32'tst400_02', 4
   sprite: s32'tst400_03', 3
@@ -6229,8 +6228,8 @@ beginState: s32'TST_Special1'
   endLabel: 
   beginLabel: s32'atk'
   sprite: s32'tst400_10', 2
-  createObject: s32'TST_400_Projectile_shot', 100
-  createObject: s32'TST_400_shot_scull_start', 100
+  createObject: s32'TST_400_Projectile_shot', (PLAYER)
+  createObject: s32'TST_400_shot_scull_start', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   clearRegisteredUponCode: 12
   clearRegisteredUponCode: (FRAME_STEP)
@@ -6261,14 +6260,14 @@ beginState: s32'TST_Special1'
     Unknown772: 5
     Unknown1324: s32'TST_Special1_Hold'
     endIf: 
-  createObject: s32'Tst400_sousai', 100
+  createObject: s32'Tst400_sousai', (PLAYER)
   Unknown1803: s32'TST400Obj', 30
   Unknown1803: s32'TST401Obj', 30
   Unknown1803: s32'TST402Obj', 30
   Unknown1803: s32'TST403Obj', 30
-  Unknown2193: 100, 150000, 0
+  exPointFReset: (PLAYER), 150000, 0
   Unknown2279: 2, 46, 0, 0
-  createObjectWithArg: s32'TST400Obj', 130
+  createObjectWithArg: s32'TST400Obj', (EX_POINT_F)
   Unknown43: 6, 1
   randomVoiceLine: s16'vxxx200', s16'vxxx700'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (VARIABLE), 46, (STATIC), 0, (STATIC), 0
@@ -6336,10 +6335,10 @@ beginState: s32'TST_Special2'
     Unknown2121: s32'tst_FinishCamera_Zoom'
     endUpon: 
   sprite: s32'tst401_00', 2
-  createObject: s32'TST_401_Projectile_blood_clot01', 100
+  createObject: s32'TST_401_Projectile_blood_clot01', (PLAYER)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'tst401_01', 3
-  createObject: s32'TST_401_Projectile_start', 100
+  createObject: s32'TST_401_Projectile_start', (PLAYER)
   characterSfx: s32'SE_BTL_TST_00'
   sprite: s32'tst401_02', 4
   sprite: s32'tst401_03', 3
@@ -6357,8 +6356,8 @@ beginState: s32'TST_Special2'
   sprite: s32'tst401_10', 2
   clearRegisteredUponCode: 12
   clearRegisteredUponCode: (FRAME_STEP)
-  createObject: s32'TST_401_Projectile_shot', 100
-  createObject: s32'TST_401_shot_scull_start', 100
+  createObject: s32'TST_401_Projectile_shot', (PLAYER)
+  createObject: s32'TST_401_shot_scull_start', (PLAYER)
   Unknown1702: s32'Toge', 0
   ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
     Unknown2595: s32'TST_Special2Big'
@@ -6386,14 +6385,14 @@ beginState: s32'TST_Special2'
     Unknown772: 5
     Unknown1324: s32'TST_Special2_Hold'
     endIf: 
-  createObject: s32'Tst400_sousai', 100
+  createObject: s32'Tst400_sousai', (PLAYER)
   Unknown1803: s32'TST400Obj', 30
   Unknown1803: s32'TST401Obj', 30
   Unknown1803: s32'TST402Obj', 30
   Unknown1803: s32'TST403Obj', 30
-  Unknown2193: 103, 150000, 0
+  exPointFReset: (CENTER), 150000, 0
   Unknown2279: 2, 46, 0, 1
-  createObjectWithArg: s32'TST401Obj', 130
+  createObjectWithArg: s32'TST401Obj', (EX_POINT_F)
   Unknown43: 6, 1
   randomVoiceLine: s16'vxxx200', s16'vxxx700'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (VARIABLE), 46, (STATIC), 0, (STATIC), 0
@@ -6505,25 +6504,25 @@ beginState: s32'TST_Special3'
   characterSfx: s32'SE_BTL_TST_03_2'
   randomVoiceLine: s16'vxxx200', s16'vxxx700'
   sprite: s32'tst402_08', 2
-  createObject: s32'TST_402_shot_scull_start', 100
+  createObject: s32'TST_402_shot_scull_start', (PLAYER)
   clearRegisteredUponCode: (BEFORE_EXIT)
   storeValue: (VARIABLE), 50, (STATIC), 1
   hit: 
   callSubroutine: s32'GraveRiperDamage'
-  createObject: s32'TST_402_Projectile_shot', 100
+  createObject: s32'TST_402_Projectile_shot', (PLAYER)
   ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
     Unknown1324: s32'TST_Special3_Hold'
     endIf: 
-  createObject: s32'Tst402_sousai', 100
+  createObject: s32'Tst402_sousai', (PLAYER)
   Unknown1803: s32'TST400Obj', 30
   Unknown1803: s32'TST401Obj', 30
   Unknown1803: s32'TST402Obj', 30
   Unknown1803: s32'TST403Obj', 30
-  Unknown2193: 103, 150000, 0
+  exPointFReset: (CENTER), 150000, 0
   Unknown2279: 2, 46, 0, 2
-  createObjectWithArg: s32'TST402Obj', 130
+  createObjectWithArg: s32'TST402Obj', (EX_POINT_F)
   Unknown43: 6, 1
   sprite: s32'tst402_09', 2
   sprite: s32'tst402_10', 4
@@ -6531,7 +6530,7 @@ beginState: s32'TST_Special3'
   Unknown2249: 1
   Unknown1058: 1
   sprite: s32'tst402_11', 6
-  Unknown135: 
+  resetGravity: 
   sprite: s32'tst402_12', 4
   sprite: s32'tst402_13', 4
   sprite: s32'tst402_14', 4
@@ -6616,7 +6615,7 @@ beginState: s32'TST_Special4'
   endLabel: 
   beginLabel: s32'atk'
   sprite: s32'tst403_07', 2
-  createObject: s32'TST_403_shot_scull_start', 100
+  createObject: s32'TST_403_shot_scull_start', (PLAYER)
   setGravity: 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   clearRegisteredUponCode: 12
@@ -6630,7 +6629,7 @@ beginState: s32'TST_Special4'
   characterSfx: s32'SE_BTL_TST_05'
   characterSfx: s32'SE_BTL_TST_03_2'
   sprite: s32'tst403_08', 2
-  createObject: s32'TST_403_Projectile_shot', 100
+  createObject: s32'TST_403_Projectile_shot', (PLAYER)
   clearRegisteredUponCode: (BEFORE_EXIT)
   storeValue: (VARIABLE), 50, (STATIC), 1
   hit: 
@@ -6640,14 +6639,14 @@ beginState: s32'TST_Special4'
   ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
     Unknown1324: s32'TST_Special4_Hold'
     endIf: 
-  createObject: s32'Tst403_sousai', 100
+  createObject: s32'Tst403_sousai', (PLAYER)
   Unknown1803: s32'TST400Obj', 30
   Unknown1803: s32'TST401Obj', 30
   Unknown1803: s32'TST402Obj', 30
   Unknown1803: s32'TST403Obj', 30
-  Unknown2193: 103, 150000, 0
+  exPointFReset: (CENTER), 150000, 0
   Unknown2279: 2, 46, 0, 3
-  createObjectWithArg: s32'TST403Obj', 130
+  createObjectWithArg: s32'TST403Obj', (EX_POINT_F)
   Unknown43: 6, 1
   randomVoiceLine: s16'vxxx200', s16'vxxx700'
   sprite: s32'tst403_09', 2
@@ -6656,7 +6655,7 @@ beginState: s32'TST_Special4'
   Unknown2249: 1
   Unknown1058: 1
   sprite: s32'tst403_11', 6
-  Unknown135: 
+  resetGravity: 
   sprite: s32'tst403_12', 4
   sprite: s32'tst403_13', 4
   sprite: s32'tst403_14', 4
@@ -6756,7 +6755,7 @@ beginState: s32'TST_Special5'
   whiffCancelOptionBufferTime: s32'RomanCancelGap', 10
   if: (VARIABLE), 46
     clearRegisteredUponCode: 12
-    Unknown2193: 100, 0, 0
+    exPointFReset: (PLAYER), 0, 0
     storeValue: (VARIABLE), 48, (STATIC), 0
     endIf: 
   else: 
@@ -6766,18 +6765,18 @@ beginState: s32'TST_Special5'
         storeValue: (VARIABLE), 48, (STATIC), 1
         Unknown2500: 13, 6, (VARIABLE), 18, (STATIC), 200000
           Unknown196: 6, 123, 0, 0, 0, 0, 0, 10
-          Unknown2196: '0x060000007B0000000000000000000000'
+          exPointFResetObject: 6, (PLAYER_LAND), 0, 0
           Unknown2169: 0
           Unknown2168: 0
           endIf: 
         else: 
           Unknown2500: 13, 6, (VARIABLE), 18, (STATIC), 300000
             Unknown196: 6, 123, 0, 0, 0, 300000, 0, 10
-            Unknown2196: '0x060000007B00000000000000E0930400'
+            exPointFResetObject: 6, (PLAYER_LAND), 0, 300000
             endIf: 
           else: 
             Unknown196: 6, 100, 0, 0, 0, -200000, 0, 10
-            Unknown2196: '0x060000006400000000000000C0F2FCFF'
+            exPointFResetObject: 6, (PLAYER), 0, -200000
             endElse: 
           storeValue: (VARIABLE), 45, (STATIC), 1
           endElse: 
@@ -6794,14 +6793,14 @@ beginState: s32'TST_Special5'
         endIf: 
       endIf: 
     else: 
-      Unknown2193: 100, 0, 0
+      exPointFReset: (PLAYER), 0, 0
       storeValue: (VARIABLE), 48, (STATIC), 0
       endElse: 
     endElse: 
   Unknown2279: 0, 0, 2, 48
-  createObjectWithArg: s32'TST_warp_start', 100
+  createObjectWithArg: s32'TST_warp_start', (PLAYER)
   Unknown2279: 2, 45, 0, 0
-  createObjectWithArg: s32'TST_warp_end', 130
+  createObjectWithArg: s32'TST_warp_end', (EX_POINT_F)
   Unknown2498: 22, 2, 393
     Unknown41: 22
     storeValue: (VARIABLE), 393, (STATIC), 10
@@ -6930,7 +6929,7 @@ beginState: s32'TST_Special6'
   whiffCancelOptionBufferTime: s32'RomanCancelGap', 10
   if: (VARIABLE), 46
     clearRegisteredUponCode: 12
-    Unknown2193: 100, 0, 0
+    exPointFReset: (PLAYER), 0, 0
     storeValue: (VARIABLE), 45, (STATIC), 1
     storeValue: (VARIABLE), 48, (STATIC), 0
     endIf: 
@@ -6941,18 +6940,18 @@ beginState: s32'TST_Special6'
         storeValue: (VARIABLE), 48, (STATIC), 1
         Unknown2500: 13, 6, (VARIABLE), 18, (STATIC), 200000
           Unknown196: 6, 123, 0, 0, 0, 0, 0, 10
-          Unknown2196: '0x060000007B0000000000000000000000'
+          exPointFResetObject: 6, (PLAYER_LAND), 0, 0
           Unknown2169: 0
           Unknown2168: 0
           endIf: 
         else: 
           Unknown2500: 13, 6, (VARIABLE), 18, (STATIC), 250000
             Unknown196: 6, 123, 0, 0, 0, 250000, 0, 10
-            Unknown2196: '0x060000007B0000000000000090D00300'
+            exPointFResetObject: 6, (PLAYER_LAND), 0, 250000
             endIf: 
           else: 
             Unknown196: 6, 100, 0, 0, 0, -200000, 0, 10
-            Unknown2196: '0x060000006400000000000000C0F2FCFF'
+            exPointFResetObject: 6, (PLAYER), 0, -200000
             endElse: 
           storeValue: (VARIABLE), 45, (STATIC), 1
           endElse: 
@@ -6969,15 +6968,15 @@ beginState: s32'TST_Special6'
         endIf: 
       endIf: 
     else: 
-      Unknown2193: 100, 0, 0
+      exPointFReset: (PLAYER), 0, 0
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 48, (STATIC), 0
       endElse: 
     endElse: 
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'TST_warp_start', 100
+  createObjectWithArg: s32'TST_warp_start', (PLAYER)
   Unknown2279: 2, 45, 0, 0
-  createObjectWithArg: s32'TST_warp_end', 130
+  createObjectWithArg: s32'TST_warp_end', (EX_POINT_F)
   characterSfx: s32'SE_BTL_TST_03_1'
   Unknown2498: 22, 2, 393
     Unknown41: 22
@@ -7104,7 +7103,7 @@ beginState: s32'TST_Special8'
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'tst411_01', 2
   callSubroutineWithArgs: s32'ArbiterSign_AtkPosCheck', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'TST_410_mahojin', 130
+  createObject: s32'TST_410_mahojin', (EX_POINT_F)
   sprite: s32'tst411_02', 2
   sprite: s32'tst411_03', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
@@ -7112,9 +7111,9 @@ beginState: s32'TST_Special8'
   sprite: s32'tst411_05', 2
   sprite: s32'tst411_06', 3
   voiceLine: s16'vxxx202'
-  createObject: s32'TST_410_floorblood', 100
+  createObject: s32'TST_410_floorblood', (PLAYER)
   callSubroutineWithArgs: s32'ArbiterSign_AtkPosCheck', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObjectWithArg: s32'TST410Obj', 130
+  createObjectWithArg: s32'TST410Obj', (EX_POINT_F)
   Unknown467: 1
   sprite: s32'tst411_07', 4
   sprite: s32'tst411_08', 2
@@ -7174,16 +7173,16 @@ beginState: s32'TST_Special9'
   sprite: s32'tst411_01', 3
   sprite: s32'tst411_02', 3
   callSubroutineWithArgs: s32'ArbiterSign_AtkPosCheck', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'TST_411_mahojin', 130
+  createObject: s32'TST_411_mahojin', (EX_POINT_F)
   sprite: s32'tst411_03', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Axe_Heavy_L'
   sprite: s32'tst411_04', 3
   sprite: s32'tst411_05', 2
   sprite: s32'tst411_06', 3
   voiceLine: s16'vxxx202'
-  createObject: s32'TST_410_floorblood', 100
+  createObject: s32'TST_410_floorblood', (PLAYER)
   callSubroutineWithArgs: s32'ArbiterSign_AtkPosCheck', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObjectWithArg: s32'TST411Obj', 130
+  createObjectWithArg: s32'TST411Obj', (EX_POINT_F)
   Unknown467: 1
   sprite: s32'tst411_07', 4
   sprite: s32'tst411_08', 2
@@ -7216,14 +7215,14 @@ beginState: s32'TST_Ultimate1'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       Unknown2560: 0
-      Unknown1972: 0
+      hideUI: 0
       resetDOF: 0, 10
       resetSaturation: 0, 10
       Unknown429: 0, 10
       jumpToState: s32'WSB_Master_Wait'
       upon: (BEFORE_EXIT)
-        Unknown2065: 
-        Unknown2066: 
+        resetDefaultMeshSet: 
+        changeDefaultMeshSet: 
         storeValue: (VARIABLE), 53, (STATIC), 0
         endUpon: 
       endUpon: 
@@ -7248,10 +7247,10 @@ beginState: s32'TST_Ultimate1'
     Unknown2189: 2, 5
     fadeOut: 250, 25
     swapMeshSet: s32'500cs'
-    Unknown2045: s32'tst500cs', 0
-    Unknown2052: s32'tst500cs', 23, 25, 20
+    playAnimation: s32'tst500cs', 0
+    playCameraAnimation: s32'tst500cs', 23, 25, 20
     Unknown2560: 1
-    Unknown1972: 1
+    hideUI: 1
     storeValue: (VARIABLE), 53, (STATIC), 1
     Unknown1803: s32'TST400Obj', 30
     Unknown1803: s32'TST401Obj', 30
@@ -7279,7 +7278,7 @@ beginState: s32'TST_Ultimate1'
         fadeIn: 10
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 23
-        createObject: s32'TST_500_CS', 100
+        createObject: s32'TST_500_CS', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 35
         Unknown1729: 0, 600, 0, 24, 0, 1, 0, 0
@@ -7294,10 +7293,10 @@ beginState: s32'TST_Ultimate1'
         outlineScale: 1000
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 30
-        Unknown2244: 1
+        hideAllButSelf: 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 171
-        Unknown2244: 0
+        hideAllButSelf: 0
         endIf: 
       ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 105, (STATIC), 30
         Unknown41: 22
@@ -7354,11 +7353,11 @@ beginState: s32'TST_Ultimate1'
     endUpon: 
   endLabel: 
   Unknown2560: 0
-  Unknown1972: 0
+  hideUI: 0
   storeValue: (VARIABLE), 53, (STATIC), 0
   sprite: s32'tst500_00', 3
-  Unknown2193: 100, 110000, 0
-  createObject: s32'SummonSuccubusObj', 130
+  exPointFReset: (PLAYER), 110000, 0
+  createObject: s32'SummonSuccubusObj', (EX_POINT_F)
   Unknown43: 8, 1
   recoveryState: 
   sprite: s32'tst500_01', 3
@@ -7394,7 +7393,7 @@ beginState: s32'TST_Ultimate2'
   sprite: s32'tst501_01', 3
   sprite: s32'tst501_02', 3
   sprite: s32'tst501_03', 14
-  createObject: s32'TST_501_hatudo', 100
+  createObject: s32'TST_501_hatudo', (PLAYER)
   enableRomanCancelMove: 0
   superFreeze: 1, 119, 61, 62
   upon: (SUPERFREEZE)
@@ -7402,10 +7401,10 @@ beginState: s32'TST_Ultimate2'
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnWorldStop_Tension'
     Unknown2189: 0, 5
-    Unknown2193: 100, 0, 190000
-    createParticle: s32'cmn_kakusei_hatudo', 130
+    exPointFReset: (PLAYER), 0, 190000
+    createParticle: s32'cmn_kakusei_hatudo', (EX_POINT_F)
     cmnSfx: s32'SE_BTL_SYS_SKill'
-    createObject: s32'Cam_Beast', 100
+    createObject: s32'Cam_Beast', (PLAYER)
     endUpon: 
   characterSfx: s32'SE_BTL_TST_KAKUSEI_05'
   sprite: s32'tst501_03', 30
@@ -7413,8 +7412,8 @@ beginState: s32'TST_Ultimate2'
   sprite: s32'tst501_05', 2
   sprite: s32'tst501_06', 2
   sprite: s32'tst501_07', 5
-  Unknown2193: 100, 300000, 0
-  createObject: s32'TST501Obj', 130
+  exPointFReset: (PLAYER), 300000, 0
+  createObject: s32'TST501Obj', (EX_POINT_F)
   recoveryState: 
   sprite: s32'tst501_08', 5
   sprite: s32'tst501_09', 3
@@ -8380,21 +8379,21 @@ beginSubroutine: s32'MarkingAtkCheck'
 
 beginSubroutine: s32'ArbiterSign_AtkPosCheck'
   ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 104, (STATIC), 500000
-    Unknown2193: 104, 500000, 0
+    exPointFReset: (FLOOR_CENTER), 500000, 0
     endIf: 
   else: 
     ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 104, (STATIC), 1000000
-      Unknown2193: 104, 1000000, 0
+      exPointFReset: (FLOOR_CENTER), 1000000, 0
       endIf: 
     else: 
-      Unknown2193: 120, 0, 0
+      exPointFReset: (ENEMY_LAND), 0, 0
       endElse: 
     endElse: 
   ifNot: (VARIABLE), 330
-    Unknown2193: 130, 0, 0
+    exPointFReset: (EX_POINT_F), 0, 0
     endIf: 
   else: 
-    Unknown2193: 130, 0, 0
+    exPointFReset: (EX_POINT_F), 0, 0
     endElse: 
   endSubroutine: 
 

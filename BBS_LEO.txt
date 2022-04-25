@@ -272,7 +272,7 @@ beginState: s32'Event301'
   sprite: s32'leo301_36', 6
   sprite: s32'leo301_37', 6
   sprite: s32'leo301_38', 6
-  createParticle: s32'leo_301_dust', 100
+  createParticle: s32'leo_301_dust', (PLAYER)
   sprite: s32'leo301_39', 12
   sprite: s32'leo301_40', 3
   sprite: s32'leo301_41', 3
@@ -419,10 +419,10 @@ beginSubroutine: s32'RoundInit'
   backwardSuperJumpDistance: 8750
   superJumpHeight: 49000
   superJumpGravity: 1925
-  airDashMinimumHeight: 105000
+  Unknown1232: 105000
   airFDashTime: 12
   airdashFSpeed: 26250
-  airFDashNoAttackTime: 17
+  airFDashNoAttackTime: 5
   airBDashTime: 10
   airDashBackVelocity: 24500
   airBDashNoAttackTime: 5
@@ -1113,7 +1113,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'LandThrow', s32'leo311_01'
   Unknown1328: s32'AirThrow', s32'leo321_01'
   Unknown1328: s32'DMG_CELL_KIRIMOMI_FIRST', s32'leo074_00'
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
+  linkPawn: s32''
   beginMeshSet: s32'nohead'
   addToMeshSet: s32'Body'
   addToMeshSet: s32'Weapon'
@@ -1168,8 +1168,8 @@ beginSubroutine: s32'RoundInit'
   Unknown2324: s32'leo070_05', 1
   Unknown2324: s32'leo070_06', 1
   Unknown2324: s32'leo070_07', 1
-  Unknown2068: 
-  Unknown2066: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   Unknown601: s16'vxxx003', 1, 3, 100
   Unknown601: s16'vxxx004', 1, 3, 100
   Unknown601: s16'vxxx200', 1, 3, 100
@@ -1667,14 +1667,14 @@ beginState: s32'CmnActCrouch'
   sprite: s32'leo011_02', 2
   sprite: s32'leo011_03', 2
   cmnSfx: s32'SE_BTL_CMN_Emotion_2'
-  createObject: s32'Leo011Eff', 100
+  createObject: s32'Leo011Eff', (PLAYER)
   sprite: s32'leo011_04', 2
   sprite: s32'leo011_05', 2
   sprite: s32'leo011_06', 4
   sprite: s32'leo011_07', 4
   sprite: s32'leo011_08', 2
   characterSfx: s32'SE_BTL_LEO_18'
-  createObject: s32'Leo011Eff', 100
+  createObject: s32'Leo011Eff', (PLAYER)
   sprite: s32'leo011_09', 2
   sprite: s32'leo011_10', 2
   sprite: s32'leo011_11', 2
@@ -2137,13 +2137,12 @@ beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnAirBDash'
     endUpon: 
-  sprite: s32'leo035_04', 3
-  sprite: s32'leo035_05', 2
+  sprite: s32'leo035_04', 2
+  sprite: s32'leo035_05', 3
   sprite: s32'leo035_06', 3
   sprite: s32'leo035_05', 3
-  callSubroutine: s32'cmnNandemoCancelC'
-  sprite: s32'leo035_06', 3
-  sprite: s32'leo035_07', 3
+  sprite: s32'leo035_06', 2
+  sprite: s32'leo035_07', 2
   endState: 
 
 beginState: s32'CmnActAirBDash'
@@ -2877,10 +2876,10 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'leo077_02', 6
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   beginLabel: s32'loop'
   sprite: s32'leo077_03', 9
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'leo077_04', 9
   endLabel: 
   gotoLabel: s32'loop'
@@ -2888,7 +2887,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'leo077_05', 3
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'leo077_06', 3
   sprite: s32'leo077_07', 3
   sprite: s32'leo077_08', 3
@@ -3519,7 +3518,7 @@ beginState: s32'CmnActRoundWin'
   gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   beginLabel: s32'TypeA'
   sprite: s32'leo615_00', 3
-  createObject: s32'615_gtbd', 100
+  createObject: s32'615_gtbd', (PLAYER)
   Unknown1702: s32'Cross', 1
   characterSfx: s32'SE_BTL_LEO_Win_00'
   sprite: s32'leo615_01', 5
@@ -3606,7 +3605,7 @@ beginState: s32'CmnActRoundWin'
   Unknown24: s16'TypeA', s16'', 2, 315
   sprite: s32'leo615_00', 3
   cameraTargetSelf: 1
-  createObject: s32'615_gtbd', 100
+  createObject: s32'615_gtbd', (PLAYER)
   Unknown1702: s32'Cross', 1
   sprite: s32'leo615_01', 5
   sprite: s32'leo615_02', 2
@@ -3670,8 +3669,8 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'leo070_05', 4
   sprite: s32'leo070_06', 2
   sprite: s32'leo070_06', 2
-  Unknown2193: 100, 0, 50000
-  createParticle: s32'cmn_hit_s', 130
+  exPointFReset: (PLAYER), 0, 50000
+  createParticle: s32'cmn_hit_s', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Hit_Grap_M'
   voiceLine: s16'vxxx000'
   sprite: s32'leo068_21', 3
@@ -3720,7 +3719,7 @@ beginState: s32'CmnActRoundWin'
   physicsYImpulse: 0, 10000
   setGravity: 1000
   Unknown673: 100, 1, 1
-  Unknown2341: s32'Impact', 1000, 0, 30, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Impact', 1000, 0, 30, 1801545843, s32'e_easeout'
   upon: (TOUCH_GROUND)
     Unknown14: s32'landing2'
     endUpon: 
@@ -3743,22 +3742,22 @@ beginState: s32'CmnActMatchWin'
       checkLastStateName: s32'WinActionWait'
       if: (VARIABLE), 0
         storeValue: (VARIABLE), 46, (STATIC), 3
-        createObject: s32'gtbd801cs_01', 100
-        createObject: s32'gtbd801cs_02', 100
-        createObject: s32'gtbd801cs_03', 100
+        createObject: s32'gtbd801cs_01', (PLAYER)
+        createObject: s32'gtbd801cs_02', (PLAYER)
+        createObject: s32'gtbd801cs_03', (PLAYER)
         endIf: 
       else: 
         Unknown2499: 22, 2, 77
           storeValue: (VARIABLE), 46, (STATIC), 1
-          createObject: s32'gtbd800cs_01', 100
-          createObject: s32'gtbd800cs_02', 100
-          createObject: s32'gtbd800cs_03', 100
+          createObject: s32'gtbd800cs_01', (PLAYER)
+          createObject: s32'gtbd800cs_02', (PLAYER)
+          createObject: s32'gtbd800cs_03', (PLAYER)
           endIf: 
         else: 
           storeValue: (VARIABLE), 46, (STATIC), 2
-          createObject: s32'gtbd802cs_01', 100
-          createObject: s32'gtbd802cs_02', 100
-          createObject: s32'gtbd802cs_03', 100
+          createObject: s32'gtbd802cs_01', (PLAYER)
+          createObject: s32'gtbd802cs_02', (PLAYER)
+          createObject: s32'gtbd802cs_03', (PLAYER)
           endElse: 
         endElse: 
       endIf: 
@@ -3769,16 +3768,16 @@ beginState: s32'CmnActMatchWin'
       Unknown425: -1, 1400, 50
       Unknown426: -1, 0, 50
       ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
-        Unknown2045: s32'leo800cs', 0
-        Unknown2052: s32'leo800cs', 23, 15, -1
+        playAnimation: s32'leo800cs', 0
+        playCameraAnimation: s32'leo800cs', 23, 15, -1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
-        Unknown2045: s32'leo802cs', 0
-        Unknown2052: s32'leo802cs', 23, 15, -1
+        playAnimation: s32'leo802cs', 0
+        playCameraAnimation: s32'leo802cs', 23, 15, -1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 3
-        Unknown2045: s32'leo801cs', 0
-        Unknown2052: s32'leo801cs', 23, 0, -1
+        playAnimation: s32'leo801cs', 0
+        playCameraAnimation: s32'leo801cs', 23, 0, -1
         endIf: 
       Unknown2560: 1
       swapMeshSet: s32'800cs'
@@ -4069,7 +4068,7 @@ beginState: s32'NmlAtk5A'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   sprite: s32'leo200_02', 3
   hit: 
-  createObject: s32'Leo200Bake', 100
+  createObject: s32'Leo200Bake', (PLAYER)
   sprite: s32'leo200_03', 2
   sprite: s32'leo200_04', 3
   recoveryState: 
@@ -4107,7 +4106,7 @@ beginState: s32'NmlAtk6A'
   voiceLine: s16'vxxx600'
   sprite: s32'leo210_04', 1
   sprite: s32'leo210_05', 1
-  createObject: s32'Leo210Eff', 100
+  createObject: s32'Leo210Eff', (PLAYER)
   sprite: s32'leo210_06', 3
   hit: 
   cmnSfx: s32'GG2_064'
@@ -4234,7 +4233,7 @@ beginState: s32'NmlAtk5B'
   sprite: s32'leo201_00', 3
   sprite: s32'leo201_01', 2
   physicsXImpulse: 0, 35000
-  Unknown2193: 100, 50000, 0
+  exPointFReset: (PLAYER), 50000, 0
   Unknown2273: 0, 1100
   Unknown2288: 0, 1300
   Unknown449: s32'bg_shotground', 130
@@ -4244,7 +4243,7 @@ beginState: s32'NmlAtk5B'
   sprite: s32'leo201_03', 2
   hit: 
   Unknown621: 0, -1
-  createObject: s32'Leo201Bake', 100
+  createObject: s32'Leo201Bake', (PLAYER)
   sprite: s32'leo201_04', 2
   Unknown2229: 80
   sprite: s32'leo201_05', 3
@@ -4292,7 +4291,7 @@ beginState: s32'NmlAtk6B'
   sprite: s32'leo211_00', 2
   sprite: s32'leo211_01', 3
   physicsXImpulse: 0, 20000
-  Unknown2193: 100, 50000, 0
+  exPointFReset: (PLAYER), 50000, 0
   Unknown2273: 0, 1100
   Unknown2288: 0, 1300
   Unknown449: s32'bg_shotground', 130
@@ -4304,7 +4303,7 @@ beginState: s32'NmlAtk6B'
   hit: 
   Unknown621: 1, 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
-  createObject: s32'Leo211bake', 100
+  createObject: s32'Leo211bake', (PLAYER)
   sprite: s32'leo211_06', 2
   Unknown1803: s32'Leo211bake', 23
   sprite: s32'leo211_07', 2
@@ -4361,7 +4360,7 @@ beginState: s32'NmlAtk2B'
   sprite: s32'leo231_02', 2
   sprite: s32'leo231_03', 2
   sprite: s32'leo231_04', 2
-  createObject: s32'Leo231Bake', 100
+  createObject: s32'Leo231Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   Unknown621: 0, -1
   hit: 
@@ -4429,7 +4428,7 @@ beginState: s32'NmlAtk5CNear'
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   addVelocityX: 0, 20000
-  createObject: s32'Leo202Bake02', 100
+  createObject: s32'Leo202Bake02', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown621: 1, -1
   sprite: s32'leo202_03', 3
@@ -4462,7 +4461,7 @@ beginState: s32'NmlAtk5CFar'
     hitAirPushbackX: 0, 25000
     hitAirPushbackY: 0, 15000
     rollDuration: 10
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     addWhiffCancelOption: s32'NmlAtk5CFar_Guard'
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk2C'
@@ -4508,7 +4507,7 @@ beginState: s32'NmlAtk5CFar'
   beginLabel: s32'start'
   sprite: s32'leo203_10', 3
   hit: 
-  createObject: s32'Leo203Bake', 100
+  createObject: s32'Leo203Bake', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown621: 1, -1
   storeValue: (VARIABLE), 3, (STATIC), 1
@@ -4796,7 +4795,7 @@ beginState: s32'GuardAttack'
   sprite: s32'leo273_04', 3
   sprite: s32'leo273_05', 3
   hit: 
-  createObject: s32'Leo273Bake', 100
+  createObject: s32'Leo273Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_M'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
   Unknown621: 2, -1
@@ -4855,7 +4854,7 @@ beginState: s32'NmlAtk2C'
   sprite: s32'leo232_02', 2
   sprite: s32'leo232_03', 3
   sprite: s32'leo232_04', 3
-  createObject: s32'Leo232Bake', 100
+  createObject: s32'Leo232Bake', (PLAYER)
   hit: 
   Unknown621: 1, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_M'
@@ -5232,7 +5231,7 @@ beginState: s32'NmlAtk6D'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'leo213_11', 2
   hit: 
-  createObject: s32'Leo213Bake', 100
+  createObject: s32'Leo213Bake', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
   sprite: s32'leo213_12', 2
   callSubroutine: s32'cmn_AttackEnd'
@@ -5298,7 +5297,7 @@ beginState: s32'NmlAtk2D'
   sprite: s32'leo233_03', 2
   sprite: s32'leo233_04', 3
   hit: 
-  createObject: s32'Leo233Bake', 100
+  createObject: s32'Leo233Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'leo233_05', 3
@@ -5320,7 +5319,7 @@ beginState: s32'NmlAtk2D'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, 0, 0
+    exPointFReset: (PLAYER_LAND), 0, 0
     callSubroutineWithArgs: s32'cmn_DustAttack', (STATIC), 50000, (STATIC), 25000, (STATIC), 25000, (STATIC), 0
     damage: 0, 40
     callSubroutine: s32'cmn_AtkTemplFloatDamageBody'
@@ -5498,7 +5497,7 @@ beginState: s32'DustFinish'
   sprite: s32'leo403_06', 3
   hit: 
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'Leo403Eff', 100
+  createObjectWithArg: s32'Leo403Eff', (PLAYER)
   cmnSfx: s32'GG2_003'
   sprite: s32'leo403_07', 3
   sprite: s32'leo403_08', 3
@@ -5714,7 +5713,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'leo301_36', 6
   sprite: s32'leo301_37', 6
   sprite: s32'leo301_38', 6
-  createParticle: s32'leo_301_dust', 100
+  createParticle: s32'leo_301_dust', (PLAYER)
   sprite: s32'leo301_39', 12
   sprite: s32'leo301_40', 3
   sprite: s32'leo301_41', 3
@@ -5902,7 +5901,7 @@ beginState: s32'NmlAtkAir5B'
   sprite: s32'leo251_01', 3
   sprite: s32'leo251_02', 3
   sprite: s32'leo251_03', 3
-  createObject: s32'Leo251Bake', 100
+  createObject: s32'Leo251Bake', (PLAYER)
   hit: 
   Unknown621: 1, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -6098,8 +6097,8 @@ beginState: s32'NmlAtkAir5E'
     Unknown14: s32'landing'
     endUpon: 
   cmnSfx: s32'SE_SWINGF'
-  createObject: s32'Leo254Bake', 100
-  createObject: s32'Leo254Spin', 100
+  createObject: s32'Leo254Bake', (PLAYER)
+  createObject: s32'Leo254Spin', (PLAYER)
   storeValue: (VARIABLE), 45, (STATIC), 1
   sprite: s32'leo254_06', 1
   storeValue: (VARIABLE), 45, (STATIC), 5
@@ -6192,7 +6191,7 @@ beginState: s32'NmlAtkThrow'
   sprite: s32'leo311_02', 4
   sprite: s32'leo311_03', 2
   sprite: s32'leo311_04', 5
-  createObject: s32'Leo311Bake', 100
+  createObject: s32'Leo311Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'leo311_05', 5
   voiceLine: s16'vxxx108'
@@ -6217,7 +6216,7 @@ beginState: s32'ThrowExe'
     pushbackX: 150
     hitStop: 4
     groundHitEffect: (STAGGER)
-    noCounterUI: 1
+    noStaggerUi: 1
     Unknown1142: 1
     Unknown1148: s32'SE_BTL_CMN_Impact_Sword_L'
     Unknown1211: s32'SE_BTL_CMN_Impact_Sword_L'
@@ -6231,12 +6230,12 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1310, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 13
-  setGripPosition: 126, 100, 0
-  createObject: s32'Cam_Throw', 100
+  setGripPosition: (FRONT_2_BODY), (PLAYER), 0
+  createObject: s32'Cam_Throw', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   storeValue: (VARIABLE), 45, (STATIC), 1305000
   storeValue: (VARIABLE), 46, (STATIC), 4
@@ -6269,9 +6268,9 @@ beginState: s32'ThrowExe'
   hitAirPushbackX: 0, 16000
   hitAirPushbackY: 0, 26000
   addPositionX: 40000
-  createObject: s32'Leo310Bake', 100
+  createObject: s32'Leo310Bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
-  Unknown2341: s32'Horizontal', 1000, 0, 30, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Horizontal', 1000, 0, 30, 1801545843, s32'e_easeout'
   sprite: s32'leo310_08', 1
   addPositionX: 60000
   sprite: s32'leo310_09', 3
@@ -6342,29 +6341,29 @@ beginState: s32'AirThrowExe'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown2189: 2, 3
   Unknown550: 
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnCam_AirThrow'
   sprite: s32'leo320_01', 4
   Unknown94: 0, 40000
   Unknown544: 34
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   createParticle: s32'cmn_nage', 0
   cameraTargetSelf: 1
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_02', 6
   Unknown94: 0, 40000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_03', 6
   Unknown94: 0, 20000
   Unknown544: 37
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_04', 3
   Unknown2189: 0, 3
   Unknown94: 0, 20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_05', 3
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 2212, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown2189: 2, 3
@@ -6372,27 +6371,27 @@ beginState: s32'AirThrowExe'
   Unknown41: 21
   flipDirection: 
   Unknown40: 
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   voiceLine: s16'vxxx106'
   sprite: s32'leo320_06', 3
   Unknown94: 0, 20000
   Unknown544: 37
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_07', 3
   Unknown94: 0, 20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_08', 3
   Unknown94: 0, 20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_09', 2
   Unknown2189: 0, 3
   Unknown94: 0, 20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_10', 2
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 2310, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown94: 0, -20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   ifOperation: (IS_GREATER), (VARIABLE), 119, (STATIC), 0
     voiceLine: s16'vxxx116'
     storeValue: (VARIABLE), 119, (STATIC), 0
@@ -6402,17 +6401,17 @@ beginState: s32'AirThrowExe'
     endElse: 
   sprite: s32'leo320_11', 2
   Unknown94: 0, -20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_12', 2
   Unknown94: 0, -20000
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_13', 1
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1310, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown94: 0, -20000
   Unknown41: 21
   flipDirection: 
   Unknown40: 
-  setGripPosition: 0, 117, 0
+  setGripPosition: 0, (R_LEG), 0
   sprite: s32'leo320_13', 1
   grabOrRelease: 
   upon: (HIT)
@@ -6538,7 +6537,7 @@ beginState: s32'Semuke'
     Unknown1058: 1
     Unknown2249: 0
     enableRomanCancelMove: 1
-    Unknown2438: 1
+    forceEnableBlueRomanCancel: 1
     upon: (FRAME_STEP)
       Unknown240: 
       ifNot: (VARIABLE), 16
@@ -6936,7 +6935,7 @@ beginState: s32'Semuke5C'
   sprite: s32'leo417_02', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'leo417_03', 3
-  createObject: s32'Leo417Bake', 100
+  createObject: s32'Leo417Bake', (PLAYER)
   hit: 
   characterSfx: s32'SE_BTL_LEO_08_1'
   sprite: s32'leo417_04', 3
@@ -7019,7 +7018,7 @@ beginState: s32'Semuke5D'
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_L'
   sprite: s32'leo418_07', 1
   sprite: s32'leo418_08', 3
-  createObject: s32'Leo418SlashEff', 100
+  createObject: s32'Leo418SlashEff', (PLAYER)
   hit: 
   Unknown621: 2, 0
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -7065,7 +7064,7 @@ beginState: s32'Semuke5E'
       setThrowInvulnerable: 1
       enableSuperArmor: 0
       enableRomanCancelMove: 0
-      Unknown2292: 1
+      noGuardEffect: 1
       enableGatlings: 0
       enableSpecialCancel: 0
       cmnSfx: s32'GG2_039'
@@ -7104,8 +7103,8 @@ beginState: s32'Semuke5E'
           setThrowInvulnerable: 0
           Unknown14: s32'Throw'
           Unknown1803: s32'Leo419Eff', 23
-          Unknown2341: s32'Depth', 6000, 0, 16, 1801545843, s32'e_easeout'
-          createObject: s32'Cam_Semuke5E', 100
+          cameraShakeEX: s32'Depth', 6000, 0, 16, 1801545843, s32'e_easeout'
+          createObject: s32'Cam_Semuke5E', (PLAYER)
           endUpon: 
         upon: (FRAME_STEP)
           modifyVar: (ADD), (VARIABLE), 47, (STATIC), 1
@@ -7133,7 +7132,7 @@ beginState: s32'Semuke5E'
           Unknown1073: 1
           Unknown1116: 1
           disableWallBreak: 1
-          createParticle: s32'leo_419miss', 102
+          createParticle: s32'leo_419miss', (DAMAGE)
           endIf: 
         endElse: 
       endUpon: 
@@ -7150,7 +7149,7 @@ beginState: s32'Semuke5E'
   sprite: s32'leo419_00', 2
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
   setStrikeInvulnerable: 1
-  createObject: s32'Semuke5E_Reflect', 100
+  createObject: s32'Semuke5E_Reflect', (PLAYER)
   Unknown1058: 1
   sprite: s32'leo419_01', 4
   enableSuperArmor: 1
@@ -7158,7 +7157,7 @@ beginState: s32'Semuke5E'
   Unknown1839: 0
   Unknown1846: 1
   setStrikeInvulnerable: 0
-  createObject: s32'Leo419Eff', 100
+  createObject: s32'Leo419Eff', (PLAYER)
   voiceLine: s16'vxxx100'
   characterSfx: s32'SE_BTL_LEO_08'
   sprite: s32'leo419_02', 4
@@ -7226,7 +7225,7 @@ beginState: s32'Semuke5E'
   sprite: s32'leo420_13', 2
   sprite: s32'leo420_14', 5
   Unknown240: 
-  createObject: s32'Leo420Eff', 100
+  createObject: s32'Leo420Eff', (PLAYER)
   hit: 
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
@@ -7260,7 +7259,7 @@ beginState: s32'Semuke5E'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
   sprite: s32'leo420_15', 3
   deactivateObjectByName: s32'Leo420Eff'
-  createObject: s32'Leo420slashEnd', 100
+  createObject: s32'Leo420slashEnd', (PLAYER)
   sprite: s32'leo420_16', 5
   sprite: s32'leo420_17', 5
   sprite: s32'leo420_18', 5
@@ -7326,7 +7325,7 @@ beginState: s32'DrittWind'
     endUpon: 
   sprite: s32'leo425_00', 2
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   setThrowInvulnerable: 1
   Unknown240: 
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -7367,11 +7366,11 @@ beginState: s32'GraviertWurdeC'
   cmnSfx: s32'SE_BTL_CMN_Swing_Sword_Heavy_L'
   sprite: s32'leo400_02', 1
   sprite: s32'leo400_03', 1
-  Unknown2193: 100, 150000, 0
-  createObject: s32'Leo400Eff', 130
+  exPointFReset: (PLAYER), 150000, 0
+  createObject: s32'Leo400Eff', (EX_POINT_F)
   sprite: s32'leo400_04', 4
   sprite: s32'leo400_05', 3
-  createObject: s32'Leo400Effbake', 100
+  createObject: s32'Leo400Effbake', (PLAYER)
   voiceLine: s16'vxxx201'
   sprite: s32'leo400_06', 3
   sprite: s32'leo400_07', 3
@@ -7407,12 +7406,12 @@ beginState: s32'GraviertWurdeD'
   sprite: s32'leo401_04', 4
   sprite: s32'leo401_05', 4
   sprite: s32'leo401_06', 4
-  Unknown2193: 100, 230000, 0
-  createObject: s32'Leo401Eff', 130
+  exPointFReset: (PLAYER), 230000, 0
+  createObject: s32'Leo401Eff', (EX_POINT_F)
   sprite: s32'leo401_07', 4
   sprite: s32'leo401_08', 3
   sprite: s32'leo401_09', 3
-  createObject: s32'Leo401Effbake', 100
+  createObject: s32'Leo401Effbake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'leo401_10', 3
   sprite: s32'leo401_11', 3
@@ -7479,7 +7478,7 @@ beginState: s32'EisenSturmC'
   cmnSfx: s32'SE_BTL_CMN_Jump'
   sprite: s32'leo402_02', 2
   sprite: s32'leo402_03', 3
-  createObject: s32'Leo402Eff', 100
+  createObject: s32'Leo402Eff', (PLAYER)
   randomVoiceLine: s16'vxxx202', s16'vxxx702'
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_L'
@@ -7581,7 +7580,7 @@ beginState: s32'EisenSturmD'
   cmnSfx: s32'SE_BTL_CMN_Jump'
   sprite: s32'leo402_02', 3
   sprite: s32'leo402_03', 3
-  createObject: s32'Leo402Eff', 100
+  createObject: s32'Leo402Eff', (PLAYER)
   randomVoiceLine: s16'vxxx202', s16'vxxx702'
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_L'
@@ -7652,7 +7651,7 @@ beginState: s32'EisenSturmD'
   Unknown858: s32'CmnActBlowoff'
   callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
   hit: 
-  createObject: s32'Leo403Eff', 100
+  createObject: s32'Leo403Eff', (PLAYER)
   cmnSfx: s32'GG2_003'
   upon: 90
     clearRegisteredUponCode: 90
@@ -7720,7 +7719,7 @@ beginState: s32'FBEisenSturm'
     endUpon: 
   sprite: s32'leo403_00', 1
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'leo403_01', 2
   sprite: s32'leo403_02', 2
@@ -7729,7 +7728,7 @@ beginState: s32'FBEisenSturm'
   sprite: s32'leo403_05', 1
   sprite: s32'leo403_06', 3
   hit: 
-  createObject: s32'Leo403Eff', 100
+  createObject: s32'Leo403Eff', (PLAYER)
   cmnSfx: s32'GG2_003'
   upon: 90
     clearRegisteredUponCode: 90
@@ -7812,7 +7811,7 @@ beginState: s32'ErstWind'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   haltMomentum: 1
   Unknown2175: 4, 100
-  createObject: s32'Leo404slashEff', 100
+  createObject: s32'Leo404slashEff', (PLAYER)
   randomVoiceLine: s16'vxxx203', s16'vxxx703'
   sprite: s32'leo404_08', 2
   recoveryState: 
@@ -7880,7 +7879,7 @@ beginState: s32'ZweitWind'
     endUpon: 
   beginLabel: s32'loop'
   sprite: s32'leo405_02', 2
-  createObject: s32'leo_405dashwind', 100
+  createObject: s32'leo_405dashwind', (PLAYER)
   Unknown2175: 3, 100
   Unknown2177: 0, 100
   sprite: s32'leo405_03', 2
@@ -7895,7 +7894,7 @@ beginState: s32'ZweitWind'
   sprite: s32'leo405_07', 4
   sprite: s32'leo405_08', 3
   sprite: s32'leo405_09', 2
-  createObject: s32'Leo405slashEff', 100
+  createObject: s32'Leo405slashEff', (PLAYER)
   hit: 
   haltMomentum: 1
   setNoCollision: 1
@@ -7998,7 +7997,7 @@ beginState: s32'ZweitWindFollowup'
     endUpon: 
   beginLabel: s32'loop'
   sprite: s32'leo405_02', 2
-  createObject: s32'leo_405dashwind', 100
+  createObject: s32'leo_405dashwind', (PLAYER)
   Unknown2175: 3, 100
   Unknown2177: 0, 100
   sprite: s32'leo405_03', 2
@@ -8013,7 +8012,7 @@ beginState: s32'ZweitWindFollowup'
   sprite: s32'leo405_07', 2
   sprite: s32'leo405_08', 2
   sprite: s32'leo405_09', 2
-  createObject: s32'Leo405slashEff', 100
+  createObject: s32'Leo405slashEff', (PLAYER)
   hit: 
   haltMomentum: 1
   setNoCollision: 1
@@ -8090,7 +8089,7 @@ beginState: s32'DrittWindFollowup'
     endUpon: 
   sprite: s32'leo425_00', 2
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   setThrowInvulnerable: 1
   Unknown240: 
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -8166,9 +8165,9 @@ beginState: s32'Turbulenz'
   voiceLine: s16'vxxx205'
   sprite: s32'leo406_04', 2
   sprite: s32'leo406_05', 5
-  createObject: s32'Leo406Eff_re', 100
-  createObject: s32'Leo406Ground', 100
-  createObject: s32'Leo406Light', 100
+  createObject: s32'Leo406Eff_re', (PLAYER)
+  createObject: s32'Leo406Ground', (PLAYER)
+  createObject: s32'Leo406Light', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 2, (STATIC), 1, (STATIC), 0, (STATIC), 0
   sprite: s32'leo406_06', 2
   hit: 
@@ -8291,37 +8290,37 @@ beginState: s32'GlaenzenDunkelExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown544: 34
-  setGripPosition: 0, 116, 0
+  setGripPosition: 0, (ABDOMINAL), 0
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown2525: 1
-  createObject: s32'Cam_GlaenzenDunkel', 100
+  createObject: s32'Cam_GlaenzenDunkel', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'leo422_01', 2
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_02', 2
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_03', 2
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_04', 3
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_05', 3
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'leo422_06', 4
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_07', 4
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_08', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1212, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown544: 8
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_09', 7
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1112, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_10', 7
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_11', 5
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   cmnSfx: s32'SE_BTL_CMN_Jump'
   Unknown632: 0, s32'SE_BTL_LEO_20', 100
   upon: (BEFORE_EXIT)
@@ -8331,7 +8330,7 @@ beginState: s32'GlaenzenDunkelExe'
   physicsXImpulse: 0, 10000
   physicsYImpulse: 0, 100000
   setGravity: 6200
-  Unknown485: s32'bg_jump', 100
+  createParticleWithArg: s32'bg_jump', (PLAYER)
   upon: (FALL_SPEED)
     clearRegisteredUponCode: (FALL_SPEED)
     Unknown14: s32'upper_start'
@@ -8339,11 +8338,11 @@ beginState: s32'GlaenzenDunkelExe'
   Unknown544: 28
   beginLabel: s32'upper_loop'
   sprite: s32'leo422_12', 3
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_13', 3
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_14', 3
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   endLabel: 
   gotoLabel: s32'upper_loop'
   beginLabel: s32'upper_start'
@@ -8351,38 +8350,38 @@ beginState: s32'GlaenzenDunkelExe'
   physicsYImpulse: 0, 10000
   setGravity: 500
   Unknown544: 29
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_15', 4
   Unknown1695: s32'leo422_16', 0, 300
   Unknown544: 30
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_16', 4
   Unknown1695: s32'leo422_15', 0, 600
   Unknown544: 30
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_16', 4
   Unknown544: 30
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_16', 4
   Unknown1695: s32'leo422_17', 0, 200
   Unknown544: 30
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_16', 4
   Unknown1695: s32'leo422_17', 0, 400
   Unknown544: 30
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   voiceLine: s16'vxxx106'
   endLabel: 
   physicsYImpulse: 0, -114000
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1110, (STATIC), 0, (STATIC), 0, (STATIC), 0
   beginLabel: s32'down_loop'
   sprite: s32'leo422_17', 2
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'leo422_18', 2
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   sprite: s32'leo422_19', 2
-  setGripPosition: 0, 103, 0
+  setGripPosition: 0, (CENTER), 0
   endLabel: 
   gotoLabel: s32'down_loop'
   beginLabel: s32'landing'
@@ -8400,13 +8399,13 @@ beginState: s32'GlaenzenDunkelExe'
   Unknown1067: 4, 100000, 0
   Unknown1064: s32''
   Unknown544: 31
-  Unknown2193: 100, 80000, 0
-  setGripPosition: 130, 100, 0
+  exPointFReset: (PLAYER), 80000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
   Unknown674: 120, 1, 0
-  Unknown485: s32'bg_down', 100
+  createParticleWithArg: s32'bg_down', (PLAYER)
   Unknown2189: 0, 5
   Unknown2525: 0
-  Unknown2341: s32'Depth', 3800, 0, 60, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Depth', 3800, 0, 60, 1801545843, s32'e_easeout'
   sprite: s32'leo422_21', 3
   Unknown1695: s32'leo422_20', 0, 200
   sprite: s32'leo422_22', 3
@@ -8477,7 +8476,7 @@ beginState: s32'SchildBrechen'
     Unknown760: 0, 90, 0, 4, 0, 10
     hitAirPushbackY: 0, -20000
     rollDuration: 20
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     Unknown1148: s32'SE_BTL_CMN_Impact_Fire'
     Unknown1148: s32'SE_BTL_CMN_Impact_Sword_L'
     Unknown1211: s32'SE_BTL_CMN_Impact_Fire'
@@ -8493,7 +8492,7 @@ beginState: s32'SchildBrechen'
   Unknown2229: 90
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'leo423_01', 2
-  createObject: s32'Leo423SmokeEff', 100
+  createObject: s32'Leo423SmokeEff', (PLAYER)
   sprite: s32'leo423_02', 2
   voiceLine: s16'vxxx207'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -8511,7 +8510,7 @@ beginState: s32'SchildBrechen'
     Unknown1324: s32'SchildBrechenSemuke'
     endIf: 
   clearRegisteredUponCode: 12
-  createObject: s32'Leo423SlashEff', 100
+  createObject: s32'Leo423SlashEff', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 3, (STATIC), 0, (STATIC), 0
   sprite: s32'leo423_10', 2
@@ -8559,18 +8558,18 @@ beginState: s32'StahlWirbel'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       Unknown2560: 0
-      Unknown1972: 0
+      hideUI: 0
       resetDOF: 0, 10
       resetSaturation: 0, 10
       Unknown429: 0, 10
       jumpToState: s32'WSB_Master_Wait'
       Unknown2266: s32'leo500_02'
-      Unknown2065: 
-      Unknown2066: 
+      resetDefaultMeshSet: 
+      changeDefaultMeshSet: 
       Unknown2231: 0
       upon: (BEFORE_EXIT)
-        Unknown2065: 
-        Unknown2066: 
+        resetDefaultMeshSet: 
+        changeDefaultMeshSet: 
         endUpon: 
       endUpon: 
     storeValue: (VARIABLE), 345, (STATIC), 130000
@@ -8590,10 +8589,10 @@ beginState: s32'StahlWirbel'
     Unknown2189: 2, 5
     swapMeshSet: s32'high_kakusei'
     resetCamera: 
-    Unknown2045: s32'leo500cs', 0
+    playAnimation: s32'leo500cs', 0
     Unknown2560: 1
-    Unknown2052: s32'leo500cs', 23, 30, 10
-    Unknown1972: 1
+    playCameraAnimation: s32'leo500cs', 23, 30, 10
+    hideUI: 1
     Unknown2231: 1
     resetDOF: 1, 1
     Unknown412: -1, 700, 0
@@ -8612,10 +8611,10 @@ beginState: s32'StahlWirbel'
         characterSfx: s32'SE_BTL_LEO_KAKUSEI_00'
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 7
-        createObject: s32'CS500_air', 100
+        createObject: s32'CS500_air', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
-        createObject: s32'CS500_scr01', 100
+        createObject: s32'CS500_scr01', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 50
         voiceLine: s16'vxxx252'
@@ -8623,14 +8622,14 @@ beginState: s32'StahlWirbel'
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 78
         Unknown2589: s32'Overlay_kakusei01', 1, 12
         Unknown2589: s32'Overlay_kakusei02', 1, 12
-        createObject: s32'CS500_darkgradation', 100
+        createObject: s32'CS500_darkgradation', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 121
         Unknown2589: s32'Overlay_kakusei02', 0, 10
         Unknown2589: s32'Overlay_kakusei01', 0, 10
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 140
-        createObject: s32'CS500_shotstart', 100
+        createObject: s32'CS500_shotstart', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 156
         callSubroutineWithArgs: s32'cmnCameraSettings', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
@@ -8688,19 +8687,19 @@ beginState: s32'StahlWirbel'
         Unknown40: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 79
-        Unknown2244: 1
+        hideAllButSelf: 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 131
-        Unknown2244: 0
+        hideAllButSelf: 0
         endIf: 
       endUpon: 
     endUpon: 
   sprite: s32'leo500_03', 1
-  Unknown2065: 
-  Unknown2066: 
+  resetDefaultMeshSet: 
+  changeDefaultMeshSet: 
   voiceLine: s16'vxxx253'
   sprite: s32'leo500_04', 1
-  createObject: s32'StahlWirbel_Obj', 100
+  createObject: s32'StahlWirbel_Obj', (PLAYER)
   recoveryState: 
   sprite: s32'leo500_04', 1
   characterSfx: s32'SE_BTL_LEO_KAKUSEI_02'
@@ -8723,7 +8722,7 @@ beginSubroutine: s32'LeidenschaftDirigent_atk'
   damage: 0, 20
   tensionGainOnConnect: 0
   pushbackX: 120
-  Unknown996: 0, 4, 4
+  enemyHitstopAddition: 0, 4, 4
   hitStop: 10
   Unknown1051: 1
   Unknown725: 1
@@ -8748,7 +8747,7 @@ beginState: s32'LeidenschaftDirigent'
     damage: 0, 20
     tensionGainOnConnect: 0
     pushbackX: 120
-    Unknown996: 0, 4, 4
+    enemyHitstopAddition: 0, 4, 4
     hitStop: 10
     Unknown1051: 1
     Unknown725: 1
@@ -8792,9 +8791,9 @@ beginState: s32'LeidenschaftDirigent'
     clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnWorldStop_Tension'
-    Unknown2193: 100, -40000, 230000
-    createParticle: s32'cmn_kakusei_hatudo', 130
-    createObject: s32'Cam_LeidenschaftDirigent_Start', 100
+    exPointFReset: (PLAYER), -40000, 230000
+    createParticle: s32'cmn_kakusei_hatudo', (EX_POINT_F)
+    createObject: s32'Cam_LeidenschaftDirigent_Start', (PLAYER)
     cmnSfx: s32'SE_BTL_SYS_Skill'
     endUpon: 
   sprite: s32'leo501_04', 2
@@ -8802,7 +8801,7 @@ beginState: s32'LeidenschaftDirigent'
   sprite: s32'leo501_06', 3
   physicsXImpulse: 0, 50000
   Unknown2229: 90
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   sprite: s32'leo501_07', 2
   hit: 
   hitAirPushbackX: 0, 5000
@@ -8818,11 +8817,11 @@ beginState: s32'LeidenschaftDirigent'
         ifNot: (VARIABLE), 368
           storeValue: (VARIABLE), 51, (STATIC), 0
           callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-          Unknown2341: s32'Impact', 100, 0, 30, 1801545843, s32'e_easeout'
+          cameraShakeEX: s32'Impact', 100, 0, 30, 1801545843, s32'e_easeout'
           Unknown2189: 2, 5
           if: (VARIABLE), 16
             ifNot: (VARIABLE), 368
-              createObject: s32'Cam_LeidenschaftDirigent_Stay', 100
+              createObject: s32'Cam_LeidenschaftDirigent_Stay', (PLAYER)
               endIf: 
             endIf: 
           Unknown2500: 13, 22, (VARIABLE), 77, (STATIC), 0
@@ -8833,7 +8832,7 @@ beginState: s32'LeidenschaftDirigent'
       endUpon: 
     endUpon: 
   storeValue: (VARIABLE), 52, (STATIC), 1
-  createObject: s32'Leo501Eff', 100
+  createObject: s32'Leo501Eff', (PLAYER)
   sprite: s32'leo501_08', 3
   haltMomentum: 1
   sprite: s32'leo501_09', 3
@@ -8843,11 +8842,11 @@ beginState: s32'LeidenschaftDirigent'
   sprite: s32'leo501_11', 3
   physicsXImpulse: 0, 60000
   Unknown2229: 90
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   sprite: s32'leo501_12', 3
   sprite: s32'leo501_13', 2
   sprite: s32'leo501_14', 2
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   sprite: s32'leo501_15', 2
   sprite: s32'leo501_16', 2
   hit: 
@@ -8873,12 +8872,12 @@ beginState: s32'LeidenschaftDirigent'
   sprite: s32'leo501_21', 3
   physicsXImpulse: 0, 40000
   Unknown2229: 90
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   sprite: s32'leo501_22', 2
   sprite: s32'leo501_23', 2
   sprite: s32'leo501_24', 2
   sprite: s32'leo501_25', 2
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   sprite: s32'leo501_26', 2
   hit: 
   callSubroutine: s32'LeidenschaftDirigent_atk'
@@ -8921,7 +8920,7 @@ beginState: s32'LeidenschaftDirigent'
   cmnSfx: s32'SE_BTL_CMN_Swing_Hammer_Heavy_M'
   storeValue: (VARIABLE), 52, (STATIC), 4
   Unknown1803: s32'Leo501Eff', 27
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   sprite: s32'leo501_36', 4
   sprite: s32'leo501_37', 4
   sprite: s32'leo501_38', 4
@@ -8935,7 +8934,7 @@ beginState: s32'LeidenschaftDirigent'
   sprite: s32'leo501_46', 11
   sprite: s32'leo501_47', 3
   haltMomentum: 1
-  createObject: s32'leo_501_ShotGround', 100
+  createObject: s32'leo_501_ShotGround', (PLAYER)
   resetMotionBlurAmount: 
   sprite: s32'leo501_48', 3
   physicsXImpulse: 0, 40000
@@ -8978,13 +8977,13 @@ beginState: s32'LeidenschaftDirigent'
     clearRegisteredUponCode: 86
     storeValue: (VARIABLE), 45, (STATIC), 1
     Unknown1803: s32'Leo501Eff', 23
-    Unknown2193: 100, 0, 260000
-    createObject: s32'leo_501hit5', 130
-    createObject: s32'leo_501hit5_sub', 130
-    Unknown2341: s32'Impact', 2500, 0, 32, 1801545843, s32'e_easeout'
+    exPointFReset: (PLAYER), 0, 260000
+    createObject: s32'leo_501hit5', (EX_POINT_F)
+    createObject: s32'leo_501hit5_sub', (EX_POINT_F)
+    cameraShakeEX: s32'Impact', 2500, 0, 32, 1801545843, s32'e_easeout'
     if: (VARIABLE), 16
       ifNot: (VARIABLE), 368
-        createObject: s32'Cam_LeidenschaftDirigentLast', 100
+        createObject: s32'Cam_LeidenschaftDirigentLast', (PLAYER)
         endIf: 
       endIf: 
     endUpon: 
@@ -8998,9 +8997,9 @@ beginState: s32'LeidenschaftDirigent'
   characterSfx: s32'SE_BTL_LEO_KAKUSEI_03'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   callSubroutine: s32'cmn_AtkTemplWSB'
-  Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
-  Unknown788: 1
-  Unknown955: 5
+  attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+  forceWallBreak: 1
+  wallBreakLimitTime: 5
   Unknown953: 2
   storeValue: (VARIABLE), 343, (STATIC), -400000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -9767,7 +9766,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'leo033_00', 2
-  createParticle: s32'cmn_dashbrake_default', 143
+  createParticle: s32'cmn_dashbrake_default', (EX_POINT_PG)
   sprite: s32'leo033_01', 2
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'
   sprite: s32'leo033_02', 2

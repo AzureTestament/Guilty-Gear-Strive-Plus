@@ -292,12 +292,12 @@ beginState: s32'Event616'
   sprite: s32'axl616_13', 5
   sprite: s32'axl616_14', 5
   sprite: s32'axl616_15', 3
-  createObject: s32'axl616_Smoke01', 100
+  createObject: s32'axl616_Smoke01', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_04'
   sprite: s32'axl616_16', 2
   sprite: s32'keep', 2147483647
   displayModel: 0
-  createObject: s32'axl616_Bake01', 100
+  createObject: s32'axl616_Bake01', (PLAYER)
   endState: 
 
 beginState: s32'Event640'
@@ -344,10 +344,10 @@ beginSubroutine: s32'RoundInit'
   backwardSuperJumpDistance: 5200
   superJumpHeight: 45500
   superJumpGravity: 1900
-  airDashMinimumHeight: 140000
+  Unknown1232: 140000
   airFDashTime: 12
   airdashFSpeed: 21200
-  airFDashNoAttackTime: 17
+  airFDashNoAttackTime: 5
   airBDashTime: 10
   airDashBackVelocity: 19000
   airBDashNoAttackTime: 5
@@ -929,7 +929,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'vsJKO_ElysionDriver', s32'axl120_00'
   Unknown629: s16'vxxx025', s16'voice_none'
   Unknown629: s16'vxxx029', s16'voice_none'
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
+  linkPawn: s32''
   beginMeshSet: s32'nohead'
   addToMeshSet: s32'Body'
   addToMeshSet: s32'Weapon'
@@ -968,8 +968,8 @@ beginSubroutine: s32'RoundInit'
   addToMeshSet: s32'Weapon'
   addToMeshSet: s32'Manpudetail'
   endMeshSet: 
-  Unknown2068: 
-  Unknown2066: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   Unknown601: s16'vxxx200', 1, 3, 100
   Unknown601: s16'vxxx201', 1, 3, 100
   Unknown601: s16'vxxx202', 1, 3, 100
@@ -1053,7 +1053,7 @@ beginSubroutine: s32'OnFrameStep'
           Unknown51: 4
           ifNot: (VARIABLE), 0
             if: (VARIABLE), 16
-              createObjectWithArg: s32'axl501_Aura', 100
+              createObjectWithArg: s32'axl501_Aura', (PLAYER)
               Unknown43: 4, 1
               endIf: 
             endIf: 
@@ -1851,13 +1851,12 @@ beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnAirBDash'
     endUpon: 
-  sprite: s32'axl035_01', 3
-  sprite: s32'axl035_01', 3
-  sprite: s32'axl035_02', 3
-  sprite: s32'axl035_01', 3
-  callSubroutine: s32'cmnNandemoCancelC'
+  sprite: s32'axl035_01', 2
   sprite: s32'axl035_01', 3
   sprite: s32'axl035_02', 3
+  sprite: s32'axl035_01', 3
+  sprite: s32'axl035_01', 2
+  sprite: s32'axl035_02', 2
   endState: 
 
 beginState: s32'CmnActAirBDash'
@@ -2582,14 +2581,14 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'axl077_02', 6
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'axl077_03', 8
   sprite: s32'axl077_04', 8
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'axl077_03', 8
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'axl077_04', 8
   endLabel: 
   gotoLabel: s32'loop'
@@ -2597,7 +2596,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'axl077_05', 4
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'axl077_06', 3
   sprite: s32'axl077_07', 3
   sprite: s32'axl077_08', 3
@@ -3230,11 +3229,11 @@ beginState: s32'CmnActRoundWin'
   characterSfx: s32'SE_BTL_AXL_02'
   sprite: s32'axl615_02', 3
   characterSfx: s32'SE_BTL_AXL_00'
-  createObject: s32'axl615_spin', 100
+  createObject: s32'axl615_spin', (PLAYER)
   sprite: s32'axl615_03', 3
   sprite: s32'axl615_04', 3
   sprite: s32'axl615_05', 4
-  createParticle: s32'axl_win1', 100
+  createParticle: s32'axl_win1', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_01'
   sprite: s32'axl615_06', 4
   sprite: s32'axl615_07', 4
@@ -3258,7 +3257,7 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'axl616_05', 5
   sprite: s32'axl616_06', 5
   sprite: s32'axl616_07', 5
-  createObject: s32'axl616_Pchn', 100
+  createObject: s32'axl616_Pchn', (PLAYER)
   sprite: s32'axl616_08', 5
   sprite: s32'axl616_09', 5
   sprite: s32'axl616_10', 5
@@ -3267,21 +3266,21 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'axl616_13', 5
   sprite: s32'axl616_14', 20
   sprite: s32'axl616_15', 3
-  createObject: s32'axl616_Smoke01', 100
+  createObject: s32'axl616_Smoke01', (PLAYER)
   sprite: s32'axl616_16', 2
   sprite: s32'keep', 10
   displayModel: 0
-  createObject: s32'axl616_Bake01', 100
+  createObject: s32'axl616_Bake01', (PLAYER)
   sprite: s32'keep', 4
-  createObject: s32'axl616_Bake02', 100
+  createObject: s32'axl616_Bake02', (PLAYER)
   sprite: s32'axl616_17', 3
   displayModel: 1
   Unknown1702: s32'Burgerset', 1
   sprite: s32'axl616_18', 5
   sprite: s32'axl616_19', 5
-  createObject: s32'axl616_Smoke02', 100
+  createObject: s32'axl616_Smoke02', (PLAYER)
   sprite: s32'axl616_20', 5
-  createObject: s32'axl616_Smoke03', 100
+  createObject: s32'axl616_Smoke03', (PLAYER)
   sprite: s32'axl616_21', 5
   sprite: s32'axl616_22', 5
   sprite: s32'axl616_23', 5
@@ -3312,13 +3311,13 @@ beginState: s32'CmnActRoundWin'
 beginState: s32'CmnActMatchWin'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnactmatchwin'
-    Unknown2045: s32'axl800cs', 0
+    playAnimation: s32'axl800cs', 0
     checkLastStateName: s32'WinActionWait'
     if: (VARIABLE), 0
-      Unknown2052: s32'axl800cs', 23, 0, -1
+      playCameraAnimation: s32'axl800cs', 23, 0, -1
       endIf: 
     else: 
-      Unknown2052: s32'axl800cs', 23, 30, -1
+      playCameraAnimation: s32'axl800cs', 23, 30, -1
       endElse: 
     Unknown2560: 1
     swapMeshSet: s32'MatchWin'
@@ -3345,7 +3344,7 @@ beginState: s32'CmnActMatchWin'
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 70
       Unknown2589: s32'Overlay_win', 1, 40
       endIf: 
-    onFrame: 0, 85
+    ifOnFrame: 0, 85
       voiceLine: s16'vxxx402demo'
       Unknown2243: s32'prev', -2147483618
       Unknown1693: 0, 90
@@ -3964,7 +3963,7 @@ beginState: s32'NmlAtk5CFar'
     hitAirPushbackY: 0, 8000
     pushbackX: 50
     rollDuration: 10
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     Unknown725: 1
     storeValue: (VARIABLE), 338, (STATIC), 100000000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -4157,7 +4156,7 @@ beginState: s32'NmlAtk5D'
   sprite: s32'axl204_05', 1
   sprite: s32'axl204_06', 1
   sprite: s32'axl204_07', 1
-  createObject: s32'axl_204', 100
+  createObject: s32'axl_204', (PLAYER)
   sprite: s32'axl204_08', 1
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -4347,7 +4346,7 @@ beginState: s32'NmlAtk2D'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, -50000, 0
+    exPointFReset: (PLAYER_LAND), -50000, 0
     callSubroutine: s32'cmn_DustAttack'
     damage: 0, 40
     Unknown1108: 45
@@ -4548,7 +4547,7 @@ beginState: s32'DustFinish'
   sprite: s32'axl408_07ex', 3
   hit: 
   physicsXImpulse: 0, 10000
-  createObject: s32'axl408_Slash01', 100
+  createObject: s32'axl408_Slash01', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_00'
   characterSfx: s32'SE_BTL_AXL_04'
   sprite: s32'axl408_08', 3
@@ -5230,8 +5229,8 @@ beginState: s32'ThrowExe'
   sprite: s32'keep', 1
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   callPrivateFunction: s32'ThrowSuccess', 0, 0, 0, 0, 0, 0, 0, 0
   endLabel: 
   Unknown24: s16'back', s16'', 2, 53
@@ -5253,39 +5252,39 @@ beginState: s32'ThrowExe'
   haltMomentum: 1
   characterSfx: s32'SE_BTL_AXL_00'
   sprite: s32'axl310_05', 4
-  createObject: s32'Cam_Throw', 100
+  createObject: s32'Cam_Throw', (PLAYER)
   sprite: s32'axl310_06', 4
   sprite: s32'axl310_07', 4
   sprite: s32'axl310_08', 12
   sprite: s32'axl310_09', 4
   sprite: s32'axl310_10', 4
   Unknown544: 34
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl310_11', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 2212, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown544: 29
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   characterSfx: s32'SE_BTL_AXL_01_2'
   voiceLine: s16'vxxx106'
   sprite: s32'axl310_12', 4
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   Unknown2189: 0, 5
   sprite: s32'axl310_13', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1410, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown544: 37
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl310_14', 4
   Unknown544: 30
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl310_15', 20
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   grabOrRelease: 
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   Unknown1067: 4, 450000, -100000
   resetMotionBlurAmount: 
-  Unknown2341: s32'Vertical', 2400, 0, 40, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Vertical', 2400, 0, 40, 1801545843, s32'e_easeout'
   sprite: s32'axl310_16', 4
   sprite: s32'axl310_17', 4
   sprite: s32'axl310_18', 4
@@ -5294,7 +5293,7 @@ beginState: s32'ThrowExe'
   beginLabel: s32'back'
   sprite: s32'axl310_02', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 2210, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  setGripPosition: 124, 100, 1
+  setGripPosition: (FRONT_05_BODY), (PLAYER), 1
   Unknown544: 11
   flipDirection: 
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
@@ -5303,7 +5302,7 @@ beginState: s32'ThrowExe'
   sprite: s32'axl310_04', 4
   characterSfx: s32'SE_BTL_AXL_00'
   sprite: s32'axl310_05', 4
-  createObject: s32'Cam_Throw', 100
+  createObject: s32'Cam_Throw', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'axl310_06', 4
   sprite: s32'axl310_07', 4
@@ -5314,31 +5313,31 @@ beginState: s32'ThrowExe'
   flipDirection: 
   Unknown40: 
   Unknown544: 34
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl310_11', 4
   Unknown544: 29
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   voiceLine: s16'vxxx106'
   sprite: s32'axl310_12', 4
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   characterSfx: s32'SE_BTL_AXL_01_2'
   sprite: s32'axl310_13', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1410, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown544: 30
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl310_14', 4
   Unknown544: 30
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   Unknown2189: 0, 5
   sprite: s32'axl310_15', 20
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   grabOrRelease: 
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   Unknown1067: 4, 450000, -100000
   resetMotionBlurAmount: 
-  Unknown2341: s32'Vertical', 2400, 0, 40, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Vertical', 2400, 0, 40, 1801545843, s32'e_easeout'
   sprite: s32'axl310_16', 4
   sprite: s32'axl310_17', 4
   sprite: s32'axl310_18', 4
@@ -5411,20 +5410,20 @@ beginState: s32'AirThrowExe'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
   Unknown544: 24
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnCam_AirThrow'
-  Unknown2341: s32'ShakeTateYoko', 700, 0, 32, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'ShakeTateYoko', 700, 0, 32, 1801545843, s32'e_easeout'
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   characterSfx: s32'SE_BTL_AXL_01_3'
   sprite: s32'axl320_01', 3
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl320_02', 3
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl320_03', 8
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl320_04', 4
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'axl320_05', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1110, (STATIC), 0, (STATIC), 0, (STATIC), 0
   grabOrRelease: 
@@ -5459,7 +5458,7 @@ beginState: s32'AirThrowExe'
   airHitEffect: (AIR_NORMAL)
   Unknown2189: 2, 5
   Unknown2525: 0
-  Unknown2341: s32'Horizontal', 800, 0, 30, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Horizontal', 800, 0, 30, 1801545843, s32'e_easeout'
   Unknown111: 50
   physicsXImpulse: 0, -8000
   physicsYImpulse: 0, 14000
@@ -5520,13 +5519,13 @@ beginState: s32'Rensengeki'
   sprite: s32'axl400_02', 5
   voiceLine: s16'vxxx201'
   sprite: s32'axl400_03', 4
-  createObject: s32'Rensen_HS', 100
+  createObject: s32'Rensen_HS', (PLAYER)
   sprite: s32'axl400_04', 2
   characterSfx: s32'SE_BTL_AXL_16'
   characterSfx: s32'SE_BTL_AXL_00'
   characterSfx: s32'SE_BTL_AXL_03'
   sprite: s32'axl400_05', 1
-  createObject: s32'axl400_Rensen_Sickle01', 100
+  createObject: s32'axl400_Rensen_Sickle01', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_04'
   sprite: s32'axl400_06', 1
   sprite: s32'axl400_07', 1
@@ -5595,7 +5594,7 @@ beginState: s32'Kyokusageki'
   sprite: s32'axl401_03', 1
   sprite: s32'axl401_04', 1
   sprite: s32'axl401_05', 1
-  createObject: s32'axl402_Kyokusa_Slash01', 100
+  createObject: s32'axl402_Kyokusa_Slash01', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_16'
   characterSfx: s32'SE_BTL_AXL_00'
   characterSfx: s32'SE_BTL_AXL_01_3'
@@ -5667,7 +5666,7 @@ beginState: s32'Sensageki'
         endIf: 
       endUpon: 
     upon: 12
-      Unknown2031: 22, s32'Sensageki'
+      checkLastAttackHitStateName: 22, s32'Sensageki'
       if: (VARIABLE), 0
         Unknown2498: 22, 2, 24
           Unknown255: 1
@@ -5686,8 +5685,8 @@ beginState: s32'Sensageki'
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'axl402_01', 2
   sprite: s32'axl402_02', 2
-  createObject: s32'axl402_Sensa_Smoke', 100
-  createObject: s32'axl402_Sensa_Wind', 100
+  createObject: s32'axl402_Sensa_Smoke', (PLAYER)
+  createObject: s32'axl402_Sensa_Wind', (PLAYER)
   voiceLine: s16'vxxx203'
   beginLabel: s32'loop1'
   sprite: s32'axl402_03', 1
@@ -5711,7 +5710,7 @@ beginState: s32'Sensageki'
   Unknown2252: 0, 0, 50
   Unknown2251: 1500000, 100
   modifyVar: (SUB), (VARIABLE), 46, (STATIC), 1
-  createObject: s32'axl402_Sensa_Slash01', 100
+  createObject: s32'axl402_Sensa_Slash01', (PLAYER)
   upon: 35
     Unknown1803: s32'axl402_Sensa_Wind', 23
     clearRegisteredUponCode: 35
@@ -5758,7 +5757,7 @@ beginState: s32'Sensageki'
   hitAirPushbackY: 0, 15000
   Unknown725: 1
   Unknown1108: -70
-  createObject: s32'axl402_Sensa_Slash01', 100
+  createObject: s32'axl402_Sensa_Slash01', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_04_2'
   sprite: s32'axl402_04', 1
   sprite: s32'axl402_05', 1
@@ -5779,7 +5778,7 @@ beginState: s32'Sensageki'
   Unknown2173: 
   Unknown255: 0
   extendPushboxX: 0
-  createObject: s32'axl402_Sensa_Slash02', 100
+  createObject: s32'axl402_Sensa_Slash02', (PLAYER)
   deactivateObjectByName: s32'axl402_Sensa_Smoke'
   Unknown1803: s32'axl402_Sensa_Wind', 23
   sprite: s32'axl402_11', 4
@@ -5815,8 +5814,8 @@ beginState: s32'Rensen_Bomb'
   voiceLine: s16'vxxx204'
   sprite: s32'axl403_02', 7
   sprite: s32'axl403_03', 2
-  Unknown2193: 100, 1400000, 100000
-  createObject: s32'Rensen_Bomb', 130
+  exPointFReset: (PLAYER), 1400000, 100000
+  createObject: s32'Rensen_Bomb', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Expl_Fire_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
   sprite: s32'axl403_04', 3
@@ -5859,9 +5858,9 @@ beginState: s32'Rensen_Bomb_Just'
   voiceLine: s16'vxxx204'
   sprite: s32'axl403_02', 8
   sprite: s32'axl403_03', 2
-  Unknown2193: 100, 1400000, 100000
-  createObject: s32'Rensen_Bomb_Just', 130
-  createObject: s32'axl403_Yes', 100
+  exPointFReset: (PLAYER), 1400000, 100000
+  createObject: s32'Rensen_Bomb_Just', (EX_POINT_F)
+  createObject: s32'axl403_Yes', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Expl_Fire_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
   sprite: s32'axl403_04', 3
@@ -5900,7 +5899,7 @@ beginState: s32'FBRensen_Bomb'
     Unknown1165: s32'Rensen_Bomb'
     endUpon: 
   sprite: s32'axl403_00', 4
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   cmnSfx: s32'SE_BTL_SYS_Skill'
   Unknown1803: s32'Rensen_HS', 23
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -5908,9 +5907,9 @@ beginState: s32'FBRensen_Bomb'
   voiceLine: s16'vxxx204'
   sprite: s32'axl403_02', 8
   sprite: s32'axl403_03', 2
-  Unknown2193: 100, 1400000, 100000
-  createObject: s32'FBRensen_Bomb', 130
-  createObject: s32'axl403_Yes', 100
+  exPointFReset: (PLAYER), 1400000, 100000
+  createObject: s32'FBRensen_Bomb', (EX_POINT_F)
+  createObject: s32'axl403_Yes', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Expl_Fire_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
   sprite: s32'axl403_04', 3
@@ -5952,7 +5951,7 @@ beginState: s32'WinterMantis'
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
       Unknown1803: s32'axl405_Rasho', 23
-      createObject: s32'axl405_EnemySuberi', 120
+      createObject: s32'axl405_EnemySuberi', (ENEMY_LAND)
       characterSfx: s32'SE_BTL_AXL_17'
       endUpon: 
     endUpon: 
@@ -5964,7 +5963,7 @@ beginState: s32'WinterMantis'
   Unknown621: 1, -1
   sprite: s32'axl404_02', 2
   sprite: s32'axl404_03', 4
-  createObject: s32'axl405_Rasho_Dig', 123
+  createObject: s32'axl405_Rasho_Dig', (PLAYER_LAND)
   characterSfx: s32'SE_BTL_AXL_02'
   sprite: s32'axl404_04', 3
   sprite: s32'axl404_05', 3
@@ -5974,14 +5973,14 @@ beginState: s32'WinterMantis'
   sprite: s32'axl404_09', 1
   Unknown1042: s32'WinterMantisExe_Far'
   Unknown1064: s32'WinterMantisExe_Far'
-  createObject: s32'WinterMantisObj', 100
+  createObject: s32'WinterMantisObj', (PLAYER)
   Unknown467: 1
   grabOrRelease: 
   storeValue: (VARIABLE), 54, (STATIC), 16
   upon: (FRAME_STEP)
     modifyVar: (ADD), (VARIABLE), 54, (STATIC), -1
     endUpon: 
-  createObject: s32'axl405_Rasho', 100
+  createObject: s32'axl405_Rasho', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_04'
   sprite: s32'axl404_10', 1
   sprite: s32'axl404_11', 1
@@ -6034,7 +6033,7 @@ beginState: s32'WinterMantisExe_Far'
     pushbackX: -20
     staggerDuration: 120
     groundHitEffect: (STAGGER)
-    noCounterUI: 1
+    noStaggerUi: 1
     Unknown1142: 1
     Unknown1059: 1
     Unknown1064: s32'WinterMantisExe_Far'
@@ -6052,7 +6051,7 @@ beginState: s32'WinterMantisExe_Far'
         Unknown40: 
         endElse: 
       endUpon: 
-    createObject: s32'Cam_Rasho', 100
+    createObject: s32'Cam_Rasho', (PLAYER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: (BEFORE_EXIT)
       storeValue: (VARIABLE), 54, (STATIC), 0
@@ -6073,7 +6072,7 @@ beginState: s32'WinterMantisExe_Far'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 10000, (STATIC), 0, (STATIC), 0, (STATIC), 0
   grabOrRelease: 
   Unknown548: 
-  createParticle: s32'cmn_hit_sp', 120
+  createParticle: s32'cmn_hit_sp', (ENEMY_LAND)
   cmnSfx: s32'SE_BTL_CMN_Hit_Slash_L'
   endLabel: 
   gotoIfOperation: s32'15', (IS_EQUAL), (VARIABLE), 54, (STATIC), 15
@@ -6128,7 +6127,7 @@ beginState: s32'WinterMantisExe_Far'
   storeValue: (VARIABLE), 46, (STATIC), 1
   addPositionY: 20000
   physicsXImpulse: 0, 20000
-  createParticle: s32'bg_dash', 123
+  createParticle: s32'bg_dash', (PLAYER_LAND)
   voiceLine: s16'vxxx209'
   characterSfx: s32'SE_BTL_AXL_12'
   Unknown2177: 3, 100
@@ -6186,9 +6185,9 @@ beginState: s32'WinterMantisExe_Far'
     modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
     ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 2
       clearRegisteredUponCode: 12
-      Unknown2193: 0, -120000, 0
-      createParticle: s32'cmn_hit_sp', 130
-      createParticle: s32'bg_dashbrake', 123
+      exPointFReset: 0, -120000, 0
+      createParticle: s32'cmn_hit_sp', (EX_POINT_F)
+      createParticle: s32'bg_dashbrake', (PLAYER_LAND)
       cmnSfx: s32'SE_BTL_CMN_Hit_Grap_L'
       Unknown41: 22
       setDepth: 50000
@@ -6198,7 +6197,7 @@ beginState: s32'WinterMantisExe_Far'
       Unknown2189: 2, 5
       Unknown40: 
       Unknown1803: s32'Cam_Rasho', 31
-      Unknown2341: s32'Impact', 1600, 0, 30, 1801545843, s32'e_easeout'
+      cameraShakeEX: s32'Impact', 1600, 0, 30, 1801545843, s32'e_easeout'
       endIf: 
     endUpon: 
   sprite: s32'axl405_14', 7
@@ -6230,7 +6229,7 @@ beginState: s32'WinterMantisExe_Near'
     pushbackX: 0
     staggerDuration: 60
     groundHitEffect: (STAGGER)
-    noCounterUI: 1
+    noStaggerUi: 1
     Unknown1142: 1
     Unknown1059: 1
     Unknown1064: s32'WinterMantisExe_Near'
@@ -6245,7 +6244,7 @@ beginState: s32'WinterMantisExe_Near'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 10000, (STATIC), 0, (STATIC), 0, (STATIC), 0
   grabOrRelease: 
   Unknown548: 
-  createParticle: s32'cmn_hit_sp', 120
+  createParticle: s32'cmn_hit_sp', (ENEMY_LAND)
   cmnSfx: s32'SE_BTL_CMN_Hit_Slash_L'
   deactivateObjectByName: s32'axl405_EnemySuberi'
   endLabel: 
@@ -6281,7 +6280,7 @@ beginState: s32'WinterMantisExe_Near'
   physicsYImpulse: 0, 5000
   sprite: s32'axl409_01', 2
   sprite: s32'axl409_02', 4
-  createObject: s32'axl409_Bomber', 100
+  createObject: s32'axl409_Bomber', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   sprite: s32'axl409_03', 2
   hit: 
@@ -6309,8 +6308,8 @@ beginState: s32'WinterMantisExe_Near'
   physicsXImpulse: 0, 18000
   physicsYImpulse: 0, 34000
   setGravity: 1800
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'axl_bomber_fire', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   Unknown2169: 0
   upon: (TOUCH_GROUND)
     Unknown14: s32'landing'
@@ -6321,18 +6320,18 @@ beginState: s32'WinterMantisExe_Near'
   characterSfx: s32'SE_BTL_AXL_05'
   Unknown1165: s32'WinterMantisExe_Near'
   sprite: s32'axl409_04', 2
-  createParticle: s32'axl_bomber_fire', 130
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   Unknown1803: s32'axl409_Bomber', 23
   sprite: s32'axl409_05', 4
-  createParticle: s32'axl_bomber_fire', 130
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   sprite: s32'axl409_06', 4
-  createParticle: s32'axl_bomber_fire', 130
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   sprite: s32'axl409_07', 3
-  createParticle: s32'axl_bomber_fire', 130
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   sprite: s32'axl409_08', 3
-  createParticle: s32'axl_bomber_fire', 130
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   sprite: s32'axl409_09', 3
-  createParticle: s32'axl_bomber_fire', 130
+  createParticle: s32'axl_bomber_fire', (EX_POINT_F)
   Unknown2229: 98
   endLabel: 
   beginLabel: s32'loop'
@@ -6387,29 +6386,29 @@ beginState: s32'Katatumuri'
   characterSfx: s32'SE_BTL_AXL_00'
   characterSfx: s32'SE_BTL_AXL_02'
   sprite: s32'axl406_04', 3
-  createObject: s32'axl406_Kensei_slash', 100
-  createObject: s32'Sickle_land', 100
+  createObject: s32'axl406_Kensei_slash', (PLAYER)
+  createObject: s32'Sickle_land', (PLAYER)
   Unknown467: 1
   grabOrRelease: 
   characterSfx: s32'SE_BTL_AXL_04'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
   sprite: s32'axl406_05', 3
   deactivateObjectByName: s32'axl406_Kensei_slash'
-  createObject: s32'axl406_Kensei_slash2', 100
+  createObject: s32'axl406_Kensei_slash2', (PLAYER)
   sprite: s32'axl406_06', 3
   deactivateObjectByName: s32'axl406_Kensei_slash2'
-  createObject: s32'axl406_Kensei_slash3', 100
+  createObject: s32'axl406_Kensei_slash3', (PLAYER)
   sprite: s32'axl406_07', 3
   deactivateObjectByName: s32'axl406_Kensei_slash3'
-  createObject: s32'axl406_Kensei_slash4', 100
+  createObject: s32'axl406_Kensei_slash4', (PLAYER)
   sprite: s32'axl406_08', 3
   deactivateObjectByName: s32'axl406_Kensei_slash4'
-  createObject: s32'axl406_Kensei_slash5', 100
+  createObject: s32'axl406_Kensei_slash5', (PLAYER)
   Unknown2173: 
   characterSfx: s32'SE_BTL_AXL_01_2'
   sprite: s32'axl406_09', 4
   deactivateObjectByName: s32'axl406_Kensei_slash5'
-  createObject: s32'axl406_Kensei_slash6', 100
+  createObject: s32'axl406_Kensei_slash6', (PLAYER)
   sprite: s32'axl406_10', 4
   sprite: s32'axl406_11', 4
   sprite: s32'axl406_12', 4
@@ -6467,8 +6466,8 @@ beginState: s32'Katatumuri_Air'
   characterSfx: s32'SE_BTL_AXL_00'
   characterSfx: s32'SE_BTL_AXL_02'
   sprite: s32'axl407_05', 3
-  createObject: s32'axl407_Kensei_slash', 100
-  createObject: s32'Sickle_air', 100
+  createObject: s32'axl407_Kensei_slash', (PLAYER)
+  createObject: s32'Sickle_air', (PLAYER)
   Unknown467: 1
   grabOrRelease: 
   characterSfx: s32'SE_BTL_AXL_04'
@@ -6476,20 +6475,20 @@ beginState: s32'Katatumuri_Air'
   sprite: s32'axl407_06', 3
   characterSfx: s32'SE_BTL_AXL_01_2'
   deactivateObjectByName: s32'axl407_Kensei_slash'
-  createObject: s32'axl407_Kensei_slash2', 100
+  createObject: s32'axl407_Kensei_slash2', (PLAYER)
   sprite: s32'axl407_07', 3
   deactivateObjectByName: s32'axl407_Kensei_slash2'
-  createObject: s32'axl407_Kensei_slash3', 100
+  createObject: s32'axl407_Kensei_slash3', (PLAYER)
   sprite: s32'axl407_08', 3
   deactivateObjectByName: s32'axl407_Kensei_slash3'
-  createObject: s32'axl407_Kensei_slash4', 100
+  createObject: s32'axl407_Kensei_slash4', (PLAYER)
   Unknown2173: 
   sprite: s32'axl407_09', 3
   deactivateObjectByName: s32'axl407_Kensei_slash4'
-  createObject: s32'axl407_Kensei_slash5', 100
+  createObject: s32'axl407_Kensei_slash5', (PLAYER)
   sprite: s32'axl407_10', 3
   deactivateObjectByName: s32'axl407_Kensei_slash5'
-  createObject: s32'axl407_Kensei_slash6', 100
+  createObject: s32'axl407_Kensei_slash6', (PLAYER)
   sprite: s32'axl407_11', 3
   endLabel: 
   setGravity: 2800
@@ -6513,7 +6512,7 @@ beginState: s32'Niwatazumi'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 40
     hitStop: 6
-    Unknown996: 8, 8, 8
+    enemyHitstopAddition: 8, 8, 8
     redRomanCancelTime: 4
     Unknown1108: -45
     Unknown725: 1
@@ -6561,7 +6560,7 @@ beginState: s32'Niwatazumi'
   sprite: s32'axl408_07', 3
   hit: 
   physicsXImpulse: 0, -10000
-  createObject: s32'axl408_Slash01', 100
+  createObject: s32'axl408_Slash01', (PLAYER)
   characterSfx: s32'SE_BTL_AXL_00'
   characterSfx: s32'SE_BTL_AXL_04'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 2, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -6630,7 +6629,7 @@ beginState: s32'AxlBomber'
   sprite: s32'axl409_01', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   sprite: s32'axl409_02', 4
-  createObject: s32'axl409_Bomber', 100
+  createObject: s32'axl409_Bomber', (PLAYER)
   voiceLine: s16'vxxx205'
   sprite: s32'axl409_03', 2
   hit: 
@@ -6709,7 +6708,7 @@ beginState: s32'FBAxlBomber'
     endUpon: 
   sprite: s32'axl415_00', 5
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   cmnSfx: s32'SE_BTL_SYS_Skill'
   sprite: s32'axl415_01', 5
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
@@ -6779,14 +6778,14 @@ beginState: s32'ByakueRenshou'
       clearRegisteredUponCode: (WALL_BREAK)
       clearRegisteredUponCode: (SUPERFREEZE)
       Unknown2560: 0
-      Unknown1972: 0
+      hideUI: 0
       resetDOF: 0, 10
       resetSaturation: 0, 10
       Unknown429: 0, 10
       jumpToState: s32'WSB_Master_Wait'
       upon: (BEFORE_EXIT)
-        Unknown2065: 
-        Unknown2066: 
+        resetDefaultMeshSet: 
+        changeDefaultMeshSet: 
         endUpon: 
       endUpon: 
     upon: (HIT_OR_GUARD)
@@ -6813,11 +6812,11 @@ beginState: s32'ByakueRenshou'
     Unknown2189: 2, 5
     swapMeshSet: s32'500cs'
     resetCamera: 
-    Unknown2045: s32'axl500cs', 0
+    playAnimation: s32'axl500cs', 0
     Unknown2560: 1
-    Unknown2052: s32'axl500cs', 23, 30, 10
-    Unknown1972: 1
-    createObject: s32'axl500_ByakueCS', 100
+    playCameraAnimation: s32'axl500cs', 23, 30, 10
+    hideUI: 1
+    createObject: s32'axl500_ByakueCS', (PLAYER)
     cmnSfx: s32'SE_BTL_SYS_Skill'
     resetDOF: 1, 1
     Unknown412: -1, 700, 0
@@ -6832,16 +6831,16 @@ beginState: s32'ByakueRenshou'
     Unknown425: -1, 1400, 40
     Unknown426: -1, 0, 40
     upon: (FRAME_STEP)
-      onFrame: 0, 0
+      ifOnFrame: 0, 0
         voiceLine: s16'vxxx250'
         characterSfx: s32'SE_BTL_AXL_KAKUSEI_00'
         endIf: 
-      onFrame: 0, 120
+      ifOnFrame: 0, 120
         resetDOF: 0, 40
         resetSaturation: 0, 20
         Unknown429: 0, 40
         endIf: 
-      onFrame: 0, 136
+      ifOnFrame: 0, 136
         voiceLine: s16'vxxx251'
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 150
@@ -6892,19 +6891,19 @@ beginState: s32'ByakueRenshou'
         Unknown40: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 39
-        Unknown2244: 1
+        hideAllButSelf: 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 111
-        Unknown2244: 0
+        hideAllButSelf: 0
         endIf: 
       endUpon: 
     endUpon: 
   sprite: s32'axl500_00', 3
   clearRegisteredUponCode: (WALL_BREAK)
   sprite: s32'axl500_01', 4
-  createObject: s32'axl500_Byakue_ring', 103
+  createObject: s32'axl500_Byakue_ring', (CENTER)
   hit: 
-  Unknown2341: s32'Impact', 300, 0, 36, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Impact', 300, 0, 36, 1801545843, s32'e_easeout'
   sprite: s32'axl500_02', 4
   hit: 
   setStrikeInvulnerable: 0
@@ -6940,12 +6939,12 @@ beginState: s32'ByakueRenshou'
   sprite: s32'axl500_05', 4
   sprite: s32'axl500_06', 6
   Unknown2279: 2, 46, 0, 0
-  createObjectWithArg: s32'ByakueObj', 100
+  createObjectWithArg: s32'ByakueObj', (PLAYER)
   recoveryState: 
   sprite: s32'axl500_07', 6
   sprite: s32'axl400_05', 1
   characterSfx: s32'SE_BTL_AXL_03'
-  Unknown2341: s32'Impact', 800, 0, 36, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Impact', 800, 0, 36, 1801545843, s32'e_easeout'
   sprite: s32'axl400_06', 1
   sprite: s32'axl400_07', 1
   sprite: s32'axl400_08', 1
@@ -6999,16 +6998,16 @@ beginState: s32'OneVision'
     callSubroutine: s32'cmnWorldStop_Start'
     cmnSfx: s32'SE_BTL_SYS_SKill'
     Unknown2189: 2, 5
-    createParticle: s32'cmn_kakusei_hatudo', 103
+    createParticle: s32'cmn_kakusei_hatudo', (CENTER)
     callSubroutine: s32'cmnWorldStop_Tension'
-    createObject: s32'Cam_OneVision', 100
+    createObject: s32'Cam_OneVision', (PLAYER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     endUpon: 
   sprite: s32'axl501_03', 4
   sprite: s32'axl501_04', 2
   sprite: s32'axl501_05', 2
   storeValue: (VARIABLE), 3, (STATIC), 600
-  createObjectWithArg: s32'axl501_Aura', 100
+  createObjectWithArg: s32'axl501_Aura', (PLAYER)
   Unknown43: 4, 1
   sprite: s32'axl501_06', 6
   sprite: s32'axl501_07', 6
@@ -7040,7 +7039,7 @@ beginState: s32'OneVision_Add'
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
+    attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     upon: (WALL_BREAK)
       jumpToState: s32'WSB_Master_Wait'
@@ -7070,13 +7069,13 @@ beginState: s32'OneVision_Add'
     clearRegisteredUponCode: (SUPERFREEZE)
     cmnSfx: s32'SE_BTL_SYS_SKill'
     Unknown2189: 2, 5
-    createParticle: s32'cmn_kakusei_hatudo', 103
+    createParticle: s32'cmn_kakusei_hatudo', (CENTER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown294: 1
     enableRomanCancelMove: 0
     Unknown2188: 1
     haltMomentum: 1
-    createObject: s32'cmnWorldStop_Obj', 100
+    createObject: s32'cmnWorldStop_Obj', (PLAYER)
     Unknown41: 3
     timeSlow: 0
     Unknown40: 
@@ -7097,7 +7096,7 @@ beginState: s32'OneVision_Add'
     Unknown41: 22
     Unknown645: 0
     Unknown40: 
-    createParticle: s32'axl_501_hatsudou', 103
+    createParticle: s32'axl_501_hatsudou', (CENTER)
     Unknown294: 1
     upon: (BEFORE_EXIT)
       setWorldSaturation: 1000, 10
@@ -7129,10 +7128,10 @@ beginState: s32'OneVision_Add'
     endUpon: 
   upon: 90
     Unknown14: s32'landHit'
-    createObject: s32'OneVision_obj', 100
+    createObject: s32'OneVision_obj', (PLAYER)
     superFreeze: 10, 119, 0, 150
     clearRegisteredUponCode: (BEFORE_EXIT)
-    createObject: s32'Cam_OneVision_Add', 100
+    createObject: s32'Cam_OneVision_Add', (PLAYER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     storeValue: (VARIABLE), 45, (STATIC), 1
     endUpon: 
@@ -7169,13 +7168,13 @@ beginState: s32'OneVision_Add'
     clearRegisteredUponCode: (SUPERFREEZE)
     cmnSfx: s32'SE_BTL_SYS_SKill'
     Unknown2189: 2, 5
-    createParticle: s32'cmn_kakusei_hatudo', 103
+    createParticle: s32'cmn_kakusei_hatudo', (CENTER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     Unknown294: 1
     enableRomanCancelMove: 0
     Unknown2188: 1
     haltMomentum: 1
-    createObject: s32'cmnWorldStop_Obj', 100
+    createObject: s32'cmnWorldStop_Obj', (PLAYER)
     Unknown41: 3
     timeSlow: 0
     Unknown40: 
@@ -7195,7 +7194,7 @@ beginState: s32'OneVision_Add'
     Unknown41: 22
     Unknown645: 0
     Unknown40: 
-    createParticle: s32'axl_501_hatsudou', 103
+    createParticle: s32'axl_501_hatsudou', (CENTER)
     Unknown294: 1
     upon: (BEFORE_EXIT)
       setWorldSaturation: 1000, 10
@@ -7228,11 +7227,11 @@ beginState: s32'OneVision_Add'
   voiceLine: s16'vxxx252'
   upon: 90
     Unknown14: s32'AirHit'
-    createObject: s32'OneVision_obj', 100
+    createObject: s32'OneVision_obj', (PLAYER)
     superFreeze: 10, 119, 0, 150
     clearRegisteredUponCode: (BEFORE_EXIT)
     ifNot: (VARIABLE), 317
-      createObject: s32'Cam_OneVision_Add', 100
+      createObject: s32'Cam_OneVision_Add', (PLAYER)
       endIf: 
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     storeValue: (VARIABLE), 45, (STATIC), 1
@@ -7982,7 +7981,7 @@ beginState: s32'WorldSideBreak_Master_DF'
   beginLabel: s32'landing'
   sprite: s32'axl021_18', 3
   cmnSfx: s32'SE_DOWNA'
-  createParticle: s32'bg_dash_default', 100
+  createParticle: s32'bg_dash_default', (PLAYER)
   sprite: s32'axl021_19', 3
   sprite: s32'axl021_20', 3
   sprite: s32'axl021_21', 3
@@ -8021,7 +8020,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'axl033_00', 1
-  createParticle: s32'cmn_dashbrake_default', 143
+  createParticle: s32'cmn_dashbrake_default', (EX_POINT_PG)
   sprite: s32'axl033_01', 1
   sprite: s32'axl033_02', 1
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'

@@ -32,7 +32,7 @@ beginState: s32'EventFall'
     Unknown94: 0, -732000
     Unknown99: 0, 500000
     physicsXImpulse: 0, 20000
-    Unknown135: 
+    resetGravity: 
     upon: (TOUCH_GROUND)
       Unknown268: 1
       Unknown14: s32'landing'
@@ -132,10 +132,10 @@ beginState: s32'Event205'
   sprite: s32'chp205_01', 1
   sprite: s32'chp205_02', 3
   sprite: s32'chp205_03', 6
-  Unknown2193: 100, 180000, 0
-  createObject: s32'chp205_rakko_event', 130
-  createObject: s32'Rakko_tornado', 100
-  createObject: s32'chp_rakko_tornado', 100
+  exPointFReset: (PLAYER), 180000, 0
+  createObject: s32'chp205_rakko_event', (EX_POINT_F)
+  createObject: s32'Rakko_tornado', (PLAYER)
+  createObject: s32'chp_rakko_tornado', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
   sprite: s32'chp205_04', 5
   sprite: s32'chp205_05', 4
@@ -228,7 +228,7 @@ beginState: s32'Event306'
 
 beginState: s32'Event301'
   upon: (BEFORE_EXIT)
-    Unknown2068: 
+    resetMaterialSet: 
     setGravity: 3000
     endUpon: 
   sprite: s32'chp301_00', 4
@@ -237,7 +237,7 @@ beginState: s32'Event301'
   sprite: s32'chp301_03', 3
   sprite: s32'chp301_04', 3
   sprite: s32'chp301_05', 3
-  createObject: s32'IraIra00', 100
+  createObject: s32'IraIra00', (PLAYER)
   sprite: s32'chp301_06', 3
   sprite: s32'chp301_07', 6
   sprite: s32'chp301_08', 4
@@ -259,7 +259,7 @@ beginState: s32'Event301'
   sprite: s32'chp301_22', 4
   sprite: s32'chp301_23', 4
   sprite: s32'chp301_24', 4
-  createObject: s32'IraIra01', 100
+  createObject: s32'IraIra01', (PLAYER)
   sprite: s32'chp301_25', 4
   sprite: s32'chp301_26', 4
   sprite: s32'chp301_27', 4
@@ -434,7 +434,7 @@ beginState: s32'Event022'
   physicsXImpulse: 0, -40000
   physicsYImpulse: 0, 80000
   cmnSfx: s32'SE_BTL_CMN_JumpEX'
-  createParticle: s32'cmn_hijump_obj', 100
+  createParticle: s32'cmn_hijump_obj', (PLAYER)
   sprite: s32'chp022_03', 3
   sprite: s32'chp022_04', 3
   displayModel: 0
@@ -461,11 +461,11 @@ beginSubroutine: s32'RoundInit'
   walkFSpeed: 8800
   walkBSpeed: 6800
   initDashFSpeed: 24500
-  Unknown1226: 770
-  Unknown1227: 85
-  Unknown1215: 15000
-  Unknown1216: 4800
-  Unknown1217: 520
+  fDashAccelSpeed: 770
+  fDashFriction: 85
+  bDashXSpeed: 15000
+  bDashYSpeed: 4800
+  bDashGravity: 520
   forwardJumpDistance: 10500
   backwardJumpDistance: 8750
   jumpHeight: 49000
@@ -473,33 +473,33 @@ beginSubroutine: s32'RoundInit'
   forwardSuperJumpDistance: 14000
   backwardSuperJumpDistance: 12250
   superJumpHeight: 50700
-  Unknown1225: 1900
+  superJumpGravity: 1900
   Unknown1232: 105000
-  Unknown1233: 12
+  airFDashTime: 12
   airdashFSpeed: 36750
-  Unknown1242: 14
-  Unknown1234: 10
+  airFDashNoAttackTime: 7
+  airBDashTime: 10
   airDashBackVelocity: 28000
-  Unknown1243: 5
+  airBDashNoAttackTime: 5
   doubleJumpCount: 2
   airDashCount: 1
-  Unknown1236: 68
-  Unknown1237: 4
+  defence: 68
+  guts: 4
   Unknown1248: 40
   Unknown1249: 165
   recievedHitPushbackPercentage: 100
-  Unknown1244: 4
-  Unknown1245: 2
-  Unknown1246: 7
-  Unknown1247: 3
-  Unknown1253: 110000
-  Unknown1254: 300000
-  Unknown1255: 120000
-  Unknown1256: 250000
-  Unknown1257: 100000
-  Unknown1258: 275000
-  Unknown1259: -125000
-  Unknown1260: 270000
+  forwardWalkTension: 4
+  forwardJumpTension: 2
+  forwardDashTension: 7
+  airFDashTension: 3
+  pushboxWidthStand: 110000
+  pushboxHeightStand: 300000
+  pushboxWidthCrouch: 120000
+  pushboxHeightCrouch: 250000
+  pushboxWidthAir: 100000
+  pushboxHeightAir: 275000
+  pushboxHeightLowAir: -125000
+  closeSlashRange: 270000
   Unknown1262: 4
   Unknown1288: 1
   Unknown1268: 8
@@ -555,7 +555,7 @@ beginSubroutine: s32'RoundInit'
     Unknown1525: -281, -203, 201, 147
     Unknown1558: 
     Unknown1538: 75
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'NmlAtk2B'
     moveType: (NORMAL)
@@ -564,7 +564,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_ANY_DOWN)
     Unknown1525: -243, -26, 162, 35
     Unknown1564: 
-    Unknown1566: 
+    cpuIsLow: 
     endMove: 
   addMove: s32'NmlAtk5CNear'
     moveType: (NORMAL)
@@ -631,7 +631,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_D)
     moveInput: (INPUT_DISALLOW_UP)
     Unknown1525: -549, -274, 343, 180
-    Unknown1565: 
+    cpuIsOverhead: 
     Unknown1558: 
     endMove: 
   addMove: s32'HomingJump'
@@ -648,7 +648,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_ANY_DOWN)
     Unknown1525: -470, -138, 344, 57
     Unknown1560: 
-    Unknown1566: 
+    cpuIsLow: 
     Unknown1558: 
     endMove: 
   addMove: s32'NmlAtk5F'
@@ -672,7 +672,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_P)
     Unknown1525: -236, -311, 194, 82
     Unknown1560: 
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'NmlAtkAir5B'
     moveType: (NORMAL)
@@ -680,7 +680,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_K)
     Unknown1525: -221, -441, 212, 349
     Unknown1560: 
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'NmlAtkAir2B'
     moveType: (NORMAL)
@@ -689,7 +689,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_ANY_DOWN)
     Unknown1525: -80, -209, 154, 195
     Unknown1560: 
-    Unknown1565: 
+    cpuIsOverhead: 
     Unknown1538: 75
     endMove: 
   addMove: s32'NmlAtkAir5C'
@@ -698,7 +698,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_S)
     Unknown1525: -194, -325, 366, 107
     Unknown1560: 
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'NmlAtkAir5D'
     moveType: (NORMAL)
@@ -706,7 +706,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_H)
     Unknown1525: -204, -340, 392, 215
     Unknown1560: 
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'NmlAtkAir5E'
     moveType: (NORMAL)
@@ -714,7 +714,7 @@ beginSubroutine: s32'RoundInit'
     moveInput: (INPUT_PRESS_D)
     Unknown1525: -208, -290, 131, 199
     Unknown1560: 
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'DebugSkillEx'
     moveType: (SPECIAL)
@@ -818,7 +818,7 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 75
     Unknown1540: 300
     Unknown1537: 50
-    Unknown1566: 
+    cpuIsLow: 
     endMove: 
   addMove: s32'Banzai'
     moveType: (SPECIAL)
@@ -831,7 +831,7 @@ beginSubroutine: s32'RoundInit'
     Unknown1538: 75
     Unknown1540: 300
     Unknown1537: 50
-    Unknown1565: 
+    cpuIsOverhead: 
     endMove: 
   addMove: s32'BetaBlade'
     moveType: (SPECIAL)
@@ -928,7 +928,7 @@ beginSubroutine: s32'RoundInit'
     addMoveFlag: 126
     Unknown1525: -234, -302, 88, 54
     Unknown1581: 
-    Unknown1567: 
+    cpuIsThrow: 
     Unknown1582: 
     Unknown1538: 25
     Unknown1540: 300
@@ -1371,7 +1371,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'vsJKO_ElysionDriver', s32'chp120_00'
   Unknown1328: s32'LandThrow', s32'chp311_01'
   Unknown1328: s32'AirThrow', s32'chp321_01'
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
+  linkPawn: s32''
   beginMeshSet: s32'high'
   addToMeshSet: s32'Body'
   addToMeshSet: s32'Head_High'
@@ -1427,8 +1427,8 @@ beginSubroutine: s32'RoundInit'
   Unknown2324: s32'chp075_00', 1
   Unknown2324: s32'chp075_01', 1
   Unknown2324: s32'chp075_02', 1
-  Unknown2068: 
-  Unknown2066: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   storeValue: (VARIABLE), 73, (STATIC), 60
   storeValue: (VARIABLE), 74, (STATIC), 60
   storeValue: (VARIABLE), 75, (STATIC), 20
@@ -1544,14 +1544,14 @@ beginSubroutine: s32'OnFrameStep'
     modifyVar: (ADD), (VARIABLE), 76, (STATIC), 1
     modifyVar: (ADD), (VARIABLE), 3, (STATIC), -1
     ifNot: (VARIABLE), 3
-      Unknown2068: 
+      resetMaterialSet: 
       endIf: 
     endIf: 
   endSubroutine: 
 
 beginSubroutine: s32'OnGuard'
   if: (VARIABLE), 3
-    Unknown2068: 
+    resetMaterialSet: 
     storeValue: (VARIABLE), 3, (STATIC), 0
     endIf: 
   callSubroutine: s32'cmnOnGuard'
@@ -1560,7 +1560,7 @@ beginSubroutine: s32'OnGuard'
 beginSubroutine: s32'OnDamage'
   callSubroutine: s32'cmnOnDamage'
   if: (VARIABLE), 3
-    Unknown2068: 
+    resetMaterialSet: 
     storeValue: (VARIABLE), 3, (STATIC), 0
     endIf: 
   endSubroutine: 
@@ -2269,7 +2269,7 @@ beginState: s32'CmnActFDash'
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'chp032_01', 2
-  createObject: s32'CHP_dash', 100
+  createObject: s32'CHP_dash', (PLAYER)
   Unknown2177: 3, 100
   characterSfx: s32'SE_BTL_CHP_12'
   sprite: s32'chp032_02', 1
@@ -2287,7 +2287,7 @@ beginState: s32'CmnActFDashStop'
     callSubroutine: s32'cmnFDashStop'
     endUpon: 
   sprite: s32'chp033_00', 4
-  createObject: s32'CHP_dash_end', 100
+  createObject: s32'CHP_dash_end', (PLAYER)
   sprite: s32'chp033_01', 4
   sprite: s32'chp033_02', 4
   sprite: s32'chp033_03', 4
@@ -2325,7 +2325,7 @@ beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnAirBDash'
     endUpon: 
-  sprite: s32'chp035_00', 3
+  sprite: s32'chp035_00', 2
   upon: 46
     checkInput: (INPUT_6)
     if: (VARIABLE), 0
@@ -2351,9 +2351,8 @@ beginState: s32'CmnActAirFDash'
   sprite: s32'chp035_00', 3
   sprite: s32'chp035_01', 3
   sprite: s32'chp035_02', 3
-  callSubroutine: s32'cmnNandemoCancelC'
-  sprite: s32'chp035_01', 3
-  sprite: s32'chp035_02', 3
+  sprite: s32'chp035_01', 2
+  sprite: s32'chp035_02', 2
   endState: 
 
 beginState: s32'CmnActAirBDash'
@@ -3089,11 +3088,11 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'chp077_02', 6
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'chp077_03', 8
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'chp077_04', 8
   endLabel: 
   gotoLabel: s32'loop'
@@ -3101,7 +3100,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'chp077_05', 3
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'chp077_06', 3
   sprite: s32'chp077_07', 3
   sprite: s32'chp077_08', 3
@@ -3593,12 +3592,12 @@ beginState: s32'CmnActBurst'
   sprite: s32'chp330_00', 3
   sprite: s32'chp330_01', 3
   sprite: s32'chp330_02', 3
-  createObject: s32'CHP_burst_re', 100
+  createObject: s32'CHP_burst_re', (PLAYER)
   displayModel: 0
   sprite: s32'keep', 2147483647
   beginLabel: s32'_Bakuhatsu'
   sprite: s32'chp330_03', 3
-  createObject: s32'CHP_burst_maruta', 100
+  createObject: s32'CHP_burst_maruta', (PLAYER)
   sprite: s32'chp330_04', 3
   sprite: s32'keep', 2147483647
   beginLabel: s32'_Drop'
@@ -3606,7 +3605,7 @@ beginState: s32'CmnActBurst'
   sprite: s32'chp330_05', 4
   sprite: s32'chp330_06', 4
   sprite: s32'chp330_07', 4
-  createObject: s32'CHP_burst_trail', 100
+  createObject: s32'CHP_burst_trail', (PLAYER)
   gotoLabel: s32'downloop'
   endLabel: 
   beginLabel: s32'landing'
@@ -3827,13 +3826,13 @@ beginState: s32'CmnActRoundWin'
 beginState: s32'CmnActMatchWin'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnactmatchwin'
-    Unknown2045: s32'chp800cs', 0
+    playAnimation: s32'chp800cs', 0
     checkLastStateName: s32'WinActionWait'
     if: (VARIABLE), 0
-      Unknown2052: s32'chp800cs', 23, 0, -1
+      playCameraAnimation: s32'chp800cs', 23, 0, -1
       endIf: 
     else: 
-      Unknown2052: s32'chp800cs', 23, 30, -1
+      playCameraAnimation: s32'chp800cs', 23, 30, -1
       endElse: 
     Unknown2560: 1
     swapMeshSet: s32'800cs'
@@ -3862,7 +3861,7 @@ beginState: s32'CmnActMatchWin'
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
       characterSfx: s32'SE_BTL_CHP_MatchWin'
       endIf: 
-    onFrame: 0, 125
+    ifOnFrame: 0, 125
       voiceLine: s16'vxxx402demo'
       Unknown2243: s32'prev', -2147483618
       Unknown1693: 0, 100
@@ -4066,11 +4065,11 @@ beginState: s32'NmlAtk5A'
   sprite: s32'chp200_02', 2
   Unknown621: 0, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
-  createObject: s32'200atk1', 100
+  createObject: s32'200atk1', (PLAYER)
   hit: 
   sprite: s32'chp200_03', 3
   deactivateObjectByName: s32'200atk1'
-  createObject: s32'200atk2', 100
+  createObject: s32'200atk2', (PLAYER)
   recoveryState: 
   sprite: s32'chp200_04', 3
   sprite: s32'chp200_05', 2
@@ -4122,12 +4121,12 @@ beginState: s32'NmlAtk6A'
   sprite: s32'chp210_02', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   sprite: s32'chp210_03', 5
-  createObject: s32'210atk1', 100
+  createObject: s32'210atk1', (PLAYER)
   hit: 
   sprite: s32'chp210_04', 6
   callSubroutine: s32'cmn_AttackEnd'
   deactivateObjectByName: s32'210atk1'
-  createObject: s32'210atk2', 100
+  createObject: s32'210atk2', (PLAYER)
   extendPushboxX: 0
   sprite: s32'chp210_05', 5
   sprite: s32'chp210_06', 3
@@ -4192,7 +4191,7 @@ beginState: s32'NmlAtk2A'
     endUpon: 
   sprite: s32'chp230_00', 4
   sprite: s32'chp230_01', 2
-  createObject: s32'230atk', 100
+  createObject: s32'230atk', (PLAYER)
   Unknown621: 0, -1
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
@@ -4216,7 +4215,7 @@ beginState: s32'NmlAtk5B'
     airHitEffect: 12
     hitAirPushbackX: 0, 10000
     hitAirPushbackY: 0, 40000
-    Unknown770: 0, 50, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 50, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
     hitGravityOverTime: 0, 100, 0, 10, 0, 35
     addWhiffCancelOption: s32'NmlAtk5B'
@@ -4253,11 +4252,11 @@ beginState: s32'NmlAtk5B'
   sprite: s32'chp201_03', 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'chp201_04', 1
-  createObject: s32'201atk1', 100
+  createObject: s32'201atk1', (PLAYER)
   hit: 
   sprite: s32'chp201_05', 4
   deactivateObjectByName: s32'201atk1'
-  createObject: s32'201atk2', 100
+  createObject: s32'201atk2', (PLAYER)
   sprite: s32'chp201_06', 2
   recoveryState: 
   extendPushboxX: 0
@@ -4342,7 +4341,7 @@ beginState: s32'NmlAtk2B'
     airHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, 30000
-    Unknown770: 0, 60, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
     hitGravityOverTime: 0, 100, 0, 10, 0, 35
     Unknown1005: 150
@@ -4399,8 +4398,8 @@ beginState: s32'NmlAtk5CNear'
     callSubroutine: s32'cmn_AtkLv3'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 32
-    Unknown725: 1
-    Unknown2171: 1
+    hitEffectSlash: 1
+    enableFarSlash: 1
     storeValue: (VARIABLE), 338, (STATIC), 0
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
@@ -4418,9 +4417,9 @@ beginState: s32'NmlAtk5CNear'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 20000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 38000
-    Unknown770: 0, 60, 0, 4, 0, 10
+    hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 10
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 250, 0, 7, 0, 30
     Unknown953: 1
@@ -4440,7 +4439,7 @@ beginState: s32'NmlAtk5CNear'
   Unknown621: 1, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_M'
   sprite: s32'chp202_02', 3
-  createObject: s32'202atk', 100
+  createObject: s32'202atk', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp202_03', 3
@@ -4459,7 +4458,7 @@ beginState: s32'NmlAtk5CFar'
     callSubroutine: s32'cmn_AtkLv2'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 28
-    Unknown725: 1
+    hitEffectSlash: 1
     storeValue: (VARIABLE), 338, (STATIC), 100000000
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
@@ -4467,7 +4466,7 @@ beginState: s32'NmlAtk5CFar'
     hitAirPushbackX: 0, 24000
     hitAirPushbackY: 0, 8000
     rollDuration: 10
-    Unknown906: 1
+    noRollLimitPerCombo: 1
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk2D'
@@ -4496,7 +4495,7 @@ beginState: s32'NmlAtk5CFar'
   extendPushboxX: 100000
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_M'
   sprite: s32'chp203_05', 1
-  createObject: s32'203atk', 100
+  createObject: s32'203atk', (PLAYER)
   hit: 
   sprite: s32'chp203_06', 1
   sprite: s32'chp203_07', 4
@@ -4516,7 +4515,7 @@ beginState: s32'NmlAtk2C'
     callSubroutine: s32'cmn_AtkLv2'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 28
-    Unknown725: 1
+    hitEffectSlash: 1
     Unknown923: 1
     storeValue: (VARIABLE), 338, (STATIC), 100000000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -4529,7 +4528,7 @@ beginState: s32'NmlAtk2C'
     airHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 5000
     hitAirPushbackY: 0, 50000
-    Unknown770: 0, 60, 0, 5, 0, 11
+    hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 11
     hitGravity: (STATIC), 1000
     hitGravityOverTime: 0, 100, 0, 10, 0, 35
     Unknown953: 1
@@ -4551,7 +4550,7 @@ beginState: s32'NmlAtk2C'
   Unknown621: 1, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_M'
   sprite: s32'chp232_02', 2
-  createObject: s32'232atk', 100
+  createObject: s32'232atk', (PLAYER)
   hit: 
   sprite: s32'chp232_03', 2
   sprite: s32'chp232_04', 3
@@ -4597,12 +4596,12 @@ beginState: s32'NmlAtk5D'
   Unknown621: 2, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   sprite: s32'chp204_03', 2
-  createObject: s32'204atk1', 100
+  createObject: s32'204atk1', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp204_04', 5
   deactivateObjectByName: s32'204atk1'
-  createObject: s32'204atk2', 100
+  createObject: s32'204atk2', (PLAYER)
   sprite: s32'chp204_05', 3
   callSubroutine: s32'cmn_AttackEnd'
   extendPushboxX: 0
@@ -4623,7 +4622,7 @@ beginState: s32'NmlAtk6D'
     callSubroutine: s32'cmn_countertype_high_slash'
     damage: 0, 50
     Unknown1108: -90
-    Unknown725: 1
+    hitEffectSlash: 1
     storeValue: (VARIABLE), 338, (STATIC), 0
     storeValue: (VARIABLE), 339, (STATIC), 3
     storeValue: (VARIABLE), 340, (STATIC), 1
@@ -4631,9 +4630,9 @@ beginState: s32'NmlAtk6D'
     callSubroutine: s32'cmn_AtkTemplNokezoriHigh'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 15000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, -100000
-    Unknown770: 0, 70, 0, 6, 0, 10
+    hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
     hitGravity: (STATIC), 0
     groundBounceGravity: 0
     hitGravityOverTime: 0, 50, 0, 10, 0, 20
@@ -4666,7 +4665,7 @@ beginState: s32'NmlAtk6D'
   extendPushboxX: 150000
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_L'
   sprite: s32'chp213_06', 3
-  createObject: s32'213atk', 100
+  createObject: s32'213atk', (PLAYER)
   hit: 
   Unknown2177: 0, 100
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
@@ -4691,7 +4690,7 @@ beginState: s32'NmlAtk2D'
     damage: 0, 36
     setForcedProration: 90
     Unknown1108: 90
-    Unknown725: 1
+    hitEffectSlash: 1
     storeValue: (VARIABLE), 338, (STATIC), 0
     storeValue: (VARIABLE), 339, (STATIC), 3
     storeValue: (VARIABLE), 340, (STATIC), 1
@@ -4699,9 +4698,9 @@ beginState: s32'NmlAtk2D'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 15000
-    Unknown760: 0, 80, 0, 6, 0, 14
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 14
     hitAirPushbackY: 0, 65000
-    Unknown770: 0, 60, 0, 7, 0, 17
+    hitAirPushbackYOverTime: 0, 60, 0, 7, 0, 17
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 200, 0, 5, 0, 30
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -4718,7 +4717,7 @@ beginState: s32'NmlAtk2D'
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
       extendPushboxX: 100000
       endUpon: 
-    Unknown2581: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
+    overwriteLinkBone: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
     endUpon: 
   checkLastStateName: s32'NmlAtk2C'
   Unknown25: s16'default', s16'', 2, 0
@@ -4743,7 +4742,7 @@ beginState: s32'NmlAtk2D'
   addPositionX: 100000
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp233_06', 3
-  createObject: s32'233atk1', 100
+  createObject: s32'233atk1', (PLAYER)
   sprite: s32'chp233_07', 4
   sprite: s32'chp233_08', 4
   callSubroutine: s32'cmn_AttackEnd'
@@ -4758,7 +4757,7 @@ beginState: s32'NmlAtk2D'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, -50000, 0
+    exPointFReset: (PLAYER_LAND), -50000, 0
     callSubroutine: s32'cmn_DustAttack'
     damage: 0, 35
     pushbackX: 30
@@ -4768,9 +4767,9 @@ beginState: s32'NmlAtk5E'
     callSubroutine: s32'cmn_AtkTemplFloatDamageBody'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 10000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 30000
-    Unknown770: 0, 60, 0, 8, 0, 16
+    hitAirPushbackYOverTime: 0, 60, 0, 8, 0, 16
     hitGravity: (STATIC), 500
     hitGravityOverTime: 0, 250, 0, 5, 0, 30
     Unknown953: 2
@@ -4782,7 +4781,7 @@ beginState: s32'NmlAtk5E'
       clearRegisteredUponCode: (HIT_OR_GUARD)
       extendPushboxX: 100000
       endUpon: 
-    Unknown2581: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
+    overwriteLinkBone: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
     endUpon: 
   sprite: s32'chp205_00', 2
   Unknown1695: s32'chp000_00', 0, 100
@@ -4811,10 +4810,10 @@ beginState: s32'NmlAtk5E'
   Unknown26: 7, 2, 52
   sprite: s32'chp205_02', 3
   sprite: s32'chp205_03', 5
-  Unknown2193: 100, 200000, 0
-  createObject: s32'chp205_rakko', 130
-  createObject: s32'Rakko_tatumaki', 100
-  createObject: s32'chp_rakko_tornado', 100
+  exPointFReset: (PLAYER), 200000, 0
+  createObject: s32'chp205_rakko', (EX_POINT_F)
+  createObject: s32'Rakko_tatumaki', (PLAYER)
+  createObject: s32'chp_rakko_tornado', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
   sprite: s32'chp205_04', 5
   hit: 
@@ -4876,39 +4875,39 @@ beginState: s32'HomingJump'
   Unknown1702: s32'Head_High', 1
   Unknown1702: s32'Head_Low', 0
   Unknown1699: s32'chp_battle_hair', 1, 1, 1, 1
-  Unknown1714: '0x00000000000000000100000000000000'
+  Unknown1714: 0, 0, 1, 0
   Unknown1715: 0, 0, 1, 0
   Unknown1716: 0, 0, 1, 0
-  Unknown2524: s32'Head_Attach', -15000, 5000, 35000, 9, 1, 0, 0
-  Unknown2524: s32'chest', 10000, 0, 0, 9, 1, 0, 0
-  Unknown2523: s32'Head_Attach', 1000, 5000, 1000, 9, 1, 0, 0
+  boneRotation: s32'Head_Attach', -15000, 5000, 35000, 9, 1, 0, 0
+  boneRotation: s32'chest', 10000, 0, 0, 9, 1, 0, 0
+  bonePosition: s32'Head_Attach', 1000, 5000, 1000, 9, 1, 0, 0
   sprite: s32'chp025_03', 3
   Unknown1715: 1, 6, 1, 0
   sprite: s32'chp025_04', 3
   sprite: s32'chp025_00', 3
   sprite: s32'chp025_01', 3
-  Unknown1714: '0x03000000060000000100000000000000'
+  Unknown1714: 3, 6, 1, 0
   Unknown1715: 2, 6, 1, 0
   Unknown1716: 2, 6, 1, 0
-  Unknown2524: s32'Head_Attach', -25000, -20000, 30000, 18, 1, 0, 0
-  Unknown2524: s32'chest', -10000, 0, 0, 15, 1, 0, 0
+  boneRotation: s32'Head_Attach', -25000, -20000, 30000, 18, 1, 0, 0
+  boneRotation: s32'chest', -10000, 0, 0, 15, 1, 0, 0
   sprite: s32'chp025_02', 3
   sprite: s32'chp025_03', 3
   Unknown1716: 1, 3, 1, 0
   sprite: s32'chp025_04', 3
-  Unknown1714: '0x01000000060000000100000000000000'
+  Unknown1714: 1, 6, 1, 0
   Unknown1715: 4, 6, 1, 0
   Unknown1716: 4, 6, 1, 0
-  Unknown2524: s32'clavicle_R', 0, 0, 5000, 12, 1, 0, 0
-  Unknown2524: s32'clavicle_L', 0, 0, 10000, 12, 1, 0, 0
+  boneRotation: s32'clavicle_R', 0, 0, 5000, 12, 1, 0, 0
+  boneRotation: s32'clavicle_L', 0, 0, 10000, 12, 1, 0, 0
   sprite: s32'chp025_00', 3
   sprite: s32'chp025_01', 3
   sprite: s32'chp025_02', 3
-  Unknown1714: '0x040000000C0000000100000000000000'
+  Unknown1714: 4, 12, 1, 0
   Unknown1715: 0, 12, 1, 0
   Unknown1716: 3, 12, 1, 0
-  Unknown2524: s32'clavicle_R', 0, 0, 0, 16, 1, 0, 0
-  Unknown2524: s32'clavicle_L', 0, 0, 0, 16, 1, 0, 0
+  boneRotation: s32'clavicle_R', 0, 0, 0, 16, 1, 0, 0
+  boneRotation: s32'clavicle_L', 0, 0, 0, 16, 1, 0, 0
   sprite: s32'chp025_03', 3
   sprite: s32'chp025_04', 3
   sprite: s32'chp025_00', 3
@@ -4924,7 +4923,7 @@ beginState: s32'HomingJump'
 beginState: s32'HomingJumpLoop'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_Dust_HomingJump_Loop'
-    Unknown2581: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
+    overwriteLinkBone: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
     endUpon: 
   sprite: s32'chp025_05', 3
   Unknown1695: s32'chp035_02', 0, 150
@@ -4950,7 +4949,7 @@ beginState: s32'DustFinish'
   sprite: s32'chp406_04', 2
   Unknown99: 0, 100000
   haltMomentum: 1
-  createObject: s32'Step_mahojin', 100
+  createObject: s32'Step_mahojin', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Jump'
   sprite: s32'chp406_05', 2
   sprite: s32'chp406_06', 2
@@ -4964,7 +4963,7 @@ beginState: s32'DustFinish'
   cmnSfx: s32'SE_BTL_CMN_Swing_grap_Heavy_L'
   sprite: s32'chp406_10', 2
   sprite: s32'chp406_11', 6
-  createObject: s32'BanzaiZanzo', 100
+  createObject: s32'BanzaiZanzo', (PLAYER)
   hit: 
   characterSfx: s32'SE_BTL_CHP_05'
   sprite: s32'chp406_12', 2147483647
@@ -4990,7 +4989,7 @@ beginState: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
       extendPushboxX: 150000
-      Unknown2341: s32'Horizontal', 300, 0, 16, s32'shake_easeout', 0
+      cameraShakeEX: s32'Horizontal', 300, 0, 16, 1801545843, s32'e_easeout'
       endUpon: 
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), -400000
@@ -5004,7 +5003,7 @@ beginState: s32'NmlAtk2E'
   sprite: s32'chp234_03', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'chp234_04', 2
-  createObject: s32'234atk', 100
+  createObject: s32'234atk', (PLAYER)
   hit: 
   sprite: s32'chp234_05', 4
   callSubroutine: s32'cmn_AttackEnd'
@@ -5023,13 +5022,13 @@ beginState: s32'NmlAtk5F'
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
   upon: (BEFORE_EXIT)
-    Unknown2068: 
+    resetMaterialSet: 
     setGravity: 3000
     endUpon: 
   gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   beginLabel: s32'TypeA'
   sprite: s32'chp300_00', 4
-  Unknown1361: 0
+  enableDemo: 0
   characterSfx: s32'SE_BTL_CHP_09'
   sprite: s32'chp300_01', 4
   sprite: s32'chp300_02', 4
@@ -5039,7 +5038,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'chp300_06', 3
   storeValue: (VARIABLE), 3, (STATIC), 90
   storeValue: (VARIABLE), 76, (STATIC), 0
-  Unknown2067: '0x626C696E6B000000000000000000000000000000000000000000000000000000'
+  changeMaterialSet: s32'blink'
   Unknown2305: 18, 500, 0
   Unknown2305: 19, 2000, 0
   Unknown2305: 19, 0, 40
@@ -5064,7 +5063,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'chp300_24', 3
   endLabel: 
   setPositionY: 1000000
-  Unknown135: 
+  resetGravity: 
   Unknown2169: 0
   upon: (FRAME_STEP)
     ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 18, (STATIC), 380000
@@ -5082,11 +5081,11 @@ beginState: s32'NmlAtk5F'
   sprite: s32'chp300_27', 2
   storeValue: (VARIABLE), 3, (STATIC), 20
   storeValue: (VARIABLE), 76, (STATIC), 0
-  Unknown2067: '0x626C696E6B000000000000000000000000000000000000000000000000000000'
+  changeMaterialSet: s32'blink'
   Unknown2305: 18, 500, 0
   Unknown2305: 19, 0, 0
   Unknown2305: 19, 2000, 15
-  createObject: s32'Chohatu1', 100
+  createObject: s32'Chohatu1', (PLAYER)
   characterSfx: s32'SE_BTL_CHP_10'
   Unknown269: 0
   sprite: s32'chp300_28', 3
@@ -5115,7 +5114,7 @@ beginState: s32'NmlAtk5F'
     ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 2
       ifNot: (VARIABLE), 95
         clearRegisteredUponCode: (FRAME_STEP)
-        Unknown135: 
+        resetGravity: 
         Unknown14: s32'TypeA_Next2'
         deactivateObjectByName: s32'Chohatu1'
         endIf: 
@@ -5123,13 +5122,13 @@ beginState: s32'NmlAtk5F'
     checkInput: (INPUT_ANY_DOWN)
     if: (VARIABLE), 0
       clearRegisteredUponCode: (FRAME_STEP)
-      Unknown135: 
+      resetGravity: 
       Unknown14: s32'TypeA_Next2'
       deactivateObjectByName: s32'Chohatu1'
       endIf: 
     ifNot: (VARIABLE), 16
       clearRegisteredUponCode: (FRAME_STEP)
-      Unknown135: 
+      resetGravity: 
       Unknown14: s32'TypeA_Next2'
       deactivateObjectByName: s32'Chohatu1'
       endIf: 
@@ -5160,7 +5159,7 @@ beginState: s32'NmlAtk5F'
   endLabel: 
   beginLabel: s32'TypeA_Landing'
   sprite: s32'chp300_61', 3
-  Unknown1361: 1
+  enableDemo: 1
   sprite: s32'chp300_62', 3
   sprite: s32'chp300_63', 3
   sprite: s32'chp300_64', 3
@@ -5175,7 +5174,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'chp301_03', 3
   sprite: s32'chp301_04', 3
   sprite: s32'chp301_05', 3
-  createObject: s32'IraIra00', 100
+  createObject: s32'IraIra00', (PLAYER)
   sprite: s32'chp301_06', 3
   voiceLine: s16'vxxx410demo'
   sprite: s32'chp301_07', 6
@@ -5198,7 +5197,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'chp301_22', 4
   sprite: s32'chp301_23', 4
   sprite: s32'chp301_24', 4
-  createObject: s32'IraIra01', 100
+  createObject: s32'IraIra01', (PLAYER)
   sprite: s32'chp301_25', 4
   sprite: s32'chp301_26', 4
   sprite: s32'chp301_27', 4
@@ -5436,14 +5435,14 @@ beginState: s32'NmlAtkAir5B'
   Unknown621: 0, -1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'chp251_02', 2
-  createObject: s32'251atk1', 100
+  createObject: s32'251atk1', (PLAYER)
   hit: 
   sprite: s32'chp251_03', 3
   deactivateObjectByName: s32'251atk1'
-  createObject: s32'251atk2', 100
+  createObject: s32'251atk2', (PLAYER)
   sprite: s32'chp251_04', 2
   deactivateObjectByName: s32'251atk2'
-  createObject: s32'251atk1', 100
+  createObject: s32'251atk1', (PLAYER)
   hit: 
   callSubroutine: s32'NmlAtkAir5B_atk'
   ifNot: (VARIABLE), 317
@@ -5460,7 +5459,7 @@ beginState: s32'NmlAtkAir5B'
   sprite: s32'chp251_05', 3
   recoveryState: 
   deactivateObjectByName: s32'251atk1'
-  createObject: s32'251atk2', 100
+  createObject: s32'251atk2', (PLAYER)
   sprite: s32'chp251_06', 3
   sprite: s32'chp251_07', 2
   endState: 
@@ -5531,11 +5530,11 @@ beginState: s32'NmlAtkAir2B'
   endLabel: 
   physicsXImpulse: 0, 12000
   physicsYImpulse: 0, -40000
-  Unknown135: 
+  resetGravity: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   beginLabel: s32'loop'
   sprite: s32'chp270_04', 2
-  createObject: s32'270atk', 100
+  createObject: s32'270atk', (PLAYER)
   hit: 
   callSubroutine: s32'NmlAtkAir2B_atk'
   sprite: s32'chp270_05', 2
@@ -5561,7 +5560,7 @@ beginState: s32'NmlAtkAir5C'
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 28
-    Unknown725: 1
+    hitEffectSlash: 1
     storeValue: (VARIABLE), 338, (STATIC), 1000000000
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
@@ -5592,8 +5591,8 @@ beginState: s32'NmlAtkAir5C'
   sprite: s32'chp252_00', 2
   sprite: s32'chp252_01', 2
   displayModel: 0
-  createObject: s32'252bake', 100
-  createObject: s32'252line', 100
+  createObject: s32'252bake', (PLAYER)
+  createObject: s32'252line', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_S'
   sprite: s32'chp252_02', 2
   Unknown621: 1, -1
@@ -5618,7 +5617,7 @@ beginSubroutine: s32'NmlAtkAir5D_atk'
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 1
   callSubroutine: s32'cmn_countertype_middle_slash'
   damage: 0, 22
-  Unknown725: 1
+  hitEffectSlash: 1
   Unknown1108: -90
   storeValue: (VARIABLE), 338, (STATIC), 1000000000
   storeValue: (VARIABLE), 339, (STATIC), 0
@@ -5648,7 +5647,7 @@ beginState: s32'NmlAtkAir5D'
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 1
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 22
-    Unknown725: 1
+    hitEffectSlash: 1
     Unknown1108: -90
     storeValue: (VARIABLE), 338, (STATIC), 1000000000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -5814,7 +5813,7 @@ beginState: s32'ThrowExe'
     groundHitEffect: (AIR_STRONG)
     Unknown1051: 0
     Unknown1064: s32'ThrowExe'
-    Unknown1059: 1
+    killType: 1
     Unknown2169: 0
     upon: (TOUCH_GROUND)
       Unknown14: s32'landing'
@@ -5829,13 +5828,13 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 13
-  setGripPosition: 125, 100, 0
+  setGripPosition: (FRONT_1_BODY), (PLAYER), 0
   sprite: s32'chp310_01', 1
-  createObject: s32'Cam_Throw', 100
+  createObject: s32'Cam_Throw', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp310_02', 1
   sprite: s32'chp310_03', 1
@@ -5844,11 +5843,11 @@ beginState: s32'ThrowExe'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'chp310_05', 1
   hit: 
-  Unknown2341: s32'Horizontal', 600, 0, 24, s32'shake_easeout', 0
+  cameraShakeEX: s32'Horizontal', 600, 0, 24, 1801545843, s32'e_easeout'
   sprite: s32'chp310_06', 1
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 10000, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp310_07', 1
-  createObject: s32'310bake1', 100
+  createObject: s32'310bake1', (PLAYER)
   sprite: s32'chp310_08', 1
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 12000, (STATIC), 0, (STATIC), 0, (STATIC), 0
   haltMomentum: 1
@@ -5859,7 +5858,7 @@ beginState: s32'ThrowExe'
   sprite: s32'chp310_08', 2
   physicsXImpulse: 0, 15000
   sprite: s32'chp310_09', 3
-  createObject: s32'310bake2', 100
+  createObject: s32'310bake2', (PLAYER)
   sprite: s32'chp310_10', 3
   setNoCollision: 1
   sprite: s32'chp310_11', 3
@@ -5871,7 +5870,7 @@ beginState: s32'ThrowExe'
   groundHitEffect: (AIR_LAUNCH)
   airHitEffect: (AIR_LAUNCH)
   Unknown1108: 90
-  Unknown2031: 22, s32'ThrowExe'
+  checkLastAttackHitStateName: 22, s32'ThrowExe'
   if: (VARIABLE), 0
     Unknown41: 22
     Unknown2293: 1
@@ -5882,12 +5881,12 @@ beginState: s32'ThrowExe'
   Unknown1067: 4, -150000, 100000
   physicsXImpulse: 0, 3000
   physicsYImpulse: 0, 10000
-  Unknown2341: s32'Vertical', 600, 0, 24, s32'shake_easeout', 0
+  cameraShakeEX: s32'Vertical', 600, 0, 24, 1801545843, s32'e_easeout'
   sprite: s32'chp310_14', 1
   sprite: s32'chp310_15', 1
   sprite: s32'chp310_16', 1
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 10000, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'310bake3', 100
+  createObject: s32'310bake3', (PLAYER)
   haltMomentum: 1
   setNoCollision: 0
   Unknown196: 22, 100, 0, 650000, 0, 350000, 0, 0
@@ -5896,7 +5895,7 @@ beginState: s32'ThrowExe'
     haltMomentum: 1
     endUpon: 
   sprite: s32'chp310_17', 2
-  createObject: s32'310bake4', 100
+  createObject: s32'310bake4', (PLAYER)
   clearRegisteredUponCode: (BEFORE_EXIT)
   haltMomentum: 1
   setNoCollision: 1
@@ -5925,12 +5924,12 @@ beginState: s32'ThrowExe'
   Unknown1067: 4, 150000, -100000
   Unknown1064: s32''
   resetMotionBlurAmount: 
-  createObject: s32'310kick', 100
-  Unknown1059: 0
+  createObject: s32'310kick', (PLAYER)
+  killType: 0
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
-  Unknown2341: s32'ShakeTateYoko', 2200, 0, 24, s32'shake_easeout', 0
+  cameraShakeEX: s32'ShakeTateYoko', 2200, 0, 24, 1801545843, s32'e_easeout'
   sprite: s32'chp310_25', 4
   sprite: s32'chp310_26', 4
   sprite: s32'chp310_27', 4
@@ -5994,7 +5993,7 @@ beginState: s32'AirThrowExe'
     hitAirPushbackX: 0, 14250
     hitAirPushbackY: 0, 32500
     hitGravity: (STATIC), 2500
-    Unknown725: 1
+    hitEffectSlash: 1
     Unknown1067: 4, 100000, -200000
     groundHitEffect: (AIR_FACE_UP)
     Unknown1148: s32'SE_BTL_CMN_Impact_Katana_L'
@@ -6010,10 +6009,10 @@ beginState: s32'AirThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 120000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 120000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   Unknown544: 24
-  setGripPosition: 125, 100, 1
+  setGripPosition: (FRONT_1_BODY), (PLAYER), 1
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown2189: 0, 5
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -6022,15 +6021,15 @@ beginState: s32'AirThrowExe'
   sprite: s32'chp320_01', 3
   sprite: s32'chp320_02', 3
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1220, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 114, 120000, -20000
+  exPointFReset: (HEAD), 120000, -20000
   Unknown2273: 0, 1200
   Unknown449: s32'chp_burst_smoke', 130
   sprite: s32'null', 2
   displayModel: 0
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   sprite: s32'null', 2
-  Unknown2193: 103, -80000, 50000
-  setGripPosition: 130, 115, 1
+  exPointFReset: (CENTER), -80000, 50000
+  setGripPosition: (EX_POINT_F), (NECK), 1
   characterSfx: s32'SE_BTL_CHP_08'
   cmnSfx: s32'SE_BTL_CMN_Warp_Out'
   sprite: s32'chp320_03', 5
@@ -6047,17 +6046,17 @@ beginState: s32'AirThrowExe'
   sprite: s32'chp320_09', 6
   sprite: s32'chp320_10', 4
   sprite: s32'chp320_11', 5
-  Unknown2193: 103, -40000, -20000
-  setGripPosition: 130, 115, 1
+  exPointFReset: (CENTER), -40000, -20000
+  setGripPosition: (EX_POINT_F), (NECK), 1
   sprite: s32'chp320_12', 4
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1122, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  Unknown2193: 103, 20000, -20000
-  setGripPosition: 130, 115, 1
+  exPointFReset: (CENTER), 20000, -20000
+  setGripPosition: (EX_POINT_F), (NECK), 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_L'
   sprite: s32'chp320_13', 4
   hit: 
-  Unknown2193: 103, 110000, -20000
-  setGripPosition: 130, 115, 1
+  exPointFReset: (CENTER), 110000, -20000
+  setGripPosition: (EX_POINT_F), (NECK), 1
   upon: (HIT_OR_GUARD_ANY)
     clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
     Unknown2229: 98
@@ -6066,7 +6065,7 @@ beginState: s32'AirThrowExe'
     setGravity: 1400
     Unknown2189: 2, 5
     endUpon: 
-  Unknown2341: s32'Depth', 8200, 0, 24, s32'shake_easeout', 0
+  cameraShakeEX: s32'Depth', 8200, 0, 24, 1801545843, s32'e_easeout'
   upon: (HIT)
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
@@ -6102,7 +6101,7 @@ beginState: s32'AlphaBlade'
     setCarriedMomentumPercentage: 50
     ignorePushback: 1
     upon: (BEFORE_EXIT)
-      Unknown2203: 1
+      autoAirTurn: 1
       endUpon: 
     storeValue: (VARIABLE), 344, (STATIC), 300000
     upon: 12
@@ -6122,7 +6121,7 @@ beginState: s32'AlphaBlade'
   Unknown1709: 0
   voiceLine: s16'vxxx203'
   sprite: s32'chp401_03', 2
-  Unknown2193: 100, 100000, 0
+  exPointFReset: (PLAYER), 100000, 0
   Unknown449: s32'bg_brakelong', 130
   setNoCollision: 0
   Unknown665: 100, 1, 1
@@ -6132,9 +6131,9 @@ beginState: s32'AlphaBlade'
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   sprite: s32'chp401_04', 6
   sprite: s32'chp401_05', 1
-  createObject: s32'AlphaBradeHit', 100
+  createObject: s32'AlphaBradeHit', (PLAYER)
   Unknown43: 4, 1
-  createObject: s32'Alpha_naname', 100
+  createObject: s32'Alpha_naname', (PLAYER)
   Unknown43: 5, 1
   Unknown1798: 5, 24
   addWhiffCancelOption: s32'HaritsukiR_wall'
@@ -6155,7 +6154,7 @@ beginState: s32'AlphaBlade'
   Unknown116: 50
   Unknown2229: 90
   Unknown2230: 90
-  createObject: s32'Alpha_zanzo_401', 100
+  createObject: s32'Alpha_zanzo_401', (PLAYER)
   sprite: s32'chp401_09', 1
   characterSfx: s32'SE_BTL_CHP_01'
   characterSfx: s32'SE_BTL_CHP_02'
@@ -6172,7 +6171,7 @@ beginState: s32'AlphaBlade'
   sprite: s32'chp401_11', 4
   sprite: s32'chp401_12', 3
   sprite: s32'chp401_13', 3
-  Unknown135: 
+  resetGravity: 
   sprite: s32'chp401_14', 3
   sprite: s32'chp401_15', 3
   Unknown2229: 100
@@ -6182,7 +6181,7 @@ beginState: s32'AlphaBlade'
   beginLabel: s32'wall'
   sprite: s32'chp401_02', 1
   enableWhiffCancel: 0
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   flipDirection: 
   multiplyAlphaColor: 255
   physicsXImpulse: 0, 0
@@ -6194,9 +6193,9 @@ beginState: s32'AlphaBlade'
   physicsYImpulse: 0, 35000
   multiplyAlphaColor: 0
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'AlphaBradeHit', 100
+  createObjectWithArg: s32'AlphaBradeHit', (PLAYER)
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'Alpha_naname', 100
+  createObjectWithArg: s32'Alpha_naname', (PLAYER)
   Unknown1798: 1, 26
   characterSfx: s32'SE_BTL_CHP_00'
   sprite: s32'chp401_04', 3
@@ -6206,7 +6205,7 @@ beginState: s32'AlphaBlade'
   Unknown116: 50
   Unknown2229: 90
   setNoCollision: 1
-  createObject: s32'Alpha_zanzo_401', 100
+  createObject: s32'Alpha_zanzo_401', (PLAYER)
   sprite: s32'chp401_09', 3
   characterSfx: s32'SE_BTL_CHP_01'
   characterSfx: s32'SE_BTL_CHP_02'
@@ -6226,7 +6225,7 @@ beginState: s32'AlphaBlade'
   Unknown2172: 1
   sprite: s32'chp401_15', 3
   Unknown2230: 100
-  Unknown135: 
+  resetGravity: 
   endState: 
 
 beginState: s32'AlphaBlade_yoko'
@@ -6246,7 +6245,7 @@ beginState: s32'AlphaBlade_yoko'
   sprite: s32'chp400_02', 2
   voiceLine: s16'vxxx202'
   sprite: s32'chp400_03', 13
-  Unknown2193: 100, 100000, 0
+  exPointFReset: (PLAYER), 100000, 0
   Unknown449: s32'bg_brakelong', 130
   multiplyAlphaColor: 0
   setNoCollision: 0
@@ -6258,9 +6257,9 @@ beginState: s32'AlphaBlade_yoko'
   sprite: s32'chp400_03', 6
   physicsXImpulse: 0, 100000
   Unknown2279: 0, 2, 0, 0
-  createObject: s32'AlphaBradeHit', 100
+  createObject: s32'AlphaBradeHit', (PLAYER)
   Unknown43: 4, 1
-  createObject: s32'Alpha_yoko', 100
+  createObject: s32'Alpha_yoko', (PLAYER)
   Unknown43: 6, 1
   enableWhiffCancel: 1
   addWhiffCancelOption: s32'HaritsukiR_Landwall'
@@ -6272,7 +6271,7 @@ beginState: s32'AlphaBlade_yoko'
     addWhiffCancelOption: s32'FBAlphaBlade_yoko'
     endIf: 
   sprite: s32'chp400_09', 2
-  createObject: s32'Alpha_zanzo_400', 100
+  createObject: s32'Alpha_zanzo_400', (PLAYER)
   sprite: s32'chp400_09', 1
   physicsXImpulse: 0, 10000
   setNoCollision: 1
@@ -6284,10 +6283,10 @@ beginState: s32'AlphaBlade_yoko'
   characterSfx: s32'SE_BTL_CHP_13'
   sprite: s32'chp400_11', 3
   recoveryState: 
-  createObject: s32'Alpha_brake', 100
+  createObject: s32'Alpha_brake', (PLAYER)
   sprite: s32'chp400_12', 3
   sprite: s32'chp400_13', 3
-  Unknown2193: 100, 400000, 0
+  exPointFReset: (PLAYER), 400000, 0
   Unknown449: s32'bg_brakelong', 130
   sprite: s32'chp400_14', 4
   Unknown2229: 95
@@ -6319,12 +6318,12 @@ beginState: s32'FBAlphaBlade_yoko'
   sprite: s32'chp400_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_kakusei_hatudo', 119
+  createParticle: s32'cmn_kakusei_hatudo', (HEART)
   sprite: s32'chp400_01', 3
   sprite: s32'chp400_02', 3
   voiceLine: s16'vxxx202'
   sprite: s32'chp400_03', 10
-  Unknown2193: 100, 100000, 0
+  exPointFReset: (PLAYER), 100000, 0
   Unknown449: s32'bg_brakelong', 130
   multiplyAlphaColor: 0
   setNoCollision: 0
@@ -6336,9 +6335,9 @@ beginState: s32'FBAlphaBlade_yoko'
   sprite: s32'chp400_03', 8
   physicsXImpulse: 0, 100000
   Unknown2279: 0, 2, 0, 0
-  createObject: s32'AlphaBradeHit', 100
+  createObject: s32'AlphaBradeHit', (PLAYER)
   Unknown43: 4, 1
-  createObject: s32'FBAlpha_yoko', 100
+  createObject: s32'FBAlpha_yoko', (PLAYER)
   Unknown43: 6, 1
   enableWhiffCancel: 1
   addWhiffCancelOption: s32'HaritsukiR_Landwall'
@@ -6348,7 +6347,7 @@ beginState: s32'FBAlphaBlade_yoko'
     addWhiffCancelOption: s32'HaritsukiL_Landwall_LandPAlpha'
     endIf: 
   sprite: s32'chp400_09', 2
-  createObject: s32'Alpha_zanzo_400', 100
+  createObject: s32'Alpha_zanzo_400', (PLAYER)
   sprite: s32'chp400_09', 1
   physicsXImpulse: 0, 10000
   enableWhiffCancel: 0
@@ -6361,10 +6360,10 @@ beginState: s32'FBAlphaBlade_yoko'
   characterSfx: s32'SE_BTL_CHP_13'
   sprite: s32'chp400_11', 3
   recoveryState: 
-  createObject: s32'Alpha_brake', 100
+  createObject: s32'Alpha_brake', (PLAYER)
   sprite: s32'chp400_12', 3
   sprite: s32'chp400_13', 3
-  Unknown2193: 100, 400000, 0
+  exPointFReset: (PLAYER), 400000, 0
   Unknown449: s32'bg_brakelong', 130
   sprite: s32'chp400_14', 4
   Unknown2229: 95
@@ -6403,7 +6402,7 @@ beginState: s32'AirAlphaBlade'
   sprite: s32'chp403_04', 12
   setNoCollision: 0
   haltMomentum: 1
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   voiceLine: s16'vxxx203'
   sprite: s32'chp403_04', 6
   physicsXImpulse: 0, 100000
@@ -6429,12 +6428,12 @@ beginState: s32'AirAlphaBlade'
   endLabel: 
   beginLabel: s32'wall'
   sprite: s32'chp403_02', 1
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   Unknown2279: 0, 4, 0, 0
-  createObjectWithArg: s32'AlphaBradeHit', 100
+  createObjectWithArg: s32'AlphaBradeHit', (PLAYER)
   Unknown1803: s32'AlphaBradeHit', 25
   Unknown2279: 0, 3, 0, 0
-  createObjectWithArg: s32'Alpha_naname', 100
+  createObjectWithArg: s32'Alpha_naname', (PLAYER)
   Unknown1798: 1, 25
   flipDirection: 
   multiplyAlphaColor: 255
@@ -6442,9 +6441,9 @@ beginState: s32'AirAlphaBlade'
   physicsYImpulse: 0, 0
   storeValue: (VARIABLE), 45, (STATIC), 1
   sprite: s32'chp403_03', 5
-  Unknown2193: 100, 0, 200000
+  exPointFReset: (PLAYER), 0, 200000
   Unknown2275: 0, 40000
-  createObjectWithArg: s32'AlphaBradeSmokeAir', 130
+  createObjectWithArg: s32'AlphaBradeSmokeAir', (EX_POINT_F)
   clearRegisteredUponCode: (BEFORE_EXIT)
   upon: (BEFORE_EXIT)
     Unknown240: 
@@ -6463,11 +6462,11 @@ beginState: s32'AirAlphaBlade'
   endLabel: 
   beginLabel: s32'landing'
   sprite: s32'chp403_08', 3
-  createObject: s32'Alpha_zanzo_403', 100
+  createObject: s32'Alpha_zanzo_403', (PLAYER)
   addPositionX: 50000
   Unknown2323: -1
   sprite: s32'chp403_08', 2
-  createParticle: s32'bg_down_default', 123
+  createParticle: s32'bg_down_default', (PLAYER_LAND)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
   setNoCollision: 1
   multiplyAlphaColor: 255
@@ -6475,24 +6474,24 @@ beginState: s32'AirAlphaBlade'
   physicsXImpulse: 0, 10000
   Unknown2229: 95
   if: (VARIABLE), 45
-    Unknown2193: 100, 0, 200000
+    exPointFReset: (PLAYER), 0, 200000
     Unknown2275: 0, -40000
-    createObjectWithArg: s32'AlphaBradeHit_ref', 130
-    createObject: s32'Alpha_air_ref', 100
+    createObjectWithArg: s32'AlphaBradeHit_ref', (EX_POINT_F)
+    createObject: s32'Alpha_air_ref', (PLAYER)
     endIf: 
   else: 
-    Unknown2193: 100, 80000, 0
+    exPointFReset: (PLAYER), 80000, 0
     Unknown2275: 0, 42000
-    createObjectWithArg: s32'AlphaBradeSmokeAir', 130
-    Unknown2193: 100, 0, 200000
+    createObjectWithArg: s32'AlphaBradeSmokeAir', (EX_POINT_F)
+    exPointFReset: (PLAYER), 0, 200000
     Unknown2275: 0, -40000
     Unknown2279: 0, 3, 0, 1
-    createObjectWithArg: s32'AlphaBradeHit', 130
+    createObjectWithArg: s32'AlphaBradeHit', (EX_POINT_F)
     Unknown1798: 1, 23
     Unknown43: 4, 1
     clearRegisteredUponCode: (BEFORE_EXIT)
     Unknown2279: 0, 2, 0, 0
-    createObjectWithArg: s32'Alpha_naname', 100
+    createObjectWithArg: s32'Alpha_naname', (PLAYER)
     Unknown1798: 1, 23
     endElse: 
   characterSfx: s32'SE_BTL_CHP_01'
@@ -6506,7 +6505,7 @@ beginState: s32'AirAlphaBlade'
     recoveryState: 
     endIf: 
   sprite: s32'chp403_11', 1
-  Unknown2193: 100, 400000, 0
+  exPointFReset: (PLAYER), 400000, 0
   Unknown449: s32'bg_brakelong', 130
   sprite: s32'chp403_11', 5
   if: (VARIABLE), 45
@@ -6522,7 +6521,7 @@ beginState: s32'AirAlphaBlade_yoko'
   upon: (IMMEDIATE)
     ignorePushback: 1
     upon: (BEFORE_EXIT)
-      Unknown2203: 1
+      autoAirTurn: 1
       endUpon: 
     upon: 12
       checkInput: (INPUT_HOLD_P)
@@ -6540,7 +6539,7 @@ beginState: s32'AirAlphaBlade_yoko'
   sprite: s32'chp402_03', 13
   multiplyAlphaColor: 0
   setNoCollision: 0
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   voiceLine: s16'vxxx202'
   characterSfx: s32'SE_BTL_CHP_00'
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
@@ -6548,16 +6547,16 @@ beginState: s32'AirAlphaBlade_yoko'
   sprite: s32'chp402_03', 6
   physicsXImpulse: 0, 100000
   Unknown2279: 0, 5, 0, 0
-  createObjectWithArg: s32'AlphaBradeHit', 100
+  createObjectWithArg: s32'AlphaBradeHit', (PLAYER)
   Unknown43: 4, 1
   Unknown1798: 4, 23
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'Alpha_yoko', 100
+  createObjectWithArg: s32'Alpha_yoko', (PLAYER)
   Unknown43: 6, 1
   Unknown1798: 6, 23
   Unknown2323: -1
   sprite: s32'chp402_10', 2
-  createObject: s32'Alpha_zanzo_402', 100
+  createObject: s32'Alpha_zanzo_402', (PLAYER)
   enableWhiffCancel: 1
   addWhiffCancelOption: s32'HaritsukiR_wall'
   addWhiffCancelOption: s32'HaritsukiL_wall'
@@ -6581,7 +6580,7 @@ beginState: s32'AirAlphaBlade_yoko'
   Unknown111: 40
   sprite: s32'chp402_13', 4
   sprite: s32'chp402_14', 4
-  Unknown135: 
+  resetGravity: 
   setNoCollision: 1
   Unknown2229: 95
   sprite: s32'chp402_15', 3
@@ -6609,7 +6608,7 @@ beginState: s32'FBAirAlphaBlade_yoko'
     tensionCooldown: 120
     ignorePushback: 1
     upon: (BEFORE_EXIT)
-      Unknown2203: 1
+      autoAirTurn: 1
       endUpon: 
     upon: 12
       checkInput: (INPUT_HOLD_P)
@@ -6621,7 +6620,7 @@ beginState: s32'FBAirAlphaBlade_yoko'
   sprite: s32'chp402_00', 2
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_kakusei_hatudo', 119
+  createParticle: s32'cmn_kakusei_hatudo', (HEART)
   haltMomentum: 1
   sprite: s32'chp402_01', 2
   physicsXImpulse: 0, 5250
@@ -6629,7 +6628,7 @@ beginState: s32'FBAirAlphaBlade_yoko'
   sprite: s32'chp402_03', 8
   multiplyAlphaColor: 0
   setNoCollision: 0
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   voiceLine: s16'vxxx202'
   characterSfx: s32'SE_BTL_CHP_00'
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
@@ -6637,16 +6636,16 @@ beginState: s32'FBAirAlphaBlade_yoko'
   sprite: s32'chp402_03', 6
   physicsXImpulse: 0, 100000
   Unknown2279: 0, 5, 0, 0
-  createObjectWithArg: s32'AlphaBradeHit', 100
+  createObjectWithArg: s32'AlphaBradeHit', (PLAYER)
   Unknown43: 4, 1
   Unknown1798: 4, 23
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'FBAlpha_yoko', 100
+  createObjectWithArg: s32'FBAlpha_yoko', (PLAYER)
   Unknown43: 6, 1
   Unknown1798: 6, 23
   Unknown2323: -1
   sprite: s32'chp402_10', 2
-  createObject: s32'Alpha_zanzo_402', 100
+  createObject: s32'Alpha_zanzo_402', (PLAYER)
   enableWhiffCancel: 1
   addWhiffCancelOption: s32'HaritsukiR_wall'
   addWhiffCancelOption: s32'HaritsukiL_wall'
@@ -6670,7 +6669,7 @@ beginState: s32'FBAirAlphaBlade_yoko'
   Unknown111: 40
   sprite: s32'chp402_13', 4
   sprite: s32'chp402_14', 4
-  Unknown135: 
+  resetGravity: 
   setNoCollision: 1
   Unknown2229: 95
   sprite: s32'chp402_15', 3
@@ -6698,7 +6697,7 @@ beginState: s32'BetaBlade'
     callSubroutine: s32'cmnMutekiRC'
     callSubroutine: s32'cmn_countertype_high_slash'
     damage: 0, 30
-    Unknown725: 1
+    hitEffectSlash: 1
     Unknown1108: 60
     storeValue: (VARIABLE), 338, (STATIC), 1000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -6708,9 +6707,9 @@ beginState: s32'BetaBlade'
     groundHitEffect: 12
     airHitEffect: 12
     hitAirPushbackX: 0, 10000
-    Unknown760: 0, 80, 0, 6, 0, 14
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 14
     hitAirPushbackY: 0, 35000
-    Unknown770: 0, 60, 0, 7, 0, 17
+    hitAirPushbackYOverTime: 0, 60, 0, 7, 0, 17
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 200, 0, 5, 0, 30
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -6723,7 +6722,7 @@ beginState: s32'BetaBlade'
     storeValue: (VARIABLE), 343, (STATIC), -300000
     storeValue: (VARIABLE), 344, (STATIC), 0
     storeValue: (VARIABLE), 345, (STATIC), 0
-    Unknown2581: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
+    overwriteLinkBone: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
     Unknown2526: 1, 1, 1, 0, 60, 5
     Unknown2591: 1, 1, 1, 0, 200, 5
     Unknown1148: s32'SE_BTL_CMN_Impact_Katana_M'
@@ -6745,17 +6744,17 @@ beginState: s32'BetaBlade'
   physicsYImpulse: 0, 0
   sprite: s32'chp407_02', 2
   hit: 
-  createObject: s32'bataZanzo00', 100
+  createObject: s32'bataZanzo00', (PLAYER)
   randomVoiceLine: s16'vxxx208', s16'vxxx708'
   sprite: s32'chp407_03', 3
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   deactivateObjectByName: s32'bataZanzo00'
-  createObject: s32'bataZanzo01', 100
+  createObject: s32'bataZanzo01', (PLAYER)
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnMutekiRC'
   damage: 0, 26
-  Unknown725: 1
+  hitEffectSlash: 1
   Unknown1108: 60
   storeValue: (VARIABLE), 338, (STATIC), 1000
   storeValue: (VARIABLE), 339, (STATIC), 0
@@ -6817,7 +6816,7 @@ beginState: s32'AirBetaBlade'
     callSubroutine: s32'cmn_countertype_high_slash'
     damage: 0, 30
     pushbackX: 50
-    Unknown725: 1
+    hitEffectSlash: 1
     Unknown1108: 60
     storeValue: (VARIABLE), 338, (STATIC), 1000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -6827,9 +6826,9 @@ beginState: s32'AirBetaBlade'
     groundHitEffect: 12
     airHitEffect: 12
     hitAirPushbackX: 0, 15000
-    Unknown760: 0, 80, 0, 6, 0, 14
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 14
     hitAirPushbackY: 0, 45000
-    Unknown770: 0, 60, 0, 10, 0, 20
+    hitAirPushbackYOverTime: 0, 60, 0, 10, 0, 20
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 150, 0, 10, 0, 50
     upon: (HIT_OR_GUARD)
@@ -6842,7 +6841,7 @@ beginState: s32'AirBetaBlade'
     storeValue: (VARIABLE), 343, (STATIC), -300000
     storeValue: (VARIABLE), 344, (STATIC), 0
     storeValue: (VARIABLE), 345, (STATIC), 0
-    Unknown2581: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
+    overwriteLinkBone: s32'weapon', s32'G_weapon_root_ALL', s32'body', s32'G_wep_Attach_R'
     Unknown2526: 1, 1, 1, 0, 60, 5
     Unknown2591: 1, 1, 1, 0, 200, 5
     Unknown2169: 0
@@ -6857,7 +6856,7 @@ beginState: s32'AirBetaBlade'
     Unknown1211: s32'SE_BTL_CMN_Impact_Katana_L'
     endUpon: 
   sprite: s32'chp407_00', 3
-  createObject: s32'Step_mahojin', 100
+  createObject: s32'Step_mahojin', (PLAYER)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown111: 50
   Unknown116: 0
@@ -6866,19 +6865,19 @@ beginState: s32'AirBetaBlade'
   sprite: s32'chp407_01', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   sprite: s32'chp407_02', 2
-  createObject: s32'bataZanzo00_air', 100
+  createObject: s32'bataZanzo00_air', (PLAYER)
   hit: 
   randomVoiceLine: s16'vxxx208', s16'vxxx708'
   sprite: s32'chp407_03', 3
   deactivateObjectByName: s32'bataZanzo00_air'
-  createObject: s32'bataZanzo01', 100
+  createObject: s32'bataZanzo01', (PLAYER)
   setStrikeInvulnerable: 0
   hit: 
   clearRegisteredUponCode: (HIT_OR_GUARD)
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnMutekiRC'
   damage: 0, 26
-  Unknown725: 1
+  hitEffectSlash: 1
   Unknown1108: 60
   pushbackX: 50
   storeValue: (VARIABLE), 338, (STATIC), 1000
@@ -6947,8 +6946,8 @@ beginState: s32'GammaBlade'
   characterSfx: s32'SE_BTL_CHP_07'
   characterSfx: s32'SE_BTL_CHP_10'
   sprite: s32'chp410_04', 2
-  Unknown2193: 100, 80000, 0
-  createObject: s32'GammaBladeObj', 130
+  exPointFReset: (PLAYER), 80000, 0
+  createObject: s32'GammaBladeObj', (EX_POINT_F)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
   sprite: s32'chp410_05', 4
   sprite: s32'chp410_06', 4
@@ -6969,7 +6968,7 @@ beginState: s32'FBGammaBlade'
   sprite: s32'chp410_00', 4
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   sprite: s32'chp410_01', 4
   voiceLine: s16'vxxx211'
   sprite: s32'chp410_02', 3
@@ -6977,8 +6976,8 @@ beginState: s32'FBGammaBlade'
   characterSfx: s32'SE_BTL_CHP_07'
   characterSfx: s32'SE_BTL_CHP_10'
   sprite: s32'chp410_04', 3
-  Unknown2193: 100, 80000, 0
-  createObject: s32'FBGammaBladeObj', 100
+  exPointFReset: (PLAYER), 80000, 0
+  createObject: s32'FBGammaBladeObj', (PLAYER)
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
   sprite: s32'chp410_05', 3
   sprite: s32'chp410_06', 4
@@ -7036,7 +7035,7 @@ beginState: s32'Sushi'
   sprite: s32'chp404_06', 2
   hit: 
   physicsXImpulse: 0, 7000
-  createObject: s32'SushiTail', 124
+  createObject: s32'SushiTail', (FRONT_05_BODY)
   characterSfx: s32'SE_BTL_CHP_03'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
   sprite: s32'chp404_07', 3
@@ -7066,9 +7065,9 @@ beginState: s32'Sukiyaki'
     callSubroutine: s32'cmn_fuwafuwafuwaCounter'
     airCounterHitEffect: 13
     counterhitAirPushbackX: 0, 30000
-    Unknown761: 0, 80, 0, 6, 0, 10
+    counterHitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     counterhitAirPushbackY: 0, 30000
-    Unknown771: '0x000000003C0000000000000006000000000000000F000000'
+    counterHitAirPushbackYOverTime: 0, 60, 0, 6, 0, 15
     counterhitGravity: 0, 500
     counterHitGravityOverTime: 0, 100, 0, 10, 0, 30
     addGatlingOption: s32'Banzai'
@@ -7094,7 +7093,7 @@ beginState: s32'Sukiyaki'
   sprite: s32'chp405_04', 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   sprite: s32'chp405_05', 2
-  createObject: s32'SukiyakiZanzo', 100
+  createObject: s32'SukiyakiZanzo', (PLAYER)
   hit: 
   characterSfx: s32'SE_BTL_CHP_03'
   sprite: s32'chp405_06', 1
@@ -7128,9 +7127,9 @@ beginState: s32'Banzai'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 20000
-    Unknown760: 0, 80, 0, 6, 0, 10
+    hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, -100000
-    Unknown770: 0, 70, 0, 6, 0, 10
+    hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
     hitGravity: (STATIC), 0
     groundBounceGravity: 0
     hitGravityOverTime: 0, 80, 0, 18, 0, 38
@@ -7147,7 +7146,7 @@ beginState: s32'Banzai'
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
       extendPushboxX: 100000
-      Unknown2341: s32'Vertical', 800, 0, 30, s32'shake_easeout', 0
+      cameraShakeEX: s32'Vertical', 800, 0, 30, 1801545843, s32'e_easeout'
       endUpon: 
     endUpon: 
   sprite: s32'chp406_00', 2
@@ -7175,7 +7174,7 @@ beginState: s32'Banzai'
   cmnSfx: s32'SE_BTL_CMN_Swing_grap_Heavy_L'
   sprite: s32'chp406_10', 2
   sprite: s32'chp406_11', 6
-  createObject: s32'BanzaiZanzo', 100
+  createObject: s32'BanzaiZanzo', (PLAYER)
   hit: 
   characterSfx: s32'SE_BTL_CHP_05'
   sprite: s32'chp406_12', 2147483647
@@ -7223,7 +7222,7 @@ beginState: s32'Tobiagari'
   sprite: s32'chp423_07', 3
   characterSfx: s32'0'
   voiceLine: s16'vxxx213'
-  createObjectWithArg: s32'AlphaBradeSmokeAir', 130
+  createObjectWithArg: s32'AlphaBradeSmokeAir', (EX_POINT_F)
   physicsXImpulse: 0, 56000
   physicsYImpulse: 0, 38500
   setGravity: 0
@@ -7272,8 +7271,8 @@ beginState: s32'Genrouzan'
   physicsXImpulse: 0, 20000
   Unknown1975: -75000
   sprite: s32'chp408_10', 10
-  createObject: s32'Genrou_bake', 100
-  createObject: s32'GenrouLeaf', 100
+  createObject: s32'Genrou_bake', (PLAYER)
+  createObject: s32'GenrouLeaf', (PLAYER)
   multiplyAlphaColor: 0
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   characterSfx: s32'SE_BTL_CHP_00'
@@ -7309,7 +7308,7 @@ beginState: s32'FBWallGenrouzan'
   sprite: s32'chp408_00', 2
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 4, (STATIC), 0, (STATIC), 0, (STATIC), 0
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   sprite: s32'chp408_01', 2
   sprite: s32'chp408_02', 2
   sprite: s32'chp408_03', 2
@@ -7325,8 +7324,8 @@ beginState: s32'FBWallGenrouzan'
   physicsXImpulse: 0, -6000
   Unknown1975: -75000
   sprite: s32'chp408_10', 5
-  createObject: s32'Genrou_bake', 100
-  createObject: s32'GenrouLeaf', 100
+  createObject: s32'Genrou_bake', (PLAYER)
+  createObject: s32'GenrouLeaf', (PLAYER)
   multiplyAlphaColor: 0
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   characterSfx: s32'SE_BTL_CHP_00'
@@ -7355,13 +7354,13 @@ beginState: s32'GenrouzanExe'
     attackLevel: 4
     damage: 0, 20
     damage: 0, 10
-    Unknown729: 0
-    Unknown725: 1
-    Unknown1059: 1
+    hitEffectSpecial: 0
+    hitEffectSlash: 1
+    killType: 1
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 0
     hitAirPushbackY: 0, 140000
-    Unknown770: 0, 60, 0, 4, 0, 10
+    hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 10
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 500, 0, 18, 0, 56
     groundHitEffect: 12
@@ -7385,15 +7384,15 @@ beginState: s32'GenrouzanExe'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1110, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown2189: 0, 5
   Unknown544: 13
-  Unknown2193: 100, -112500, -210000
-  setGripPosition: 130, 100, 1
-  Unknown2341: s32'ShakeTateYoko', 400, 0, 32, s32'shake_easeout', 0
+  exPointFReset: (PLAYER), -112500, -210000
+  setGripPosition: (EX_POINT_F), (PLAYER), 1
+  cameraShakeEX: s32'ShakeTateYoko', 400, 0, 32, 1801545843, s32'e_easeout'
   sprite: s32'chp409_00', 24
   cmnSfx: s32'SE_BTL_CMN_Warp_Out'
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown232: 50000
-  Unknown2193: 100, -230000, 0
-  createObject: s32'Bunshin_Genrouzan', 130
+  exPointFReset: (PLAYER), -230000, 0
+  createObject: s32'Bunshin_Genrouzan', (EX_POINT_F)
   sprite: s32'chp409_01', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_L'
   sprite: s32'chp409_02', 3
@@ -7405,7 +7404,7 @@ beginState: s32'GenrouzanExe'
   setGravity: 1000
   Unknown232: 0
   Unknown2229: 95
-  Unknown2341: s32'Horizontal', 2200, 0, 24, s32'shake_easeout', 0
+  cameraShakeEX: s32'Horizontal', 2200, 0, 24, 1801545843, s32'e_easeout'
   storeValue: (VARIABLE), 45, (STATIC), 1300000
   storeValue: (VARIABLE), 46, (STATIC), 1
   storeValue: (VARIABLE), 47, (STATIC), 1
@@ -7415,7 +7414,7 @@ beginState: s32'GenrouzanExe'
   sprite: s32'chp409_03', 3
   sprite: s32'chp409_04', 4
   sprite: s32'chp409_05', 4
-  createObject: s32'Cam_GenrouzanX', 100
+  createObject: s32'Cam_GenrouzanX', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp409_06', 4
   sprite: s32'chp409_07', 4
@@ -7459,8 +7458,8 @@ beginState: s32'GenrouzanExe'
   sprite: s32'chp403_09', 3
   sprite: s32'chp403_10', 6
   sprite: s32'chp403_11', 6
-  Unknown2193: 100, 400000, 0
-  createParticle: s32'bg_brakelong', 130
+  exPointFReset: (PLAYER), 400000, 0
+  createParticle: s32'bg_brakelong', (EX_POINT_F)
   sprite: s32'chp403_12', 5
   sprite: s32'chp616_08', 4
   voiceLine: s16'vxxx210'
@@ -7469,7 +7468,7 @@ beginState: s32'GenrouzanExe'
   sprite: s32'chp616_11', 4
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   sprite: s32'chp616_12', 6
-  createParticle: s32'chp_efflight_explosion', 100
+  createParticle: s32'chp_efflight_explosion', (PLAYER)
   grabOrRelease: 
   damage: 0, 67
   damage: 0, 87
@@ -7477,12 +7476,12 @@ beginState: s32'GenrouzanExe'
   hitAirPushbackY: 0, -10000
   hitGravity: (STATIC), 2000
   hitSoftKnockdown: 0
-  Unknown725: 0
+  hitEffectSlash: 0
   Unknown1045: 2, s32'cmn_explosion_m'
   hitStop: 10
   disableHitstop: 0
   airHitEffect: (AIR_STRONG)
-  Unknown1059: 0
+  killType: 0
   Unknown1064: s32''
   Unknown1067: 4, -260000, 270000
   redRomanCancelTime: 0
@@ -7490,7 +7489,7 @@ beginState: s32'GenrouzanExe'
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   upon: (HIT_OR_GUARD)
-    Unknown2341: s32'Depth', 3200, 0, 36, s32'shake_easeout', 0
+    cameraShakeEX: s32'Depth', 3200, 0, 36, 1801545843, s32'e_easeout'
     endUpon: 
   Unknown1165: s32'Genrouzan'
   sprite: s32'chp616_13', 6
@@ -7517,13 +7516,13 @@ beginState: s32'WallFBGenrouzanExe'
     attackLevel: 4
     damage: 0, 15
     damage: 0, 15
-    Unknown729: 0
-    Unknown725: 1
-    Unknown1059: 1
+    hitEffectSpecial: 0
+    hitEffectSlash: 1
+    killType: 1
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 0
     hitAirPushbackY: 0, 140000
-    Unknown770: 0, 60, 0, 4, 0, 10
+    hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 10
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 500, 0, 18, 0, 56
     groundHitEffect: 12
@@ -7547,15 +7546,15 @@ beginState: s32'WallFBGenrouzanExe'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1110, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown2189: 0, 5
   Unknown544: 13
-  Unknown2193: 100, -112500, -210000
-  setGripPosition: 130, 100, 1
-  Unknown2341: s32'ShakeTateYoko', 400, 0, 32, s32'shake_easeout', 0
+  exPointFReset: (PLAYER), -112500, -210000
+  setGripPosition: (EX_POINT_F), (PLAYER), 1
+  cameraShakeEX: s32'ShakeTateYoko', 400, 0, 32, 1801545843, s32'e_easeout'
   sprite: s32'chp409_00', 24
   cmnSfx: s32'SE_BTL_CMN_Warp_Out'
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown232: 50000
-  Unknown2193: 100, -230000, 0
-  createObject: s32'Bunshin_Genrouzan', 130
+  exPointFReset: (PLAYER), -230000, 0
+  createObject: s32'Bunshin_Genrouzan', (EX_POINT_F)
   sprite: s32'chp409_01', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_L'
   sprite: s32'chp409_02', 3
@@ -7567,7 +7566,7 @@ beginState: s32'WallFBGenrouzanExe'
   setGravity: 1000
   Unknown232: 0
   Unknown2229: 95
-  Unknown2341: s32'Horizontal', 2200, 0, 24, s32'shake_easeout', 0
+  cameraShakeEX: s32'Horizontal', 2200, 0, 24, 1801545843, s32'e_easeout'
   storeValue: (VARIABLE), 45, (STATIC), 1300000
   storeValue: (VARIABLE), 46, (STATIC), 1
   storeValue: (VARIABLE), 47, (STATIC), 1
@@ -7577,7 +7576,7 @@ beginState: s32'WallFBGenrouzanExe'
   sprite: s32'chp409_03', 3
   sprite: s32'chp409_04', 4
   sprite: s32'chp409_05', 4
-  createObject: s32'Cam_GenrouzanX', 100
+  createObject: s32'Cam_GenrouzanX', (PLAYER)
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'chp409_06', 4
   sprite: s32'chp409_07', 4
@@ -7621,8 +7620,8 @@ beginState: s32'WallFBGenrouzanExe'
   sprite: s32'chp403_09', 3
   sprite: s32'chp403_10', 6
   sprite: s32'chp403_11', 6
-  Unknown2193: 100, 400000, 0
-  createParticle: s32'bg_brakelong', 130
+  exPointFReset: (PLAYER), 400000, 0
+  createParticle: s32'bg_brakelong', (EX_POINT_F)
   sprite: s32'chp403_12', 5
   sprite: s32'chp616_08', 4
   voiceLine: s16'vxxx210'
@@ -7631,7 +7630,7 @@ beginState: s32'WallFBGenrouzanExe'
   sprite: s32'chp616_11', 4
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   sprite: s32'chp616_12', 6
-  createParticle: s32'chp_efflight_explosion', 100
+  createParticle: s32'chp_efflight_explosion', (PLAYER)
   grabOrRelease: 
   damage: 0, 40
   damage: 0, 40
@@ -7639,12 +7638,12 @@ beginState: s32'WallFBGenrouzanExe'
   hitAirPushbackY: 0, -10000
   hitGravity: (STATIC), 2000
   hitSoftKnockdown: 0
-  Unknown725: 0
+  hitEffectSlash: 0
   Unknown1045: 2, s32'cmn_explosion_m'
   hitStop: 10
   disableHitstop: 0
   airHitEffect: (AIR_STRONG)
-  Unknown1059: 0
+  killType: 0
   Unknown1064: s32''
   Unknown1067: 4, -260000, 270000
   redRomanCancelTime: 0
@@ -7652,7 +7651,7 @@ beginState: s32'WallFBGenrouzanExe'
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   upon: (HIT_OR_GUARD)
-    Unknown2341: s32'Depth', 3200, 0, 36, s32'shake_easeout', 0
+    cameraShakeEX: s32'Depth', 3200, 0, 36, 1801545843, s32'e_easeout'
     endUpon: 
   Unknown1165: s32'Genrouzan'
   sprite: s32'chp616_13', 6
@@ -7686,8 +7685,8 @@ beginState: s32'Shuriken'
   sprite: s32'chp412_02', 8
   voiceLine: s16'vxxx212'
   sprite: s32'chp412_03', 2
-  Unknown2193: 100, 80000, 260000
-  createObject: s32'ShurikenObj1', 130
+  exPointFReset: (PLAYER), 80000, 260000
+  createObject: s32'ShurikenObj1', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   characterSfx: s32'SE_BTL_CHP_04'
   sprite: s32'chp412_04', 5
@@ -7706,7 +7705,7 @@ beginState: s32'Shuriken'
 beginState: s32'HaritsukiL_wall'
   upon: (IMMEDIATE)
     Unknown241: 
-    Unknown2203: 0
+    autoAirTurn: 0
     Unknown2172: 0
     storeValue: (VARIABLE), 4, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 0
@@ -7733,7 +7732,7 @@ beginState: s32'HaritsukiL_wall'
 beginState: s32'HaritsukiR_wall'
   upon: (IMMEDIATE)
     Unknown242: 
-    Unknown2203: 0
+    autoAirTurn: 0
     Unknown2172: 0
     storeValue: (VARIABLE), 4, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 0
@@ -7760,7 +7759,7 @@ beginState: s32'HaritsukiR_wall'
 beginState: s32'HaritsukiL_Landwall'
   upon: (IMMEDIATE)
     Unknown241: 
-    Unknown2203: 0
+    autoAirTurn: 0
     Unknown2172: 0
     storeValue: (VARIABLE), 4, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 0
@@ -7785,7 +7784,7 @@ beginState: s32'HaritsukiL_Landwall'
 beginState: s32'HaritsukiR_Landwall'
   upon: (IMMEDIATE)
     Unknown242: 
-    Unknown2203: 0
+    autoAirTurn: 0
     Unknown2172: 0
     storeValue: (VARIABLE), 4, (STATIC), 1
     storeValue: (VARIABLE), 56, (STATIC), 0
@@ -7808,7 +7807,7 @@ beginState: s32'HaritsukiR_Landwall'
 
 beginState: s32'WallRun'
   upon: (IMMEDIATE)
-    Unknown2203: 1
+    autoAirTurn: 1
     ignorePushback: 1
     enableRomanCancelMove: 1
     Unknown2249: 0
@@ -7897,7 +7896,7 @@ beginState: s32'WallRun'
 
 beginState: s32'WallRun_land'
   upon: (IMMEDIATE)
-    Unknown2203: 1
+    autoAirTurn: 1
     ignorePushback: 1
     enableRomanCancelMove: 1
     Unknown2249: 0
@@ -7993,7 +7992,7 @@ beginState: s32'WallRun_6P'
     damage: 0, 31
     Unknown1108: 90
     Unknown1203: 0
-    Unknown729: 0
+    hitEffectSpecial: 0
     Unknown1051: 0
     ignorePushback: 1
     Unknown1003: 1
@@ -8007,9 +8006,9 @@ beginState: s32'WallRun_6P'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, -3000
-    Unknown760: 0, 80, 0, 10, 0, 15
+    hitAirPushbackXOverTime: 0, 80, 0, 10, 0, 15
     hitAirPushbackY: 0, 80000
-    Unknown770: 0, 80, 0, 5, 0, 15
+    hitAirPushbackYOverTime: 0, 80, 0, 5, 0, 15
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 100, 0, 10, 0, 30
     setNoCollision: 0
@@ -8024,7 +8023,7 @@ beginState: s32'WallRun_6P'
       clearRegisteredUponCode: 90
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 56, (STATIC), 1
-      createObject: s32'Camera_WallRun', 100
+      createObject: s32'Camera_WallRun', (PLAYER)
       endUpon: 
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), 100000
@@ -8038,12 +8037,12 @@ beginState: s32'WallRun_6P'
   sprite: s32'chp428_02', 3
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   sprite: s32'chp428_03', 3
-  createObject: s32'210atk1_wall', 100
+  createObject: s32'210atk1_wall', (PLAYER)
   hit: 
   sprite: s32'chp428_04', 6
   recoveryState: 
   deactivateObjectByName: s32'210atk1_wall'
-  createObject: s32'210atk2_wall', 100
+  createObject: s32'210atk2_wall', (PLAYER)
   Unknown116: 60
   sprite: s32'chp428_05', 5
   sprite: s32'chp428_06', 3
@@ -8070,7 +8069,7 @@ beginState: s32'WallRun_K'
     damage: 0, 28
     Unknown1108: 90
     Unknown1203: 0
-    Unknown729: 0
+    hitEffectSpecial: 0
     Unknown1051: 0
     ignorePushback: 1
     Unknown1003: 1
@@ -8084,9 +8083,9 @@ beginState: s32'WallRun_K'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, -7000
-    Unknown760: 0, 80, 0, 10, 0, 15
+    hitAirPushbackXOverTime: 0, 80, 0, 10, 0, 15
     hitAirPushbackY: 0, 100000
-    Unknown770: 0, 80, 0, 5, 0, 15
+    hitAirPushbackYOverTime: 0, 80, 0, 5, 0, 15
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 100, 0, 5, 0, 30
     setNoCollision: 0
@@ -8102,7 +8101,7 @@ beginState: s32'WallRun_K'
       clearRegisteredUponCode: 90
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 56, (STATIC), 1
-      createObject: s32'Camera_WallRun', 100
+      createObject: s32'Camera_WallRun', (PLAYER)
       endUpon: 
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), 100000
@@ -8117,11 +8116,11 @@ beginState: s32'WallRun_K'
   sprite: s32'chp424_03', 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'chp424_04', 1
-  createObject: s32'201atk1_wall', 100
+  createObject: s32'201atk1_wall', (PLAYER)
   hit: 
   sprite: s32'chp424_05', 4
   deactivateObjectByName: s32'201atk1_wall'
-  createObject: s32'201atk2_wall', 100
+  createObject: s32'201atk2_wall', (PLAYER)
   enableWhiffCancel: 1
   Unknown116: 60
   sprite: s32'chp424_06', 2
@@ -8151,8 +8150,8 @@ beginState: s32'WallRun_S'
     damage: 0, 45
     Unknown1108: 90
     Unknown1203: 0
-    Unknown729: 0
-    Unknown725: 1
+    hitEffectSpecial: 0
+    hitEffectSlash: 1
     Unknown1051: 0
     ignorePushback: 1
     Unknown1003: 1
@@ -8166,9 +8165,9 @@ beginState: s32'WallRun_S'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, -7000
-    Unknown760: 0, 80, 0, 10, 0, 15
+    hitAirPushbackXOverTime: 0, 80, 0, 10, 0, 15
     hitAirPushbackY: 0, 100000
-    Unknown770: 0, 70, 0, 5, 0, 15
+    hitAirPushbackYOverTime: 0, 70, 0, 5, 0, 15
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 100, 0, 10, 0, 30
     setNoCollision: 0
@@ -8182,7 +8181,7 @@ beginState: s32'WallRun_S'
       clearRegisteredUponCode: 90
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 56, (STATIC), 1
-      createObject: s32'Camera_WallRun', 100
+      createObject: s32'Camera_WallRun', (PLAYER)
       endUpon: 
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), 100000
@@ -8195,7 +8194,7 @@ beginState: s32'WallRun_S'
   sprite: s32'chp425_01', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_S'
   sprite: s32'chp425_02', 2
-  createObject: s32'202atk_wall', 100
+  createObject: s32'202atk_wall', (PLAYER)
   hit: 
   sprite: s32'chp425_03', 3
   Unknown2173: 
@@ -8224,9 +8223,9 @@ beginState: s32'WallRun_SFar'
     damage: 0, 36
     Unknown1108: 90
     Unknown1203: 0
-    Unknown729: 0
-    Unknown725: 1
-    Unknown2171: 1
+    hitEffectSpecial: 0
+    hitEffectSlash: 1
+    enableFarSlash: 1
     Unknown1051: 0
     ignorePushback: 1
     Unknown1003: 1
@@ -8240,9 +8239,9 @@ beginState: s32'WallRun_SFar'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, -7000
-    Unknown760: 0, 80, 0, 10, 0, 15
+    hitAirPushbackXOverTime: 0, 80, 0, 10, 0, 15
     hitAirPushbackY: 0, 100000
-    Unknown770: 0, 80, 0, 5, 0, 15
+    hitAirPushbackYOverTime: 0, 80, 0, 5, 0, 15
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 100, 0, 10, 0, 30
     setNoCollision: 0
@@ -8253,7 +8252,7 @@ beginState: s32'WallRun_SFar'
       clearRegisteredUponCode: 90
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 56, (STATIC), 1
-      createObject: s32'Camera_WallRun', 100
+      createObject: s32'Camera_WallRun', (PLAYER)
       endUpon: 
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), 100000
@@ -8267,11 +8266,11 @@ beginState: s32'WallRun_SFar'
   sprite: s32'chp426_02', 1
   sprite: s32'chp426_03', 2
   sprite: s32'chp426_04', 1
-  Unknown2193: 100, 300000, 0
+  exPointFReset: (PLAYER), 300000, 0
   Unknown2177: 0, 130
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_M'
   sprite: s32'chp426_05', 2
-  createObject: s32'203atk_wall', 100
+  createObject: s32'203atk_wall', (PLAYER)
   hit: 
   sprite: s32'chp426_06', 1
   sprite: s32'chp426_07', 4
@@ -8301,7 +8300,7 @@ beginState: s32'WallRun_HS'
     damage: 0, 50
     Unknown1108: 90
     Unknown1203: 0
-    Unknown729: 0
+    hitEffectSpecial: 0
     Unknown1051: 0
     ignorePushback: 1
     Unknown1003: 1
@@ -8315,9 +8314,9 @@ beginState: s32'WallRun_HS'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, -12000
-    Unknown760: 0, 80, 0, 10, 0, 15
+    hitAirPushbackXOverTime: 0, 80, 0, 10, 0, 15
     hitAirPushbackY: 0, 100000
-    Unknown770: 0, 80, 0, 5, 0, 15
+    hitAirPushbackYOverTime: 0, 80, 0, 5, 0, 15
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 100, 0, 10, 0, 30
     setNoCollision: 0
@@ -8327,7 +8326,7 @@ beginState: s32'WallRun_HS'
       clearRegisteredUponCode: 90
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 56, (STATIC), 1
-      createObject: s32'Camera_WallRun', 100
+      createObject: s32'Camera_WallRun', (PLAYER)
       endUpon: 
     Unknown953: 2
     storeValue: (VARIABLE), 343, (STATIC), 50000
@@ -8371,8 +8370,8 @@ beginState: s32'WallRun_6HS'
     callSubroutine: s32'cmn_AtkLv4'
     damage: 0, 72
     Unknown1203: 0
-    Unknown729: 0
-    Unknown725: 1
+    hitEffectSpecial: 0
+    hitEffectSlash: 1
     Unknown1051: 0
     ignorePushback: 1
     Unknown1003: 1
@@ -8397,7 +8396,7 @@ beginState: s32'WallRun_6HS'
       clearRegisteredUponCode: 90
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 56, (STATIC), 1
-      createObject: s32'Camera_WallRun', 100
+      createObject: s32'Camera_WallRun', (PLAYER)
       endUpon: 
     Unknown953: 1
     storeValue: (VARIABLE), 343, (STATIC), 100000
@@ -8414,7 +8413,7 @@ beginState: s32'WallRun_6HS'
   sprite: s32'chp429_05', 2
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_L'
   sprite: s32'chp429_06', 3
-  createObject: s32'213atk_wall', 100
+  createObject: s32'213atk_wall', (PLAYER)
   hit: 
   Unknown2177: 0, 100
   sprite: s32'chp429_07', 3
@@ -8437,12 +8436,12 @@ beginState: s32'WallRun_6HS'
 beginState: s32'WallRun_jump'
   upon: (IMMEDIATE)
     ignorePushback: 1
-    Unknown1821: -1
+    addDoubleJumpCount: -1
     Unknown287: 1
     Unknown268: 1
     setNoCollision: 0
     flipDirection: 
-    Unknown2203: 1
+    autoAirTurn: 1
     Unknown2249: 0
     recoveryState: 
     upon: (BEFORE_EXIT)
@@ -8460,7 +8459,7 @@ beginState: s32'WallRun_jump'
   physicsXImpulse: 0, 6000
   physicsYImpulse: 0, 15000
   Unknown139: 15000
-  Unknown135: 
+  resetGravity: 
   setNoCollision: 1
   sprite: s32'chp422_04', 3
   enableNormals: 1
@@ -8480,7 +8479,7 @@ beginState: s32'WallRun_jump'
   sprite: s32'chp020_08', 2
   physicsXImpulse: 0, 5000
   physicsYImpulse: 0, 10000
-  Unknown135: 
+  resetGravity: 
   sprite: s32'keep', 1
   jumpToState: s32'_NEUTRAL'
   endState: 
@@ -8495,7 +8494,7 @@ beginState: s32'WarpA'
   sprite: s32'chp412_01', 2
   sprite: s32'chp412_02', 2
   sprite: s32'chp412_03', 2
-  Unknown338: 0
+  multiplyAlphaColor: 0
   setStrikeInvulnerable: 1
   physicsXImpulse: 0, 0
   setNoCollision: 0
@@ -8506,7 +8505,7 @@ beginState: s32'WarpA'
   setNoCollision: 1
   recoveryState: 
   physicsXImpulse: 0, 0
-  Unknown338: 255
+  multiplyAlphaColor: 255
   setStrikeInvulnerable: 0
   enableRomanCancelMove: 1
   sprite: s32'chp412_08', 2
@@ -8524,7 +8523,7 @@ beginState: s32'WarpB'
   sprite: s32'chp413_02', 2
   sprite: s32'chp413_03', 2
   sprite: s32'chp413_04', 3
-  Unknown338: 0
+  multiplyAlphaColor: 0
   setStrikeInvulnerable: 1
   physicsXImpulse: 0, 350000
   setNoCollision: 0
@@ -8532,7 +8531,7 @@ beginState: s32'WarpB'
   setNoCollision: 1
   recoveryState: 
   physicsXImpulse: 0, 0
-  Unknown338: 255
+  multiplyAlphaColor: 255
   setStrikeInvulnerable: 0
   enableRomanCancelMove: 1
   sprite: s32'chp413_06', 2
@@ -8561,24 +8560,24 @@ beginState: s32'WarpC'
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   sprite: s32'chp020_01', 2
   sprite: s32'chp020_02', 2
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   sprite: s32'chp020_02', 3
   recoveryState: 
   callPrivateFunction: s32'chp_WarpD', 0, 80, 0, 200, 0, 25, 0, 0
   setStrikeInvulnerable: 1
-  Unknown338: 0
+  multiplyAlphaColor: 0
   setNoCollision: 0
   sprite: s32'chp020_08', 2
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   setNoCollision: 1
   physicsXImpulse: 0, 3500
   physicsYImpulse: 0, 21350
   setGravity: 1925
   setStrikeInvulnerable: 0
-  Unknown338: 255
+  multiplyAlphaColor: 255
   enableRomanCancelMove: 1
-  ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 18, 0, 380000
-    Unknown98: 380000
+  ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 18, (STATIC), 380000
+    setPositionY: 380000
     endIf: 
   sprite: s32'chp020_09', 2
   Unknown1648: 1
@@ -8602,25 +8601,25 @@ beginState: s32'WarpD'
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   sprite: s32'chp020_01', 2
   sprite: s32'chp020_02', 2
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   sprite: s32'chp020_02', 3
   recoveryState: 
   callPrivateFunction: s32'chp_WarpD', 0, -250, 0, 200, 0, 25, 0, 0
   setStrikeInvulnerable: 1
-  Unknown338: 0
+  multiplyAlphaColor: 0
   setNoCollision: 0
   sprite: s32'chp020_08', 2
-  createObject: s32'Warpjump1', 103
+  createObject: s32'Warpjump1', (CENTER)
   flipDirection: 
   setNoCollision: 1
   physicsXImpulse: 0, 3500
-  ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 21, 0, 110000
+  ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 21, (STATIC), 110000
     physicsXImpulse: 0, -3500
     endIf: 
   physicsYImpulse: 0, 21350
   setGravity: 1925
   setStrikeInvulnerable: 0
-  Unknown338: 255
+  multiplyAlphaColor: 255
   enableRomanCancelMove: 1
   sprite: s32'chp020_09', 2
   sprite: s32'chp020_14', 2
@@ -8633,7 +8632,7 @@ beginSubroutine: s32'ZanseiRouga_atk'
   damage: 0, 10
   Unknown1067: 4, 250000, 0
   disableHitstop: 1
-  Unknown725: 1
+  hitEffectSlash: 1
   Unknown1166: 1
   Unknown1045: 4, s32'cmn_explosion'
   Unknown1108: 30
@@ -8650,7 +8649,7 @@ beginSubroutine: s32'ZanseiRouga_atk'
   hitAirPushbackY: 0, 30000
   hitGravity: (STATIC), 2000
   callSubroutine: s32'cmnNohosei_kakusei'
-  Unknown1059: 1
+  killType: 1
   checkCurrentStateEntryName: s32'ZanseiRouga_air'
   if: (VARIABLE), 0
     Unknown1165: s32'AirZanseiRouga'
@@ -8663,7 +8662,7 @@ beginState: s32'ZanseiRouga'
     damage: 0, 10
     Unknown1067: 4, 250000, 0
     disableHitstop: 1
-    Unknown725: 1
+    hitEffectSlash: 1
     Unknown1166: 1
     Unknown1045: 4, s32'cmn_explosion'
     Unknown1108: 30
@@ -8681,12 +8680,12 @@ beginState: s32'ZanseiRouga'
     hitAirPushbackY: 0, 30000
     hitGravity: (STATIC), 2000
     callSubroutine: s32'cmnNohosei_kakusei'
-    Unknown1059: 1
+    killType: 1
     pauseTimer: 1
     checkCurrentStateEntryName: s32'ZanseiRouga_air'
     if: (VARIABLE), 0
       Unknown2279: 0, 1, 0, 0
-      createObjectWithArg: s32'Step_mahojin', 100
+      createObjectWithArg: s32'Step_mahojin', (PLAYER)
       endIf: 
     Unknown2526: 0, 0, 0, 0, 0, 0
     Unknown2591: 0, 0, 0, 0, 0, 0
@@ -8728,10 +8727,10 @@ beginState: s32'ZanseiRouga'
     clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnWorldStop_Tension'
-    createParticle: s32'cmn_kakusei_hatudo', 103
+    createParticle: s32'cmn_kakusei_hatudo', (CENTER)
     cmnSfx: s32'SE_BTL_SYS_Skill'
     Unknown2189: 2, 5
-    createObject: s32'Cam_ZanseiRouga', 100
+    createObject: s32'Cam_ZanseiRouga', (PLAYER)
     endUpon: 
   endLabel: 
   setNoCollision: 0
@@ -8743,7 +8742,7 @@ beginState: s32'ZanseiRouga'
   hit: 
   displayModel: 1
   deactivateObjectByName: s32'Zansei_dash'
-  createObject: s32'Zansei_dash', 100
+  createObject: s32'Zansei_dash', (PLAYER)
   callPrivateFunction: s32'chp_ZanseiSpeedY', 0, 0, 0, 0, 0, 0, 0, 0
   physicsXImpulse: 0, 50000
   addVelocityY: 0, 5000
@@ -8752,7 +8751,7 @@ beginState: s32'ZanseiRouga'
   modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
   upon: 78
     clearRegisteredUponCode: 78
-    Unknown2341: s32'Horizontal', 1000, 0, 10, s32'shake_easeout', 0
+    cameraShakeEX: s32'Horizontal', 1000, 0, 10, 1801545843, s32'e_easeout'
     upon: (SCREEN_COLLISION)
       clearRegisteredUponCode: (SCREEN_COLLISION)
       flipDirection: 
@@ -8771,10 +8770,10 @@ beginState: s32'ZanseiRouga'
       endIf: 
     endUpon: 
   upon: 90
-    Unknown1059: 1
+    killType: 1
     endUpon: 
   upon: 86
-    Unknown1059: 0
+    killType: 0
     endUpon: 
   sprite: s32'chp500_05', 1
   physicsXImpulse: 0, 125000
@@ -8804,7 +8803,7 @@ beginState: s32'ZanseiRouga'
   displayModel: 1
   recoveryState: 
   Unknown2229: 85
-  Unknown135: 
+  resetGravity: 
   Unknown2169: 0
   upon: (TOUCH_GROUND)
     Unknown14: s32'end_landing'
@@ -8829,7 +8828,7 @@ beginState: s32'ZanseiRouga'
   sprite: s32'chp500_05', 2
   displayModel: 1
   deactivateObjectByName: s32'Zansei_dash'
-  createObject: s32'Zansei_dash', 100
+  createObject: s32'Zansei_dash', (PLAYER)
   callPrivateFunction: s32'chp_ZanseiSpeedY', 0, 0, 0, 0, 0, 0, 0, 0
   physicsXImpulse: 0, 50000
   addVelocityY: 0, 5000
@@ -8856,7 +8855,7 @@ beginState: s32'ZanseiRouga'
   storeValue: (VARIABLE), 48, (STATIC), 0
   upon: 78
     clearRegisteredUponCode: 78
-    Unknown2341: s32'Horizontal', 1000, 0, 10, s32'shake_easeout', 0
+    cameraShakeEX: s32'Horizontal', 1000, 0, 10, 1801545843, s32'e_easeout'
     enableRomanCancelMove: 0
     Unknown2188: 1
     storeValue: (VARIABLE), 48, (STATIC), 1
@@ -8881,7 +8880,7 @@ beginState: s32'ZanseiRouga'
   sprite: s32'chp500_05', 3
   displayModel: 1
   deactivateObjectByName: s32'Zansei_dash'
-  createObject: s32'Zansei_dash', 100
+  createObject: s32'Zansei_dash', (PLAYER)
   callPrivateFunction: s32'chp_ZanseiSpeedY', 0, 0, 0, 0, 0, 0, 0, 0
   physicsXImpulse: 0, 50000
   addVelocityY: 0, 5000
@@ -8896,11 +8895,11 @@ beginState: s32'ZanseiRouga'
     setNoCollision: 0
     Unknown2188: 1
     Unknown2560: 1
-    Unknown1972: 1
+    hideUI: 1
     resetCamera: 
     swapMeshSet: s32'500cs'
-    Unknown2045: s32'chp500cs', 0
-    Unknown2052: s32'chp500cs', 23, 0, 0
+    playAnimation: s32'chp500cs', 0
+    playCameraAnimation: s32'chp500cs', 23, 0, 0
     resetDOF: 1, 1
     Unknown412: -1, 1000, 0
     Unknown413: -1, 1000, 0
@@ -8947,16 +8946,16 @@ beginState: s32'ZanseiRouga'
         Unknown40: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
-        createObject: s32'CS500_hit01', 100
+        createObject: s32'CS500_hit01', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 52
-        createObject: s32'CS500_hit02', 100
+        createObject: s32'CS500_hit02', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 119
-        createObject: s32'CS500_scr01', 100
+        createObject: s32'CS500_scr01', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 122
-        createObject: s32'CS500_hit03', 100
+        createObject: s32'CS500_hit03', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 140
         Unknown2589: s32'Kakusei_ryuhai1', 1, 15
@@ -9124,7 +9123,7 @@ beginState: s32'ZanseiRouga'
   sprite: s32'chp500_13', 2147483647
   callSubroutineWithArgs: s32'cmnCameraSettings', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
   enableSuperArmor: 1
-  createObject: s32'Zansei_atk', 100
+  createObject: s32'Zansei_atk', (PLAYER)
   physicsYImpulse: 0, -150000
   hit: 
   callSubroutine: s32'cmn_AtkLv4'
@@ -9132,7 +9131,7 @@ beginState: s32'ZanseiRouga'
   hitStop: 30
   disableHitstopForSelf: 1
   tensionGainOnConnect: 0
-  Unknown725: 1
+  hitEffectSlash: 1
   hitSoftKnockdown: 0
   Unknown1061: 1
   Unknown1018: 1
@@ -9140,7 +9139,7 @@ beginState: s32'ZanseiRouga'
   redRomanCancelTime: 10
   Unknown1094: 1
   Unknown1108: -90
-  Unknown1151: 1
+  noFinishCamera: 1
   Unknown232: 70000
   flipDirection: 
   Unknown2189: 2, 5
@@ -9149,7 +9148,7 @@ beginState: s32'ZanseiRouga'
   storeValue: (VARIABLE), 340, (STATIC), 1
   callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmnNohosei_kakusei'
-  Unknown1059: 0
+  killType: 0
   groundHitEffect: (AIR_FACE_UP)
   airHitEffect: (AIR_FACE_UP)
   hitAirPushbackY: 0, -50000
@@ -9165,15 +9164,15 @@ beginState: s32'ZanseiRouga'
     Unknown14: s32'landing'
     endUpon: 
   Unknown2277: 1
-  createObjectWithArg: s32'Cam_ZanseiRouga_End', 123
+  createObjectWithArg: s32'Cam_ZanseiRouga_End', (PLAYER_LAND)
   Unknown2526: 1, 1, 1, 0, 60, 5
   Unknown2591: 1, 1, 1, 0, 200, 5
   endLabel: 
   beginLabel: s32'landing'
   sprite: s32'chp500_14', 10
-  Unknown2341: s32'Impact', 2700, 0, 40, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 2700, 0, 40, 1801545843, s32'e_easeout'
   setNoCollision: 1
-  Unknown2341: s32'Vertical', 24000, 0, 48, s32'shake_easeout', 0
+  cameraShakeEX: s32'Vertical', 24000, 0, 48, 1801545843, s32'e_easeout'
   recoveryState: 
   sprite: s32'chp500_15', 6
   voiceLine: s16'vxxx251'
@@ -9195,7 +9194,7 @@ beginSubroutine: s32'BankiMessai_atk'
   Unknown1027: 500000, 0, 350000, 0
   Unknown1018: 1
   hitSoftKnockdown: 0
-  Unknown1059: 1
+  killType: 1
   storeValue: (VARIABLE), 338, (STATIC), 1000000000
   storeValue: (VARIABLE), 339, (STATIC), 0
   storeValue: (VARIABLE), 340, (STATIC), 1
@@ -9219,7 +9218,7 @@ beginState: s32'BankiMessai'
     Unknown1027: 500000, 0, 350000, 0
     Unknown1018: 1
     hitSoftKnockdown: 0
-    Unknown1059: 1
+    killType: 1
     Unknown2249: 0
     storeValue: (VARIABLE), 338, (STATIC), 1000000000
     storeValue: (VARIABLE), 339, (STATIC), 0
@@ -9253,18 +9252,18 @@ beginState: s32'BankiMessai'
           clearRegisteredUponCode: 42
           if: (VARIABLE), 16
             ifNot: (VARIABLE), 368
-              createObject: s32'Cam_Banki_Stay', 100
+              createObject: s32'Cam_Banki_Stay', (PLAYER)
               endIf: 
             endIf: 
           endIf: 
         endUpon: 
-      Unknown1059: 1
+      killType: 1
       upon: 90
-        Unknown1059: 1
+        killType: 1
         endUpon: 
       endUpon: 
     upon: 86
-      Unknown1059: 0
+      killType: 0
       endUpon: 
     Unknown2189: 2, 5
     upon: (WALL_BREAK)
@@ -9289,11 +9288,11 @@ beginState: s32'BankiMessai'
     clearRegisteredUponCode: (SUPERFREEZE)
     callSubroutine: s32'cmnWorldStop_Start'
     callSubroutine: s32'cmnWorldStop_Tension'
-    Unknown2193: 100, -40000, 230000
-    createParticle: s32'cmn_kakusei_hatudo', 130
+    exPointFReset: (PLAYER), -40000, 230000
+    createParticle: s32'cmn_kakusei_hatudo', (EX_POINT_F)
     cmnSfx: s32'SE_BTL_SYS_Skill'
     voiceLine: s16'vxxx252'
-    createObject: s32'Cam_Banki_Start', 100
+    createObject: s32'Cam_Banki_Start', (PLAYER)
     endUpon: 
   sprite: s32'chp501_04', 3
   sprite: s32'chp501_05', 3
@@ -9347,7 +9346,7 @@ beginState: s32'BankiMessai'
   else: 
     Unknown1067: 1, 260000, 0
     endElse: 
-  createObject: s32'200atk1', 100
+  createObject: s32'200atk1', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   storeValue: (VARIABLE), 45, (STATIC), 1300000
   storeValue: (VARIABLE), 46, (STATIC), 3
@@ -9357,7 +9356,7 @@ beginState: s32'BankiMessai'
   callSubroutine: s32'cmnThrowPosition_F_Wall'
   sprite: s32'chp200_03', 1
   deactivateObjectByName: s32'200atk1'
-  createObject: s32'200atk2', 100
+  createObject: s32'200atk2', (PLAYER)
   Unknown1915: 
   sprite: s32'chp200_04', 1
   sprite: s32'chp200_05', 1
@@ -9369,10 +9368,10 @@ beginState: s32'BankiMessai'
   callSubroutine: s32'BankiMessai_atk'
   hit: 
   Unknown1067: 0, 0, 0
-  createObject: s32'210atk1', 100
+  createObject: s32'210atk1', (PLAYER)
   sprite: s32'chp210_04', 1
   deactivateObjectByName: s32'210atk1'
-  createObject: s32'210atk2', 100
+  createObject: s32'210atk2', (PLAYER)
   sprite: s32'chp210_05', 1
   Unknown1915: 
   sprite: s32'chp210_06', 1
@@ -9385,8 +9384,8 @@ beginState: s32'BankiMessai'
   sprite: s32'chp202_02', 2
   callSubroutine: s32'BankiMessai_atk'
   hit: 
-  Unknown725: 1
-  createObject: s32'202atk', 100
+  hitEffectSlash: 1
+  createObject: s32'202atk', (PLAYER)
   sprite: s32'chp202_03', 1
   Unknown1915: 
   sprite: s32'chp202_04', 1
@@ -9427,7 +9426,7 @@ beginState: s32'BankiMessai'
   addPositionX: 100000
   upon: 90
     clearRegisteredUponCode: 90
-    Unknown1059: 1
+    killType: 1
     if: (VARIABLE), 16
       ifNot: (VARIABLE), 368
         Unknown1064: s32'BankiBunshin1'
@@ -9446,7 +9445,7 @@ beginState: s32'BankiMessai'
   storeValue: (VARIABLE), 49, (STATIC), 0
   callSubroutine: s32'cmnThrowPosition_F_Wall'
   sprite: s32'chp233_06', 4
-  createObject: s32'233atk1', 100
+  createObject: s32'233atk1', (PLAYER)
   sprite: s32'chp233_07', 4
   sprite: s32'chp233_08', 4
   recoveryState: 
@@ -9462,13 +9461,13 @@ beginState: s32'BankiMessai'
   exitState: 
   beginLabel: s32'BankiHit'
   sprite: s32'chp233_06', 3
-  createObject: s32'233atk1', 100
+  createObject: s32'233atk1', (PLAYER)
   sprite: s32'chp233_07', 3
-  createObject: s32'Cam_Banki_End', 100
+  createObject: s32'Cam_Banki_End', (PLAYER)
   timeSlow: 0
   sprite: s32'chp233_08', 3
-  Unknown2193: 100, -160000, 12000
-  createObject: s32'BankiBunshin1', 130
+  exPointFReset: (PLAYER), -160000, 12000
+  createObject: s32'BankiBunshin1', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   sprite: s32'chp233_09', 3
   sprite: s32'chp233_10', 3
@@ -9489,8 +9488,8 @@ beginState: s32'BankiMessai'
   sprite: s32'chp300_02', 4
   characterSfx: s32'SE_BTL_CHP_KAKUSEI_02'
   sprite: s32'chp300_03', 4
-  Unknown2193: 100, 820000, 242000
-  createObject: s32'BankiBunshin2', 130
+  exPointFReset: (PLAYER), 820000, 242000
+  createObject: s32'BankiBunshin2', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Warp_In'
   characterSfx: s32'SE_BTL_CHP_00'
   sprite: s32'chp300_04', 4
@@ -9505,12 +9504,12 @@ beginState: s32'BankiMessai'
   sprite: s32'chp300_11', 4
   sprite: s32'chp300_12', 4
   sprite: s32'chp300_13', 3
-  Unknown2341: s32'Impact', 800, 0, 8, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 800, 0, 8, 1801545843, s32'e_easeout'
   sprite: s32'chp300_14', 4
   sprite: s32'chp300_15', 3
   sprite: s32'chp300_16', 3
   characterSfx: s32'SE_BTL_CHP_11'
-  Unknown2341: s32'Impact', 800, 0, 8, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 800, 0, 8, 1801545843, s32'e_easeout'
   sprite: s32'chp300_17', 3
   sprite: s32'chp300_18', 3
   sprite: s32'chp300_19', 3
@@ -9534,7 +9533,7 @@ beginState: s32'BankiMessai'
   Unknown2229: 90
   sprite: s32'chp204_03', 2
   callSubroutine: s32'cmn_AtkLv4'
-  createObject: s32'Banki_finishatk', 100
+  createObject: s32'Banki_finishatk', (PLAYER)
   grabOrRelease: 
   damage: 0, 30
   redRomanCancelTime: 0
@@ -9556,24 +9555,24 @@ beginState: s32'BankiMessai'
   callSubroutine: s32'cmnNohosei_kakusei'
   Unknown1064: s32''
   Unknown1073: 1
-  Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
-  Unknown788: 1
-  Unknown955: 5
+  attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+  forceWallBreak: 1
+  wallBreakLimitTime: 5
   Unknown953: 1
-  createObject: s32'204atk1', 100
-  Unknown1059: 0
+  createObject: s32'204atk1', (PLAYER)
+  killType: 0
   upon: (HIT)
     clearRegisteredUponCode: (HIT)
     enableRomanCancelMove: 1
     endUpon: 
-  Unknown2341: s32'Impact', 1600, 0, 30, s32'shake_easeout', 0
+  cameraShakeEX: s32'Impact', 1600, 0, 30, 1801545843, s32'e_easeout'
   Unknown953: 1
   storeValue: (VARIABLE), 343, (STATIC), -400000
   storeValue: (VARIABLE), 344, (STATIC), 0
   storeValue: (VARIABLE), 345, (STATIC), 0
   sprite: s32'chp204_04', 5
   deactivateObjectByName: s32'204atk1'
-  createObject: s32'204atk2', 100
+  createObject: s32'204atk2', (PLAYER)
   sprite: s32'chp204_05', 3
   recoveryState: 
   sprite: s32'chp204_06', 3
@@ -9604,7 +9603,7 @@ beginState: s32'WSB_Master_Slide'
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'chp032_01', 2
-  createObject: s32'CHP_dash', 100
+  createObject: s32'CHP_dash', (PLAYER)
   Unknown2177: 3, 100
   characterSfx: s32'SE_BTL_CHP_12'
   sprite: s32'chp032_02', 1
@@ -9617,7 +9616,7 @@ beginState: s32'WSB_Master_Slide'
   gotoLabel: s32'loop'
   beginLabel: s32'brake'
   sprite: s32'chp033_00', 4
-  createObject: s32'CHP_dash_end', 100
+  createObject: s32'CHP_dash_end', (PLAYER)
   sprite: s32'chp033_01', 4
   sprite: s32'chp033_02', 4
   sprite: s32'chp033_03', 4
@@ -9712,7 +9711,7 @@ beginState: s32'WSB_Master_Up'
   endLabel: 
   beginLabel: s32'dash_loop'
   sprite: s32'chp032_01', 2
-  createObject: s32'CHP_dash', 100
+  createObject: s32'CHP_dash', (PLAYER)
   Unknown2177: 3, 100
   characterSfx: s32'SE_BTL_CHP_12'
   sprite: s32'chp032_02', 1
@@ -9857,7 +9856,7 @@ beginState: s32'WSB_Master_Down'
   endLabel: 
   beginLabel: s32'dash_loop'
   sprite: s32'chp032_01', 2
-  createObject: s32'CHP_dash', 100
+  createObject: s32'CHP_dash', (PLAYER)
   Unknown2177: 3, 100
   characterSfx: s32'SE_BTL_CHP_12'
   sprite: s32'chp032_02', 1
@@ -10244,7 +10243,7 @@ beginState: s32'WorldSideBreak_Master_DF'
   gotoLabel: s32'loop'
   beginLabel: s32'landing'
   sprite: s32'chp021_19', 3
-  createParticle: s32'bg_dash_default', 100
+  createParticle: s32'bg_dash_default', (PLAYER)
   sprite: s32'chp021_20', 3
   sprite: s32'chp021_21', 3
   sprite: s32'chp021_22', 3
@@ -10283,7 +10282,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'chp033_00', 1
-  createParticle: s32'cmn_dashbrake_default', 143
+  createParticle: s32'cmn_dashbrake_default', (EX_POINT_PG)
   sprite: s32'chp033_01', 2
   sprite: s32'chp033_02', 2
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'

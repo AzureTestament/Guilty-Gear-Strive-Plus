@@ -190,7 +190,7 @@ beginState: s32'Event022'
   physicsYImpulse: 0, 60000
   Unknown287: 0
   cmnSfx: s32'SE_BTL_CMN_JumpEX'
-  createParticle: s32'cmn_hijump_obj', 100
+  createParticle: s32'cmn_hijump_obj', (PLAYER)
   sprite: s32'gio020_02', 3
   sprite: s32'gio020_03', 3
   sprite: s32'gio020_04', 3
@@ -418,7 +418,7 @@ beginState: s32'Event305'
   sprite: s32'gio305_02', 4
   sprite: s32'gio305_03', 6
   sprite: s32'gio305_04', 6
-  createObject: s32'Gio305_phone', 100
+  createObject: s32'Gio305_phone', (PLAYER)
   sprite: s32'gio305_05', 6
   sprite: s32'gio305_06', 6
   sprite: s32'gio305_07', 6
@@ -554,7 +554,7 @@ beginState: s32'Event306_2'
 
 beginState: s32'Event615'
   sprite: s32'gio615_00', 5
-  createObject: s32'RoundWin1', 100
+  createObject: s32'RoundWin1', (PLAYER)
   sprite: s32'gio615_01', 5
   sprite: s32'gio615_02', 5
   sprite: s32'gio615_03', 5
@@ -759,10 +759,10 @@ beginSubroutine: s32'RoundInit'
   backwardSuperJumpDistance: 9875
   superJumpHeight: 45500
   superJumpGravity: 1900
-  airDashMinimumHeight: 105000
+  Unknown1232: 105000
   airFDashTime: 12
   airdashFSpeed: 30600
-  airFDashNoAttackTime: 17
+  airFDashNoAttackTime: 5
   airBDashTime: 10
   airDashBackVelocity: 25000
   airBDashNoAttackTime: 5
@@ -1268,7 +1268,7 @@ beginSubroutine: s32'RoundInit'
   Unknown1328: s32'LandThrow', s32'gio311_01'
   Unknown1328: s32'AirThrow', s32'gio321_01'
   Unknown1328: s32'DMG_CELL_KIRIMOMI_FIRST', s32'gio074_00'
-  Unknown2044: '0x0000000000000000000000000000000000000000000000000000000000000000'
+  linkPawn: s32''
   beginMeshSet: s32'nohead'
   addToMeshSet: s32'Body'
   addToMeshSet: s32'wolf_body_ghost'
@@ -1333,8 +1333,8 @@ beginSubroutine: s32'RoundInit'
   addToMeshSet: s32'wolf_body_fourlegs'
   addToMeshSet: s32'wolf_head_high'
   endMeshSet: 
-  Unknown2068: 
-  Unknown2066: 
+  resetMaterialSet: 
+  changeDefaultMeshSet: 
   Unknown601: s16'vxxx200', 1, 3, 100
   Unknown601: s16'vxxx201', 1, 3, 100
   Unknown601: s16'vxxx202', 1, 3, 100
@@ -1480,7 +1480,7 @@ beginSubroutine: s32'gio_MaterialParam'
           Unknown2305: 19, 1000, 30
           storeValue: (VARIABLE), 380, (STATIC), 5
           storeValue: (VARIABLE), 381, (STATIC), 5
-          createObject: s32'gio_tension01', 100
+          createObject: s32'gio_tension01', (PLAYER)
           characterSfx: s32'SE_BTL_GIO_04'
           endIf: 
         else: 
@@ -1489,7 +1489,7 @@ beginSubroutine: s32'gio_MaterialParam'
           Unknown2305: 19, 1000, 30
           storeValue: (VARIABLE), 380, (STATIC), 10
           storeValue: (VARIABLE), 381, (STATIC), 10
-          createObject: s32'gio_tension02', 100
+          createObject: s32'gio_tension02', (PLAYER)
           characterSfx: s32'SE_BTL_GIO_05'
           endElse: 
         endElse: 
@@ -2268,7 +2268,7 @@ beginState: s32'CmnActFDash'
   endLabel: 
   sprite: s32'gio032_03', 3
   Unknown2175: 2, 123
-  createObject: s32'Dash_zanzo', 100
+  createObject: s32'Dash_zanzo', (PLAYER)
   physicsXImpulse: 0, 42000
   cmnSfx: s32'SE_BTL_CMN_Dash_Start'
   upon: (BEFORE_EXIT)
@@ -2318,7 +2318,7 @@ beginState: s32'CmnActFDash'
   sprite: s32'gio032_02', 2
   endLabel: 
   sprite: s32'gio032_03', 3
-  createObject: s32'Dash_zanzo', 100
+  createObject: s32'Dash_zanzo', (PLAYER)
   physicsXImpulse: 0, 42000
   sprite: s32'gio032_04', 3
   sprite: s32'gio032_05', 3
@@ -2402,14 +2402,13 @@ beginState: s32'CmnActAirFDash'
     callSubroutine: s32'cmnAirBDash'
     endUpon: 
   characterSfx: s32'SE_BTL_GIO_00'
-  sprite: s32'gio035_05', 3
+  sprite: s32'gio035_05', 4
   setGravity: 6550
   upon: (FALL_SPEED)
     resetGravity: 
     endUpon: 
-  sprite: s32'gio035_06', 3
+  sprite: s32'gio035_06', 4
   sprite: s32'gio035_07', 3
-  callSubroutine: s32'cmnNandemoCancelC'
   sprite: s32'gio035_08', 3
   endState: 
 
@@ -3149,11 +3148,11 @@ beginState: s32'CmnActWallHaritsuki'
   endLabel: 
   beginLabel: s32'_Drop'
   sprite: s32'gio077_02', 6
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'gio077_03', 3
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'gio077_04', 3
   endLabel: 
   gotoLabel: s32'loop'
@@ -3161,7 +3160,7 @@ beginState: s32'CmnActWallHaritsuki'
 
 beginState: s32'CmnActWallHaritsukiLand'
   sprite: s32'gio077_05', 3
-  createParticle: s32'cmn_harituki', 114
+  createParticle: s32'cmn_harituki', (HEAD)
   sprite: s32'gio077_06', 3
   sprite: s32'gio077_07', 3
   sprite: s32'gio077_08', 3
@@ -3775,7 +3774,7 @@ beginState: s32'CmnActRoundWin'
   gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
   beginLabel: s32'TypeA'
   sprite: s32'gio615_00', 5
-  createObject: s32'RoundWin1', 100
+  createObject: s32'RoundWin1', (PLAYER)
   sprite: s32'gio615_01', 5
   sprite: s32'gio615_02', 5
   sprite: s32'gio615_03', 5
@@ -3923,13 +3922,13 @@ beginState: s32'CmnActRoundWin'
 beginState: s32'CmnActMatchWin'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnactmatchwin'
-    Unknown2045: s32'gio800cs', 0
+    playAnimation: s32'gio800cs', 0
     checkLastStateName: s32'WinActionWait'
     if: (VARIABLE), 0
-      Unknown2052: s32'gio800cs', 23, 0, -1
+      playCameraAnimation: s32'gio800cs', 23, 0, -1
       endIf: 
     else: 
-      Unknown2052: s32'gio800cs', 23, 15, -1
+      playCameraAnimation: s32'gio800cs', 23, 15, -1
       endElse: 
     Unknown2560: 1
     swapMeshSet: s32'800cs_1'
@@ -3961,7 +3960,7 @@ beginState: s32'CmnActMatchWin'
       swapMeshSet: s32'800cs_2'
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 151
-      Unknown2244: 1
+      hideAllButSelf: 1
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 190
       characterSfx: s32'SE_BTL_GIO_06'
@@ -4344,7 +4343,7 @@ beginState: s32'NmlAtk5B'
   setCarriedMomentumPercentage: 80
   Unknown621: 1, -1
   sprite: s32'gio201_02', 4
-  createObject: s32'Gio201_bake', 100
+  createObject: s32'Gio201_bake', (PLAYER)
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   hit: 
   sprite: s32'gio201_03', 3
@@ -4400,7 +4399,7 @@ beginState: s32'NmlAtk2B'
   sprite: s32'gio231_01', 2
   sprite: s32'gio231_02', 2
   sprite: s32'gio231_03', 3
-  createObject: s32'Gio231_bake', 100
+  createObject: s32'Gio231_bake', (PLAYER)
   hit: 
   Unknown621: 1, -1
   sprite: s32'gio231_04', 3
@@ -4551,14 +4550,14 @@ beginState: s32'NmlAtk5CFar'
   Unknown1702: s32'wolf_body_leg_only', 0
   sprite: s32'gio203_03', 2
   sprite: s32'gio203_04', 2
-  createObject: s32'Gio203_01bake', 100
+  createObject: s32'Gio203_01bake', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   Unknown621: 1, -1
   sprite: s32'gio203_05', 2
   sprite: s32'gio203_06', 4
   sprite: s32'gio203_07', 2
-  createObject: s32'Gio203_02bake', 100
+  createObject: s32'Gio203_02bake', (PLAYER)
   hit: 
   callSubroutine: s32'NmlAtk5CFar_atk'
   callSubroutine: s32'cmn_AtkTemplNokezoriLow'
@@ -4575,7 +4574,7 @@ beginState: s32'NmlAtk5CFar'
   sprite: s32'gio203_08', 2
   sprite: s32'gio203_09', 4
   sprite: s32'gio203_10', 2
-  createObject: s32'Gio203_03bake', 100
+  createObject: s32'Gio203_03bake', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   callSubroutine: s32'cmn_AtkTemplNokezoriHigh'
@@ -4643,7 +4642,7 @@ beginState: s32'NmlAtk2C'
   sprite: s32'gio232_02', 1
   sprite: s32'gio232_03', 2
   sprite: s32'gio232_04', 3
-  createObject: s32'Gio232_01bake', 100
+  createObject: s32'Gio232_01bake', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   sprite: s32'gio232_05', 1
@@ -4651,7 +4650,7 @@ beginState: s32'NmlAtk2C'
   sprite: s32'gio232_07', 1
   sprite: s32'gio232_08', 2
   sprite: s32'gio232_09', 3
-  createObject: s32'Gio232_02bake', 100
+  createObject: s32'Gio232_02bake', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
   callSubroutine: s32'cmn_countertype_middle'
@@ -4716,7 +4715,7 @@ beginState: s32'NmlAtk5D'
   sprite: s32'gio204_02', 3
   extendPushboxX: 50000
   sprite: s32'gio204_03', 3
-  createObject: s32'Gio204_Eff', 100
+  createObject: s32'Gio204_Eff', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -4904,7 +4903,7 @@ beginState: s32'NmlAtk6D3rd'
   sprite: s32'gio271_03', 3
   sprite: s32'gio271_04', 3
   sprite: s32'gio271_05', 3
-  createObject: s32'Gio271_Eff', 100
+  createObject: s32'Gio271_Eff', (PLAYER)
   hit: 
   resetGravity: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -4960,7 +4959,7 @@ beginState: s32'NmlAtk2D'
   sprite: s32'gio233_01', 3
   sprite: s32'gio233_02', 4
   sprite: s32'gio233_03', 3
-  createObject: s32'Gio233_Eff', 100
+  createObject: s32'Gio233_Eff', (PLAYER)
   Unknown2175: 4, 100
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
@@ -4984,7 +4983,7 @@ beginState: s32'NmlAtk2D'
 
 beginState: s32'NmlAtk5E'
   upon: (IMMEDIATE)
-    Unknown2193: 123, 0, 0
+    exPointFReset: (PLAYER_LAND), 0, 0
     callSubroutine: s32'cmn_DustAttack'
     damage: 0, 40
     Unknown1108: 90
@@ -5013,8 +5012,8 @@ beginState: s32'NmlAtk5E'
   sprite: s32'gio205_02', 2
   Unknown26: 3, 2, 52
   sprite: s32'gio205_03', 3
-  createObject: s32'Gio205_burstEff', 100
-  createObject: s32'Gio205_twistEff', 100
+  createObject: s32'Gio205_burstEff', (PLAYER)
+  createObject: s32'Gio205_twistEff', (PLAYER)
   Unknown26: 6, 2, 52
   sprite: s32'gio205_03', 3
   Unknown26: 6, 2, 52
@@ -5026,7 +5025,7 @@ beginState: s32'NmlAtk5E'
   Unknown2175: 4, 100
   voiceLine: s16'vxxx103'
   sprite: s32'gio205_05', 2
-  createObject: s32'Gio205_attackEff', 100
+  createObject: s32'Gio205_attackEff', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
@@ -5159,7 +5158,7 @@ beginState: s32'DustFinish'
   sprite: s32'gio271_03', 3
   sprite: s32'gio271_04', 3
   sprite: s32'gio271_05', 3
-  createObject: s32'Gio271_Eff', 100
+  createObject: s32'Gio271_Eff', (PLAYER)
   hit: 
   setGravity: 3000
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
@@ -5216,7 +5215,7 @@ beginState: s32'NmlAtk2E'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_S'
   Unknown621: 2, -1
   sprite: s32'gio234_04', 2
-  createObject: s32'Gio234_Eff', 100
+  createObject: s32'Gio234_Eff', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
@@ -5422,7 +5421,7 @@ beginState: s32'NmlAtk6F'
   sprite: s32'gio305_02', 4
   sprite: s32'gio305_03', 6
   sprite: s32'gio305_04', 6
-  createObject: s32'Gio305_phone', 100
+  createObject: s32'Gio305_phone', (PLAYER)
   sprite: s32'gio305_05', 6
   sprite: s32'gio305_06', 6
   voiceLine: s16'vxxx412demo'
@@ -5621,7 +5620,7 @@ beginState: s32'NmlAtkAir5B'
   sprite: s32'gio251_00', 2
   sprite: s32'gio251_01', 3
   sprite: s32'gio251_02', 3
-  createObject: s32'Gio251_bake', 100
+  createObject: s32'Gio251_bake', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   Unknown621: 1, -1
@@ -5669,7 +5668,7 @@ beginState: s32'NmlAtkAir5C'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_S'
   Unknown621: 1, -1
   sprite: s32'gio252_02', 3
-  createObject: s32'Gio252_bake', 100
+  createObject: s32'Gio252_bake', (PLAYER)
   hit: 
   sprite: s32'gio252_03', 3
   callSubroutine: s32'cmn_AttackEnd'
@@ -5710,7 +5709,7 @@ beginState: s32'NmlAtkAir5D'
   sprite: s32'gio253_00', 3
   sprite: s32'gio253_01', 4
   sprite: s32'gio253_02', 2
-  createObject: s32'Gio253_Eff', 100
+  createObject: s32'Gio253_Eff', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   storeValue: (VARIABLE), 45, (STATIC), 1
@@ -5763,8 +5762,8 @@ beginState: s32'NmlAtkAir5E'
   sprite: s32'gio254_01', 2
   sprite: s32'gio254_02', 2
   sprite: s32'gio254_03', 3
-  createObject: s32'Gio254_01bake', 100
-  createObject: s32'Gio254_01Eff', 100
+  createObject: s32'Gio254_01bake', (PLAYER)
+  createObject: s32'Gio254_01Eff', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   Unknown621: 2, -1
@@ -5774,8 +5773,8 @@ beginState: s32'NmlAtkAir5E'
   sprite: s32'gio254_07', 2
   sprite: s32'gio254_08', 2
   sprite: s32'gio254_09', 3
-  createObject: s32'Gio254_02bake', 100
-  createObject: s32'Gio254_02Eff', 100
+  createObject: s32'Gio254_02bake', (PLAYER)
+  createObject: s32'Gio254_02Eff', (PLAYER)
   hit: 
   callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 1
   callSubroutine: s32'cmn_countertype_middle'
@@ -5893,16 +5892,16 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 160000, 340000
-  createParticle: s32'cmn_tmpe', 130
+  exPointFReset: (PLAYER), 160000, 340000
+  createParticle: s32'cmn_tmpe', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
-  Unknown2193: 100, 160000, 0
-  setGripPosition: 130, 100, 0
+  exPointFReset: (PLAYER), 160000, 0
+  setGripPosition: (EX_POINT_F), (PLAYER), 0
   Unknown544: 6
   Unknown2279: 2, 54, 0, 0
-  createObjectWithArg: s32'wolf_throw', 100
+  createObjectWithArg: s32'wolf_throw', (PLAYER)
   Unknown2189: 2, 5
-  createObject: s32'Cam_Throw', 100
+  createObject: s32'Cam_Throw', (PLAYER)
   sprite: s32'gio310_01', 4
   callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'gio310_02', 4
@@ -5915,45 +5914,45 @@ beginState: s32'ThrowExe'
   storeValue: (VARIABLE), 48, (STATIC), 0
   storeValue: (VARIABLE), 49, (STATIC), 0
   callSubroutine: s32'cmnThrowPosition_F_Wall'
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   Unknown2189: 0, 5
   sprite: s32'gio310_05', 3
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1223, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  setGripPosition: 0, 114, 1
+  setGripPosition: 0, (HEAD), 1
   sprite: s32'gio310_06', 4
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_07', 4
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_08', 3
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_09', 3
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_10', 4
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_11', 3
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   Unknown2189: 2, 5
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
   sprite: s32'gio310_12', 3
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_13', 3
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_14', 4
   Unknown544: 34
-  setGripPosition: 0, 115, 1
+  setGripPosition: 0, (NECK), 1
   sprite: s32'gio310_15', 3
   Unknown544: 35
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'gio310_16', 2
   Unknown544: 36
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   sprite: s32'gio310_17', 3
   Unknown544: 37
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'gio310_18', 3
   Unknown544: 38
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   Unknown94: 0, 112000
   sprite: s32'gio310_19', 4
   grabOrRelease: 
@@ -6042,11 +6041,11 @@ beginState: s32'AirThrowExe'
   callSubroutine: s32'cmn_ThrowRC'
   callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1221, (STATIC), 0, (STATIC), 0, (STATIC), 0
   Unknown550: 
-  Unknown2193: 100, 90000, 340000
-  createParticle: s32'cmn_nage', 130
+  exPointFReset: (PLAYER), 90000, 340000
+  createParticle: s32'cmn_nage', (EX_POINT_F)
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   Unknown544: 34
-  setGripPosition: 0, 115, 0
+  setGripPosition: 0, (NECK), 0
   Unknown2525: 1
   callSubroutine: s32'cmnCam_AirThrow'
   sprite: s32'gio320_01', 4
@@ -6058,7 +6057,7 @@ beginState: s32'AirThrowExe'
     callSubroutine: s32'cmnAtkTemplNageFinish'
     endUpon: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Sharp_M'
-  Unknown2341: s32'Impact', 400, 0, 30, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Impact', 400, 0, 30, 1801545843, s32'e_easeout'
   voiceLine: s16'vxxx106'
   sprite: s32'gio320_05', 5
   sprite: s32'gio320_06', 6
@@ -6174,7 +6173,7 @@ beginState: s32'Special1'
   physicsXImpulse: 0, 38000
   Unknown2229: 96
   sprite: s32'gio400_04', 3
-  createObject: s32'400atk', 100
+  createObject: s32'400atk', (PLAYER)
   hit: 
   physicsXImpulse: 0, 0
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
@@ -6244,7 +6243,7 @@ beginState: s32'Special2_land'
     endUpon: 
   sprite: s32'gio402_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'402atk1', 100
+  createObject: s32'402atk1', (PLAYER)
   setCarriedMomentumPercentage: 170
   characterSfx: s32'SE_BTL_GIO_00'
   sprite: s32'gio402_01', 3
@@ -6276,8 +6275,8 @@ beginState: s32'Special2_land'
   Unknown1702: s32'wolf_body_ghost', 0
   Unknown1702: s32'wolf_body_ghost_aura', 0
   Unknown1702: s32'wolf_body_leg_only', 0
-  createObject: s32'402wolf', 100
-  createObject: s32'402atk2', 100
+  createObject: s32'402wolf', (PLAYER)
+  createObject: s32'402atk2', (PLAYER)
   hit: 
   callSubroutine: s32'cmn_AtkLv3'
   damage: 0, 30
@@ -6356,11 +6355,11 @@ beginState: s32'Special2_air'
     endUpon: 
   sprite: s32'gio402_00', 3
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'402atk1', 100
+  createObject: s32'402atk1', (PLAYER)
   setCarriedMomentumPercentage: 40
   characterSfx: s32'SE_BTL_GIO_00'
   haltMomentum: 1
-  createObject: s32'Step_mahojin', 100
+  createObject: s32'Step_mahojin', (PLAYER)
   sprite: s32'gio402_01', 3
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Jump'
@@ -6395,8 +6394,8 @@ beginState: s32'Special2_air'
   Unknown1702: s32'wolf_body_ghost', 0
   Unknown1702: s32'wolf_body_ghost_aura', 0
   Unknown1702: s32'wolf_body_leg_only', 0
-  createObject: s32'402atk2', 100
-  createObject: s32'402wolf', 100
+  createObject: s32'402atk2', (PLAYER)
+  createObject: s32'402wolf', (PLAYER)
   hit: 
   callSubroutine: s32'cmn_AtkLv3'
   damage: 0, 30
@@ -6494,9 +6493,9 @@ beginState: s32'FBSpecial2_land'
     endUpon: 
   sprite: s32'gio402_00', 1
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'402atk1', 100
+  createObject: s32'402atk1', (PLAYER)
   setCarriedMomentumPercentage: 170
   characterSfx: s32'SE_BTL_GIO_00'
   sprite: s32'gio402_01', 2
@@ -6528,8 +6527,8 @@ beginState: s32'FBSpecial2_land'
   Unknown1702: s32'wolf_body_ghost', 0
   Unknown1702: s32'wolf_body_ghost_aura', 0
   Unknown1702: s32'wolf_body_leg_only', 0
-  createObject: s32'402wolf', 100
-  createObject: s32'402atk2', 100
+  createObject: s32'402wolf', (PLAYER)
+  createObject: s32'402atk2', (PLAYER)
   hit: 
   callSubroutine: s32'cmn_AtkLv3'
   damage: 0, 40
@@ -6613,13 +6612,13 @@ beginState: s32'FBSpecial2_air'
     endUpon: 
   sprite: s32'gio402_00', 1
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  createObject: s32'402atk1', 100
+  createObject: s32'402atk1', (PLAYER)
   setCarriedMomentumPercentage: 40
   characterSfx: s32'SE_BTL_GIO_00'
   haltMomentum: 1
-  createObject: s32'Step_mahojin', 100
+  createObject: s32'Step_mahojin', (PLAYER)
   sprite: s32'gio402_01', 2
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Jump'
@@ -6654,8 +6653,8 @@ beginState: s32'FBSpecial2_air'
   Unknown1702: s32'wolf_body_ghost', 0
   Unknown1702: s32'wolf_body_ghost_aura', 0
   Unknown1702: s32'wolf_body_leg_only', 0
-  createObject: s32'402atk2', 100
-  createObject: s32'402wolf', 100
+  createObject: s32'402atk2', (PLAYER)
+  createObject: s32'402wolf', (PLAYER)
   hit: 
   callSubroutine: s32'cmn_AtkLv3'
   damage: 0, 40
@@ -6718,7 +6717,6 @@ beginState: s32'FBSpecial2_air'
 beginState: s32'Special3'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv2'
-    callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 35
     Unknown1108: 90
     storeValue: (VARIABLE), 338, (STATIC), 100000
@@ -6730,15 +6728,10 @@ beginState: s32'Special3'
     blowoff: 2
     hitAirPushbackX: 0, 30000
     Unknown760: 0, 80, 0, 10, 0, 15
-    hitAirPushbackY: 0, 60000
+    hitAirPushbackY: 0, 35000
     Unknown770: 0, 60, 0, 4, 0, 10
     hitGravity: (STATIC), 500
     hitGravityOverTime: 0, 100, 0, 5, 0, 40
-    upon: 62
-      hitAirPushbackY: 0, 80000
-      hitGravity: (STATIC), 0
-      endUpon: 
-    counterHitGravityOverTime: 0, 200, 0, 25, 0, 55
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: (HIT_OR_GUARD)
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
@@ -6753,22 +6746,35 @@ beginState: s32'Special3'
     storeValue: (VARIABLE), 345, (STATIC), 0
     endUpon: 
   sprite: s32'gio403_00', 3
-  ifOperation: (IS_EQUAL), (VARIABLE), 53, (STATIC), 2
-    enableSuperArmor: 1
-    endIf: 
-  upon: 33
-    enableSuperArmor: 0
-    Unknown240: 
-    enableRomanCancelMove: 0
-    endUpon: 
   ifOperation: (IS_EQUAL), (VARIABLE), 53, (STATIC), 3
     setStrikeInvulnerable: 1
     endIf: 
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'gio403_01', 3
+  ifOperation: (IS_EQUAL), (VARIABLE), 53, (STATIC), 2
+    enableSuperArmor: 1
+	Unknown1840: 1
+	Unknown1839: 0
+	Unknown1851: -2, -2
+	Unknown1855: 50
+	Unknown1861: 0
+    endIf: 
+  upon: 33
+    enableSuperArmor: 0
+    Unknown240: 
+    createParticle: s32'cmn_armor_stand', 103
+    enableRomanCancelMove: 0
+    upon: 12
+      ifNot: (VARIABLE), 81
+        clearRegisteredUponCode: 12
+        enableRomanCancelMove: 1
+        whiffCancelOptionBufferTime: s32'RomanCancelGap', 13
+        endIf: 
+      endUpon: 
+    endUpon: 
   voiceLine: s16'vxxx200'
   sprite: s32'gio403_02', 2
-  createObject: s32'403atk', 100
+  createObject: s32'403atk', (PLAYER)
   hit: 
   cmnSfx: s32'SE_BTL_CMN_Jump'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
@@ -6835,7 +6841,7 @@ beginState: s32'Special4'
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
       extendPushboxX: 100000
-      Unknown2341: s32'Impact', 200, 0, 30, 1801545843, s32'e_easeout'
+      cameraShakeEX: s32'Impact', 200, 0, 30, 1801545843, s32'e_easeout'
       Unknown14: s32'end'
       endUpon: 
     Unknown2526: 1, 1, 6, 100, 60, 50
@@ -6855,19 +6861,19 @@ beginState: s32'Special4'
   sprite: s32'gio401_05', 4
   characterSfx: s32'SE_BTL_GIO_00'
   sprite: s32'gio401_06', 3
-  createObject: s32'Gio401_sub', 100
+  createObject: s32'Gio401_sub', (PLAYER)
   addPositionX: 100000
   voiceLine: s16'vxxx203'
   Unknown2331: 1
   sprite: s32'gio401_07', 2
   Unknown2279: 2, 54, 0, 0
-  createObjectWithArg: s32'Gio401_01Eff', 100
+  createObjectWithArg: s32'Gio401_01Eff', (PLAYER)
   addPositionX: 100000
   cmnSfx: s32'SE_BTL_CMN_Dash_Start'
   Unknown2175: 3, 100
   physicsXImpulse: 0, 60000
   hit: 
-  createObject: s32'Gio401_sousai', 100
+  createObject: s32'Gio401_sousai', (PLAYER)
   sprite: s32'gio401_08', 2
   sprite: s32'gio401_09', 2
   endLabel: 
@@ -6879,7 +6885,7 @@ beginState: s32'Special4'
   Unknown1702: s32'wolf_body_ghost', 0
   Unknown1702: s32'wolf_body_ghost_aura', 0
   Unknown1702: s32'wolf_body_leg_only', 0
-  createObject: s32'Gio401_wolfappear', 100
+  createObject: s32'Gio401_wolfappear', (PLAYER)
   recoveryState: 
   extendPushboxX: 0
   haltMomentum: 1
@@ -6943,7 +6949,7 @@ beginState: s32'FBSpecial4'
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
       extendPushboxX: 100000
-      Unknown2341: s32'Impact', 200, 0, 30, 1801545843, s32'e_easeout'
+      cameraShakeEX: s32'Impact', 200, 0, 30, 1801545843, s32'e_easeout'
       Unknown14: s32'end'
       endUpon: 
     Unknown2526: 1, 1, 6, 100, 60, 50
@@ -6955,7 +6961,7 @@ beginState: s32'FBSpecial4'
     endUpon: 
   sprite: s32'gio401_00', 3
   cmnSfx: s32'SE_BTL_SYS_Skill'
-  createParticle: s32'cmn_forcebreak', 119
+  createParticle: s32'cmn_forcebreak', (HEART)
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'gio401_01', 3
   sprite: s32'gio401_02', 3
@@ -6965,19 +6971,19 @@ beginState: s32'FBSpecial4'
   sprite: s32'gio401_05', 2
   characterSfx: s32'SE_BTL_GIO_00'
   sprite: s32'gio401_06', 2
-  createObject: s32'Gio401_sub', 100
+  createObject: s32'Gio401_sub', (PLAYER)
   addPositionX: 100000
   voiceLine: s16'vxxx203'
   Unknown2331: 1
   sprite: s32'gio401_07', 2
   Unknown2279: 2, 54, 0, 0
-  createObjectWithArg: s32'Gio401_01Eff', 100
+  createObjectWithArg: s32'Gio401_01Eff', (PLAYER)
   addPositionX: 100000
   cmnSfx: s32'SE_BTL_CMN_Dash_Start'
   Unknown2175: 3, 100
   physicsXImpulse: 0, 60000
   hit: 
-  createObject: s32'Gio401_sousai', 100
+  createObject: s32'Gio401_sousai', (PLAYER)
   sprite: s32'gio401_08', 2
   sprite: s32'gio401_09', 2
   endLabel: 
@@ -6989,7 +6995,7 @@ beginState: s32'FBSpecial4'
   Unknown1702: s32'wolf_body_ghost', 0
   Unknown1702: s32'wolf_body_ghost_aura', 0
   Unknown1702: s32'wolf_body_leg_only', 0
-  createObject: s32'Gio401_wolfappear', 100
+  createObject: s32'Gio401_wolfappear', (PLAYER)
   recoveryState: 
   extendPushboxX: 0
   haltMomentum: 1
@@ -7123,14 +7129,14 @@ beginState: s32'LandUltimate'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       Unknown2560: 0
-      Unknown1972: 0
+      hideUI: 0
       resetDOF: 0, 10
       resetSaturation: 0, 10
       Unknown429: 0, 10
       jumpToState: s32'WSB_Master_Wait'
       upon: (BEFORE_EXIT)
-        Unknown2065: 
-        Unknown2066: 
+        resetDefaultMeshSet: 
+        changeDefaultMeshSet: 
         endUpon: 
       endUpon: 
     Unknown1702: s32'Tail', 1
@@ -7153,10 +7159,10 @@ beginState: s32'LandUltimate'
     Unknown2189: 2, 5
     swapMeshSet: s32'500cs'
     resetCamera: 
-    Unknown2045: s32'gio500cs', 0
+    playAnimation: s32'gio500cs', 0
     Unknown2560: 1
-    Unknown2052: s32'gio500cs', 23, 10, 10
-    Unknown1972: 1
+    playCameraAnimation: s32'gio500cs', 23, 10, 10
+    hideUI: 1
     resetDOF: 1, 1
     Unknown412: -1, 700, 0
     Unknown413: -1, 0, 0
@@ -7171,17 +7177,17 @@ beginState: s32'LandUltimate'
     Unknown426: -1, 0, 40
     upon: (FRAME_STEP)
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 2
-        createObject: s32'GIO_500CS_ryuhai', 100
+        createObject: s32'GIO_500CS_ryuhai', (PLAYER)
         characterSfx: s32'SE_BTL_GIO_KAKUSEI_00'
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 11
-        createObject: s32'CS500_scr_smoke', 100
+        createObject: s32'CS500_scr_smoke', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 23
-        createObject: s32'CS500_scr_tail', 100
+        createObject: s32'CS500_scr_tail', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 67
-        createObject: s32'CS500_scr_eye', 100
+        createObject: s32'CS500_scr_eye', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 69
         voiceLine: s16'vxxx250'
@@ -7189,7 +7195,7 @@ beginState: s32'LandUltimate'
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 92
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 100
-        createObject: s32'CS500_kickcircle', 100
+        createObject: s32'CS500_kickcircle', (PLAYER)
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 120
         extendPushboxX: 0
@@ -7220,10 +7226,10 @@ beginState: s32'LandUltimate'
         Unknown40: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 31
-        Unknown2244: 1
+        hideAllButSelf: 1
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 115
-        Unknown2244: 0
+        hideAllButSelf: 0
         endIf: 
       endUpon: 
     endUpon: 
@@ -7231,8 +7237,8 @@ beginState: s32'LandUltimate'
   sprite: s32'gio500_00', 2
   characterSfx: s32'SE_BTL_GIO_00'
   sprite: s32'gio500_01', 4
-  createObject: s32'Gio500_Eff', 100
-  createObject: s32'Gio500_Floor', 100
+  createObject: s32'Gio500_Eff', (PLAYER)
+  createObject: s32'Gio500_Floor', (PLAYER)
   hit: 
   physicsXImpulse: 0, 50000
   Unknown2229: 95
@@ -7292,9 +7298,9 @@ beginState: s32'LandUltimate'
   ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 109, (STATIC), 10000
     rollDuration: 20
     endIf: 
-  Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
-  Unknown788: 1
-  Unknown955: 5
+  attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+  forceWallBreak: 1
+  wallBreakLimitTime: 5
   Unknown953: 1
   storeValue: (VARIABLE), 343, (STATIC), -350000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -7302,8 +7308,8 @@ beginState: s32'LandUltimate'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'gio500_10', 3
-  createObject: s32'Gio500_wolfappear', 100
-  createObject: s32'Gio500_tunagi', 100
+  createObject: s32'Gio500_wolfappear', (PLAYER)
+  createObject: s32'Gio500_tunagi', (PLAYER)
   sprite: s32'gio500_11', 3
   recoveryState: 
   extendPushboxX: 0
@@ -7320,7 +7326,7 @@ beginState: s32'LandUltimate'
   sprite: s32'gio500_16', 3
   sprite: s32'gio500_17', 5
   sprite: s32'gio500_18', 5
-  createObject: s32'500_tailend', 100
+  createObject: s32'500_tailend', (PLAYER)
   sprite: s32'gio500_19', 4
   sprite: s32'gio500_20', 3
   sprite: s32'gio500_21', 3
@@ -7368,8 +7374,8 @@ beginState: s32'AirUltimate'
       Unknown429: 0, 10
       jumpToState: s32'WSB_Master_Wait'
       upon: (BEFORE_EXIT)
-        Unknown2065: 
-        Unknown2066: 
+        resetDefaultMeshSet: 
+        changeDefaultMeshSet: 
         endUpon: 
       deactivateObjectByName: s32'Cam_AirUltimate1'
       endUpon: 
@@ -7395,9 +7401,9 @@ beginState: s32'AirUltimate'
     callSubroutine: s32'cmnWorldStop_Start'
     cmnSfx: s32'SE_BTL_SYS_Skill'
     callSubroutine: s32'cmnWorldStop_Tension'
-    Unknown2193: 100, 0, 280000
-    createParticle: s32'cmn_kakusei_hatudo', 130
-    createObject: s32'Cam_AirUltimate', 100
+    exPointFReset: (PLAYER), 0, 280000
+    createParticle: s32'cmn_kakusei_hatudo', (EX_POINT_F)
+    createObject: s32'Cam_AirUltimate', (PLAYER)
     callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
     endUpon: 
   upon: 90
@@ -7447,7 +7453,7 @@ beginState: s32'AirUltimate'
   endLabel: 
   gotoLabel: s32'loop'
   beginLabel: s32'land1'
-  Unknown2031: 22, s32'AirUltimate'
+  checkLastAttackHitStateName: 22, s32'AirUltimate'
   Unknown25: s16'end1', s16'', 2, 0
   Unknown25: s16'end1', s16'', 2, 46
   Unknown24: s16'atk1', s16'', 2, 45
@@ -7466,7 +7472,7 @@ beginState: s32'AirUltimate'
   sprite: s32'gio010_08', 5
   Unknown240: 
   storeValue: (VARIABLE), 45, (STATIC), 0
-  createObject: s32'ultimate_obj_wolf', 100
+  createObject: s32'ultimate_obj_wolf', (PLAYER)
   Unknown43: 5, 1
   setNoCollision: 0
   Unknown2189: 0, 5
@@ -7496,7 +7502,7 @@ beginState: s32'AirUltimate'
       ifOperation: (IS_GREATER), (VARIABLE), 52, (STATIC), 2
         clearRegisteredUponCode: 42
         ifNot: (VARIABLE), 368
-          createObject: s32'Cam_AirUltimate1', 100
+          createObject: s32'Cam_AirUltimate1', (PLAYER)
           callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
           endIf: 
         endIf: 
@@ -7517,14 +7523,14 @@ beginState: s32'AirUltimate'
   sprite: s32'gio023_02', 2
   sprite: s32'gio023_03', 2
   endLabel: 
-  Unknown2031: 22, s32'ultimate_obj_wolf'
+  checkLastAttackHitStateName: 22, s32'ultimate_obj_wolf'
   Unknown25: s16'end2', s16'', 2, 0
   Unknown24: s16'atk2', s16'', 2, 45
   beginLabel: s32'end2'
   sprite: s32'gio020_08', 2
   Unknown240: 
   recoveryState: 
-  Unknown19: 5
+  deactivateObjectById: 5
   sprite: s32'gio020_09', 2
   sprite: s32'gio020_10', 2
   sprite: s32'gio020_11', 2
@@ -7568,7 +7574,7 @@ beginState: s32'AirUltimate'
     storeValue: (VARIABLE), 45, (STATIC), 1
     endUpon: 
   endLabel: 
-  Unknown2031: 22, s32'AirUltimate'
+  checkLastAttackHitStateName: 22, s32'AirUltimate'
   Unknown24: s16'atk2.5', s16'', 2, 0
   sprite: s32'gio253_04', 2
   sprite: s32'gio253_05', 3
@@ -7580,7 +7586,7 @@ beginState: s32'AirUltimate'
   sprite: s32'gio020_08', 2
   Unknown240: 
   recoveryState: 
-  Unknown19: 5
+  deactivateObjectById: 5
   sprite: s32'gio020_09', 2
   sprite: s32'gio020_10', 2
   sprite: s32'gio020_11', 2
@@ -7592,8 +7598,8 @@ beginState: s32'AirUltimate'
   exitState: 
   beginLabel: s32'atk2.5'
   sprite: s32'gio035_00', 2
-  Unknown2193: 100, 0, 100000
-  createObject: s32'cmn_Step_mahojin', 130
+  exPointFReset: (PLAYER), 0, 100000
+  createObject: s32'cmn_Step_mahojin', (EX_POINT_F)
   physicsXImpulse: 0, 5000
   sprite: s32'gio035_01', 2
   sprite: s32'gio035_02', 2
@@ -7609,7 +7615,7 @@ beginState: s32'AirUltimate'
     Unknown14: s32'landing'
     haltMomentum: 1
     endUpon: 
-  createParticle: s32'cmn_air_dash', 114
+  createParticle: s32'cmn_air_dash', (HEAD)
   cmnSfx: s32'SE_BTL_CMN_DashAir'
   sprite: s32'gio035_06', 3
   sprite: s32'gio035_07', 3
@@ -7651,7 +7657,7 @@ beginState: s32'AirUltimate'
   endLabel: 
   exitState: 
   beginLabel: s32'next2'
-  Unknown2031: 22, s32'ultimate_obj_wolf'
+  checkLastAttackHitStateName: 22, s32'ultimate_obj_wolf'
   Unknown25: s16'end3', s16'', 2, 0
   Unknown24: s16'atk3', s16'', 2, 45
   beginLabel: s32'end3'
@@ -7659,7 +7665,7 @@ beginState: s32'AirUltimate'
   exitState: 
   beginLabel: s32'atk3'
   sprite: s32'gio213_04', 3
-  Unknown19: 5
+  deactivateObjectById: 5
   Unknown240: 
   physicsXImpulse: 0, 27000
   physicsYImpulse: 0, 15000
@@ -7714,7 +7720,7 @@ beginState: s32'AirUltimate'
   sprite: s32'gio270_06', 2
   sprite: s32'gio403_02', 2
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'403atk', 100
+  createObjectWithArg: s32'403atk', (PLAYER)
   callSubroutine: s32'AirUltimate_atk'
   hit: 
   damage: 0, 20
@@ -7738,7 +7744,7 @@ beginState: s32'AirUltimate'
   resetGravity: 
   cmnSfx: s32'SE_BTL_CMN_Jump'
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
-  Unknown2341: s32'Depth', 400, 0, 32, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Depth', 400, 0, 32, 1801545843, s32'e_easeout'
   clearRegisteredUponCode: 90
   storeValue: (VARIABLE), 52, (STATIC), 6
   deactivateObjectByName: s32'wolf_ultimate3'
@@ -7782,12 +7788,12 @@ beginState: s32'AirUltimate'
     hitGravity: (STATIC), 2800
     endIf: 
   callSubroutine: s32'cmn_AtkTemplWSB'
-  Unknown1069: (STATIC), 0, (STATIC), 0, 1, 22, (VARIABLE), 319
-  Unknown788: 1
-  Unknown955: 10
+  attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+  forceWallBreak: 1
+  wallBreakLimitTime: 10
   Unknown953: 1
   setGravity: 3000
-  Unknown2341: s32'Impact', 500, 0, 30, 1801545843, s32'e_easeout'
+  cameraShakeEX: s32'Impact', 500, 0, 30, 1801545843, s32'e_easeout'
   Unknown953: 1
   storeValue: (VARIABLE), 343, (STATIC), -400000
   storeValue: (VARIABLE), 344, (STATIC), 0
@@ -8537,7 +8543,7 @@ beginState: s32'WorldSideBreak_Slave_DF'
   endLabel: 
   beginLabel: s32'end'
   sprite: s32'gio032_06', 1
-  createParticle: s32'cmn_dashbrake_default', 143
+  createParticle: s32'cmn_dashbrake_default', (EX_POINT_PG)
   sprite: s32'gio032_07', 1
   sprite: s32'gio032_08', 1
   cmnSfx: s32'SE_BTL_CMN_DashEnd_Def_Stone'

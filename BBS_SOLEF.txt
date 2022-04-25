@@ -389,7 +389,7 @@ beginState: s32'RomanCancel_Mirage'
       addToMeshSet: s32'Body_DI'
       endMeshSet: 
       swapMeshSet: s32'RomanCancel_Mirage'
-      Unknown2064: s32'RomanCancel_Mirage'
+      setDefaultMeshSet: s32'RomanCancel_Mirage'
       endIf: 
     else: 
       beginMeshSet: s32'RomanCancel_Mirage'
@@ -398,7 +398,7 @@ beginState: s32'RomanCancel_Mirage'
       addToMeshSet: s32'Weapon'
       endMeshSet: 
       swapMeshSet: s32'RomanCancel_Mirage'
-      Unknown2064: s32'RomanCancel_Mirage'
+      setDefaultMeshSet: s32'RomanCancel_Mirage'
       endElse: 
     endUpon: 
   Unknown25: s16'air', s16'', 2, 115
@@ -747,22 +747,22 @@ beginState: s32'GunFlame_Obj'
     endUpon: 
   sprite: s32'null', 2
   sprite: s32'null', 10
-  createObject: s32'GunFlame_Eff', 100
+  createObject: s32'GunFlame_Eff', (PLAYER)
   sprite: s32'GunFlame', 10
   Unknown2279: 0, 1, 0, 0
-  createObjectWithArg: s32'GunFlame_Eff', 100
+  createObjectWithArg: s32'GunFlame_Eff', (PLAYER)
   Unknown43: 4, 1
   hit: 
   sprite: s32'GunFlame', 10
   Unknown94: 0, 130000
   Unknown2279: 0, 1, 0, 1
-  createObjectWithArg: s32'GunFlame_Eff', 100
+  createObjectWithArg: s32'GunFlame_Eff', (PLAYER)
   Unknown43: 4, 1
   damage: 0, 35
   sprite: s32'GunFlame', 10
   Unknown94: 0, 130000
   Unknown2279: 0, 1, 0, 1
-  createObjectWithArg: s32'GunFlame_Eff', 100
+  createObjectWithArg: s32'GunFlame_Eff', (PLAYER)
   Unknown43: 4, 1
   damage: 0, 30
   sprite: s32'GunFlame', 10
@@ -958,7 +958,6 @@ beginState: s32'407Crater'
     Unknown458: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'sol_bukkira_crater'
-    setObjectSize: 1900
     endUpon: 
   sprite: s32'null', 300
   cmnSfx: s32'SE_BTL_CMN_LandBreak_Clay_M'
@@ -1006,11 +1005,11 @@ beginState: s32'Grandviper_sliding'
   upon: (IMMEDIATE)
     endUpon: 
   sprite: s32'null', 2
-  createParticle: s32'sol_grandviper_sliding', 100
+  createParticle: s32'sol_grandviper_sliding', (PLAYER)
   sprite: s32'null', 2
-  createParticle: s32'sol_grandviper_sliding', 100
+  createParticle: s32'sol_grandviper_sliding', (PLAYER)
   sprite: s32'null', 2
-  createParticle: s32'sol_grandviper_sliding', 100
+  createParticle: s32'sol_grandviper_sliding', (PLAYER)
   endState: 
 
 beginState: s32'Grandviper_hibana'
@@ -1118,15 +1117,15 @@ beginState: s32'RiotStamp_DI'
   upon: (IMMEDIATE)
     endUpon: 
   sprite: s32'null', 10
-  createObject: s32'RiotStamp_DI_Bomb', 133
+  createObject: s32'RiotStamp_DI_Bomb', (ENEMY_BODY_RANDOM)
   sprite: s32'null', 10
-  createObject: s32'RiotStamp_DI_Bomb', 133
+  createObject: s32'RiotStamp_DI_Bomb', (ENEMY_BODY_RANDOM)
   sprite: s32'null', 4
-  createObject: s32'RiotStamp_DI_Bomb', 133
+  createObject: s32'RiotStamp_DI_Bomb', (ENEMY_BODY_RANDOM)
   sprite: s32'null', 4
-  createObject: s32'RiotStamp_DI_Bomb', 133
+  createObject: s32'RiotStamp_DI_Bomb', (ENEMY_BODY_RANDOM)
   sprite: s32'null', 4
-  createObject: s32'RiotStamp_DI_Bomb', 133
+  createObject: s32'RiotStamp_DI_Bomb', (ENEMY_BODY_RANDOM)
   endState: 
 
 beginState: s32'RiotStamp_DI_Bomb'
@@ -1358,7 +1357,7 @@ beginState: s32'CS500_glare'
     Unknown99: 0, -5826
     addDepth: 0, -117752
     upon: (WALL_BREAK)
-      Unknown19: 23
+      deactivateObjectById: (SELF)
       endUpon: 
     callSubroutine: s32'cmn_Effect_NoLink'
     endUpon: 
@@ -1374,7 +1373,7 @@ beginState: s32'550_transform'
     Unknown99: 0, -5826
     addDepth: 0, -117752
     upon: (WALL_BREAK)
-      Unknown19: 23
+      deactivateObjectById: (SELF)
       endUpon: 
     callSubroutine: s32'cmn_Effect_NoLink'
     endUpon: 
@@ -1390,7 +1389,7 @@ beginState: s32'550_circle'
     Unknown99: 0, -5826
     addDepth: 0, -117752
     upon: (WALL_BREAK)
-      Unknown19: 23
+      deactivateObjectById: (SELF)
       endUpon: 
     callSubroutine: s32'cmn_Effect_NoLink'
     endUpon: 
@@ -1459,7 +1458,7 @@ beginState: s32'CS500_TyrantRave02'
     Unknown232: 328000
     setAngle: 196000
     upon: (WALL_BREAK)
-      Unknown19: 23
+      deactivateObjectById: (SELF)
       endUpon: 
     endUpon: 
   sprite: s32'null', 50
@@ -1492,7 +1491,7 @@ beginState: s32'CS501_bg'
     Unknown232: 0
     setAngle: 320000
     upon: (WALL_BREAK)
-      Unknown19: 23
+      deactivateObjectById: (SELF)
       endUpon: 
     endUpon: 
   sprite: s32'null', 107
@@ -1706,7 +1705,7 @@ beginState: s32'502_fire_end1'
     endUpon: 
   sprite: s32'null', 4
   sprite: s32'null', 1
-  createObject: s32'502_sippai', 100
+  createObject: s32'502_sippai', (PLAYER)
   characterSfx: s32'SE_BTL_SOL_KAKUSEI_03'
   sprite: s32'null', 79
   Unknown454: 0
@@ -1726,7 +1725,7 @@ beginState: s32'502_fire_end2'
     endUpon: 
   sprite: s32'null', 4
   sprite: s32'null', 58
-  createParticle: s32'sol_502_Success', 100
+  createParticle: s32'sol_502_Success', (PLAYER)
   characterSfx: s32'SE_BTL_SOL_KAKUSEI_03'
   endState: 
 
@@ -2256,7 +2255,7 @@ beginState: s32'sol252_bake1'
     upon: 36
       if: (VARIABLE), 315
         clearRegisteredUponCode: 36
-        Unknown19: 23
+        deactivateObjectById: (SELF)
         endIf: 
       endUpon: 
     endUpon: 
@@ -2273,7 +2272,7 @@ beginState: s32'sol252_bake2'
     upon: 36
       if: (VARIABLE), 315
         clearRegisteredUponCode: 36
-        Unknown19: 23
+        deactivateObjectById: (SELF)
         endIf: 
       endUpon: 
     endUpon: 
@@ -2291,7 +2290,7 @@ beginState: s32'sol252_bake3'
     upon: 36
       if: (VARIABLE), 315
         clearRegisteredUponCode: 36
-        Unknown19: 23
+        deactivateObjectById: (SELF)
         endIf: 
       endUpon: 
     endUpon: 
@@ -2324,10 +2323,10 @@ beginState: s32'Fefnir_Slow_cam'
     Unknown2082: 
     Unknown47: s16'jam'
     ifNot: (VARIABLE), 0
-      Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000000000000000000000A42C02000000000000000000000000004600000028000000000000000500000000000000350000000000000008000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
+      targetCamera: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000000000000000000000A42C02000000000000000000000000004600000028000000000000000500000000000000350000000000000008000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
       endIf: 
     else: 
-      Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000000000000000000000A42C02000000000000000000000000004600000028000000000000000500000000000000350000000000000008000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
+      targetCamera: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000000000000000000000A42C02000000000000000000000000004600000028000000000000000500000000000000350000000000000008000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
       endElse: 
     physicsXImpulse: 0, 3000
     setEventTrigger: (TIMER), 10
@@ -2335,7 +2334,7 @@ beginState: s32'Fefnir_Slow_cam'
       setAcceleration: -50
       endUpon: 
     upon: 77
-      Unknown53: 23, 2, 18, 22, 2, 18
+      storeValueFromObject: (SELF), (VARIABLE), 18, (ENEMY), (VARIABLE), 18
       Unknown294: 1
       Unknown41: 22
       Unknown295: 1
@@ -2347,18 +2346,18 @@ beginState: s32'Fefnir_Slow_cam'
         Unknown47: s16'jam'
         ifNot: (VARIABLE), 0
           if: (VARIABLE), 16
-            Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A086010000000000589EFFFF00000000007102000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
+            targetCamera: '0x17000000160000000000000048E8010000000000580F020000000000A086010000000000589EFFFF00000000007102000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
             endIf: 
           else: 
-            Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000003850FFFF00000000007102000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
+            targetCamera: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000003850FFFF00000000007102000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
             endElse: 
           endIf: 
         else: 
           if: (VARIABLE), 16
-            Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A086010000000000589EFFFF00000000F04902000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
+            targetCamera: '0x17000000160000000000000048E8010000000000580F020000000000A086010000000000589EFFFF00000000F04902000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
             endIf: 
           else: 
-            Unknown2080: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000004877FFFF00000000F04902000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
+            targetCamera: '0x17000000160000000000000048E8010000000000580F020000000000A0860100000000004877FFFF00000000F04902000000000000000000A8610000640000001E00000000000000320000000000000000000000000000000C000000000000006C696E65617200000000000000000000000000000000000000000000000000006C696E6561720000000000000000000000000000000000000000000000000000'
             endElse: 
           endElse: 
         endIf: 
@@ -2366,7 +2365,7 @@ beginState: s32'Fefnir_Slow_cam'
         endIf: 
       endUpon: 
     upon: 47
-      Unknown19: 23
+      deactivateObjectById: (SELF)
       endUpon: 
     upon: (BEFORE_EXIT)
       Unknown294: 0
@@ -2550,7 +2549,7 @@ beginState: s32'Cam_Dragon'
   Unknown2572: s32'sol_dragon_day1', 0, 0, 0, 1000, 0, 340, s32'linear'
   Unknown454: 0
   sprite: s32'null', 140
-  createObject: s32'cmn_FinishCamera_Screen_Effect', 100
+  createObject: s32'cmn_FinishCamera_Screen_Effect', (PLAYER)
   endLabel: 
   gotoLabel: s32'end'
   beginLabel: s32'normal'
