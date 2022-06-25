@@ -468,7 +468,7 @@ beginSubroutine: s32'RoundInit'
   initDashFSpeed: 15000
   fDashAccelSpeed: 700
   fDashFriction: 95
-  bDashXSpeed: 16000
+  bDashXSpeed: 15800
   bDashYSpeed: 5200
   bDashGravity: 700
   forwardJumpDistance: 9700
@@ -477,12 +477,12 @@ beginSubroutine: s32'RoundInit'
   initGravity: 1900
   forwardSuperJumpDistance: 10400
   backwardSuperJumpDistance: 8750
-  superJumpHeight: 4550
+  superJumpHeight: 45500
   superJumpGravity: 1900
   airDashMinimumHeight: 105000
-  airFDashTime: 18
+  airFDashTime: 16
   airdashFSpeed: 30500
-  airFDashNoAttackTime: 12
+  airFDashNoAttackTime: 9
   airBDashTime: 10
   airDashBackVelocity: 24500
   airBDashNoAttackTime: 5
@@ -4106,6 +4106,7 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk2E'
     addGatlingOption: s32'Cancel_FDash'
     enableJumpCancel: 1
+	enableFarSlash: 1
     wallBlowoffType: 2
     storeValue: (VARIABLE), 343, (STATIC), -300000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -4225,6 +4226,7 @@ beginState: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
+	enableFarSlash: 1
     wallBlowoffType: 1
     storeValue: (VARIABLE), 343, (STATIC), -250000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -8762,6 +8764,10 @@ beginState: s32'Sidewinder'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
     endUpon: 
   gotoLabelIf: s32'super', (VARIABLE), 5
+  checkLastStateName: s32'CmnActAirFDash'
+  if: (VARIABLE), 0
+    resetGravity:
+	endIf:
   sprite: s32'sol411_00', 2
   voiceLine: s16'vxxx211'
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -8919,10 +8925,10 @@ beginState: s32'Kudakero'
   cmnSfx: s32'SE_BTL_SYS_Skill'
   createParticle: s32'cmn_forcebreak', (HEART)
   sprite: s32'sol405_00', 2
-  physicsXImpulse: 0, -1000
-  physicsYImpulse: 0, 30000
   callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
   sprite: s32'sol405_01', 2
+  physicsXImpulse: 0, -1000
+  physicsYImpulse: 0, 30000
   sprite: s32'sol405_02', 2
   sprite: s32'sol405_03', 2
   sprite: s32'sol405_04', 2

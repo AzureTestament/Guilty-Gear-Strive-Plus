@@ -11781,7 +11781,6 @@ beginSubroutine: s32'cmnFDashCancel'
 
 beginSubroutine: s32'cmnAirFDash'
   createObject: s32'cmn_Step_mahojin', (EX_POINT_F)
-  setCommonActionMark: 1
   Unknown1687: 6
   bufferSpecialInput: 6
   callSubroutine: s32'cmnLandingStiffadd'
@@ -11799,7 +11798,7 @@ beginSubroutine: s32'cmnAirFDash'
       physicsYImpulse: 0, 0
       setGravity: 0
       endElse: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 13
+    ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 8
       createParticle: s32'cmn_air_dash', (HEAD)
       cmnSfx: s32'SE_BTL_CMN_DashAir'
       setMotionBlurAmount: 150
@@ -11809,7 +11808,6 @@ beginSubroutine: s32'cmnAirFDash'
       endIf: 
     endUpon: 
   upon: (BEFORE_EXIT)
-    resetGravity: 
     velocityXPercent: 75
     endUpon: 
   endSubroutine: 
