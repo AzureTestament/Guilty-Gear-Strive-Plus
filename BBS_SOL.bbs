@@ -465,24 +465,24 @@ beginSubroutine: s32'RoundInit'
   callSubroutine: s32'cmnRoundInit'
   walkFSpeed: 7900
   walkBSpeed: 4800
-  initDashFSpeed: 13100
-  fDashAccelSpeed: 560
+  initDashFSpeed: 15000
+  fDashAccelSpeed: 700
   fDashFriction: 95
-  bDashXSpeed: 14000
+  bDashXSpeed: 16000
   bDashYSpeed: 5200
   bDashGravity: 700
   forwardJumpDistance: 9700
-  backwardJumpDistance: 7500
+  backwardJumpDistance: 8750
   jumpHeight: 35000
   initGravity: 1900
   forwardSuperJumpDistance: 10400
-  backwardSuperJumpDistance: 7500
-  superJumpHeight: 43700
+  backwardSuperJumpDistance: 8750
+  superJumpHeight: 4550
   superJumpGravity: 1900
   airDashMinimumHeight: 105000
-  airFDashTime: 12
+  airFDashTime: 18
   airdashFSpeed: 30500
-  airFDashNoAttackTime: 5
+  airFDashNoAttackTime: 12
   airBDashTime: 10
   airDashBackVelocity: 24500
   airBDashNoAttackTime: 5
@@ -2190,14 +2190,25 @@ beginState: s32'CmnActBDash'
 
 beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
-    callSubroutine: s32'cmnAirBDash'
+    exPointFReset: (PLAYER), -20000, 160000
+    callSubroutine: s32'cmnAirFDash'
     endUpon: 
+  sprite: s32'sol021_07', 2
+  physicsXImpulse: 0, 30000
+  velocityXRate: 25
+  sprite: s32'sol404_15', 2
+  spriteBlend: s32'sol404_16', 0, 500
+  sprite: s32'sol404_16', 3
+  sprite: s32'sol035_00', 1
+  velocityXRate: 275
   sprite: s32'sol035_00', 2
-  sprite: s32'sol035_00', 3
+  velocityXRate: 225
   sprite: s32'sol035_01', 3
-  sprite: s32'sol035_01', 3
-  sprite: s32'sol035_02', 2
-  sprite: s32'sol035_03', 2
+  velocityXRate: 125
+  sprite: s32'sol035_02', 3
+  velocityXRate: 100
+  velocityXPercentEachFrame: 90
+  sprite: s32'sol035_03', 3
   endState: 
 
 beginState: s32'CmnActAirBDash'
@@ -3894,29 +3905,10 @@ beginState: s32'NmlAtk5A'
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk5B'
-    addWhiffCancelOption: s32'NmlAtk2B'
-    addWhiffCancelOption: s32'NmlAtk5CNear'
-    addWhiffCancelOption: s32'NmlAtk5CFar'
-    addWhiffCancelOption: s32'NmlAtk2C'
-    addWhiffCancelOption: s32'NmlAtk6C'
-    addWhiffCancelOption: s32'NmlAtk5D'
-    addWhiffCancelOption: s32'NmlAtk2D'
-    addWhiffCancelOption: s32'NmlAtk6D'
-    addWhiffCancelOption: s32'NmlAtk5E'
-    addWhiffCancelOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5B'
-    addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6C'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
@@ -3979,16 +3971,8 @@ beginState: s32'NmlAtk6A'
     groundHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 25000
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6C'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk5E'
-    addGatlingOption: s32'NmlAtk2E'
-    addGatlingOption: s32'Cancel_FDash'
     counterHitSoftKnockdown: 0
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: (HIT_OR_GUARD)
@@ -4051,32 +4035,11 @@ beginState: s32'NmlAtk2A'
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk5B'
-    addWhiffCancelOption: s32'NmlAtk2B'
-    addWhiffCancelOption: s32'NmlAtk5CNear'
-    addWhiffCancelOption: s32'NmlAtk5CFar'
-    addWhiffCancelOption: s32'NmlAtk2C'
-    addWhiffCancelOption: s32'NmlAtk6C'
-    addWhiffCancelOption: s32'NmlAtk5D'
-    addWhiffCancelOption: s32'NmlAtk2D'
-    addWhiffCancelOption: s32'NmlAtk6D'
-    addWhiffCancelOption: s32'NmlAtk5E'
-    addWhiffCancelOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5B'
-    addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6C'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk5E'
-    addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
       clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
@@ -4133,7 +4096,6 @@ beginState: s32'NmlAtk5B'
     Unknown1005: 250
     Unknown1004: 250
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6C'
@@ -4255,7 +4217,6 @@ beginState: s32'NmlAtk2B'
     hitGravity: (STATIC), 1000
     hitGravityOverTime: 0, 100, 0, 10, 0, 35
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6C'
@@ -4522,6 +4483,7 @@ beginState: s32'NmlAtk6C'
     hitAirPushbackYOverTime: 0, 50, 0, 5, 0, 11
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 100, 0, 10, 0, 23
+	addGatlingOption: s32'NmlAtk6D'
     hitEffectSlash: 1
     hitEffectFire: 1
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
