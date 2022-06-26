@@ -311,7 +311,7 @@ beginSubroutine: s32'RoundInit'
   airDashMinimumHeight: 105000
   airFDashTime: 30
   airdashFSpeed: 17500
-  airFDashNoAttackTime: 17
+  airFDashNoAttackTime: 9
   airBDashTime: 16
   airDashBackVelocity: 15000
   airBDashNoAttackTime: 11
@@ -2464,7 +2464,7 @@ beginState: s32'CmnActFDashStop'
 
 beginState: s32'CmnActBDash'
   sprite: s32'fau034_00', 2
-  strikeInvulnerableForTime: 5
+  strikeInvulnerableForTime: 7
   landingAutoAction: 0
   upon: (TOUCH_GROUND)
     gotoLabelRequests: s32'landing'
@@ -4510,15 +4510,9 @@ beginState: s32'NmlAtk5A'
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
@@ -4566,7 +4560,7 @@ beginState: s32'NmlAtk6A'
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     groundHitEffect: (AIR_FACE_UP)
     airHitEffect: (AIR_FACE_UP)
-    enableJumpCancel: 1
+    addGatlingOption: s32'NmlAtk6D'
     hitAirPushbackX: 0, 10000
     hitAirPushbackY: 0, 30000
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -4625,13 +4619,11 @@ beginState: s32'NmlAtk2A'
     hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 16
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 250, 0, 5, 0, 15
+    addWhiffCancelOption: s32'NmlAtk5A'
+    addWhiffCancelOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
@@ -4678,7 +4670,6 @@ beginState: s32'NmlAtk5B'
     hitGravityOverTime: 0, 250, 0, 5, 0, 15
     airHitEffect: (KIRIMOMI_B)
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk2D'
@@ -4686,6 +4677,7 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     addGatlingOption: s32'Cancel_FDash'
+	enableFarSlash: 1
     enableJumpCancel: 1
     wallBlowoffType: 1
     storeValue: (VARIABLE), 343, (STATIC), -450000
@@ -4743,6 +4735,7 @@ beginState: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
+	enableFarSlash: 1
     wallBlowoffType: 1
     storeValue: (VARIABLE), 343, (STATIC), -350000
     storeValue: (VARIABLE), 344, (STATIC), 0

@@ -330,8 +330,8 @@ beginSubroutine: s32'RoundInit'
   callSubroutine: s32'cmnRoundInit'
   walkFSpeed: 5200
   walkBSpeed: 4900
-  initDashFSpeed: 13100
-  fDashAccelSpeed: 420
+  initDashFSpeed: 14600
+  fDashAccelSpeed: 520
   fDashFriction: 100
   bDashXSpeed: 13000
   bDashYSpeed: 5200
@@ -345,9 +345,9 @@ beginSubroutine: s32'RoundInit'
   superJumpHeight: 45500
   superJumpGravity: 1900
   airDashMinimumHeight: 140000
-  airFDashTime: 12
+  airFDashTime: 16
   airdashFSpeed: 26300
-  airFDashNoAttackTime: 5
+  airFDashNoAttackTime: 9
   airBDashTime: 10
   airDashBackVelocity: 19000
   airBDashNoAttackTime: 5
@@ -1836,7 +1836,7 @@ beginState: s32'CmnActFDashStop'
 
 beginState: s32'CmnActBDash'
   sprite: s32'axl034_00', 3
-  strikeInvulnerableForTime: 5
+  strikeInvulnerableForTime: 8
   landingAutoAction: 0
   upon: (TOUCH_GROUND)
     gotoLabelRequests: s32'landing'
@@ -1867,14 +1867,25 @@ beginState: s32'CmnActBDash'
 
 beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
-    callSubroutine: s32'cmnAirBDash'
+    exPointFReset: (PLAYER), -20000, 160000
+    callSubroutine: s32'cmnAirFDash'
     endUpon: 
+  sprite: s32'axl351_08', 2
+  physicsXImpulse: 0, 25000
+  velocityXRate: 25
+  sprite: s32'axl351_07', 2
+  sprite: s32'axl351_06', 2
+  sprite: s32'axl351_05', 1
+  sprite: s32'axl035_01', 1
+  velocityXRate: 275
   sprite: s32'axl035_01', 2
-  sprite: s32'axl035_01', 3
+  velocityXRate: 225
   sprite: s32'axl035_02', 3
+  velocityXRate: 125
   sprite: s32'axl035_01', 3
-  sprite: s32'axl035_01', 2
-  sprite: s32'axl035_02', 2
+  velocityXRate: 100
+  velocityXPercentEachFrame: 90
+  sprite: s32'axl035_02', 3
   endState: 
 
 beginState: s32'CmnActAirBDash'
@@ -3520,7 +3531,6 @@ beginState: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk3A'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6D'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (KIRIMOMI)
@@ -3593,13 +3603,8 @@ beginState: s32'NmlAtk6A'
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     addGatlingOption: s32'NmlAtk3A'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk2D'
-    addGatlingOption: s32'NmlAtk5E'
-    addGatlingOption: s32'NmlAtk2E'
+    addGatlingOption: s32'NmlAtk6B'
+    addGatlingOption: s32'NmlAtk6D'
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 22000
     groundHitEffect: (AIR_FACE_UP)
@@ -3642,13 +3647,8 @@ beginState: s32'NmlAtk3A'
     storeValue: (VARIABLE), 339, (STATIC), 0
     storeValue: (VARIABLE), 340, (STATIC), 1
     callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk5D'
+    addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk2D'
-    addGatlingOption: s32'NmlAtk5E'
-    addGatlingOption: s32'NmlAtk2E'
     endUpon: 
   sprite: s32'axl240_00', 2
   voiceLine: s16'vxxx200'
@@ -3685,7 +3685,6 @@ beginState: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk3A'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk6D'
     upon: (HIT_OR_GUARD)
       extendPushboxX: 70000
@@ -3766,7 +3765,6 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk6D'
@@ -3774,6 +3772,7 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     addGatlingOption: s32'Cancel_FDash'
+	enableFarSlash: 1
     upon: (HIT_OR_GUARD)
       extendPushboxX: 40000
       endUpon: 
@@ -3821,6 +3820,7 @@ beginState: s32'NmlAtk6B'
     wallBounceGravity: 2000
     wallBounceInCornerOnly: 1
     hitGravityOverTime: 0, 200, 0, 20, 0, 40
+    addGatlingOption: s32'NmlAtk6D'
     upon: (HIT_OR_GUARD)
       extendPushboxX: 70000
       callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
@@ -3906,13 +3906,13 @@ beginState: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk3A'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
+	enableFarSlash: 1
     wallBlowoffType: 1
     storeValue: (VARIABLE), 343, (STATIC), -250000
     storeValue: (VARIABLE), 344, (STATIC), 0
