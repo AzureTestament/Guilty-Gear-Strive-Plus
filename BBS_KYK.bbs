@@ -3834,9 +3834,9 @@ beginSubroutine: s32'OnFrameStep'
       endIf: 
     storeValue: (VARIABLE), 3, (STATIC), 1
     isObjectActive: 5
-    walkFSpeed: 11800
-    walkBSpeed: 9000
-    initDashFSpeed: 18000
+    walkFSpeed: 8600
+    walkBSpeed: 6000
+    initDashFSpeed: 20000
     bDashXSpeed: 21000
     forwardJumpDistance: 10500
     backwardJumpDistance: 8500
@@ -4811,7 +4811,7 @@ beginState: s32'CmnActAirFDash'
     callSubroutine: s32'cmnAirFDash'
     endUpon: 
   sprite: s32'kyk351_08', 2
-  physicsXImpulse: 0, 30000
+  physicsXImpulse: 0, 27500
   velocityXRate: 25
   sprite: s32'kyk351_07', 2
   sprite: s32'kyk351_06', 2
@@ -6451,6 +6451,8 @@ beginState: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk6D'
+    addGatlingOption: s32'NmlAtk5E'
+    addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
       clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
@@ -6583,6 +6585,8 @@ beginState: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk6D'
+    addGatlingOption: s32'NmlAtk5E'
+    addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
       clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
@@ -6648,7 +6652,8 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     addGatlingOption: s32'Cancel_FDash'
-    enableJumpCancel: 1
+    enableFarSlash: 1
+	enableJumpCancel: 1
     upon: (HIT_OR_GUARD)
       extendPushboxX: 50000
       endUpon: 
@@ -6721,6 +6726,7 @@ beginState: s32'NmlAtk6B'
     hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 16
     hitGravity: (STATIC), 0
     hitGravityOverTime: 0, 250, 0, 5, 0, 15
+    addGatlingOption: s32'NmlAtk6D'
     airHitEffect: (KIRIMOMI_B)
     upon: (HIT_OR_GUARD)
       extendPushboxX: 45000
@@ -6764,14 +6770,16 @@ beginState: s32'NmlAtk6B'
     extendPushboxX: 60000
     endUpon: 
   sprite: s32'kyk211_00', 2
-  sprite: s32'kyk211_01', 3
+  sprite: s32'kyk211_01', 2
   addNamerakaMoveX: 100000
-  sprite: s32'kyk211_02', 3
+  sprite: s32'kyk211_02', 2
   addNamerakaMoveX: 35000
-  sprite: s32'kyk211_03', 4
+  sprite: s32'kyk211_03', 2
   cmnSfx: s32'SE_JUMPLANDB'
   attackVoiceLine: 1, -1
   addNamerakaMoveX: 25000
+  sprite: s32'kyk211_04', 3
+  sprite: s32'kyk211_05', 3
   sprite: s32'kyk211_06', 3
   addNamerakaMoveX: 85000
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
@@ -6819,6 +6827,7 @@ beginState: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk3D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
+    enableFarSlash: 1
     wallBlowoffType: 1
     storeValue: (VARIABLE), 343, (STATIC), -200000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -7365,7 +7374,6 @@ beginState: s32'NmlAtk2D'
     hitEffectSlash: 1
     atkAngle: 90
     angleGuardForce: 90
-    groundHitEffect: (AIR_LAUNCH)
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 15000
     hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 15
@@ -7428,6 +7436,7 @@ beginState: s32'NmlAtk2D'
   deactivateObjectByName: s32'kyk233_bake1'
   createObject: s32'kyk233_bake2', (PLAYER)
   hit: 
+  callSubroutine: s32'cmn_AtkTemplFloatDamageHead'
   damage: 0, 28
   hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Katana_L'
   guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Katana_L'

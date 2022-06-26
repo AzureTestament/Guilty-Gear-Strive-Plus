@@ -9343,7 +9343,7 @@ beginSubroutine: s32'cmnEntryToStand2P'
     ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
       callSubroutine: s32'cmnEntryToStandEx'
       setRawPositionXInBattle: -402000
-      warp: (SELF), 131, (STATIC), -252000, (STATIC), 0, 2, 46
+      warp: (SELF), (WORLD_ZERO), (STATIC), -252000, (STATIC), 0, 2, 46
       modifyVarAfterOperation: (MUL), (STATIC), -2500, (VARIABLE), 46, (VARIABLE), 281
       Unknown1736: 0, 2500
       endIf: 
@@ -9757,10 +9757,10 @@ beginSubroutine: s32'cmnAtk_GB_TGG'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 332, (STATIC), 2
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 2
-      tensionGainOnConnect: 15
+      tensionGainOnConnect: 12
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 3
-      tensionGainOnConnect: 12
+      tensionGainOnConnect: 10
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 4
       tensionGainOnConnect: 8
@@ -9806,7 +9806,7 @@ beginSubroutine: s32'cmnAtk_GB_TGG'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 332, (STATIC), 3
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 2
-      tensionGainOnConnect: 20
+      tensionGainOnConnect: 15
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 3
       tensionGainOnConnect: 12
@@ -9855,7 +9855,7 @@ beginSubroutine: s32'cmnAtk_GB_TGG'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 332, (STATIC), 4
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 2
-      tensionGainOnConnect: 25
+      tensionGainOnConnect: 20
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 3
       tensionGainOnConnect: 16
@@ -9904,7 +9904,7 @@ beginSubroutine: s32'cmnAtk_GB_TGG'
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 332, (STATIC), 5
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 2
-      tensionGainOnConnect: 30
+      tensionGainOnConnect: 25
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 3
       tensionGainOnConnect: 20
@@ -10367,7 +10367,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv3'
   ifNot: (VARIABLE), 340
     storeValue: (VARIABLE), 340, (STATIC), 1
     endIf: 
-  modifyVarAfterOperation: (DIV), (STATIC), 350, (VARIABLE), 340, (VARIABLE), 349
+  modifyVarAfterOperation: (DIV), (STATIC), 300, (VARIABLE), 340, (VARIABLE), 349
   attackExHitParam: (VARIABLE), 349, 0, 10000, 1, (ENEMY), (VARIABLE), 306
   ifOperationInObject: (WINNER), (PERCENT), (VARIABLE), 83, (STATIC), 750000
     ifOperationInObject: 12, (PERCENT), (VARIABLE), 83, (STATIC), -750000
@@ -10387,7 +10387,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv4'
   ifNot: (VARIABLE), 340
     storeValue: (VARIABLE), 340, (STATIC), 1
     endIf: 
-  modifyVarAfterOperation: (DIV), (STATIC), 500, (VARIABLE), 340, (VARIABLE), 349
+  modifyVarAfterOperation: (DIV), (STATIC), 350, (VARIABLE), 340, (VARIABLE), 349
   attackExHitParam: (VARIABLE), 349, 0, 10000, 1, (ENEMY), (VARIABLE), 306
   ifOperationInObject: (WINNER), (PERCENT), (VARIABLE), 83, (STATIC), 750000
     ifOperationInObject: 12, (PERCENT), (VARIABLE), 83, (STATIC), -750000
@@ -10407,7 +10407,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv5'
   ifNot: (VARIABLE), 340
     storeValue: (VARIABLE), 340, (STATIC), 1
     endIf: 
-  modifyVarAfterOperation: (DIV), (STATIC), 600, (VARIABLE), 340, (VARIABLE), 349
+  modifyVarAfterOperation: (DIV), (STATIC), 400, (VARIABLE), 340, (VARIABLE), 349
   attackExHitParam: (VARIABLE), 349, 0, 10000, 1, (ENEMY), (VARIABLE), 306
   ifOperationInObject: (WINNER), (PERCENT), (VARIABLE), 83, (STATIC), 750000
     ifOperationInObject: 12, (PERCENT), (VARIABLE), 83, (STATIC), -750000
@@ -10427,7 +10427,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv10'
   ifNot: (VARIABLE), 340
     storeValue: (VARIABLE), 340, (STATIC), 1
     endIf: 
-  modifyVarAfterOperation: (DIV), (STATIC), 3000, (VARIABLE), 340, (VARIABLE), 340
+  modifyVarAfterOperation: (DIV), (STATIC), 5000, (VARIABLE), 340, (VARIABLE), 340
   attackExHitParam: (VARIABLE), 340, 0, 10000, 1, (ENEMY), (VARIABLE), 306
   ifOperationInObject: (WINNER), (PERCENT), (VARIABLE), 83, (STATIC), 750000
     ifOperationInObject: 12, (PERCENT), (VARIABLE), 83, (STATIC), -750000
@@ -10655,32 +10655,32 @@ beginSubroutine: s32'cmn_hosei'
       callSubroutine: s32'cmn_WSBPoint_Add_Lv5'
       endIf: 
     endElse: 
-  riscConsume: 12
+  riscConsume: 15
   prorationTandan: 0
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 6
+      riscConsume: 3
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 6
+      riscConsume: 5
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 6
+      riscConsume: 5
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 9
+      riscConsume: 10
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 9
+      riscConsume: 10
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      riscConsume: 9
+      riscConsume: 10
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
@@ -10782,104 +10782,104 @@ beginSubroutine: s32'cmn_hosei'
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 6
+      forcedPushbackAndGravityScaling: 4
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 6
+      forcedPushbackAndGravityScaling: 4
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 6
+      forcedPushbackAndGravityScaling: 4
       endIf: 
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 3
+      forcedPushbackAndGravityScaling: 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-      forcedPushbackAndGravityScaling: 10
+      forcedPushbackAndGravityScaling: 8
       endIf: 
     endIf: 
   pushbackAndGravityScaling: 0, 0
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
     ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 3
+      pushbackAndGravityScaling: 0, 2
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 10
+      pushbackAndGravityScaling: 0, 8
       endIf: 
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
@@ -10897,7 +10897,7 @@ beginSubroutine: s32'cmn_hosei'
       endIf: 
     modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
     ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-      pushbackAndGravityScaling: 0, 5
+      pushbackAndGravityScaling: 0, 4
       endIf: 
     endIf: 
   storeValue: (VARIABLE), 338, (STATIC), 0
@@ -10907,25 +10907,25 @@ beginSubroutine: s32'cmn_hosei'
 
 beginSubroutine: s32'cmnAddTensionGG'
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
-    addTension: 30
+    addTension: 80
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 2
-    addTension: 30
+    addTension: 70
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 3
-    addTension: 20
+    addTension: 60
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 4
-    addTension: 20
+    addTension: 50
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 5
-    addTension: 10
+    addTension: 40
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 6
-    addTension: 10
+    addTension: 30
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 7
-    addTension: 10
+    addTension: 20
     endIf: 
   ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 8
     addTension: 10
@@ -11001,116 +11001,106 @@ beginSubroutine: s32'cmn_RISCounter'
   endSubroutine: 
 
 beginSubroutine: s32'cmn_countertype_middle'
-  if: (VARIABLE), 130
-    upon: (COUNTER_HIT)
-      ifNotInObject: (ENEMY), (VARIABLE), 352
-        clearRegisteredUponCode: (COUNTER_HIT)
-        slowHitstop: 1, 1
-        counterHitRedRomanCancelTime: 10
-        damageEffect: 4, s32'cmn_counterhit_middle'
-        battleStats: s32'CounterHitM_Atk', 0, 1
-        runOnObject: (ENEMY)
-          battleStats: s32'CounterHitM_Dmg', 0, 1
-          endRunOnObject: 
-        counterHitProcess: (MEDIUM)
-        createObject: s32'cmnCounterCamera', (PLAYER)
-        narratorVoiceLine: s32'Btl_Counter'
-        cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
-        callSubroutine: s32'cmnCamCounterSlowSettings'
-        endIf: 
-      callSubroutine: s32'cmn_RISCounter'
-      endUpon: 
-    endIf: 
+  upon: (COUNTER_HIT)
+    ifNotInObject: (ENEMY), (VARIABLE), 352
+      clearRegisteredUponCode: (COUNTER_HIT)
+      slowHitstop: 1, 1
+      counterHitRedRomanCancelTime: 10
+      damageEffect: 4, s32'cmn_counterhit_middle'
+      battleStats: s32'CounterHitM_Atk', 0, 1
+      runOnObject: (ENEMY)
+        battleStats: s32'CounterHitM_Dmg', 0, 1
+        endRunOnObject: 
+      counterHitProcess: (MEDIUM)
+      createObject: s32'cmnCounterCamera', (PLAYER)
+      narratorVoiceLine: s32'Btl_Counter'
+      cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
+      callSubroutine: s32'cmnCamCounterSlowSettings'
+      endIf: 
+    callSubroutine: s32'cmn_RISCounter'
+    endUpon: 
   endSubroutine: 
 
 beginSubroutine: s32'cmn_countertype_middle_slash'
-  if: (VARIABLE), 130
-    upon: (COUNTER_HIT)
-      ifNotInObject: (ENEMY), (VARIABLE), 352
-        clearRegisteredUponCode: (COUNTER_HIT)
-        slowHitstop: 1, 1
-        counterHitRedRomanCancelTime: 10
-        damageEffect: 4, s32'cmn_counterslash'
-        doubleSlashEffectBugFix: 1
-        battleStats: s32'CounterHitM_Atk', 0, 1
-        runOnObject: (ENEMY)
-          battleStats: s32'CounterHitM_Dmg', 0, 1
-          endRunOnObject: 
-        counterHitProcess: (MEDIUM)
-        createObject: s32'cmnCounterCamera', (PLAYER)
-        narratorVoiceLine: s32'Btl_Counter'
-        cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
-        callSubroutine: s32'cmnCamCounterSlowSettings'
-        endIf: 
-      callSubroutine: s32'cmn_RISCounter'
-      endUpon: 
-    endIf: 
+  upon: (COUNTER_HIT)
+    ifNotInObject: (ENEMY), (VARIABLE), 352
+      clearRegisteredUponCode: (COUNTER_HIT)
+      slowHitstop: 1, 1
+      counterHitRedRomanCancelTime: 10
+      damageEffect: 4, s32'cmn_counterslash'
+      doubleSlashEffectBugFix: 1
+      battleStats: s32'CounterHitM_Atk', 0, 1
+      runOnObject: (ENEMY)
+        battleStats: s32'CounterHitM_Dmg', 0, 1
+        endRunOnObject: 
+      counterHitProcess: (MEDIUM)
+      createObject: s32'cmnCounterCamera', (PLAYER)
+      narratorVoiceLine: s32'Btl_Counter'
+      cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
+      callSubroutine: s32'cmnCamCounterSlowSettings'
+      endIf: 
+    callSubroutine: s32'cmn_RISCounter'
+    endUpon: 
   endSubroutine: 
 
 beginSubroutine: s32'cmn_countertype_high'
-  if: (VARIABLE), 130
-    upon: (COUNTER_HIT)
-      ifNotInObject: (ENEMY), (VARIABLE), 352
-        clearRegisteredUponCode: (COUNTER_HIT)
-        slowHitstop: 1, 1
-        counterHitRedRomanCancelTime: 10
-        damageEffect: 4, s32'cmn_counterhit_large'
-        battleStats: s32'CounterHitL_Atk', 0, 1
-        runOnObject: (ENEMY)
-          battleStats: s32'CounterHitL_Dmg', 0, 1
-          endRunOnObject: 
-        counterHitProcess: (LARGE)
-        createArgHikitsukiVal: 0, 1, 0, 0
-        createObjectWithArg: s32'cmnHiCounterCamera', (PLAYER)
-        uiMessage: 43
-        narratorVoiceLine: s32'Btl_Counter'
-        callSubroutine: s32'cmnCamCounterSlowSettings'
-        endIf: 
-      callSubroutine: s32'cmn_RISCounter'
-      endUpon: 
-    endIf: 
+  upon: (COUNTER_HIT)
+    ifNotInObject: (ENEMY), (VARIABLE), 352
+      clearRegisteredUponCode: (COUNTER_HIT)
+      slowHitstop: 1, 1
+      counterHitRedRomanCancelTime: 10
+      damageEffect: 4, s32'cmn_counterhit_large'
+      battleStats: s32'CounterHitL_Atk', 0, 1
+      runOnObject: (ENEMY)
+        battleStats: s32'CounterHitL_Dmg', 0, 1
+        endRunOnObject: 
+      counterHitProcess: (LARGE)
+      createArgHikitsukiVal: 0, 1, 0, 0
+      createObjectWithArg: s32'cmnHiCounterCamera', (PLAYER)
+      uiMessage: 43
+      narratorVoiceLine: s32'Btl_Counter'
+      callSubroutine: s32'cmnCamCounterSlowSettings'
+      endIf: 
+    callSubroutine: s32'cmn_RISCounter'
+    endUpon: 
   endSubroutine: 
 
 beginSubroutine: s32'cmn_countertype_high_slash'
-  if: (VARIABLE), 130
-    upon: (COUNTER_HIT)
-      ifNotInObject: (ENEMY), (VARIABLE), 352
-        clearRegisteredUponCode: (COUNTER_HIT)
-        slowHitstop: 1, 1
-        counterHitRedRomanCancelTime: 10
-        damageEffect: 4, s32'cmn_counterslash'
-        doubleSlashEffectBugFix: 1
-        battleStats: s32'CounterHitL_Atk', 0, 1
-        runOnObject: (ENEMY)
-          battleStats: s32'CounterHitL_Dmg', 0, 1
-          endRunOnObject: 
-        counterHitProcess: (LARGE)
-        createArgHikitsukiVal: 0, 1, 0, 0
-        createObjectWithArg: s32'cmnHiCounterCamera', (PLAYER)
-        uiMessage: 43
-        narratorVoiceLine: s32'Btl_Counter'
-        callSubroutine: s32'cmnCamCounterSlowSettings'
-        endIf: 
-      callSubroutine: s32'cmn_RISCounter'
-      endUpon: 
-    endIf: 
+  upon: (COUNTER_HIT)
+    ifNotInObject: (ENEMY), (VARIABLE), 352
+      clearRegisteredUponCode: (COUNTER_HIT)
+      slowHitstop: 1, 1
+      counterHitRedRomanCancelTime: 10
+      damageEffect: 4, s32'cmn_counterslash'
+      doubleSlashEffectBugFix: 1
+      battleStats: s32'CounterHitL_Atk', 0, 1
+      runOnObject: (ENEMY)
+        battleStats: s32'CounterHitL_Dmg', 0, 1
+        endRunOnObject: 
+      counterHitProcess: (LARGE)
+      createArgHikitsukiVal: 0, 1, 0, 0
+      createObjectWithArg: s32'cmnHiCounterCamera', (PLAYER)
+      uiMessage: 43
+      narratorVoiceLine: s32'Btl_Counter'
+      callSubroutine: s32'cmnCamCounterSlowSettings'
+      endIf: 
+    callSubroutine: s32'cmn_RISCounter'
+    endUpon: 
   endSubroutine: 
 
 beginSubroutine: s32'cmn_countertype'
-  if: (VARIABLE), 130
-    upon: (COUNTER_HIT)
-      ifNotInObject: (ENEMY), (VARIABLE), 352
-        clearRegisteredUponCode: (COUNTER_HIT)
-        slowHitstop: 1, 1
-        damageEffect: 4, s32'cmn_counterhit_small'
-        createArgHikitsukiVal: 0, 1, 0, 0
-        createObjectWithArg: s32'cmnCounterCamera', (PLAYER)
-        cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
-        callSubroutine: s32'cmnCamCounterSlowSettings'
-        endIf: 
-      callSubroutine: s32'cmn_RISCounter'
-      endUpon: 
-    endIf: 
+  upon: (COUNTER_HIT)
+    ifNotInObject: (ENEMY), (VARIABLE), 352
+      clearRegisteredUponCode: (COUNTER_HIT)
+      slowHitstop: 1, 1
+      damageEffect: 4, s32'cmn_counterhit_small'
+      createArgHikitsukiVal: 0, 1, 0, 0
+      createObjectWithArg: s32'cmnCounterCamera', (PLAYER)
+      cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
+      callSubroutine: s32'cmnCamCounterSlowSettings'
+      endIf: 
+    callSubroutine: s32'cmn_RISCounter'
+    endUpon: 
   endSubroutine: 
 
 beginState: s32'cmnCounterCamera'
@@ -11872,7 +11862,7 @@ beginSubroutine: s32'cmnOnGuard'
 
 beginSubroutine: s32'cmnWSBPointLimit'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 306, (STATIC), 2500
-    storeValue: (VARIABLE), 306, (STATIC), 2500
+    storeValue: (VARIABLE), 306, (STATIC), 2000
     endIf: 
   endSubroutine: 
 
@@ -11951,7 +11941,7 @@ beginSubroutine: s32'cmnBurst'
     storeValue: (VARIABLE), 49, (STATIC), 1
     modifyBurstGauge: -15000
     endElse: 
-  warp: (SELF), 100, (STATIC), (STATIC), (STATIC), 200000, 2, 45
+  warp: (SELF), (PLAYER), (STATIC), (STATIC), (STATIC), 200000, 2, 45
   velocityYPercentEachFrame: 95
   upon: (FRAME_STEP)
     ifOperation: (IS_LESSER), (VARIABLE), 13, (VARIABLE), 45
@@ -12271,10 +12261,10 @@ beginState: s32'cmnCam_AirThrowAction'
           endRunOnObject: 
         endIf: 
       ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
-        warp: 4, 100, (STATIC), (STATIC), (STATIC), 0, 0, 8
+        warp: 4, (PLAYER), (STATIC), (STATIC), (STATIC), 0, 0, 8
         endIf: 
       else: 
-        warp: 4, 100, (STATIC), (STATIC), (STATIC), 0, 2, 116
+        warp: 4, (PLAYER), (STATIC), (STATIC), (STATIC), 0, 2, 116
         endElse: 
       checkCurrentStateName: (PLAYER), s32'AirThrowExe'
       ifNot: (VARIABLE), 0
@@ -14566,7 +14556,7 @@ beginSubroutine: s32'cmnNohosei_kakusei'
 
 beginSubroutine: s32'cmnNageWSBPoint'
   runOnObject: (ENEMY)
-    modifyVar: (ADD), (VARIABLE), 306, (STATIC), 1000
+    modifyVar: (ADD), (VARIABLE), 306, (STATIC), 750
     endRunOnObject: 
   endSubroutine: 
 
@@ -15300,7 +15290,7 @@ beginSubroutine: s32'cmnWSBWallBreakAfterDamage'
 
 beginSubroutine: s32'cmnOnWSBCalc'
   runOnObject: (ENEMY)
-    estimateWallBreakDamage: (ENEMY), (STATIC), 40, (STATIC), 80
+    estimateWallBreakDamage: (ENEMY), (STATIC), 30, (STATIC), 90
     endRunOnObject: 
   if: (VARIABLE), 386
     runOnObject: (ENEMY)
@@ -18574,13 +18564,13 @@ beginSubroutine: s32'cmnWSB_Master_Slide_6'
       moveToObject: (ENEMY)
       landingHeight: 0
       addPositionX: 0, -500000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FRAME_STEP)
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           gotoLabelRequests: s32'brake'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           createParticleWithArg: s32'bg_dashstart', (FRONT_3_BODY)
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
@@ -18613,7 +18603,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -18639,7 +18629,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
       cameraShake: s32'ShakeTateYoko', 500, 0, 10, 5
@@ -18654,11 +18644,11 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -18732,14 +18722,14 @@ beginSubroutine: s32'cmnWSB_Master_Up_6'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -18772,7 +18762,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -18798,7 +18788,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -18814,11 +18804,11 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -18901,14 +18891,14 @@ beginSubroutine: s32'cmnWSB_Master_Down_6'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -18941,7 +18931,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -18967,7 +18957,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -18983,11 +18973,11 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -19070,14 +19060,14 @@ beginSubroutine: s32'cmnWSB_Master_Bound_6'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -19110,7 +19100,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -19162,7 +19152,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6'
       ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
         storeValue: (VARIABLE), 46, (VARIABLE), 48
         endIf: 
-      warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+      warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
       modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
       modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
       modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -19188,7 +19178,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6'
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
           haltMomentum: 1
-          warp: (SELF), 131, (STATIC), -725000, (STATIC), 200000, 0, 15
+          warp: (SELF), (WORLD_ZERO), (STATIC), -725000, (STATIC), 200000, 0, 15
           setGravity: 5000
           effectForDownLv2: 129, 1, 0
           effectForDownLv3: 129, 1, 0
@@ -19204,11 +19194,11 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6'
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
               if: (VARIABLE), 77
                 if: (VARIABLE), 319
-                  warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+                  warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
                   gotoLabelRequests: s32'brake'
                   endIf: 
                 else: 
-                  warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+                  warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
                   Unknown76: s32'CmnActKorogari'
                   endElse: 
                 endIf: 
@@ -19298,13 +19288,13 @@ beginSubroutine: s32'cmnWSB_Master_Slide_6_4500'
       addPositionX: 0, -1000000
       setPositionY: 0
       landingHeight: 0
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 20
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 20
       setDepth: 0
       setAngleY: 0
       upon: (FRAME_STEP)
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           gotoLabelRequests: s32'brake'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           createParticleWithArg: s32'bg_dashstart', (FRONT_3_BODY)
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
@@ -19337,7 +19327,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -19363,7 +19353,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -19379,11 +19369,11 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -19469,14 +19459,14 @@ beginSubroutine: s32'cmnWSB_Master_Up_6_4500'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -19509,7 +19499,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -19535,7 +19525,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -19551,11 +19541,11 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -19641,14 +19631,14 @@ beginSubroutine: s32'cmnWSB_Master_Down_6_4500'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -19681,7 +19671,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -19707,7 +19697,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -19723,11 +19713,11 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -19813,14 +19803,14 @@ beginSubroutine: s32'cmnWSB_Master_Bound_6_4500'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -19853,7 +19843,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -19879,7 +19869,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -19895,11 +19885,11 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -19985,13 +19975,13 @@ beginSubroutine: s32'cmnWSB_Master_Slide_6_8000'
       addPositionX: 0, -1000000
       setPositionY: 0
       landingHeight: 0
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 20
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 20
       setDepth: 0
       setAngleY: 0
       upon: (FRAME_STEP)
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           gotoLabelRequests: s32'brake'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           createParticleWithArg: s32'bg_dashstart', (FRONT_3_BODY)
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
@@ -20031,7 +20021,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_8000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -20057,7 +20047,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_8000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -20076,11 +20066,11 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_8000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -20168,14 +20158,14 @@ beginSubroutine: s32'cmnWSB_Master_Up_6_8000'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -20208,7 +20198,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_8000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -20234,7 +20224,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_8000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -20250,11 +20240,11 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_8000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -20340,14 +20330,14 @@ beginSubroutine: s32'cmnWSB_Master_Down_6_8000'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -20380,7 +20370,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_8000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -20406,7 +20396,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_8000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -20422,11 +20412,11 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_8000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -20512,14 +20502,14 @@ beginSubroutine: s32'cmnWSB_Master_Bound_6_8000'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -20552,7 +20542,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_8000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -20578,7 +20568,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_8000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -20594,11 +20584,11 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_8000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -20684,13 +20674,13 @@ beginSubroutine: s32'cmnWSB_Master_Slide_3_4500'
       addPositionX: 0, -1000000
       setPositionY: 0
       landingHeight: 0
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 20
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 20
       setDepth: 0
       setAngleY: 0
       upon: (FRAME_STEP)
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           gotoLabelRequests: s32'brake'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           createParticleWithArg: s32'bg_dashstart', (FRONT_3_BODY)
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
@@ -20723,7 +20713,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -20749,7 +20739,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -20765,11 +20755,11 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -20855,14 +20845,14 @@ beginSubroutine: s32'cmnWSB_Master_Up_3_4500'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -20895,7 +20885,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -20921,7 +20911,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -20937,11 +20927,11 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -21027,14 +21017,14 @@ beginSubroutine: s32'cmnWSB_Master_Down_3_4500'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -21067,7 +21057,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -21093,7 +21083,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -21109,11 +21099,11 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -21199,14 +21189,14 @@ beginSubroutine: s32'cmnWSB_Master_Bound_3_4500'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -21239,7 +21229,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_4500'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -21265,7 +21255,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_4500'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -21281,11 +21271,11 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_4500'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -21371,13 +21361,13 @@ beginSubroutine: s32'cmnWSB_Master_Slide_3_21000'
       addPositionX: 0, -1000000
       setPositionY: 0
       landingHeight: 0
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 20
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 20
       setDepth: 0
       setAngleY: 0
       upon: (FRAME_STEP)
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           gotoLabelRequests: s32'brake'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           createParticleWithArg: s32'bg_dashstart', (FRONT_3_BODY)
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
@@ -21410,7 +21400,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_21000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -21421,7 +21411,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_21000'
     modifyVarAfterOperation: (SUB), (VARIABLE), 45, (VARIABLE), 13, (VARIABLE), 51
     pushVelocityY: 
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
-    warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 51
+    warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 51
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
     popVelocityY: 
     modifyVarAfterOperation: (ADD), (VARIABLE), 51, (STATIC), -1, (VARIABLE), 52
@@ -21441,7 +21431,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_21000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -21457,11 +21447,11 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_21000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -21547,14 +21537,14 @@ beginSubroutine: s32'cmnWSB_Master_Up_3_21000'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -21587,7 +21577,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_21000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -21598,7 +21588,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_21000'
     modifyVarAfterOperation: (SUB), (VARIABLE), 45, (VARIABLE), 13, (VARIABLE), 51
     pushVelocityY: 
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
-    warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 51
+    warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 51
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
     popVelocityY: 
     modifyVarAfterOperation: (ADD), (VARIABLE), 51, (STATIC), -1, (VARIABLE), 52
@@ -21618,7 +21608,7 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_21000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -21634,11 +21624,11 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_21000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -21724,14 +21714,14 @@ beginSubroutine: s32'cmnWSB_Master_Down_3_21000'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -21764,7 +21754,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_21000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -21775,7 +21765,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_21000'
     modifyVarAfterOperation: (SUB), (VARIABLE), 45, (VARIABLE), 13, (VARIABLE), 51
     pushVelocityY: 
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
-    warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 51
+    warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 51
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
     popVelocityY: 
     modifyVarAfterOperation: (ADD), (VARIABLE), 51, (STATIC), -1, (VARIABLE), 52
@@ -21795,7 +21785,7 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_21000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -21811,11 +21801,11 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_21000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -21901,14 +21891,14 @@ beginSubroutine: s32'cmnWSB_Master_Bound_3_21000'
       landingHeight: 0
       addPositionX: 0, -1250000
       setPositionY: 1750000
-      warp: (SELF), 131, (STATIC), 100000, (STATIC), 0, 0, 16
+      warp: (SELF), (WORLD_ZERO), (STATIC), 100000, (STATIC), 0, 0, 16
       setDepth: 0
       setAngleY: 0
       upon: (FALL_SPEED)
         clearRegisteredUponCode: (FALL_SPEED)
         upon: (TOUCH_GROUND)
           gotoLabelRequests: s32'landing'
-          warp: (SELF), 131, (STATIC), 150000, (STATIC), 0, 0, 5
+          warp: (SELF), (WORLD_ZERO), (STATIC), 150000, (STATIC), 0, 0, 5
           upon: (FRAME_STEP)
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
               clearRegisteredUponCode: (FRAME_STEP)
@@ -21941,7 +21931,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_21000'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (MUL), (VARIABLE), 8, (VARIABLE), 45, (VARIABLE), 50
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
@@ -21952,7 +21942,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_21000'
     modifyVarAfterOperation: (SUB), (VARIABLE), 45, (VARIABLE), 13, (VARIABLE), 51
     pushVelocityY: 
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
-    warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 51
+    warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 51
     modifyVar: (MUL), (VARIABLE), 51, (STATIC), -1
     popVelocityY: 
     modifyVarAfterOperation: (ADD), (VARIABLE), 51, (STATIC), -1, (VARIABLE), 52
@@ -21972,7 +21962,7 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_21000'
     upon: (TOUCH_GROUND)
       gotoLabelRequests: s32'landing'
       haltMomentum: 1
-      warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+      warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
       setAngleY: 0
       effectForDownLv2: 129, 1, 0
       effectForDownLv3: 129, 1, 0
@@ -21988,11 +21978,11 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_21000'
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
             if: (VARIABLE), 319
-              warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
               gotoLabelRequests: s32'brake'
               endIf: 
             else: 
-              warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
               Unknown76: s32'CmnActKorogari'
               endElse: 
             endIf: 
@@ -25736,7 +25726,7 @@ beginState: s32'cmn_FinishCamera_FarObj'
   physicsXImpulse: 0, 5000
   velocityXPercentEachFrame: 110
   sprite: s32'null', 6
-  warp: (LOSER), 104, (STATIC), (STATIC), (STATIC), 0, 0, 60
+  warp: (LOSER), (FLOOR_CENTER), (STATIC), (STATIC), (STATIC), 0, 0, 60
   sprite: s32'null', 66
   velocityXPercentEachFrame: 94
   sprite: s32'null', 10
@@ -28514,7 +28504,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_WH_In'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (VARIABLE), 48
     storeValue: (VARIABLE), 46, (VARIABLE), 48
     endIf: 
-  warp: (SELF), 131, (VARIABLE), 49, (VARIABLE), 46, 2, 45
+  warp: (SELF), (WORLD_ZERO), (VARIABLE), 49, (VARIABLE), 46, 2, 45
   modifyVarAfterOperation: (ADD), (VARIABLE), 45, (STATIC), -1, (VARIABLE), 51
   modifyVar: (MUL), (VARIABLE), 51, (VARIABLE), 45
   modifyVarAfterOperation: (DIV), (VARIABLE), 50, (VARIABLE), 51, (VARIABLE), 311
@@ -28570,7 +28560,7 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_WH_In'
       upon: (TOUCH_GROUND)
         gotoLabelRequests: s32'landing'
         haltMomentum: 1
-        warp: (SELF), 131, (STATIC), -700000, (STATIC), 0, 0, 15
+        warp: (SELF), (WORLD_ZERO), (STATIC), -700000, (STATIC), 0, 0, 15
         setAngleY: 0
         effectForDownLv2: 129, 1, 0
         effectForDownLv3: 129, 1, 0
@@ -28589,11 +28579,11 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_WH_In'
           ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
             if: (VARIABLE), 77
               if: (VARIABLE), 319
-                warp: (SELF), 131, (STATIC), -750000, (STATIC), 0, 0, 5
+                warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
                 gotoLabelRequests: s32'brake'
                 endIf: 
               else: 
-                warp: (SELF), 131, (STATIC), -775000, (STATIC), 0, 0, 5
+                warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
                 Unknown76: s32'CmnActKorogari'
                 endElse: 
               endIf: 
