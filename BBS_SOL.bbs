@@ -6798,10 +6798,12 @@ beginState: s32'VolcanicViperLandHS'
   sprite: s32'sol408_04', 4
   hitAirPushbackY: 0, 80000
   ifNot: (VARIABLE), 317
-    attackExHitParam: (STATIC), 1, 0, 1, 1, (ENEMY), (VARIABLE), 319
-    forceWallBreak: 1
-    wallBreakLimitTime: 15
-    disableWallBreak: 1
+    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 306, (STATIC), 2000
+      attackExHitParam: (STATIC), 1, 0, 1, 1, (ENEMY), (VARIABLE), 319
+      forceWallBreak: 1
+      wallBreakLimitTime: 15
+      disableWallBreak: 1
+      endIf: 
     endIf: 
   enemyDamageInvulnForceAndNoRomanCancel: 1
   ignoreBurst: 1

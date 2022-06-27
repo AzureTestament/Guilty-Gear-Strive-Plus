@@ -8721,11 +8721,11 @@ beginSubroutine: s32'cmn_VoiceInit'
   endSubroutine: 
 
 beginSubroutine: s32'cmnTensionBalanceInit'
-  tensionBalanceFront: 7, 5, 12, 5
-  tensionBalanceBack: -6, -80, -100, -150
-  tensionBalanceAtkHit: 50, 100, 160, 225, 280, 45
-  tensionBalanceGuard: 10, 20, 30, 40, 50
-  tensionBalanceJustGuard: 3000, 3000, 3000, 3000, 3000
+  tensionBalanceFront: 60, 30, 100, 50
+  tensionBalanceBack: -4, -40, -60, -100
+  tensionBalanceAtkHit: 150, 300, 450, 600, 900, 100
+  tensionBalanceGuard: 60, 120, 180, 240, 300
+  tensionBalanceJustGuard: 5000, 5000, 5000, 5000, 5000
   negativePenaltyNoAction: -8, 360, 15, 1080
   negativePenaltyTouchingWall: -6, 120, 12, 300
   tensionBalanceMagnify: 150, 130, 120, 110, 100, 100, 90, 80, 70, 50
@@ -8735,7 +8735,7 @@ beginSubroutine: s32'cmnTensionBalanceInit'
   negativePenaltyDistanceMagnify: 100, 125, 150
   negativePenaltyBack: 20, 30, 50, 50
   tensionBalanceNegativeExec: 1, -10
-  positiveBonusSetting: 600, -5
+  positiveBonusSetting: 840, -5
   negativePenaltySetting: 60, -1, 600, 0
   endSubroutine: 
 
@@ -8757,7 +8757,7 @@ beginSubroutine: s32'cmnPositiveBonusEnd'
   endSubroutine: 
 
 beginSubroutine: s32'cmnGuardInit'
-  guardTension: 30, 60, 90, 120, 150
+  guardTension: 15, 30, 45, 60, 90
   instantBlockTension: 250
   faultlessDefenseGuardStop: 0, 0
   faultlessDefenseGuardTension: 250, 300, 350, 400, 450, 25
@@ -10060,7 +10060,7 @@ beginSubroutine: s32'cmn_AtkLv1'
   prorationTandan: 0
   hitStop: 12
   ifNot: (VARIABLE), 333
-    tensionGainOnConnect: 20
+    tensionGainOnConnect: 15
     endIf: 
   else: 
     tensionGainOnConnect: 10
@@ -10125,10 +10125,10 @@ beginSubroutine: s32'cmn_AtkLv2'
   prorationTandan: 0
   hitStop: 13
   ifNot: (VARIABLE), 333
-    tensionGainOnConnect: 30
+    tensionGainOnConnect: 20
     endIf: 
   else: 
-    tensionGainOnConnect: 20
+    tensionGainOnConnect: 10
     endIf: 
   preGuardRange: 0, 200
   preGuardRangeY: 0, 250
@@ -10190,10 +10190,10 @@ beginSubroutine: s32'cmn_AtkLv3'
   prorationTandan: 0
   hitStop: 14
   ifNot: (VARIABLE), 333
-    tensionGainOnConnect: 40
+    tensionGainOnConnect: 25
     endIf: 
   else: 
-    tensionGainOnConnect: 25
+    tensionGainOnConnect: 15
     endIf: 
   preGuardRange: 0, 205
   preGuardRangeY: 0, 250
@@ -10255,10 +10255,10 @@ beginSubroutine: s32'cmn_AtkLv4'
   prorationTandan: 0
   hitStop: 15
   ifNot: (VARIABLE), 333
-    tensionGainOnConnect: 50
+    tensionGainOnConnect: 40
     endIf: 
   else: 
-    tensionGainOnConnect: 30
+    tensionGainOnConnect: 25
     endIf: 
   preGuardRange: 0, 210
   preGuardRangeY: 0, 250
@@ -11861,7 +11861,7 @@ beginSubroutine: s32'cmnOnGuard'
   endSubroutine: 
 
 beginSubroutine: s32'cmnWSBPointLimit'
-  ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 306, (STATIC), 2500
+  ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 306, (STATIC), 2000
     storeValue: (VARIABLE), 306, (STATIC), 2000
     endIf: 
   endSubroutine: 
@@ -18643,14 +18643,8 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -18803,14 +18797,8 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -18972,14 +18960,8 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -19193,14 +19175,8 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6'
               endIf: 
             ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
               if: (VARIABLE), 77
-                if: (VARIABLE), 319
-                  warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-                  gotoLabelRequests: s32'brake'
-                  endIf: 
-                else: 
-                  warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-                  Unknown76: s32'CmnActKorogari'
-                  endElse: 
+                warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+                Unknown76: s32'CmnActKorogari'
                 endIf: 
               else: 
                 Unknown76: s32'CmnActKorogari'
@@ -19368,14 +19344,8 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -19540,14 +19510,8 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -19712,14 +19676,8 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -19884,14 +19842,8 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -20065,14 +20017,8 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_6_8000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -20239,14 +20185,8 @@ beginSubroutine: s32'cmnWSB_Slave_Up_6_8000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -20411,14 +20351,8 @@ beginSubroutine: s32'cmnWSB_Slave_Down_6_8000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -20583,14 +20517,8 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_6_8000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -20754,14 +20682,8 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -20926,14 +20848,8 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -21098,14 +21014,8 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -21270,14 +21180,8 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_4500'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -21446,14 +21350,8 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_3_21000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -21623,14 +21521,8 @@ beginSubroutine: s32'cmnWSB_Slave_Up_3_21000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -21800,14 +21692,8 @@ beginSubroutine: s32'cmnWSB_Slave_Down_3_21000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -21977,14 +21863,8 @@ beginSubroutine: s32'cmnWSB_Slave_Bound_3_21000'
           endIf: 
         ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
           if: (VARIABLE), 77
-            if: (VARIABLE), 319
-              warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-              gotoLabelRequests: s32'brake'
-              endIf: 
-            else: 
-              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-              Unknown76: s32'CmnActKorogari'
-              endElse: 
+            warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+            Unknown76: s32'CmnActKorogari'
             endIf: 
           else: 
             Unknown76: s32'CmnActKorogari'
@@ -28578,14 +28458,8 @@ beginSubroutine: s32'cmnWSB_Slave_Slide_WH_In'
             endIf: 
           ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 15
             if: (VARIABLE), 77
-              if: (VARIABLE), 319
-                warp: (SELF), (WORLD_ZERO), (STATIC), -750000, (STATIC), 0, 0, 5
-                gotoLabelRequests: s32'brake'
-                endIf: 
-              else: 
-                warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
-                Unknown76: s32'CmnActKorogari'
-                endElse: 
+              warp: (SELF), (WORLD_ZERO), (STATIC), -775000, (STATIC), 0, 0, 5
+              Unknown76: s32'CmnActKorogari'
               endIf: 
             else: 
               Unknown76: s32'CmnActKorogari'
