@@ -683,7 +683,7 @@ beginSubroutine: s32'RoundInit'
   addMove: s32'DauroEnhanced'
     moveType: (SPECIAL)
     characterState: (STANDING)
-    moveInput: 256
+    moveInput: (INPUT_623_FAST)
     moveInput: (INPUT_3)
     moveInput: 2
     cpuEstimateAttackBox: -768, -448, 1007, 503
@@ -7576,7 +7576,7 @@ beginState: s32'Erarurumo3B'
 beginState: s32'ShirudoLand'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 40
     pushbackX: 90
     atkAngle: -90
@@ -7648,7 +7648,7 @@ beginState: s32'ShirudoLand'
 beginState: s32'ShirudoAir'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 40
     atkAngle: -90
     storeValue: (VARIABLE), 338, (STATIC), 100000000
@@ -7730,7 +7730,7 @@ beginState: s32'FBShirudoLand'
     tensionUsage: 2500
     tensionCooldown: 120
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     guardType: (HIGH)
     damage: 0, 40
     pushbackX: 90
@@ -7803,7 +7803,7 @@ beginState: s32'FBShirudoAir'
     tensionUsage: 2500
     tensionCooldown: 120
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     guardType: (HIGH)
     damage: 0, 40
     atkAngle: -90
@@ -7887,13 +7887,13 @@ beginState: s32'Sabrobato'
     checkCurrentStateEntryName: s32'Sabrobato'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv2'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       statsActionName: s32'Sabrobato'
       endIf: 
     checkCurrentStateEntryName: s32'SabrobatoC'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv4'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       storeValue: (VARIABLE), 47, (STATIC), 75
       storeValue: (VARIABLE), 45, (STATIC), 1
       statsActionName: s32'SabrobatoC'
@@ -7901,7 +7901,7 @@ beginState: s32'Sabrobato'
     checkCurrentStateEntryName: s32'SabrobatoD'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv4'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       storeValue: (VARIABLE), 47, (STATIC), 75
       storeValue: (VARIABLE), 46, (STATIC), 1
       statsActionName: s32'SabrobatoD'
@@ -7909,7 +7909,7 @@ beginState: s32'Sabrobato'
     checkCurrentStateEntryName: s32'SabrobatoCD'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv4'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       storeValue: (VARIABLE), 47, (STATIC), 100
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 46, (STATIC), 1
@@ -8076,7 +8076,7 @@ beginState: s32'AgresaOrdono'
       statsActionName: s32'AgresaOrdonoCD'
       endIf: 
     callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     ifNot: (VARIABLE), 45
       callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
       endIf: 
@@ -8500,13 +8500,13 @@ beginState: s32'Morutobato'
     checkCurrentStateEntryName: s32'Morutobato'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv2'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       statsActionName: s32'Morutobato'
       endIf: 
     checkCurrentStateEntryName: s32'MorutobatoC'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv4'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       storeValue: (VARIABLE), 47, (STATIC), 130
       storeValue: (VARIABLE), 45, (STATIC), 1
       statsActionName: s32'MorutobatoC'
@@ -8514,7 +8514,7 @@ beginState: s32'Morutobato'
     checkCurrentStateEntryName: s32'MorutobatoD'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv4'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       storeValue: (VARIABLE), 47, (STATIC), 130
       storeValue: (VARIABLE), 46, (STATIC), 1
       statsActionName: s32'MorutobatoD'
@@ -8522,7 +8522,7 @@ beginState: s32'Morutobato'
     checkCurrentStateEntryName: s32'MorutobatoCD'
     if: (VARIABLE), 0
       callSubroutine: s32'cmn_AtkLv4'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       storeValue: (VARIABLE), 47, (STATIC), 160
       storeValue: (VARIABLE), 45, (STATIC), 1
       storeValue: (VARIABLE), 46, (STATIC), 1

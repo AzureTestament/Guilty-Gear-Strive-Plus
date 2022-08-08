@@ -4676,7 +4676,7 @@ beginState: s32'cmn_MissionCMN_073'
           if: (VARIABLE), 0
             storeValue: (VARIABLE), 222, (STATIC), 1
             endIf: 
-          checkInput: 201
+          checkInput: (INPUT_ROLL)
           if: (VARIABLE), 0
             storeValue: (VARIABLE), 222, (STATIC), 1
             endIf: 
@@ -8946,7 +8946,7 @@ beginSubroutine: s32'cmn_SkillInit'
     moveType: (NEUTRAL_SUPER_JUMP)
     characterState: (STANDING)
     moveInput: (INPUT_ANY_UP)
-    moveInput: 215
+    moveInput: (INPUT_SUPER_JUMP)
     addMoveFlag: (CAN_JUMP)
     addMoveFlag: (LAND)
     moveAlias: s32'CmnActJumpPre'
@@ -8960,7 +8960,7 @@ beginSubroutine: s32'cmn_SkillInit'
     characterState: (STANDING)
     moveInput: (INPUT_ANY_UP)
     moveInput: (INPUT_ANY_BACK)
-    moveInput: 215
+    moveInput: (INPUT_SUPER_JUMP)
     addMoveFlag: (CAN_JUMP)
     addMoveFlag: (LAND)
     moveAlias: s32'CmnActJumpPre'
@@ -8974,7 +8974,7 @@ beginSubroutine: s32'cmn_SkillInit'
     characterState: (STANDING)
     moveInput: (INPUT_ANY_UP)
     moveInput: (INPUT_ANY_FORWARD)
-    moveInput: 215
+    moveInput: (INPUT_SUPER_JUMP)
     addMoveFlag: (CAN_JUMP)
     addMoveFlag: (LAND)
     moveAlias: s32'CmnActJumpPre'
@@ -8986,7 +8986,7 @@ beginSubroutine: s32'cmn_SkillInit'
   addMove: s32'CmnVAirJump'
     moveType: (NEUTRAL_AIR_JUMP)
     characterState: (JUMPING)
-    moveInput: 216
+    moveInput: (INPUT_JUMP)
     addMoveFlag: (CAN_JUMP)
     addMoveFlag: (AIR_JUMP_HEIGHT_LIMIT)
     moveAlias: s32'CmnActJumpPre'
@@ -8997,7 +8997,7 @@ beginSubroutine: s32'cmn_SkillInit'
   addMove: s32'CmnBAirJump'
     moveType: (BACKWARD_AIR_JUMP)
     characterState: (JUMPING)
-    moveInput: 216
+    moveInput: (INPUT_JUMP)
     moveInput: (INPUT_ANY_BACK)
     addMoveFlag: (CAN_JUMP)
     addMoveFlag: (AIR_JUMP_HEIGHT_LIMIT)
@@ -9009,7 +9009,7 @@ beginSubroutine: s32'cmn_SkillInit'
   addMove: s32'CmnFAirJump'
     moveType: (FORWARD_AIR_JUMP)
     characterState: (JUMPING)
-    moveInput: 216
+    moveInput: (INPUT_JUMP)
     moveInput: (INPUT_ANY_FORWARD)
     addMoveFlag: (CAN_JUMP)
     addMoveFlag: (AIR_JUMP_HEIGHT_LIMIT)
@@ -9064,14 +9064,14 @@ beginSubroutine: s32'cmn_SkillInit'
     moveSubType: (ITEM_USE)
     characterState: (NONE)
     moveAlias: s32'CmnActItemUse'
-    moveInput: 275
+    moveInput: (INPUT_ITEM_BUTTON)
     cpuEstimatePoint: 400
     endMove: 
   addMove: s32'CmnMaximumBurst'
     moveType: (GOLD_BURST)
     characterState: (NONE)
     moveAlias: s32'CmnActBurst'
-    moveInput: 268
+    moveInput: (INPUT_BURST_BUTTON)
     addMoveFlag: (CAN_BURST)
     addMoveFlag: (BATTLING)
     addMoveFlag: 126
@@ -9086,7 +9086,7 @@ beginSubroutine: s32'cmn_SkillInit'
     moveType: (BLUE_BURST)
     characterState: (NONE)
     moveAlias: s32'CmnActBurst'
-    moveInput: 268
+    moveInput: (INPUT_BURST_BUTTON)
     addMoveFlag: (CAN_BURST)
     addMoveFlag: (BATTLING)
     moveHitOrBlockstunCondition: (HIT_OR_BLOCKSTUN_ONLY)
@@ -9102,7 +9102,7 @@ beginSubroutine: s32'cmn_SkillInit'
     moveRequestActionFlag: 65
     characterState: (NONE)
     moveAlias: s32'_NEUTRAL'
-    moveInput: 270
+    moveInput: (INPUT_FORCE_ROMAN_CANCEL)
     addMoveFlag: (REQUIRES_25_TENSION)
     cpuEstimatePoint: 0
     endMove: 
@@ -9169,11 +9169,11 @@ beginSubroutine: s32'cmn_SkillInit'
     characterState: (STANDING)
     moveAlias: s32'CmnActMidGuardLoop'
     moveInput: (INPUT_DISALLOW_UP)
-    moveInput: 219
-    moveInput: 269
+    moveInput: (INPUT_EASY_GUARD_BACK)
+    moveInput: (INPUT_HOLD_2_BUTTONS)
     moveInput: (INPUT_BOOLEAN_OR)
     moveInput: (INPUT_DISALLOW_UP)
-    moveInput: 219
+    moveInput: (INPUT_EASY_GUARD_BACK)
     moveInput: 324
     addMoveFlag: (TENSION_NOT_EMPTY)
     addMoveFlag: (BATTLING)
@@ -9185,11 +9185,11 @@ beginSubroutine: s32'cmn_SkillInit'
     characterState: (CROUCHING)
     moveAlias: s32'CmnActCrouchGuardLoop'
     moveInput: (INPUT_ANY_DOWN)
-    moveInput: 219
-    moveInput: 269
+    moveInput: (INPUT_EASY_GUARD_BACK)
+    moveInput: (INPUT_HOLD_2_BUTTONS)
     moveInput: (INPUT_BOOLEAN_OR)
     moveInput: (INPUT_ANY_DOWN)
-    moveInput: 219
+    moveInput: (INPUT_EASY_GUARD_BACK)
     moveInput: 324
     addMoveFlag: (TENSION_NOT_EMPTY)
     addMoveFlag: (BATTLING)
@@ -9200,10 +9200,10 @@ beginSubroutine: s32'cmn_SkillInit'
     moveType: (FAULTLESS_DEFENCE)
     characterState: (JUMPING)
     moveAlias: s32'CmnActAirGuardLoop'
-    moveInput: 219
-    moveInput: 269
+    moveInput: (INPUT_EASY_GUARD_BACK)
+    moveInput: (INPUT_HOLD_2_BUTTONS)
     moveInput: (INPUT_BOOLEAN_OR)
-    moveInput: 219
+    moveInput: (INPUT_EASY_GUARD_BACK)
     moveInput: 324
     addMoveFlag: (TENSION_NOT_EMPTY)
     addMoveFlag: (BATTLING)
@@ -9479,7 +9479,7 @@ beginSubroutine: s32'cmnAssistResultSpeed'
 beginSubroutine: s32'cmnOnFrameStep'
   checkCurrentStateName: (PLAYER), s32'CmnActRomanCancel'
   ifNot: (VARIABLE), 0
-    checkInput: 225
+    checkInput: (INPUT_66_QUICK)
     if: (VARIABLE), 0
       checkInput: 123
       if: (VARIABLE), 0
@@ -9492,7 +9492,7 @@ beginSubroutine: s32'cmnOnFrameStep'
           endElse: 
         endIf: 
       endIf: 
-    checkInput: 224
+    checkInput: (INPUT_44_QUICK)
     if: (VARIABLE), 0
       checkInput: 97
       if: (VARIABLE), 0
@@ -9512,7 +9512,7 @@ beginSubroutine: s32'cmnOnFrameStep'
         storeValue: (VARIABLE), 335, (STATIC), 2
         endIf: 
       endIf: 
-    checkInput: 227
+    checkInput: (INPUT_88)
     if: (VARIABLE), 0
       checkInput: 149
       if: (VARIABLE), 0
@@ -10317,9 +10317,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv0'
         endIf: 
       endIf: 
     endIf: 
-  if: (VARIABLE), 205
-    debugLogForScript: s32'WSB_Add_Lv0', 0, 0
-    endIf: 
+  debugLogForScript: s32'WSB_Add_Lv0', 0, 0
   endSubroutine: 
 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv1'
@@ -10337,9 +10335,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv1'
         endIf: 
       endIf: 
     endIf: 
-  if: (VARIABLE), 205
-    debugLogForScript: s32'WSB_Add_Lv1', 0, 1
-    endIf: 
+  debugLogForScript: s32'WSB_Add_Lv1', 0, 1
   endSubroutine: 
 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv2'
@@ -10357,9 +10353,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv2'
         endIf: 
       endIf: 
     endIf: 
-  if: (VARIABLE), 205
-    debugLogForScript: s32'WSB_Add_Lv2', 0, 2
-    endIf: 
+  debugLogForScript: s32'WSB_Add_Lv2', 0, 2
   endSubroutine: 
 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv3'
@@ -10377,9 +10371,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv3'
         endIf: 
       endIf: 
     endIf: 
-  if: (VARIABLE), 205
-    debugLogForScript: s32'WSB_Add_Lv3', 0, 3
-    endIf: 
+  debugLogForScript: s32'WSB_Add_Lv3', 0, 3
   endSubroutine: 
 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv4'
@@ -10397,9 +10389,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv4'
         endIf: 
       endIf: 
     endIf: 
-  if: (VARIABLE), 205
-    debugLogForScript: s32'WSB_Add_Lv4', 0, 4
-    endIf: 
+  debugLogForScript: s32'WSB_Add_Lv4', 0, 4
   endSubroutine: 
 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv5'
@@ -10417,9 +10407,7 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv5'
         endIf: 
       endIf: 
     endIf: 
-  if: (VARIABLE), 205
-    debugLogForScript: s32'WSB_Add_Lv5', 0, 5
-    endIf: 
+  debugLogForScript: s32'WSB_Add_Lv5', 0, 5
   endSubroutine: 
 
 beginSubroutine: s32'cmn_WSBPoint_Add_Lv10'
@@ -10439,12 +10427,10 @@ beginSubroutine: s32'cmn_WSBPoint_Add_Lv10'
   endSubroutine: 
 
 beginSubroutine: s32'cmn_hosei'
-  if: (VARIABLE), 205
-    debugLogForScript: s32'-------------------------------', 0, 0
-    debugLogForScript: s32'cmn_hosei', 0, 0
-    debugLogForScript: s32'VAR_CmnCharaReg12', 2, 339
-    debugLogForScript: s32'VAR_CmnCharaReg13', 2, 340
-    endIf: 
+  debugLogForScript: s32'-------------------------------', 0, 0
+  debugLogForScript: s32'cmn_hosei', 0, 0
+  debugLogForScript: s32'VAR_CmnCharaReg12', 2, 339
+  debugLogForScript: s32'VAR_CmnCharaReg13', 2, 340
   modifyVar: (ADD), (VARIABLE), 338, (STATIC), 1000000000
   ifNot: (VARIABLE), 339
     ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
@@ -10513,130 +10499,126 @@ beginSubroutine: s32'cmn_hosei'
         callSubroutine: s32'cmn_WSBPoint_Add_Lv3'
         endIf: 
       endIf: 
-    if: (VARIABLE), 205
-      ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'airattack', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'p', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'k_gedan', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'chudan', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'gedan_or_taikuu', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'shot', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'muteki', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'land', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'wall', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'ukase', 0, 0
-          endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
+      ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'airattack', 0, 0
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'kakusei', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'kensei', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'6p', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'k', 0, 0
-          endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'p', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'k_gedan', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'chudan', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'gedan_or_taikuu', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'shot', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'muteki', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'land', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'wall', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'ukase', 0, 0
+        endIf: 
+      endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
+      ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'kakusei', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'kensei', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'6p', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'k', 0, 0
         endIf: 
       endIf: 
     endIf: 
   else: 
-    if: (VARIABLE), 205
-      ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'airattack', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'p', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'k_gedan', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'chudan', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'gedan_or_taikuu', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'shot', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'muteki', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'land', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'wall', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'ukase', 0, 0
-          endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 0
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
+      ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'airattack', 0, 0
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'kakusei', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'kensei', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'6p', 0, 0
-          endIf: 
-        modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
-        ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
-          debugLogForScript: s32'k', 0, 0
-          endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'p', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'k_gedan', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'chudan', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'gedan_or_taikuu', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'shot', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'muteki', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'land', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'wall', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'ukase', 0, 0
+        endIf: 
+      endIf: 
+    ifOperation: (IS_EQUAL), (VARIABLE), 330, (STATIC), 1
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000000, (VARIABLE), 339
+      ifOperation: (MOD_EQUALS_0), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'kakusei', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 100000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'kensei', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 10000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'6p', 0, 0
+        endIf: 
+      modifyVarAfterOperation: (DIV), (VARIABLE), 338, (STATIC), 1000000, (VARIABLE), 339
+      ifOperation: (MOD), (VARIABLE), 339, (STATIC), 2
+        debugLogForScript: s32'k', 0, 0
         endIf: 
       endIf: 
     ifOperation: (IS_EQUAL), (VARIABLE), 339, (STATIC), 1
@@ -11862,7 +11844,7 @@ beginSubroutine: s32'cmnOnGuard'
 
 beginSubroutine: s32'cmnWSBPointLimit'
   ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 306, (STATIC), 2500
-    storeValue: (VARIABLE), 306, (STATIC), 2000
+    storeValue: (VARIABLE), 306, (STATIC), 2500
     endIf: 
   endSubroutine: 
 
@@ -12956,7 +12938,6 @@ beginSubroutine: s32'cmn_DustAttack'
       endIf: 
     endUpon: 
   upon: (COUNTER_HIT)
-    enableSpecialCancel: 1
     ifNotInObject: (ENEMY), (VARIABLE), 352
       clearRegisteredUponCode: (COUNTER_HIT)
       disableWallBreak: 1

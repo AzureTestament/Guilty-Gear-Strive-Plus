@@ -714,7 +714,7 @@ beginState: s32'GunFlame_Obj'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv2'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 40
     hitEffectFire: 1
     attackReflect: 1
@@ -881,18 +881,19 @@ beginState: s32'KudakeroEF'
     specialAttack: 
     linkParticle: s32'sol_airthrow'
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
-	storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutine: s32'cmn_hosei'
-    damage: 0, 32
+    callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmnNohosei'
+    damage: 0, 35
     groundHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 30000
     hitEffectFire: 1
     setObjectSize: 1500
     setObjectHeight: 1700
+    hitSoundEffect: s32'SE_BTL_CMN_Expl_Fire_L'
+    guardSoundEffect: s32'SE_BTL_CMN_Expl_Fire_L'
+    hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
+    guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
     endUpon: 
   sprite: s32'null', 4
   cmnSfx: s32'SE_BTL_CMN_Expl_Fire_L'
@@ -909,16 +910,17 @@ beginState: s32'KudakeroEF_DI'
     setObjectSize: 3000
     Unknown2271: 0, 1
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
-	storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutine: s32'cmn_hosei'
-    damage: 0, 40
+    callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmnNohosei'
+    damage: 0, 50
     groundHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 23000
     hitAirPushbackY: 0, 45000
     hitEffectFire: 1
+    hitSoundEffect: s32'SE_BTL_CMN_Expl_Fire_L'
+    guardSoundEffect: s32'SE_BTL_CMN_Expl_Fire_L'
+    hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
+    guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
     endUpon: 
   sprite: s32'null', 4
   cmnSfx: s32'SE_BTL_CMN_Expl_Fire_L'
@@ -1168,16 +1170,16 @@ beginState: s32'RiotStamp_DI_Bomb'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv2'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     callSubroutine: s32'cmnNohosei'
     damage: 0, 20
-    riscGain: 10
     hitAirPushbackX: 0, 10000
     hitAirPushbackY: 0, 30000
     hitEffectFire: 1
     hitSoundEffect: s32'SE_BTL_CMN_Expl_Fire_L'
     guardSoundEffect: s32'SE_BTL_CMN_Expl_Fire_L'
-    tensionGainOnConnect: 12
+    hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
+    guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Fire'
     linkParticle: s32'sol_airthrow'
     setObjectSize: 1500
     endUpon: 
@@ -2148,6 +2150,55 @@ beginState: s32'Dsl_startD'
   linkParticle: s32'dsl_startD'
   endState: 
 
+beginState: s32'DSL_floor_aura'
+  upon: (IMMEDIATE)
+    linkParticle: s32'dsl_floor_aura'
+    hideByCutscene: 1
+    deactivateObjectByNameExceptSelf: s32'DSL_floor_aura'
+    ignoreSlowdown: 1
+    upon: (WALL_BREAK)
+      clearRegisteredUponCode: (WALL_BREAK)
+      clearRegisteredUponCode: 39
+      gotoLabelRequests: s32'end'
+      ignoreSuperFreeze: 1
+      ignoreFinishStop: 1
+      linkObjPosition: 3
+      linkObjectAngle: 3
+      endUpon: 
+    endUpon: 
+  sprite: s32'null', 5
+  setObjectSize: 0
+  setObjectSizeScaleSpeed: 200
+  sprite: s32'null', 2147483647
+  upon: 39
+    moveToPosTypeToPosTypeEx: 3, 150, 23, 100
+    ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 300000
+      setObjectSizeScaleSpeed: 300
+      endIf: 
+    else: 
+      setObjectSizeScaleSpeed: -300
+      endElse: 
+    ifOperation: (IS_LESSER), (VARIABLE), 99, (STATIC), 0
+      setObjectSize: 0
+      endIf: 
+    ifOperation: (IS_GREATER), (VARIABLE), 99, (STATIC), 1000
+      setObjectSize: 1000
+      endIf: 
+    setPositionY: 0
+    storeValueFromObject: (SELF), (VARIABLE), 59, (PLAYER), (VARIABLE), 59
+    if: (VARIABLE), 59
+      clearRegisteredUponCode: 39
+      gotoLabelRequests: s32'end'
+      ignoreSuperFreeze: 1
+      ignoreFinishStop: 1
+      endIf: 
+    endUpon: 
+  endLabel: 
+  beginLabel: s32'end'
+  sprite: s32'null', 5
+  setObjectSizeScaleSpeed: -200
+  endState: 
+  
 beginState: s32'sol233_bake1'
   upon: (IMMEDIATE)
     setLinkObjectDestroyOnStateChange: 2

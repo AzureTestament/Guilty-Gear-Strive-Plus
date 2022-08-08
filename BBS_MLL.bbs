@@ -373,10 +373,10 @@ beginSubroutine: s32'RoundInit'
   airDashMinimumHeight: 105000
   airFDashTime: 13
   airdashFSpeed: 35000
-  airFDashNoAttackTime: 4
+  airFDashNoAttackTime: 7
   airBDashTime: 10
   airDashBackVelocity: 26250
-  airBDashNoAttackTime: 4
+  airBDashNoAttackTime: 7
   doubleJumpCount: 1
   airDashCount: 2
   defence: 48
@@ -1891,53 +1891,62 @@ beginState: s32'CmnActBDash'
 
 beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
-    callSubroutine: s32'cmnAirBDash'
+    exPointFReset: (PLAYER), -20000, 160000
+    callSubroutine: s32'cmnAirFDash'
     upon: (BEFORE_EXIT)
       resetGravity: 
       velocityXPercent: 20
-      velocityXRate: 100
       endUpon: 
     endUpon: 
-  sprite: s32'mll035_04', 2
-  physicsXImpulse: 0, 27000
-  velocityXRate: 25
-  sprite: s32'mll035_05', 2
-  velocityXRate: 400
-  sprite: s32'mll035_04', 2
-  velocityXRate: 200
-  sprite: s32'mll035_05', 2
-  velocityXRate: 100
-  sprite: s32'mll035_04', 2
-  velocityXRate: 50
-  sprite: s32'mll035_05', 2
-  sprite: s32'mll035_06', 2
-  velocityXRate: 0
+  sprite: s32'mll035_00', 2
+  physicsXImpulse: 0, 35000
+  velocityXRate: 10
+  sprite: s32'mll035_01', 1
+  sprite: s32'mll035_02', 1
+  sprite: s32'mll035_03', 1
+  sprite: s32'mll035_04', 3
+  velocityXRate: 140
+  sprite: s32'mll035_05', 3
+  sprite: s32'mll035_06', 3
+  velocityXPercentEachFrame: 50
   endState: 
 
 beginState: s32'CmnActAirBDash'
   upon: (IMMEDIATE)
-    callSubroutine: s32'cmnAirBDash'
+    setCommonActionMark: 1
+    upon: (FRAME_STEP)
+      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 8, (STATIC), 1
+        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 13, (STATIC), 5
+          velocityYPercent: 95
+          endIf: 
+        else: 
+          physicsYImpulse: 0, 0
+          setGravity: 0
+          endElse: 
+        endIf: 
+      else: 
+        physicsYImpulse: 0, 0
+        setGravity: 0
+        endElse: 
+      endUpon: 
     upon: (BEFORE_EXIT)
       resetGravity: 
       velocityXPercent: 40
-      velocityXRate: 100
       endUpon: 
+    callSubroutine: s32'cmnLandingStiffadd'
     endUpon: 
   sprite: s32'mll036_00', 2
-  physicsXImpulse: 0, -17500
+  physicsXImpulse: 0, -27000
+  velocityXRate: 10
+  sprite: s32'mll036_01', 1
+  sprite: s32'mll036_02', 1
+  sprite: s32'mll036_03', 1
   cmnSfx: s32'SE_BTL_CMN_DashAir'
-  velocityXRate: 25
-  sprite: s32'mll036_01', 2
-  velocityXRate: 400
-  sprite: s32'mll036_02', 2
-  velocityXRate: 200
-  sprite: s32'mll036_03', 2
-  velocityXRate: 100
-  sprite: s32'mll036_04', 2
-  velocityXRate: 50
-  sprite: s32'mll036_05', 2
-  sprite: s32'mll036_06', 2
-  velocityXRate: 0
+  sprite: s32'mll036_04', 3
+  velocityXRate: 170
+  sprite: s32'mll036_05', 3
+  sprite: s32'mll036_06', 3
+  velocityXPercentEachFrame: 50
   endState: 
 
 beginState: s32'CmnActNokezoriHighLv1'
@@ -3627,30 +3636,11 @@ beginState: s32'NmlAtk5A'
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk5B'
-    addWhiffCancelOption: s32'NmlAtk6B'
-    addWhiffCancelOption: s32'NmlAtk2B'
-    addWhiffCancelOption: s32'NmlAtk5CNear'
-    addWhiffCancelOption: s32'NmlAtk5CFar'
-    addWhiffCancelOption: s32'NmlAtk2C'
-    addWhiffCancelOption: s32'NmlAtk5D'
-    addWhiffCancelOption: s32'NmlAtk6D'
-    addWhiffCancelOption: s32'NmlAtk2D'
-    addWhiffCancelOption: s32'NmlAtk5E'
-    addWhiffCancelOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
@@ -3697,13 +3687,8 @@ beginState: s32'NmlAtk6A'
     callSubroutine: s32'cmn_AtkTemplNokezoriHigh'
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 18000
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk5D'
+    addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk2D'
-    addGatlingOption: s32'NmlAtk5E'
     counterHitSoftKnockdown: 0
     callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
     upon: (HIT_OR_GUARD_ANY)
@@ -3765,30 +3750,11 @@ beginState: s32'NmlAtk2A'
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk5B'
-    addWhiffCancelOption: s32'NmlAtk6B'
-    addWhiffCancelOption: s32'NmlAtk2B'
-    addWhiffCancelOption: s32'NmlAtk5CNear'
-    addWhiffCancelOption: s32'NmlAtk5CFar'
-    addWhiffCancelOption: s32'NmlAtk2C'
-    addWhiffCancelOption: s32'NmlAtk5D'
-    addWhiffCancelOption: s32'NmlAtk6D'
-    addWhiffCancelOption: s32'NmlAtk2D'
-    addWhiffCancelOption: s32'NmlAtk5E'
-    addWhiffCancelOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
-    addGatlingOption: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
@@ -3842,7 +3808,6 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6B'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk5D'
@@ -3853,6 +3818,7 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'Cancel_FDash'
     addWhiffCancelOption: s32'NmlAtk5B'
     enableJumpCancel: 1
+	enableFarSlash: 1
     upon: (HIT_OR_GUARD_ANY)
       clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
       callSubroutine: s32'cmn_lightAttack_flex'
@@ -3896,7 +3862,7 @@ beginState: s32'NmlAtk5B'
 beginState: s32'NmlAtk6B'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv2'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 25
     guardType: (HIGH)
     atkAngle: -90
@@ -3910,6 +3876,7 @@ beginState: s32'NmlAtk6B'
     hitSoftKnockdown: 1
     groundBounceCount: 1
     groundBounceYVelocity: 5000
+	addGatlingOption: s32'NmlAtk6D'
     spriteSlowParam: 1, 1, 1, 0, 60, 100
     spriteSlowParamFinishStop: 1, 1, 1, 0, 200, 100
     wallBlowoffType: 3
@@ -3979,13 +3946,13 @@ beginState: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
+	enableFarSlash: 1
     wallBlowoffType: 1
     storeValue: (VARIABLE), 343, (STATIC), -250000
     storeValue: (VARIABLE), 344, (STATIC), 0
@@ -5885,7 +5852,7 @@ beginSubroutine: s32'LustShaker_atk'
 beginState: s32'LustShaker'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 6, (STATIC), 6, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 7
     chipDamagePercent: 30
     pushbackX: 30
@@ -5948,7 +5915,7 @@ beginState: s32'LustShaker'
   upon: (HIT_OR_GUARD_ANY)
     ifNot: (VARIABLE), 45
       callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 6, (STATIC), 6, (STATIC), 0, (STATIC), 0
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       damage: 0, 7
       chipDamagePercent: 30
       pushbackX: 100
@@ -6004,7 +5971,7 @@ beginState: s32'LustShaker'
   upon: (HIT_OR_GUARD_ANY)
     ifNot: (VARIABLE), 45
       callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 6, (STATIC), 6, (STATIC), 0, (STATIC), 0
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       damage: 0, 7
       chipDamagePercent: 30
       pushbackX: 100
@@ -6203,7 +6170,7 @@ beginSubroutine: s32'BadMoon_atk'
 beginState: s32'BadMoon'
   upon: (IMMEDIATE)
     callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 10, (STATIC), 10, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 5
     pushbackX: 20
     hitStop: 4
@@ -6229,7 +6196,7 @@ beginState: s32'BadMoon'
       gotoLabelRequests: s32'bound'
       hit: 
       callSubroutine: s32'cmn_AtkLv2'
-	  callSubroutine: s32'cmn_countertype'
+      callSubroutine: s32'cmn_countertype'
       guardType: (HIGH)
       damage: 0, 40
       hitStop: 4

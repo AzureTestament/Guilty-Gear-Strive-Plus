@@ -1382,6 +1382,47 @@ beginSubroutine: s32'OnFrameStep'
         endIf: 
       endIf: 
     endIf: 
+  storeValue: (VARIABLE), 59, (STATIC), 0
+  if: (VARIABLE), 24
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'HomingJump'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'WorldSideBreak_Master_DS'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'WorldSideBreak_Slave_DS'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'WorldSideBreak_Master_DF'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'WorldSideBreak_Slave_DF'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  if: (VARIABLE), 317
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  if: (VARIABLE), 315
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  if: (VARIABLE), 142
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'CmnActRoundWin'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
+  checkCurrentStateName: (PLAYER), s32'CmnActLose'
+  if: (VARIABLE), 0
+    storeValue: (VARIABLE), 59, (STATIC), 1
+    endIf: 
   if: (VARIABLE), 5
     ifNot: (VARIABLE), 329
       if: (VARIABLE), 16
@@ -11070,6 +11111,11 @@ beginState: s32'DragonInstallStun'
     airdashFSpeed: 26000
     airDashBackVelocity: 22000
     defence: -4
+    if: (VARIABLE), 0
+      storeValue: (VARIABLE), 60, (STATIC), 0
+      deleteSocketLinkParticle: 
+      deactivateObjectByName: s32'DSL_floor_aura'
+      endIf: 
     endUpon: 
   sprite: s32'sol100_00', 3
   setLightRedColor: 3000
