@@ -1,5 +1,5 @@
 beginState: s32'EventStand'
-  Unknown2073: -1, 1, 750
+  startEyeBlinkEx: -1, 1, 750
   beginLabel: s32'loop'
   sprite: s32'ram000_00', 5
   sprite: s32'ram000_01', 5
@@ -62,12 +62,12 @@ beginState: s32'EventFall'
 
 beginState: s32'Event001'
   sprite: s32'ram001_00', 4
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNReaction'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFReaction'
       endRunOnObject: 
@@ -137,12 +137,12 @@ beginState: s32'Event085'
 beginState: s32'Event306'
   sprite: s32'ram306_00', 1
   sprite: s32'ram306_00', 3
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNRespect2'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFRespect2'
       endRunOnObject: 
@@ -158,8 +158,8 @@ beginState: s32'Event306'
   sprite: s32'ram306_09', 4
   endLabel: 
   upon: (FRAME_STEP)
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (STATIC), 2
-      ifNot: (VARIABLE), 95
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(46), Val(2)
+      ifNot: Mem(95)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'TypeB_Next'
         endIf: 
@@ -172,8 +172,8 @@ beginState: s32'Event306'
   sprite: s32'ram306_12', 4
   sprite: s32'ram306_13', 4
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-  gotoLabelIf: s32'TypeB_Loop', (VARIABLE), 46
+  modifyVar: (ADD), Mem(46), Val(1)
+  gotoLabelIf: s32'TypeB_Loop', Mem(46)
   beginLabel: s32'TypeB_Next'
   sprite: s32'ram306_14', 4
   sendSignalToAction: s32'BitNRespect2', 23
@@ -226,7 +226,7 @@ beginState: s32'Event615'
   sprite: s32'ram615_02', 5
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   endLabel: 
-  storeValue: (VARIABLE), 45, (STATIC), 2
+  storeValue: Mem(45), Val(2)
   beginLabel: s32'TypeAloop'
   sprite: s32'ram615_03', 5
   sprite: s32'ram615_04', 5
@@ -235,8 +235,8 @@ beginState: s32'Event615'
   sprite: s32'ram615_07', 5
   sprite: s32'ram615_08', 3
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  gotoLabelIf: s32'TypeAloop', (VARIABLE), 45
+  modifyVar: (ADD), Mem(45), Val(-1)
+  gotoLabelIf: s32'TypeAloop', Mem(45)
   sendSignalToAction: s32'615_minion', 23
   sprite: s32'ram615_09', 4
   sprite: s32'ram615_10', 3
@@ -284,11 +284,11 @@ beginSubroutine: s32'RoundInit'
   callSubroutine: s32'cmnRoundInit'
   walkFSpeed: 7000
   walkBSpeed: 5250
-  initDashFSpeed: 16750
+  initDashFSpeed: 16800
   fDashAccelSpeed: 700
   fDashFriction: 100
-  bDashXSpeed: 15750
-  bDashYSpeed: 5250
+  bDashXSpeed: 15800
+  bDashYSpeed: 5200
   bDashGravity: 700
   forwardJumpDistance: 8750
   backwardJumpDistance: 8750
@@ -299,9 +299,9 @@ beginSubroutine: s32'RoundInit'
   superJumpHeight: 49000
   superJumpGravity: 1900
   airDashMinimumHeight: 105000
-  airFDashTime: 12
-  airdashFSpeed: 34100
-  airFDashNoAttackTime: 5
+  airFDashTime: 16
+  airdashFSpeed: 34000
+  airFDashNoAttackTime: 9
   airBDashTime: 10
   airDashBackVelocity: 24500
   airBDashNoAttackTime: 5
@@ -1143,14 +1143,14 @@ beginSubroutine: s32'RoundInit'
   endMeshSet: 
   beginMeshSet: s32'CmnCutSceneDamage_Kakusei'
   ifOpponentCharacterMain: s16'pot'
-  if: (VARIABLE), 0
+  if: Mem(0)
     addToMeshSet: s32'Body'
     addToMeshSet: s32'Head_High'
     addToMeshSet: s32'Mantle'
     addToMeshSet: s32'Manpu'
     endIf: 
   ifOpponentCharacterMain: s16'fau'
-  if: (VARIABLE), 0
+  if: Mem(0)
     addToMeshSet: s32'Body'
     addToMeshSet: s32'Mantle'
     addToMeshSet: s32'Head_High'
@@ -1259,11 +1259,11 @@ beginSubroutine: s32'RoundInit'
 
 beginSubroutine: s32'CmnCutSceneDamage_Kakusei'
   ifOpponentCharacterMain: s16'pot'
-  if: (VARIABLE), 0
+  if: Mem(0)
     debugLogForScript: s32'pot', 0, 0
     endIf: 
   ifOpponentCharacterMain: s16'fau'
-  if: (VARIABLE), 0
+  if: Mem(0)
     debugLogForScript: s32'fau', 0, 0
     endIf: 
   endSubroutine: 
@@ -1274,14 +1274,14 @@ beginSubroutine: s32'CPUEstimate'
 beginSubroutine: s32'OnFrameStep'
   callSubroutine: s32'cmnOnFrameStep'
   isObjectActive: 4
-  ifNot: (VARIABLE), 0
+  ifNot: Mem(0)
     createObject: s32'BitN', (PLAYER)
-    stackObject: 4, 1
+    stackObject: 4, (PREVIOUS)
     endIf: 
   isObjectActive: 5
-  ifNot: (VARIABLE), 0
+  ifNot: Mem(0)
     createObject: s32'BitF', (PLAYER)
-    stackObject: 5, 1
+    stackObject: 5, (PREVIOUS)
     endIf: 
   endSubroutine: 
 
@@ -1303,42 +1303,42 @@ beginSubroutine: s32'OnDie'
 
 beginSubroutine: s32'OnActionBegin'
   checkCurrentStateName: (PLAYER), s32'CmnActFWalk'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'CmnActBWalk'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'CmnActFDash'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'CmnActBDash'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'CmnActAirFDash'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'CmnActAirBDash'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'CmnActJumpPre'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   checkCurrentStateName: (PLAYER), s32'SpecialCancel_FDash'
-  if: (VARIABLE), 0
+  if: Mem(0)
     callSubroutine: s32'cmn_ResetRedRCTime'
     endIf: 
   endSubroutine: 
 
 beginState: s32'CmnActEntryToStand1P'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnEntryToStand1P', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnEntryToStand1P', Val(0), Val(0), Val(0), Val(0)
     createObject: s32'BitN_Entry', (PLAYER)
     createObject: s32'BitF_Entry', (PLAYER)
     upon: (BEFORE_EXIT)
@@ -1393,10 +1393,10 @@ beginState: s32'CmnActEntryToStand1P'
 
 beginState: s32'CmnActEntryToStand2P'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnEntryToStand2P', (STATIC), 60, (STATIC), 60, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnEntryToStand2P', Val(60), Val(60), Val(0), Val(0)
     upon: 12
-      ifOperation: (IS_GREATER), (VARIABLE), 105, (STATIC), 5
-        ifOperation: (IS_GREATER), (VARIABLE), 105, (VARIABLE), 45
+      ifOperation: (IS_GREATER), Mem(105), Val(5)
+        ifOperation: (IS_GREATER), Mem(105), Mem(45)
           clearRegisteredUponCode: 12
           runOnObject: 4
             jumpToState: s32'BitN'
@@ -1439,62 +1439,62 @@ beginState: s32'CmnActStand'
   upon: (IMMEDIATE)
     endUpon: 
   checkLastStateName: s32'CmnActFWalk'
-  gotoLabelIf: s32'FWalk', (VARIABLE), 0
+  gotoLabelIf: s32'FWalk', Mem(0)
   checkLastStateName: s32'CmnActBWalk'
-  gotoLabelIf: s32'BWalk', (VARIABLE), 0
+  gotoLabelIf: s32'BWalk', Mem(0)
   checkLastStateName: s32'CmnActBDash'
-  gotoLabelIf: s32'BDash', (VARIABLE), 0
+  gotoLabelIf: s32'BDash', Mem(0)
   checkLastStateName: s32'CmnActBurst'
-  gotoLabelIf: s32'Burst_Hajikare', (VARIABLE), 0
+  gotoLabelIf: s32'Burst_Hajikare', Mem(0)
   checkLastStateName: s32'CmnActHajikareAir'
-  gotoLabelIf: s32'Burst_Hajikare', (VARIABLE), 0
+  gotoLabelIf: s32'Burst_Hajikare', Mem(0)
   checkLastStateName: s32'CmnActLandingStiff'
-  gotoLabelIf: s32'LandingStiff', (VARIABLE), 0
+  gotoLabelIf: s32'LandingStiff', Mem(0)
   beginLabel: s32'loop'
   sprite: s32'ram000_00', 5
-  storeValue: (VARIABLE), 56, (STATIC), 0
+  storeValue: Mem(56), Val(0)
   sprite: s32'ram000_01', 5
-  storeValue: (VARIABLE), 56, (STATIC), 1
+  storeValue: Mem(56), Val(1)
   sprite: s32'ram000_02', 5
-  storeValue: (VARIABLE), 56, (STATIC), 2
+  storeValue: Mem(56), Val(2)
   sprite: s32'ram000_03', 5
-  storeValue: (VARIABLE), 56, (STATIC), 3
+  storeValue: Mem(56), Val(3)
   sprite: s32'ram000_04', 5
-  storeValue: (VARIABLE), 56, (STATIC), 4
+  storeValue: Mem(56), Val(4)
   sprite: s32'ram000_05', 5
-  storeValue: (VARIABLE), 56, (STATIC), 5
+  storeValue: Mem(56), Val(5)
   sprite: s32'ram000_06', 5
-  storeValue: (VARIABLE), 56, (STATIC), 6
+  storeValue: Mem(56), Val(6)
   sprite: s32'ram000_07', 5
-  storeValue: (VARIABLE), 56, (STATIC), 7
+  storeValue: Mem(56), Val(7)
   sprite: s32'ram000_08', 5
-  storeValue: (VARIABLE), 56, (STATIC), 8
+  storeValue: Mem(56), Val(8)
   sprite: s32'ram000_09', 5
-  storeValue: (VARIABLE), 56, (STATIC), 9
+  storeValue: Mem(56), Val(9)
   sprite: s32'ram000_10', 5
-  storeValue: (VARIABLE), 56, (STATIC), 10
+  storeValue: Mem(56), Val(10)
   sprite: s32'ram000_11', 5
-  storeValue: (VARIABLE), 56, (STATIC), 11
+  storeValue: Mem(56), Val(11)
   sprite: s32'ram000_12', 5
-  storeValue: (VARIABLE), 56, (STATIC), 12
+  storeValue: Mem(56), Val(12)
   sprite: s32'ram000_13', 5
-  storeValue: (VARIABLE), 56, (STATIC), 13
+  storeValue: Mem(56), Val(13)
   sprite: s32'ram000_14', 5
-  storeValue: (VARIABLE), 56, (STATIC), 14
+  storeValue: Mem(56), Val(14)
   sprite: s32'ram000_15', 5
-  storeValue: (VARIABLE), 56, (STATIC), 15
+  storeValue: Mem(56), Val(15)
   endLabel: 
-  gotoLabelIfNot: s32'loop', (VARIABLE), 16
-  gotoIfOperation: s32'loop', (PERCENT), (STATIC), 80, (STATIC), 100
-  gotoLabelIfNot: s32'loop', (VARIABLE), 86
-  storeValue: (VARIABLE), 87, (STATIC), 600
+  gotoLabelIfNot: s32'loop', Mem(16)
+  gotoIfOperation: s32'loop', (PERCENT), Val(80), Val(100)
+  gotoLabelIfNot: s32'loop', Mem(86)
+  storeValue: Mem(87), Val(600)
   sprite: s32'ram001_00', 4
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNReaction'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFReaction'
       endRunOnObject: 
@@ -1552,13 +1552,13 @@ beginState: s32'CmnActStand'
   endLabel: 
   gotoLabel: s32'loop'
   beginLabel: s32'LandingStiff'
-  gotoIfOperation: s32'LandingStiff_Front', (IS_EQUAL), (VARIABLE), 312, (STATIC), 1
-  gotoIfOperation: s32'LandingStiff_Back', (IS_EQUAL), (VARIABLE), 312, (STATIC), 2
-  gotoIfOperation: s32'LandingStiff_Vert5', (IS_EQUAL), (VARIABLE), 387, (STATIC), 5
-  gotoIfOperation: s32'LandingStiff_Vert4', (IS_EQUAL), (VARIABLE), 387, (STATIC), 4
-  gotoIfOperation: s32'LandingStiff_Vert3', (IS_EQUAL), (VARIABLE), 387, (STATIC), 3
-  gotoIfOperation: s32'LandingStiff_Vert2', (IS_EQUAL), (VARIABLE), 387, (STATIC), 2
-  gotoIfOperation: s32'LandingStiff_Vert1', (IS_EQUAL), (VARIABLE), 387, (STATIC), 1
+  gotoIfOperation: s32'LandingStiff_Front', (IS_EQUAL), Mem(312), Val(1)
+  gotoIfOperation: s32'LandingStiff_Back', (IS_EQUAL), Mem(312), Val(2)
+  gotoIfOperation: s32'LandingStiff_Vert5', (IS_EQUAL), Mem(387), Val(5)
+  gotoIfOperation: s32'LandingStiff_Vert4', (IS_EQUAL), Mem(387), Val(4)
+  gotoIfOperation: s32'LandingStiff_Vert3', (IS_EQUAL), Mem(387), Val(3)
+  gotoIfOperation: s32'LandingStiff_Vert2', (IS_EQUAL), Mem(387), Val(2)
+  gotoIfOperation: s32'LandingStiff_Vert1', (IS_EQUAL), Mem(387), Val(1)
   sprite: s32'ram020_19', 3
   beginLabel: s32'LandingStiff_Vert1'
   sprite: s32'ram020_20', 3
@@ -1571,16 +1571,16 @@ beginState: s32'CmnActStand'
   beginLabel: s32'LandingStiff_Vert5'
   gotoLabel: s32'loop'
   beginLabel: s32'LandingStiff_Front'
-  gotoIfOperation: s32'LandingStiff_Front10', (IS_EQUAL), (VARIABLE), 387, (STATIC), 10
-  gotoIfOperation: s32'LandingStiff_Front9', (IS_EQUAL), (VARIABLE), 387, (STATIC), 9
-  gotoIfOperation: s32'LandingStiff_Front8', (IS_EQUAL), (VARIABLE), 387, (STATIC), 8
-  gotoIfOperation: s32'LandingStiff_Front7', (IS_EQUAL), (VARIABLE), 387, (STATIC), 7
-  gotoIfOperation: s32'LandingStiff_Front6', (IS_EQUAL), (VARIABLE), 387, (STATIC), 6
-  gotoIfOperation: s32'LandingStiff_Front5', (IS_EQUAL), (VARIABLE), 387, (STATIC), 5
-  gotoIfOperation: s32'LandingStiff_Front4', (IS_EQUAL), (VARIABLE), 387, (STATIC), 4
-  gotoIfOperation: s32'LandingStiff_Front3', (IS_EQUAL), (VARIABLE), 387, (STATIC), 3
-  gotoIfOperation: s32'LandingStiff_Front2', (IS_EQUAL), (VARIABLE), 387, (STATIC), 2
-  gotoIfOperation: s32'LandingStiff_Front1', (IS_EQUAL), (VARIABLE), 387, (STATIC), 1
+  gotoIfOperation: s32'LandingStiff_Front10', (IS_EQUAL), Mem(387), Val(10)
+  gotoIfOperation: s32'LandingStiff_Front9', (IS_EQUAL), Mem(387), Val(9)
+  gotoIfOperation: s32'LandingStiff_Front8', (IS_EQUAL), Mem(387), Val(8)
+  gotoIfOperation: s32'LandingStiff_Front7', (IS_EQUAL), Mem(387), Val(7)
+  gotoIfOperation: s32'LandingStiff_Front6', (IS_EQUAL), Mem(387), Val(6)
+  gotoIfOperation: s32'LandingStiff_Front5', (IS_EQUAL), Mem(387), Val(5)
+  gotoIfOperation: s32'LandingStiff_Front4', (IS_EQUAL), Mem(387), Val(4)
+  gotoIfOperation: s32'LandingStiff_Front3', (IS_EQUAL), Mem(387), Val(3)
+  gotoIfOperation: s32'LandingStiff_Front2', (IS_EQUAL), Mem(387), Val(2)
+  gotoIfOperation: s32'LandingStiff_Front1', (IS_EQUAL), Mem(387), Val(1)
   sprite: s32'ram021_19', 3
   beginLabel: s32'LandingStiff_Front1'
   sprite: s32'ram021_20', 3
@@ -1603,16 +1603,16 @@ beginState: s32'CmnActStand'
   beginLabel: s32'LandingStiff_Front10'
   gotoLabel: s32'loop'
   beginLabel: s32'LandingStiff_Back'
-  gotoIfOperation: s32'LandingStiff_Back10', (IS_EQUAL), (VARIABLE), 387, (STATIC), 10
-  gotoIfOperation: s32'LandingStiff_Back9', (IS_EQUAL), (VARIABLE), 387, (STATIC), 9
-  gotoIfOperation: s32'LandingStiff_Back8', (IS_EQUAL), (VARIABLE), 387, (STATIC), 8
-  gotoIfOperation: s32'LandingStiff_Back7', (IS_EQUAL), (VARIABLE), 387, (STATIC), 7
-  gotoIfOperation: s32'LandingStiff_Back6', (IS_EQUAL), (VARIABLE), 387, (STATIC), 6
-  gotoIfOperation: s32'LandingStiff_Back5', (IS_EQUAL), (VARIABLE), 387, (STATIC), 5
-  gotoIfOperation: s32'LandingStiff_Back4', (IS_EQUAL), (VARIABLE), 387, (STATIC), 4
-  gotoIfOperation: s32'LandingStiff_Back3', (IS_EQUAL), (VARIABLE), 387, (STATIC), 3
-  gotoIfOperation: s32'LandingStiff_Back2', (IS_EQUAL), (VARIABLE), 387, (STATIC), 2
-  gotoIfOperation: s32'LandingStiff_Back1', (IS_EQUAL), (VARIABLE), 387, (STATIC), 1
+  gotoIfOperation: s32'LandingStiff_Back10', (IS_EQUAL), Mem(387), Val(10)
+  gotoIfOperation: s32'LandingStiff_Back9', (IS_EQUAL), Mem(387), Val(9)
+  gotoIfOperation: s32'LandingStiff_Back8', (IS_EQUAL), Mem(387), Val(8)
+  gotoIfOperation: s32'LandingStiff_Back7', (IS_EQUAL), Mem(387), Val(7)
+  gotoIfOperation: s32'LandingStiff_Back6', (IS_EQUAL), Mem(387), Val(6)
+  gotoIfOperation: s32'LandingStiff_Back5', (IS_EQUAL), Mem(387), Val(5)
+  gotoIfOperation: s32'LandingStiff_Back4', (IS_EQUAL), Mem(387), Val(4)
+  gotoIfOperation: s32'LandingStiff_Back3', (IS_EQUAL), Mem(387), Val(3)
+  gotoIfOperation: s32'LandingStiff_Back2', (IS_EQUAL), Mem(387), Val(2)
+  gotoIfOperation: s32'LandingStiff_Back1', (IS_EQUAL), Mem(387), Val(1)
   sprite: s32'ram022_19', 3
   beginLabel: s32'LandingStiff_Back1'
   sprite: s32'ram022_20', 3
@@ -1674,16 +1674,16 @@ beginState: s32'CmnActCrouch'
   sprite: s32'ram010_18', 5
   sprite: s32'ram010_19', 5
   endLabel: 
-  gotoIfOperation: s32'loop', (PERCENT), (STATIC), 80, (STATIC), 100
-  gotoLabelIfNot: s32'loop', (VARIABLE), 86
-  storeValue: (VARIABLE), 87, (STATIC), 600
+  gotoIfOperation: s32'loop', (PERCENT), Val(80), Val(100)
+  gotoLabelIfNot: s32'loop', Mem(86)
+  storeValue: Mem(87), Val(600)
   sprite: s32'ram011_00', 3
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNCrouchReaction'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFCrouchReaction'
       endRunOnObject: 
@@ -1697,15 +1697,15 @@ beginState: s32'CmnActCrouch'
   sprite: s32'ram011_06', 3
   characterSfx: s32'SE_BTL_RAM_21'
   endLabel: 
-  storeValue: (VARIABLE), 45, (STATIC), 3
+  storeValue: Mem(45), Val(3)
   beginLabel: s32're_loop'
   sprite: s32'ram011_07', 3
   sprite: s32'ram011_08', 3
   sprite: s32'ram011_09', 3
   sprite: s32'ram011_10', 3
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  gotoLabelIf: s32're_loop', (VARIABLE), 45
+  modifyVar: (ADD), Mem(45), Val(-1)
+  gotoLabelIf: s32're_loop', Mem(45)
   sprite: s32'ram011_11', 3
   characterSfx: s32'SE_BTL_RAM_21'
   sprite: s32'ram011_12', 3
@@ -1736,8 +1736,8 @@ beginState: s32'CmnActJumpPre'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnJumpPre'
     endUpon: 
-  gotoLabelIf: s32'FJumpPre', (VARIABLE), 11
-  gotoLabelIf: s32'BJumpPre', (VARIABLE), 10
+  gotoLabelIf: s32'FJumpPre', Mem(11)
+  gotoLabelIf: s32'BJumpPre', Mem(10)
   sprite: s32'ram020_00', 4
   exitState: 
   beginLabel: s32'FJumpPre'
@@ -1749,8 +1749,8 @@ beginState: s32'CmnActJumpPre'
 
 beginState: s32'CmnActJump'
   beginLabel: s32'_Upper'
-  gotoLabelIf: s32'UpperF', (VARIABLE), 11
-  gotoLabelIf: s32'UpperB', (VARIABLE), 10
+  gotoLabelIf: s32'UpperF', Mem(11)
+  gotoLabelIf: s32'UpperB', Mem(10)
   sprite: s32'ram020_01', 3
   sprite: s32'ram020_02', 3
   endLabel: 
@@ -1760,23 +1760,23 @@ beginState: s32'CmnActJump'
   endLabel: 
   gotoLabel: s32'upperloop'
   beginLabel: s32'_UpperToTop'
-  gotoLabelIf: s32'UpperToTopF', (VARIABLE), 11
-  gotoLabelIf: s32'UpperToTopB', (VARIABLE), 10
+  gotoLabelIf: s32'UpperToTopF', Mem(11)
+  gotoLabelIf: s32'UpperToTopB', Mem(10)
   sprite: s32'ram020_05', 3
   sprite: s32'ram020_06', 3
   sprite: s32'ram020_07', 3
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_Top'
-  gotoLabelIf: s32'TopF', (VARIABLE), 11
-  gotoLabelIf: s32'TopB', (VARIABLE), 10
+  gotoLabelIf: s32'TopF', Mem(11)
+  gotoLabelIf: s32'TopB', Mem(10)
   sprite: s32'ram020_08', 2
   sprite: s32'ram020_09', 2
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_TopToDown'
-  gotoLabelIf: s32'TopToDownF', (VARIABLE), 11
-  gotoLabelIf: s32'TopToDownB', (VARIABLE), 10
+  gotoLabelIf: s32'TopToDownF', Mem(11)
+  gotoLabelIf: s32'TopToDownB', Mem(10)
   sprite: s32'ram020_10', 2
   sprite: s32'ram020_11', 2
   sprite: s32'ram020_12', 2
@@ -1784,8 +1784,8 @@ beginState: s32'CmnActJump'
   sprite: s32'keep', 2147483647
   endLabel: 
   beginLabel: s32'_Down'
-  gotoLabelIf: s32'DownF', (VARIABLE), 11
-  gotoLabelIf: s32'DownB', (VARIABLE), 10
+  gotoLabelIf: s32'DownF', Mem(11)
+  gotoLabelIf: s32'DownB', Mem(10)
   sprite: s32'ram020_14', 3
   sprite: s32'ram020_15', 3
   endLabel: 
@@ -1872,8 +1872,8 @@ beginState: s32'CmnActJumpLanding'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnJumpLanding'
     endUpon: 
-  gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 1
-  gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 2
+  gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), Mem(312), Val(1)
+  gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), Mem(312), Val(2)
   sprite: s32'ram020_18', 3
   sprite: s32'ram020_19', 3
   sprite: s32'ram020_20', 3
@@ -1886,7 +1886,7 @@ beginState: s32'CmnActJumpLanding'
   sprite: s32'ram021_19', 3
   sprite: s32'ram021_20', 3
   endLabel: 
-  gotoIfOperation: s32'FJumpLandingTurn', (IS_LESSER_OR_EQUAL), (VARIABLE), 104, (STATIC), 0
+  gotoIfOperation: s32'FJumpLandingTurn', (IS_LESSER_OR_EQUAL), Mem(104), Val(0)
   sprite: s32'ram021_21', 3
   sprite: s32'ram021_22', 3
   sprite: s32'ram021_23', 3
@@ -1912,7 +1912,7 @@ beginState: s32'CmnActJumpLanding'
   sprite: s32'ram022_19', 3
   sprite: s32'ram022_20', 3
   endLabel: 
-  gotoIfOperation: s32'BJumpLandingTurn', (IS_LESSER_OR_EQUAL), (VARIABLE), 104, (STATIC), 0
+  gotoIfOperation: s32'BJumpLandingTurn', (IS_LESSER_OR_EQUAL), Mem(104), Val(0)
   sprite: s32'ram022_21', 3
   sprite: s32'ram022_22', 3
   sprite: s32'ram022_23', 3
@@ -1938,68 +1938,68 @@ beginState: s32'CmnActLandingStiff'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnLandingStiff'
     endUpon: 
-  gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 1
-  gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), (VARIABLE), 312, (STATIC), 2
+  gotoIfOperation: s32'FJumpLanding', (IS_EQUAL), Mem(312), Val(1)
+  gotoIfOperation: s32'BJumpLanding', (IS_EQUAL), Mem(312), Val(2)
   sprite: s32'ram020_18', 3
-  storeValue: (VARIABLE), 387, (STATIC), 0
+  storeValue: Mem(387), Val(0)
   sprite: s32'ram020_19', 3
-  storeValue: (VARIABLE), 387, (STATIC), 1
+  storeValue: Mem(387), Val(1)
   sprite: s32'ram020_20', 3
-  storeValue: (VARIABLE), 387, (STATIC), 2
+  storeValue: Mem(387), Val(2)
   sprite: s32'ram020_21', 3
-  storeValue: (VARIABLE), 387, (STATIC), 3
+  storeValue: Mem(387), Val(3)
   sprite: s32'ram020_22', 3
-  storeValue: (VARIABLE), 387, (STATIC), 4
+  storeValue: Mem(387), Val(4)
   sprite: s32'ram020_23', 2147483647
-  storeValue: (VARIABLE), 387, (STATIC), 5
+  storeValue: Mem(387), Val(5)
   endLabel: 
   beginLabel: s32'FJumpLanding'
   sprite: s32'ram021_18', 3
-  storeValue: (VARIABLE), 387, (STATIC), 0
+  storeValue: Mem(387), Val(0)
   sprite: s32'ram021_19', 3
-  storeValue: (VARIABLE), 387, (STATIC), 1
+  storeValue: Mem(387), Val(1)
   sprite: s32'ram021_20', 3
-  storeValue: (VARIABLE), 387, (STATIC), 2
+  storeValue: Mem(387), Val(2)
   sprite: s32'ram021_21', 3
-  storeValue: (VARIABLE), 387, (STATIC), 3
+  storeValue: Mem(387), Val(3)
   sprite: s32'ram021_22', 3
-  storeValue: (VARIABLE), 387, (STATIC), 4
+  storeValue: Mem(387), Val(4)
   sprite: s32'ram021_23', 3
-  storeValue: (VARIABLE), 387, (STATIC), 5
+  storeValue: Mem(387), Val(5)
   sprite: s32'ram021_24', 3
-  storeValue: (VARIABLE), 387, (STATIC), 6
+  storeValue: Mem(387), Val(6)
   sprite: s32'ram021_25', 3
-  storeValue: (VARIABLE), 387, (STATIC), 7
+  storeValue: Mem(387), Val(7)
   sprite: s32'ram021_26', 3
-  storeValue: (VARIABLE), 387, (STATIC), 8
+  storeValue: Mem(387), Val(8)
   sprite: s32'ram021_27', 3
-  storeValue: (VARIABLE), 387, (STATIC), 9
+  storeValue: Mem(387), Val(9)
   sprite: s32'ram021_28', 2147483647
-  storeValue: (VARIABLE), 387, (STATIC), 10
+  storeValue: Mem(387), Val(10)
   endLabel: 
   beginLabel: s32'BJumpLanding'
   sprite: s32'ram022_18', 3
-  storeValue: (VARIABLE), 387, (STATIC), 0
+  storeValue: Mem(387), Val(0)
   sprite: s32'ram022_19', 3
-  storeValue: (VARIABLE), 387, (STATIC), 1
+  storeValue: Mem(387), Val(1)
   sprite: s32'ram022_20', 3
-  storeValue: (VARIABLE), 387, (STATIC), 2
+  storeValue: Mem(387), Val(2)
   sprite: s32'ram022_21', 3
-  storeValue: (VARIABLE), 387, (STATIC), 3
+  storeValue: Mem(387), Val(3)
   sprite: s32'ram022_22', 3
-  storeValue: (VARIABLE), 387, (STATIC), 4
+  storeValue: Mem(387), Val(4)
   sprite: s32'ram022_23', 3
-  storeValue: (VARIABLE), 387, (STATIC), 5
+  storeValue: Mem(387), Val(5)
   sprite: s32'ram022_24', 3
-  storeValue: (VARIABLE), 387, (STATIC), 6
+  storeValue: Mem(387), Val(6)
   sprite: s32'ram022_25', 3
-  storeValue: (VARIABLE), 387, (STATIC), 7
+  storeValue: Mem(387), Val(7)
   sprite: s32'ram022_26', 3
-  storeValue: (VARIABLE), 387, (STATIC), 8
+  storeValue: Mem(387), Val(8)
   sprite: s32'ram022_27', 3
-  storeValue: (VARIABLE), 387, (STATIC), 9
+  storeValue: Mem(387), Val(9)
   sprite: s32'ram022_28', 2147483647
-  storeValue: (VARIABLE), 387, (STATIC), 10
+  storeValue: Mem(387), Val(10)
   endLabel: 
   beginLabel: s32'_End'
   sprite: s32'keep', 1
@@ -2070,7 +2070,7 @@ beginState: s32'CmnActBWalk'
 
 beginState: s32'CmnActFDash'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnFDash', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnFDash', Val(2), Val(0), Val(0), Val(0)
     endUpon: 
   commonBankSfx: 0, s32'SE_BTL_CMN_Dash_Sprint_LP', 100
   sprite: s32'ram032_00', 5
@@ -2109,7 +2109,7 @@ beginState: s32'SpecialCancel_FDash'
   addWhiffCancelOption: s32'MorutobatoD'
   addWhiffCancelOption: s32'MorutobatoCD'
   upon: (FRAME_STEP)
-    ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(13), Val(3)
       clearRegisteredUponCode: (FRAME_STEP)
       enableWhiffCancel: 0
       endIf: 
@@ -2163,10 +2163,10 @@ beginState: s32'CmnActBDash'
     gotoLabelRequests: s32'landing'
     endUpon: 
   upon: (FRAME_STEP)
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(105), Val(3)
       velocityXRate: 150
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 10
+    ifOperation: (IS_EQUAL), Mem(105), Val(10)
       clearRegisteredUponCode: (FRAME_STEP)
       velocityXRate: 50
       endIf: 
@@ -2188,12 +2188,25 @@ beginState: s32'CmnActBDash'
 
 beginState: s32'CmnActAirFDash'
   upon: (IMMEDIATE)
-    callSubroutine: s32'cmnAirBDash'
+    exPointFReset: (PLAYER), -20000, 160000
+    callSubroutine: s32'cmnAirFDash'
     endUpon: 
+  sprite: s32'ram035_00', 1
+  physicsXImpulse: 0, 27500
+  velocityXRate: 25
+  sprite: s32'ram035_01', 1
+  sprite: s32'ram035_02', 1
+  sprite: s32'ram035_03', 2
+  sprite: s32'ram035_04', 2
+  sprite: s32'ram035_05', 1
+  velocityXRate: 275
   sprite: s32'ram035_05', 2
+  velocityXRate: 225
   sprite: s32'ram035_06', 3
-  sprite: s32'ram035_07', 3
-  sprite: s32'ram035_05', 3
+  velocityXRate: 125
+  sprite: s32'ram035_07', 2
+  velocityXRate: 100
+  velocityXPercentEachFrame: 90
   sprite: s32'ram035_08', 2
   sprite: s32'ram035_09', 2
   endState: 
@@ -2204,12 +2217,12 @@ beginState: s32'CmnActAirBDash'
     endUpon: 
   sprite: s32'ram036_00', 1
   sprite: s32'ram036_00', 2
-  if: (VARIABLE), 3
+  if: Mem(3)
     runOnObject: 4
       jumpToState: s32'BitN6P'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 5
+  if: Mem(5)
     runOnObject: 5
       jumpToState: s32'BitF6P'
       endRunOnObject: 
@@ -2221,8 +2234,8 @@ beginState: s32'CmnActAirBDash'
 
 beginState: s32'CmnActNokezoriHighLv1'
   callSubroutine: s32'cmnDamageCellDiffLand'
-  gotoIfOperation: s32'diff', (IS_EQUAL), (VARIABLE), 313, (STATIC), 1
-  gotoIfOperation: s32'diff', (IS_EQUAL), (VARIABLE), 313, (STATIC), 3
+  gotoIfOperation: s32'diff', (IS_EQUAL), Mem(313), Val(1)
+  gotoIfOperation: s32'diff', (IS_EQUAL), Mem(313), Val(3)
   sprite: s32'ram050_05', 1
   endLabel: 
   gotoLabel: s32'top'
@@ -2239,9 +2252,9 @@ beginState: s32'CmnActNokezoriHighLv1'
 
 beginState: s32'CmnActNokezoriHighLv2'
   callSubroutine: s32'cmnDamageCellDiffLand'
-  gotoIfOperation: s32'diff1', (IS_EQUAL), (VARIABLE), 313, (STATIC), 1
-  gotoIfOperation: s32'diff2', (IS_EQUAL), (VARIABLE), 313, (STATIC), 2
-  gotoIfOperation: s32'diff3', (IS_EQUAL), (VARIABLE), 313, (STATIC), 3
+  gotoIfOperation: s32'diff1', (IS_EQUAL), Mem(313), Val(1)
+  gotoIfOperation: s32'diff2', (IS_EQUAL), Mem(313), Val(2)
+  gotoIfOperation: s32'diff3', (IS_EQUAL), Mem(313), Val(3)
   sprite: s32'ram050_05', 1
   sprite: s32'ram050_03', 3
   endLabel: 
@@ -2268,9 +2281,9 @@ beginState: s32'CmnActNokezoriHighLv2'
 
 beginState: s32'CmnActNokezoriHighLv3'
   callSubroutine: s32'cmnDamageCellDiffLand'
-  gotoIfOperation: s32'diff1', (IS_EQUAL), (VARIABLE), 313, (STATIC), 1
-  gotoIfOperation: s32'diff2', (IS_EQUAL), (VARIABLE), 313, (STATIC), 2
-  gotoIfOperation: s32'diff3', (IS_EQUAL), (VARIABLE), 313, (STATIC), 3
+  gotoIfOperation: s32'diff1', (IS_EQUAL), Mem(313), Val(1)
+  gotoIfOperation: s32'diff2', (IS_EQUAL), Mem(313), Val(2)
+  gotoIfOperation: s32'diff3', (IS_EQUAL), Mem(313), Val(3)
   sprite: s32'ram050_05', 1
   sprite: s32'ram050_03', 2
   endLabel: 
@@ -2299,9 +2312,9 @@ beginState: s32'CmnActNokezoriHighLv3'
 
 beginState: s32'CmnActNokezoriHighLv4'
   callSubroutine: s32'cmnDamageCellDiffLand'
-  gotoIfOperation: s32'diff1', (IS_EQUAL), (VARIABLE), 313, (STATIC), 1
-  gotoIfOperation: s32'diff2', (IS_EQUAL), (VARIABLE), 313, (STATIC), 2
-  gotoIfOperation: s32'diff3', (IS_EQUAL), (VARIABLE), 313, (STATIC), 3
+  gotoIfOperation: s32'diff1', (IS_EQUAL), Mem(313), Val(1)
+  gotoIfOperation: s32'diff2', (IS_EQUAL), Mem(313), Val(2)
+  gotoIfOperation: s32'diff3', (IS_EQUAL), Mem(313), Val(3)
   sprite: s32'ram050_05', 1
   sprite: s32'ram050_03', 2
   endLabel: 
@@ -2332,8 +2345,8 @@ beginState: s32'CmnActNokezoriHighLv4'
 
 beginState: s32'CmnActNokezoriHighLv5'
   callSubroutine: s32'cmnDamageCellDiffLand'
-  gotoIfOperation: s32'diff', (IS_EQUAL), (VARIABLE), 313, (STATIC), 1
-  gotoIfOperation: s32'diff', (IS_EQUAL), (VARIABLE), 313, (STATIC), 3
+  gotoIfOperation: s32'diff', (IS_EQUAL), Mem(313), Val(1)
+  gotoIfOperation: s32'diff', (IS_EQUAL), Mem(313), Val(3)
   sprite: s32'ram050_05', 1
   endLabel: 
   gotoLabel: s32'top'
@@ -2492,7 +2505,7 @@ beginState: s32'CmnActNokezoriCrouchLv5'
 
 beginState: s32'CmnActBDownUpper'
   callSubroutine: s32'cmnDamageCellDiffAir'
-  gotoLabelIf: s32'diff', (VARIABLE), 314
+  gotoLabelIf: s32'diff', Mem(314)
   sprite: s32'ram060_00', 3
   endLabel: 
   gotoLabel: s32'loop'
@@ -2679,8 +2692,8 @@ beginState: s32'CmnActVDownLoop'
 
 beginState: s32'CmnActFloatDamage'
   callSubroutine: s32'cmn_FloatDamage'
-  gotoLabelIf: s32'head', (VARIABLE), 320
-  gotoLabelIf: s32'body', (VARIABLE), 321
+  gotoLabelIf: s32'head', Mem(320)
+  gotoLabelIf: s32'body', Mem(321)
   debugLogForScript: s32'FloatDamage_Error', 0, 0
   beginLabel: s32'head'
   sprite: s32'ram065_00', 1
@@ -2722,10 +2735,10 @@ beginState: s32'CmnActFloatDamage'
   endState: 
 
 beginState: s32'CmnActBlowoff'
-  gotoIfOperation: s32'1', (IS_EQUAL), (VARIABLE), 351, (STATIC), 1
-  gotoIfOperation: s32'2', (IS_EQUAL), (VARIABLE), 351, (STATIC), 2
-  gotoIfOperation: s32'3', (IS_EQUAL), (VARIABLE), 351, (STATIC), 3
-  gotoIfOperation: s32'4', (IS_EQUAL), (VARIABLE), 351, (STATIC), 4
+  gotoIfOperation: s32'1', (IS_EQUAL), Mem(351), Val(1)
+  gotoIfOperation: s32'2', (IS_EQUAL), Mem(351), Val(2)
+  gotoIfOperation: s32'3', (IS_EQUAL), Mem(351), Val(3)
+  gotoIfOperation: s32'4', (IS_EQUAL), Mem(351), Val(4)
   sprite: s32'ram075_00', 3
   endLabel: 
   beginLabel: s32'loop'
@@ -2840,9 +2853,9 @@ beginState: s32'fuwafuwa'
   endState: 
 
 beginState: s32'CmnActKirimomiUpper'
-  gotoIfOperation: s32'loop', (IS_EQUAL), (VARIABLE), 351, (STATIC), 10
-  gotoIfOperation: s32'Reverse', (IS_EQUAL), (VARIABLE), 351, (STATIC), 11
-  gotoLabelIf: s32'dust', (VARIABLE), 158
+  gotoIfOperation: s32'loop', (IS_EQUAL), Mem(351), Val(10)
+  gotoIfOperation: s32'Reverse', (IS_EQUAL), Mem(351), Val(11)
+  gotoLabelIf: s32'dust', Mem(158)
   beginLabel: s32'loop'
   sprite: s32'ram074_00', 3
   sprite: s32'ram074_01', 3
@@ -2878,7 +2891,7 @@ beginState: s32'CmnActKirimomiUpper'
   endLabel: 
   clearRegisteredUponCode: (FRAME_STEP)
   checkCurrentStateName: (ENEMY), s32'HomingJump'
-  gotoLabelIfNot: s32'loop', (VARIABLE), 0
+  gotoLabelIfNot: s32'loop', Mem(0)
   sprite: s32'ram068_04', 3
   sprite: s32'ram068_05', 3
   sprite: s32'ram068_06', 4
@@ -2889,11 +2902,11 @@ beginState: s32'CmnActKirimomiUpper'
   sprite: s32'ram068_11', 3
   sprite: s32'ram068_12', 3
   sprite: s32'ram068_13', 3
-  if: (VARIABLE), 4
+  if: Mem(4)
     deactivateObjectById: 4
     createObject: s32'wep_Recovery_S', (PLAYER)
     endIf: 
-  if: (VARIABLE), 6
+  if: Mem(6)
     deactivateObjectById: 5
     createObject: s32'wep_Recovery_HS', (PLAYER)
     endIf: 
@@ -3011,7 +3024,7 @@ beginState: s32'CmnActJitabataLoop'
   gotoLabel: s32'loop'
   beginLabel: s32'_Fast_End'
   sprite: s32'ram066_06', 2
-  storeValue: (VARIABLE), 45, (STATIC), 1
+  storeValue: Mem(45), Val(1)
   sprite: s32'ram066_07', 2
   sprite: s32'ram066_08', 2
   sprite: s32'ram066_09', 2
@@ -3021,7 +3034,7 @@ beginState: s32'CmnActJitabataLoop'
   jumpToState: s32'_NEUTRAL'
   beginLabel: s32'_Normal_End'
   sprite: s32'ram066_06', 4
-  storeValue: (VARIABLE), 45, (STATIC), 2
+  storeValue: Mem(45), Val(2)
   sprite: s32'ram066_07', 4
   sprite: s32'ram066_08', 3
   sprite: s32'ram066_09', 2
@@ -3031,7 +3044,7 @@ beginState: s32'CmnActJitabataLoop'
   jumpToState: s32'_NEUTRAL'
   beginLabel: s32'_Slow_End'
   sprite: s32'ram066_06', 6
-  storeValue: (VARIABLE), 45, (STATIC), 3
+  storeValue: Mem(45), Val(3)
   sprite: s32'ram066_07', 6
   sprite: s32'ram066_08', 3
   sprite: s32'ram066_09', 3
@@ -3222,7 +3235,7 @@ beginState: s32'CmnActMidGuardLoop'
     createObject: s32'040guard00', (PLAYER)
     endUpon: 
   checkLastStateName: s32'CmnActMidGuardEnd'
-  gotoLabelIf: s32'_Top', (VARIABLE), 0
+  gotoLabelIf: s32'_Top', Mem(0)
   beginLabel: s32'_Pre'
   sprite: s32'ram040_00', 4
   sprite: s32'ram040_01', 4
@@ -3263,13 +3276,13 @@ beginState: s32'CmnActHighGuardLoop'
   upon: (IMMEDIATE)
     enableRomanCancelMove: 1
     createObject: s32'040guard00', (PLAYER)
-    storeValue: (VARIABLE), 45, (STATIC), 250000
-    storeValue: (VARIABLE), 46, (STATIC), 0
-    storeValue: (VARIABLE), 47, (STATIC), 0
+    storeValue: Mem(45), Val(250000)
+    storeValue: Mem(46), Val(0)
+    storeValue: Mem(47), Val(0)
     callSubroutine: s32'cmnHighGuard'
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(46), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(46), Val(2)
       endIf: 
     endUpon: 
   beginLabel: s32'_Pre'
@@ -3313,7 +3326,7 @@ beginState: s32'CmnActCrouchGuardLoop'
     createObject: s32'043guard00', (PLAYER)
     endUpon: 
   checkLastStateName: s32'CmnActCrouchGuardEnd'
-  gotoLabelIf: s32'_Top', (VARIABLE), 0
+  gotoLabelIf: s32'_Top', Mem(0)
   beginLabel: s32'_Pre'
   sprite: s32'ram043_00', 4
   sprite: s32'ram043_01', 4
@@ -3509,12 +3522,12 @@ beginState: s32'CmnActBurst'
     endUpon: 
   sprite: s32'ram330_00', 1
   sprite: s32'ram330_00', 1
-  if: (VARIABLE), 3
+  if: Mem(3)
     runOnObject: 4
       jumpToState: s32'BitNBurst'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 5
+  if: Mem(5)
     runOnObject: 5
       jumpToState: s32'BitFBurst'
       endRunOnObject: 
@@ -3550,7 +3563,7 @@ beginState: s32'CmnActRomanCancel'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnRomanCancel'
     endUpon: 
-  gotoLabelIf: s32'air', (VARIABLE), 30
+  gotoLabelIf: s32'air', Mem(30)
   beginLabel: s32'land'
   sprite: s32'ram350_01', 3
   sprite: s32'ram350_02', 3
@@ -3631,25 +3644,25 @@ beginState: s32'CmnActRoundWin'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnactroundwin'
     checkLastStateName: s32'NmlAtk5F'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 56, (STATIC), 15
+    if: Mem(0)
+      storeValue: Mem(56), Val(15)
       endIf: 
     checkLastStateName: s32'NmlAtk6F'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 56, (STATIC), 15
+    if: Mem(0)
+      storeValue: Mem(56), Val(15)
       endIf: 
     endUpon: 
   sprite: s32'keep', 2
-  gotoLabelIf: s32'TypeB', (VARIABLE), 324
-  gotoIfOperation: s32'TypeA', (IS_EQUAL), (VARIABLE), 153, (STATIC), 1
-  gotoIfOperation: s32'TypeB', (IS_EQUAL), (VARIABLE), 153, (STATIC), 2
-  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
+  gotoLabelIf: s32'TypeB', Mem(324)
+  gotoIfOperation: s32'TypeA', (IS_EQUAL), Mem(153), Val(1)
+  gotoIfOperation: s32'TypeB', (IS_EQUAL), Mem(153), Val(2)
+  gotoIfOperation: s32'TypeB', (PERCENT), Val(50), Val(100)
   beginLabel: s32'TypeA'
   upon: (FRAME_STEP)
-    if: (VARIABLE), 3
-      ifOperation: (IS_EQUAL), (VARIABLE), 3, (VARIABLE), 5
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 17
+    if: Mem(3)
+      ifOperation: (IS_EQUAL), Mem(3), Mem(5)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(17)
           createObject: s32'616WepR_delete', (PLAYER)
           runOnObject: 4
             displayModel: 0
@@ -3659,33 +3672,33 @@ beginState: s32'CmnActRoundWin'
             displayModel: 0
             endRunOnObject: 
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 30
+        ifOperation: (IS_EQUAL), Mem(45), Val(30)
           clearRegisteredUponCode: (FRAME_STEP)
           gotoLabelRequests: s32'TypeANext'
           endIf: 
         endIf: 
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 300
+    ifOperation: (IS_EQUAL), Mem(105), Val(300)
       clearRegisteredUponCode: (FRAME_STEP)
       gotoLabelRequests: s32'TypeANext'
       endIf: 
     endUpon: 
-  gotoIfOperation: s32'0', (IS_EQUAL), (VARIABLE), 56, (STATIC), 0
-  gotoIfOperation: s32'1', (IS_EQUAL), (VARIABLE), 56, (STATIC), 1
-  gotoIfOperation: s32'2', (IS_EQUAL), (VARIABLE), 56, (STATIC), 2
-  gotoIfOperation: s32'3', (IS_EQUAL), (VARIABLE), 56, (STATIC), 3
-  gotoIfOperation: s32'4', (IS_EQUAL), (VARIABLE), 56, (STATIC), 4
-  gotoIfOperation: s32'5', (IS_EQUAL), (VARIABLE), 56, (STATIC), 5
-  gotoIfOperation: s32'6', (IS_EQUAL), (VARIABLE), 56, (STATIC), 6
-  gotoIfOperation: s32'7', (IS_EQUAL), (VARIABLE), 56, (STATIC), 7
-  gotoIfOperation: s32'8', (IS_EQUAL), (VARIABLE), 56, (STATIC), 8
-  gotoIfOperation: s32'9', (IS_EQUAL), (VARIABLE), 56, (STATIC), 9
-  gotoIfOperation: s32'10', (IS_EQUAL), (VARIABLE), 56, (STATIC), 10
-  gotoIfOperation: s32'11', (IS_EQUAL), (VARIABLE), 56, (STATIC), 11
-  gotoIfOperation: s32'12', (IS_EQUAL), (VARIABLE), 56, (STATIC), 12
-  gotoIfOperation: s32'13', (IS_EQUAL), (VARIABLE), 56, (STATIC), 13
-  gotoIfOperation: s32'14', (IS_EQUAL), (VARIABLE), 56, (STATIC), 14
-  gotoIfOperation: s32'15', (IS_EQUAL), (VARIABLE), 56, (STATIC), 15
+  gotoIfOperation: s32'0', (IS_EQUAL), Mem(56), Val(0)
+  gotoIfOperation: s32'1', (IS_EQUAL), Mem(56), Val(1)
+  gotoIfOperation: s32'2', (IS_EQUAL), Mem(56), Val(2)
+  gotoIfOperation: s32'3', (IS_EQUAL), Mem(56), Val(3)
+  gotoIfOperation: s32'4', (IS_EQUAL), Mem(56), Val(4)
+  gotoIfOperation: s32'5', (IS_EQUAL), Mem(56), Val(5)
+  gotoIfOperation: s32'6', (IS_EQUAL), Mem(56), Val(6)
+  gotoIfOperation: s32'7', (IS_EQUAL), Mem(56), Val(7)
+  gotoIfOperation: s32'8', (IS_EQUAL), Mem(56), Val(8)
+  gotoIfOperation: s32'9', (IS_EQUAL), Mem(56), Val(9)
+  gotoIfOperation: s32'10', (IS_EQUAL), Mem(56), Val(10)
+  gotoIfOperation: s32'11', (IS_EQUAL), Mem(56), Val(11)
+  gotoIfOperation: s32'12', (IS_EQUAL), Mem(56), Val(12)
+  gotoIfOperation: s32'13', (IS_EQUAL), Mem(56), Val(13)
+  gotoIfOperation: s32'14', (IS_EQUAL), Mem(56), Val(14)
+  gotoIfOperation: s32'15', (IS_EQUAL), Mem(56), Val(15)
   beginLabel: s32'TypeA_Wait'
   beginLabel: s32'0'
   sprite: s32'ram000_01', 5
@@ -3744,7 +3757,7 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'ram615_02', 5
   cmnSfx: s32'SE_BTL_CMN_Emotion_1'
   endLabel: 
-  storeValue: (VARIABLE), 45, (STATIC), 2
+  storeValue: Mem(45), Val(2)
   beginLabel: s32'TypeAloop'
   sprite: s32'ram615_03', 5
   sprite: s32'ram615_04', 5
@@ -3753,8 +3766,8 @@ beginState: s32'CmnActRoundWin'
   sprite: s32'ram615_07', 5
   sprite: s32'ram615_08', 3
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  gotoLabelIf: s32'TypeAloop', (VARIABLE), 45
+  modifyVar: (ADD), Mem(45), Val(-1)
+  gotoLabelIf: s32'TypeAloop', Mem(45)
   sendSignalToAction: s32'615_minion', 23
   sprite: s32'ram615_09', 4
   sprite: s32'ram615_10', 3
@@ -3796,36 +3809,36 @@ beginState: s32'CmnActRoundWin'
   exitState: 
   beginLabel: s32'TypeB'
   upon: (FRAME_STEP)
-    if: (VARIABLE), 3
-      ifOperation: (IS_EQUAL), (VARIABLE), 3, (VARIABLE), 5
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 30
+    if: Mem(3)
+      ifOperation: (IS_EQUAL), Mem(3), Mem(5)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(30)
           clearRegisteredUponCode: (FRAME_STEP)
           gotoLabelRequests: s32'TypeBNext'
           endIf: 
         endIf: 
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 300
+    ifOperation: (IS_EQUAL), Mem(105), Val(300)
       clearRegisteredUponCode: (FRAME_STEP)
       gotoLabelRequests: s32'TypeBNext'
       endIf: 
     endUpon: 
-  gotoIfOperation: s32'0', (IS_EQUAL), (VARIABLE), 56, (STATIC), 0
-  gotoIfOperation: s32'1', (IS_EQUAL), (VARIABLE), 56, (STATIC), 1
-  gotoIfOperation: s32'2', (IS_EQUAL), (VARIABLE), 56, (STATIC), 2
-  gotoIfOperation: s32'3', (IS_EQUAL), (VARIABLE), 56, (STATIC), 3
-  gotoIfOperation: s32'4', (IS_EQUAL), (VARIABLE), 56, (STATIC), 4
-  gotoIfOperation: s32'5', (IS_EQUAL), (VARIABLE), 56, (STATIC), 5
-  gotoIfOperation: s32'6', (IS_EQUAL), (VARIABLE), 56, (STATIC), 6
-  gotoIfOperation: s32'7', (IS_EQUAL), (VARIABLE), 56, (STATIC), 7
-  gotoIfOperation: s32'8', (IS_EQUAL), (VARIABLE), 56, (STATIC), 8
-  gotoIfOperation: s32'9', (IS_EQUAL), (VARIABLE), 56, (STATIC), 9
-  gotoIfOperation: s32'10', (IS_EQUAL), (VARIABLE), 56, (STATIC), 10
-  gotoIfOperation: s32'11', (IS_EQUAL), (VARIABLE), 56, (STATIC), 11
-  gotoIfOperation: s32'12', (IS_EQUAL), (VARIABLE), 56, (STATIC), 12
-  gotoIfOperation: s32'13', (IS_EQUAL), (VARIABLE), 56, (STATIC), 13
-  gotoIfOperation: s32'14', (IS_EQUAL), (VARIABLE), 56, (STATIC), 14
-  gotoIfOperation: s32'15', (IS_EQUAL), (VARIABLE), 56, (STATIC), 15
+  gotoIfOperation: s32'0', (IS_EQUAL), Mem(56), Val(0)
+  gotoIfOperation: s32'1', (IS_EQUAL), Mem(56), Val(1)
+  gotoIfOperation: s32'2', (IS_EQUAL), Mem(56), Val(2)
+  gotoIfOperation: s32'3', (IS_EQUAL), Mem(56), Val(3)
+  gotoIfOperation: s32'4', (IS_EQUAL), Mem(56), Val(4)
+  gotoIfOperation: s32'5', (IS_EQUAL), Mem(56), Val(5)
+  gotoIfOperation: s32'6', (IS_EQUAL), Mem(56), Val(6)
+  gotoIfOperation: s32'7', (IS_EQUAL), Mem(56), Val(7)
+  gotoIfOperation: s32'8', (IS_EQUAL), Mem(56), Val(8)
+  gotoIfOperation: s32'9', (IS_EQUAL), Mem(56), Val(9)
+  gotoIfOperation: s32'10', (IS_EQUAL), Mem(56), Val(10)
+  gotoIfOperation: s32'11', (IS_EQUAL), Mem(56), Val(11)
+  gotoIfOperation: s32'12', (IS_EQUAL), Mem(56), Val(12)
+  gotoIfOperation: s32'13', (IS_EQUAL), Mem(56), Val(13)
+  gotoIfOperation: s32'14', (IS_EQUAL), Mem(56), Val(14)
+  gotoIfOperation: s32'15', (IS_EQUAL), Mem(56), Val(15)
   beginLabel: s32'TypeB_Wait'
   beginLabel: s32'0'
   sprite: s32'ram000_01', 5
@@ -3928,10 +3941,10 @@ beginState: s32'CmnActMatchWin'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnactmatchwin'
     upon: (FRAME_STEP)
-      if: (VARIABLE), 3
-        ifOperation: (IS_EQUAL), (VARIABLE), 3, (VARIABLE), 5
-          modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-          ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 17
+      if: Mem(3)
+        ifOperation: (IS_EQUAL), Mem(3), Mem(5)
+          modifyVar: (ADD), Mem(45), Val(1)
+          ifOperation: (IS_EQUAL), Mem(45), Val(17)
             createObject: s32'616WepR_delete', (PLAYER)
             runOnObject: 4
               displayModel: 0
@@ -3941,42 +3954,42 @@ beginState: s32'CmnActMatchWin'
               displayModel: 0
               endRunOnObject: 
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 30
+          ifOperation: (IS_EQUAL), Mem(45), Val(30)
             clearRegisteredUponCode: (FRAME_STEP)
             gotoLabelRequests: s32'next'
             endIf: 
           endIf: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 300
+      ifOperation: (IS_EQUAL), Mem(105), Val(300)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'next'
         endIf: 
       endUpon: 
     checkLastStateName: s32'NmlAtk5F'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 56, (STATIC), 15
+    if: Mem(0)
+      storeValue: Mem(56), Val(15)
       endIf: 
     checkLastStateName: s32'NmlAtk6F'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 56, (STATIC), 15
+    if: Mem(0)
+      storeValue: Mem(56), Val(15)
       endIf: 
     endUpon: 
-  gotoIfOperation: s32'0', (IS_EQUAL), (VARIABLE), 56, (STATIC), 0
-  gotoIfOperation: s32'1', (IS_EQUAL), (VARIABLE), 56, (STATIC), 1
-  gotoIfOperation: s32'2', (IS_EQUAL), (VARIABLE), 56, (STATIC), 2
-  gotoIfOperation: s32'3', (IS_EQUAL), (VARIABLE), 56, (STATIC), 3
-  gotoIfOperation: s32'4', (IS_EQUAL), (VARIABLE), 56, (STATIC), 4
-  gotoIfOperation: s32'5', (IS_EQUAL), (VARIABLE), 56, (STATIC), 5
-  gotoIfOperation: s32'6', (IS_EQUAL), (VARIABLE), 56, (STATIC), 6
-  gotoIfOperation: s32'7', (IS_EQUAL), (VARIABLE), 56, (STATIC), 7
-  gotoIfOperation: s32'8', (IS_EQUAL), (VARIABLE), 56, (STATIC), 8
-  gotoIfOperation: s32'9', (IS_EQUAL), (VARIABLE), 56, (STATIC), 9
-  gotoIfOperation: s32'10', (IS_EQUAL), (VARIABLE), 56, (STATIC), 10
-  gotoIfOperation: s32'11', (IS_EQUAL), (VARIABLE), 56, (STATIC), 11
-  gotoIfOperation: s32'12', (IS_EQUAL), (VARIABLE), 56, (STATIC), 12
-  gotoIfOperation: s32'13', (IS_EQUAL), (VARIABLE), 56, (STATIC), 13
-  gotoIfOperation: s32'14', (IS_EQUAL), (VARIABLE), 56, (STATIC), 14
-  gotoIfOperation: s32'15', (IS_EQUAL), (VARIABLE), 56, (STATIC), 15
+  gotoIfOperation: s32'0', (IS_EQUAL), Mem(56), Val(0)
+  gotoIfOperation: s32'1', (IS_EQUAL), Mem(56), Val(1)
+  gotoIfOperation: s32'2', (IS_EQUAL), Mem(56), Val(2)
+  gotoIfOperation: s32'3', (IS_EQUAL), Mem(56), Val(3)
+  gotoIfOperation: s32'4', (IS_EQUAL), Mem(56), Val(4)
+  gotoIfOperation: s32'5', (IS_EQUAL), Mem(56), Val(5)
+  gotoIfOperation: s32'6', (IS_EQUAL), Mem(56), Val(6)
+  gotoIfOperation: s32'7', (IS_EQUAL), Mem(56), Val(7)
+  gotoIfOperation: s32'8', (IS_EQUAL), Mem(56), Val(8)
+  gotoIfOperation: s32'9', (IS_EQUAL), Mem(56), Val(9)
+  gotoIfOperation: s32'10', (IS_EQUAL), Mem(56), Val(10)
+  gotoIfOperation: s32'11', (IS_EQUAL), Mem(56), Val(11)
+  gotoIfOperation: s32'12', (IS_EQUAL), Mem(56), Val(12)
+  gotoIfOperation: s32'13', (IS_EQUAL), Mem(56), Val(13)
+  gotoIfOperation: s32'14', (IS_EQUAL), Mem(56), Val(14)
+  gotoIfOperation: s32'15', (IS_EQUAL), Mem(56), Val(15)
   beginLabel: s32'loop'
   beginLabel: s32'0'
   sprite: s32'ram000_01', 5
@@ -4031,7 +4044,7 @@ beginState: s32'CmnActMatchWin'
   sprite: s32'null', 2147483647
   playAnimation: s32'ram800cs', 0
   checkLastStateName: s32'WinActionWait'
-  if: (VARIABLE), 0
+  if: Mem(0)
     playCameraAnimation: s32'ram800cs', 23, 0, -1
     endIf: 
   else: 
@@ -4040,17 +4053,17 @@ beginState: s32'CmnActMatchWin'
   cinesco: 1
   swapMeshSet: s32'800CS'
   upon: (FRAME_STEP)
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(105), Val(1)
       resetSaturation: 1, 1
       setPostProcessSaturation: -1, 800, 50
       resetDiffusion: 1, 1
       setDiffusionLuminance: -1, 1400, 50
       setDiffusionThreshold: -1, 0, 50
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 14
+    ifOperation: (IS_EQUAL), Mem(105), Val(14)
       characterSfx: s32'SE_BTL_RAM_MatchWin'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 20
+    ifOperation: (IS_EQUAL), Mem(105), Val(20)
       resetDOF: 1, 1
       focalDistance: -1, 500, 0
       focalRegion: -1, 0, 0
@@ -4059,21 +4072,21 @@ beginState: s32'CmnActMatchWin'
       focalNearBlurSize: -1, 0, 0
       focalFarBlurSize: -1, 25, 30
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 254
+    ifOperation: (IS_EQUAL), Mem(105), Val(254)
       focalFarBlurSize: -1, 40, 8
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 340
+    ifOperation: (IS_EQUAL), Mem(105), Val(340)
       voiceLine: s16'vxxx402demo'
       jimaku: s32'prev', -2147483618
       demoEndOnMouthEnd: 1
-      Unknown1707: 40
+      demoEndYoinTime: 40
       endIf: 
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(1)
+      ifOperation: (IS_EQUAL), Mem(105), Val(1)
         disableWall: 1
         endIf: 
-      ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 106, (STATIC), 5000
-        if: (VARIABLE), 32
+      ifOperation: (IS_LESSER_OR_EQUAL), Mem(106), Val(5000)
+        if: Mem(32)
           runOnObject: (ENEMY)
             addRawPositionX: 0, -5000
             endRunOnObject: 
@@ -4084,19 +4097,19 @@ beginState: s32'CmnActMatchWin'
             endRunOnObject: 
           endElse: 
         endIf: 
-      ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 105, (STATIC), 120
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 5000
+      ifOperation: (IS_LESSER_OR_EQUAL), Mem(105), Val(120)
+        modifyVar: (ADD), Mem(45), Val(5000)
         setPushboxWidthFront: 2, 45
         endIf: 
       endIf: 
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 60
-      ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 105, (STATIC), 120
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(60)
+      ifOperation: (IS_LESSER_OR_EQUAL), Mem(105), Val(120)
         runOnObject: (ENEMY)
           addDepth: 0, 4000
           endRunOnObject: 
         endIf: 
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 0
+    ifOperation: (IS_EQUAL), Mem(105), Val(0)
       cameraLightDirectionBlend: 0, 0
       cameraLightDirectionBlend: 1000, 90
       runOnObject: (ENEMY)
@@ -4180,21 +4193,21 @@ beginState: s32'CmnActResultLose'
 beginState: s32'WinActionWait'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnWinActionWait'
-    if: (VARIABLE), 315
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+    if: Mem(315)
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         checkStageName: s16'Evening_PL'
-        if: (VARIABLE), 0
+        if: Mem(0)
           addDepth: 0, -900000
           endIf: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 6
+      ifOperation: (IS_EQUAL), Mem(322), Val(6)
         checkStageName: s16'MayShip_PL'
-        if: (VARIABLE), 0
+        if: Mem(0)
           addPositionX: 0, -400000
           addDepth: 0, -1800000
           endIf: 
         checkStageName: s16'WhiteHouse_PL'
-        if: (VARIABLE), 0
+        if: Mem(0)
           addPositionX: 0, 300000
           addDepth: 0, -200000
           endIf: 
@@ -4219,37 +4232,37 @@ beginState: s32'WinActionWait'
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'ram000_00', 5
-  storeValue: (VARIABLE), 56, (STATIC), 0
+  storeValue: Mem(56), Val(0)
   sprite: s32'ram000_01', 5
-  storeValue: (VARIABLE), 56, (STATIC), 1
+  storeValue: Mem(56), Val(1)
   sprite: s32'ram000_02', 5
-  storeValue: (VARIABLE), 56, (STATIC), 2
+  storeValue: Mem(56), Val(2)
   sprite: s32'ram000_03', 5
-  storeValue: (VARIABLE), 56, (STATIC), 3
+  storeValue: Mem(56), Val(3)
   sprite: s32'ram000_04', 5
-  storeValue: (VARIABLE), 56, (STATIC), 4
+  storeValue: Mem(56), Val(4)
   sprite: s32'ram000_05', 5
-  storeValue: (VARIABLE), 56, (STATIC), 5
+  storeValue: Mem(56), Val(5)
   sprite: s32'ram000_06', 5
-  storeValue: (VARIABLE), 56, (STATIC), 6
+  storeValue: Mem(56), Val(6)
   sprite: s32'ram000_07', 5
-  storeValue: (VARIABLE), 56, (STATIC), 7
+  storeValue: Mem(56), Val(7)
   sprite: s32'ram000_08', 5
-  storeValue: (VARIABLE), 56, (STATIC), 8
+  storeValue: Mem(56), Val(8)
   sprite: s32'ram000_09', 5
-  storeValue: (VARIABLE), 56, (STATIC), 9
+  storeValue: Mem(56), Val(9)
   sprite: s32'ram000_10', 5
-  storeValue: (VARIABLE), 56, (STATIC), 10
+  storeValue: Mem(56), Val(10)
   sprite: s32'ram000_11', 5
-  storeValue: (VARIABLE), 56, (STATIC), 11
+  storeValue: Mem(56), Val(11)
   sprite: s32'ram000_12', 5
-  storeValue: (VARIABLE), 56, (STATIC), 12
+  storeValue: Mem(56), Val(12)
   sprite: s32'ram000_13', 5
-  storeValue: (VARIABLE), 56, (STATIC), 13
+  storeValue: Mem(56), Val(13)
   sprite: s32'ram000_14', 5
-  storeValue: (VARIABLE), 56, (STATIC), 14
+  storeValue: Mem(56), Val(14)
   sprite: s32'ram000_15', 5
-  storeValue: (VARIABLE), 56, (STATIC), 15
+  storeValue: Mem(56), Val(15)
   endLabel: 
   gotoLabel: s32'loop'
   endState: 
@@ -4258,50 +4271,23 @@ beginState: s32'NmlAtk5A'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv0'
     damage: 0, 20
-    easyRecovery: 1
-    callSubroutineWithArgs: s32'cmn_lightAttack_hitback', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    easyClash: 1
+    callSubroutineWithArgs: s32'cmn_lightAttack_hitback', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(3), Val(0), Val(0), Val(0)
     hitAirPushbackX: 0, 10000
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk5B'
-    addWhiffCancelOption: s32'NmlAtk2B'
-    addWhiffCancelOption: s32'NmlAtk5CNear'
-    addWhiffCancelOption: s32'NmlAtk5CFar'
-    addWhiffCancelOption: s32'NmlAtk5CBunri'
-    addWhiffCancelOption: s32'NmlAtk2C'
-    addWhiffCancelOption: s32'NmlAtk2CBunri'
-    addWhiffCancelOption: s32'NmlAtk5D'
-    addWhiffCancelOption: s32'NmlAtk5DBunri'
-    addWhiffCancelOption: s32'NmlAtk2D'
-    addWhiffCancelOption: s32'NmlAtk2DBunri'
-    addWhiffCancelOption: s32'NmlAtk6D'
-    addWhiffCancelOption: s32'NmlAtk6DBunri'
-    addWhiffCancelOption: s32'NmlAtk5E'
-    addWhiffCancelOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk5CBunri'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk2CBunri'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk5DBunri'
-    addGatlingOption: s32'NmlAtk2D'
-    addGatlingOption: s32'NmlAtk2DBunri'
-    addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk6DBunri'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
@@ -4311,9 +4297,9 @@ beginState: s32'NmlAtk5A'
     spriteSlowParam: 1, 1, 6, 100, 60, 200
     spriteSlowParamFinishStop: 1, 1, 6, 100, 200, 200
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram200_00', 4
   sprite: s32'ram200_01', 2
@@ -4343,41 +4329,33 @@ beginState: s32'NmlAtk6A'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 30
     hitEffectTsuki: 1
-    storeValue: (VARIABLE), 338, (STATIC), 10000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(10000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, 23000
     counterHitSoftKnockdown: 0
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk5CBunri'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk6DBunri'
-    addGatlingOption: s32'NmlAtk5E'
-    addGatlingOption: s32'NmlAtk2E'
-    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', Val(1), Val(0), Val(0), Val(0)
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -300000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 130000
-    storeValue: (VARIABLE), 350, (STATIC), -60000
+    storeValue: Mem(343), Val(-300000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(130000)
+    storeValue: Mem(350), Val(-60000)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_S'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_S'
     endUpon: 
   sprite: s32'ram210_00', 1
   sprite: s32'ram210_01', 2
-  if: (VARIABLE), 3
+  if: Mem(3)
     runOnObject: 4
       jumpToState: s32'BitN6P'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 5
+  if: Mem(5)
     runOnObject: 5
       jumpToState: s32'BitF6P'
       endRunOnObject: 
@@ -4409,51 +4387,24 @@ beginState: s32'NmlAtk2A'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv0'
     damage: 0, 18
-    easyRecovery: 1
-    callSubroutineWithArgs: s32'cmn_lightAttack_hitback', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    easyClash: 1
+    callSubroutineWithArgs: s32'cmn_lightAttack_hitback', Val(0), Val(0), Val(0), Val(0)
     Unknown923: 1
     callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(3), Val(0), Val(0), Val(0)
     hitAirPushbackX: 0, 12500
     hitAirPushbackY: 0, 27500
     addWhiffCancelOption: s32'NmlAtk5A'
     addWhiffCancelOption: s32'NmlAtk2A'
-    addWhiffCancelOption: s32'NmlAtk6A'
-    addWhiffCancelOption: s32'NmlAtk5B'
-    addWhiffCancelOption: s32'NmlAtk2B'
-    addWhiffCancelOption: s32'NmlAtk5CNear'
-    addWhiffCancelOption: s32'NmlAtk5CFar'
-    addWhiffCancelOption: s32'NmlAtk5CBunri'
-    addWhiffCancelOption: s32'NmlAtk2C'
-    addWhiffCancelOption: s32'NmlAtk2CBunri'
-    addWhiffCancelOption: s32'NmlAtk5D'
-    addWhiffCancelOption: s32'NmlAtk5DBunri'
-    addWhiffCancelOption: s32'NmlAtk2D'
-    addWhiffCancelOption: s32'NmlAtk2DBunri'
-    addWhiffCancelOption: s32'NmlAtk6D'
-    addWhiffCancelOption: s32'NmlAtk6DBunri'
-    addWhiffCancelOption: s32'NmlAtk5E'
-    addWhiffCancelOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk5A'
     addGatlingOption: s32'NmlAtk2A'
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
-    addGatlingOption: s32'NmlAtk5CFar'
-    addGatlingOption: s32'NmlAtk5CBunri'
-    addGatlingOption: s32'NmlAtk2C'
-    addGatlingOption: s32'NmlAtk2CBunri'
-    addGatlingOption: s32'NmlAtk5D'
-    addGatlingOption: s32'NmlAtk5DBunri'
-    addGatlingOption: s32'NmlAtk2D'
-    addGatlingOption: s32'NmlAtk2DBunri'
-    addGatlingOption: s32'NmlAtk6D'
-    addGatlingOption: s32'NmlAtk6DBunri'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     upon: (HIT_OR_GUARD_ANY)
@@ -4461,9 +4412,9 @@ beginState: s32'NmlAtk2A'
       callSubroutine: s32'cmn_lightAttack_flex'
       endUpon: 
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram230_00', 5
   sprite: s32'ram230_01', 2
@@ -4492,19 +4443,19 @@ beginState: s32'NmlAtk5B'
     callSubroutine: s32'cmn_AtkLv1'
     damage: 0, 24
     callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 0, (STATIC), 0, (STATIC), 1, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(0), Val(0), Val(1), Val(0)
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (KIRIMOMI)
     hitAirPushbackX: 0, 15000
     hitAirPushbackXOverTime: 0, 80, 0, 5, 0, 15
     hitAirPushbackY: 0, 30000
     hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 16
-    hitGravity: (STATIC), 1000
+    hitGravity: Val(1000)
     hitGravityOverTime: 0, 250, 0, 8, 0, 15
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6D'
@@ -4512,7 +4463,6 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk2B'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk5CBunri'
     addGatlingOption: s32'NmlAtk2C'
@@ -4523,15 +4473,16 @@ beginState: s32'NmlAtk5B'
     addGatlingOption: s32'NmlAtk2DBunri'
     addGatlingOption: s32'Cancel_FDash'
     enableJumpCancel: 1
+	enableFarSlash: 1
     upon: (HIT_OR_GUARD)
       extendPushboxX: 30000
       endUpon: 
     spriteSlowParam: 1, 1, 6, 100, 60, 200
     spriteSlowParamFinishStop: 1, 1, 6, 100, 200, 200
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram201_00', 2
   sprite: s32'ram201_01', 2
@@ -4559,13 +4510,13 @@ beginState: s32'NmlAtk2B'
     callSubroutine: s32'cmn_AtkLv1'
     damage: 0, 22
     guardType: (LOW)
-    easyRecovery: 1
+    easyClash: 1
     Unknown923: 1
     callSubroutine: s32'cmn_countertype'
     callSubroutine: s32'cmn_2B_hitback'
-    storeValue: (VARIABLE), 338, (STATIC), 10000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(10000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_DOWN)
@@ -4573,14 +4524,13 @@ beginState: s32'NmlAtk2B'
     hitAirPushbackXOverTime: 0, 80, 0, 10, 0, 15
     hitAirPushbackY: 0, 25000
     hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 16
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     hitGravityOverTime: 0, 250, 0, 5, 0, 15
     addGatlingOption: s32'NmlAtk6A'
     addGatlingOption: s32'NmlAtk6D'
     addGatlingOption: s32'NmlAtk5E'
     addGatlingOption: s32'NmlAtk2E'
     addGatlingOption: s32'NmlAtk6DBunri'
-    addGatlingOption: s32'NmlAtk5CNear'
     addGatlingOption: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk5CBunri'
     addGatlingOption: s32'NmlAtk2C'
@@ -4589,10 +4539,11 @@ beginState: s32'NmlAtk2B'
     addGatlingOption: s32'NmlAtk5DBunri'
     addGatlingOption: s32'NmlAtk2D'
     addGatlingOption: s32'NmlAtk2DBunri'
+	enableFarSlash: 1
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram231_00', 1
   sprite: s32'ram231_01', 2
@@ -4615,18 +4566,18 @@ beginState: s32'NmlAtk5CNear'
     callSubroutine: s32'cmn_countertype_middle_slash'
     damage: 0, 36
     hitEffectSlash: 1
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 0, (STATIC), 0, (STATIC), 1, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(0), Val(0), Val(1), Val(0)
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     hitAirPushbackX: 0, 10000
     hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 30000
     hitAirPushbackYOverTime: 0, 60, 0, 6, 0, 10
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     hitGravityOverTime: 0, 250, 0, 10, 0, 30
     enableFarSlash: 1
     addGatlingOption: s32'NmlAtk6A'
@@ -4648,9 +4599,9 @@ beginState: s32'NmlAtk5CNear'
       extendPushboxX: 30000
       endUpon: 
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram202_00', 3
   sprite: s32'ram202_01', 3
@@ -4660,7 +4611,7 @@ beginState: s32'NmlAtk5CNear'
   characterSfx: s32'SE_BTL_RAM_02'
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Heavy_S'
   attackVoiceLine: 1, -1
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(0), Val(0), Val(0)
   sprite: s32'ram202_03', 3
   sprite: s32'ram202_04', 3
   attackEndDelay: 
@@ -4677,7 +4628,7 @@ beginState: s32'NmlAtk5CFar'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv3'
     checkCurrentStateEntryName: s32'NmlAtk5CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv2'
       statsActionName: s32'NmlAtk5CBunri'
       endIf: 
@@ -4685,14 +4636,14 @@ beginState: s32'NmlAtk5CFar'
     damage: 0, 32
     pushbackX: 50
     checkCurrentStateEntryName: s32'NmlAtk5CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
     atkAngle: 5
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     addGatlingOption: s32'NmlAtk2C'
     addGatlingOption: s32'NmlAtk2CBunri'
@@ -4706,25 +4657,25 @@ beginState: s32'NmlAtk5CFar'
     addGatlingOption: s32'NmlAtk2E'
     displayMesh: s32'toge', 0
     checkCurrentStateEntryName: s32'NmlAtk5CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
-      storeValue: (VARIABLE), 350, (STATIC), -20000
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
+      storeValue: Mem(350), Val(-20000)
       endIf: 
     else: 
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -550000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
-      storeValue: (VARIABLE), 350, (STATIC), -20000
+      storeValue: Mem(343), Val(-550000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
+      storeValue: Mem(350), Val(-20000)
       endElse: 
     endUpon: 
   sprite: s32'ram203_00', 1
   sprite: s32'ram203_00', 1
   checkCurrentStateEntryName: s32'NmlAtk5CFar'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 4
       jumpToState: s32'BitN5C'
       endRunOnObject: 
@@ -4736,15 +4687,15 @@ beginState: s32'NmlAtk5CFar'
   sprite: s32'ram203_02', 3
   sprite: s32'ram203_03', 2
   checkCurrentStateEntryName: s32'NmlAtk5CFar'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'203slash00', (PLAYER)
     endIf: 
   sprite: s32'ram203_04', 3
   deactivateObjectByName: s32'203slash00'
   checkCurrentStateEntryName: s32'NmlAtk5CFar'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'203slash01', (PLAYER)
-    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_M'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_M'
     endIf: 
@@ -4774,29 +4725,29 @@ beginState: s32'NmlAtk2C'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv3'
     checkCurrentStateEntryName: s32'NmlAtk2CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv2'
       statsActionName: s32'NmlAtk2CBunri'
       endIf: 
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 34
     checkCurrentStateEntryName: s32'NmlAtk2CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
     atkAngle: -45
     guardType: (LOW)
     Unknown923: 1
-    storeValue: (VARIABLE), 338, (STATIC), 100000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(100000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (AIR_FACE_DOWN)
     hitAirPushbackX: 0, 10000
     hitAirPushbackY: 0, 40000
     hitAirPushbackYOverTime: 0, 50, 0, 5, 0, 11
-    hitGravity: (STATIC), 1000
+    hitGravity: Val(1000)
     hitGravityOverTime: 0, 100, 0, 10, 0, 35
     addGatlingOption: s32'NmlAtk5D'
     addGatlingOption: s32'NmlAtk5DBunri'
@@ -4809,24 +4760,24 @@ beginState: s32'NmlAtk2C'
       extendPushboxX: 30000
       endUpon: 
     checkCurrentStateEntryName: s32'NmlAtk2CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endIf: 
     else: 
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -350000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-350000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endElse: 
     endUpon: 
   sprite: s32'ram232_00', 1
   zLine: 0, 5
   sprite: s32'ram232_00', 1
   checkCurrentStateEntryName: s32'NmlAtk2C'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 4
       jumpToState: s32'BitN2C'
       endRunOnObject: 
@@ -4839,21 +4790,21 @@ beginState: s32'NmlAtk2C'
   sprite: s32'ram232_03', 1
   sprite: s32'ram232_04', 2
   checkCurrentStateEntryName: s32'NmlAtk2C'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'232eff_floor', (PLAYER)
     endIf: 
   sprite: s32'ram232_05', 2
   checkCurrentStateEntryName: s32'NmlAtk2C'
-  ifNot: (VARIABLE), 0
+  ifNot: Mem(0)
     createObject: s32'232eff_attack01', (PLAYER)
     endIf: 
   sprite: s32'ram232_06', 2
   checkCurrentStateEntryName: s32'NmlAtk2C'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'232eff_atk', (PLAYER)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
-    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
     endIf: 
   else: 
     deactivateObjectByName: s32'232eff_attack01'
@@ -4863,7 +4814,7 @@ beginState: s32'NmlAtk2C'
   attackVoiceLine: 1, -1
   sprite: s32'ram232_07', 2
   checkCurrentStateEntryName: s32'NmlAtk2C'
-  ifNot: (VARIABLE), 0
+  ifNot: Mem(0)
     deactivateObjectByName: s32'232eff_attack02'
     createObject: s32'232eff_attack03', (PLAYER)
     endIf: 
@@ -4895,7 +4846,7 @@ beginState: s32'NmlAtk5D'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv4'
     checkCurrentStateEntryName: s32'NmlAtk5DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv3'
       statsActionName: s32'NmlAtk5DBunri'
       endIf: 
@@ -4903,13 +4854,13 @@ beginState: s32'NmlAtk5D'
     damage: 0, 42
     pushbackX: 100
     checkCurrentStateEntryName: s32'NmlAtk5DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
     atkAngle: -5
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     hitAirPushbackX: 0, 30000
@@ -4921,23 +4872,23 @@ beginState: s32'NmlAtk5D'
     spriteSlowParam: 1, 1, 6, 100, 60, 200
     spriteSlowParamFinishStop: 1, 1, 6, 100, 200, 200
     checkCurrentStateEntryName: s32'NmlAtk5DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endIf: 
     else: 
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -550000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-550000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endElse: 
     endUpon: 
   sprite: s32'ram204_00', 1
   sprite: s32'ram204_00', 1
   checkCurrentStateEntryName: s32'NmlAtk5D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 5
       jumpToState: s32'BitF5D'
       endRunOnObject: 
@@ -4952,16 +4903,16 @@ beginState: s32'NmlAtk5D'
   extendPushboxX: 60000
   sprite: s32'ram204_04', 3
   checkCurrentStateEntryName: s32'NmlAtk5D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'204slash00', (PLAYER)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
-    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
     endIf: 
   attackVoiceLine: 2, -1
   sprite: s32'ram204_05', 3
   checkCurrentStateEntryName: s32'NmlAtk5D'
-  ifNot: (VARIABLE), 0
+  ifNot: Mem(0)
     createObject: s32'204atk', (PLAYER)
     endIf: 
   grabOrRelease: 
@@ -4987,20 +4938,20 @@ beginState: s32'NmlAtk2D'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv4'
     checkCurrentStateEntryName: s32'NmlAtk2DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv3'
       statsActionName: s32'NmlAtk2DBunri'
       endIf: 
     callSubroutine: s32'cmn_countertype_high'
     damage: 0, 38
     checkCurrentStateEntryName: s32'NmlAtk2DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
     atkAngle: 90
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(3)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_STRONG)
@@ -5008,36 +4959,36 @@ beginState: s32'NmlAtk2D'
     hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 12
     hitAirPushbackY: 0, 40000
     hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 10
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     hitGravityOverTime: 0, 150, 0, 6, 0, 16
     addGatlingOption: s32'NmlAtk5E'
     upon: 62
       hitAirPushbackY: 0, 50000
       endUpon: 
-    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', Val(2), Val(0), Val(0), Val(0)
     displayMesh: s32'toge', 0
     upon: (HIT_OR_GUARD)
       extendPushboxX: 50000
       endUpon: 
     checkCurrentStateEntryName: s32'NmlAtk2DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 2
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endIf: 
     else: 
       wallBlowoffType: 2
-      storeValue: (VARIABLE), 343, (STATIC), -350000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-350000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endElse: 
     endUpon: 
   sprite: s32'ram233_00', 1
   zLine: 0, 5
   sprite: s32'ram233_00', 1
   checkCurrentStateEntryName: s32'NmlAtk2D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 5
       jumpToState: s32'BitF2D'
       endRunOnObject: 
@@ -5052,23 +5003,23 @@ beginState: s32'NmlAtk2D'
   sprite: s32'ram233_04', 2
   sprite: s32'ram233_05', 3
   checkCurrentStateEntryName: s32'NmlAtk2D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'233eff_wepbake', (PLAYER)
     endIf: 
   else: 
     createObject: s32'233eff_attack', (PLAYER)
     endElse: 
   sprite: s32'ram233_06', 3
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'233eff_floordecal', (PLAYER)
     endIf: 
   checkCurrentStateEntryName: s32'NmlAtk2D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'233bloom', (PLAYER)
     createObject: s32'233eff', (PLAYER)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
-    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
     endIf: 
   grabOrRelease: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Slash_Sharp_M'
@@ -5093,19 +5044,19 @@ beginState: s32'NmlAtk6D'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_AtkLv4'
     checkCurrentStateEntryName: s32'NmlAtk6DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv3'
       statsActionName: s32'NmlAtk6DBunri'
       endIf: 
     damage: 0, 48
     checkCurrentStateEntryName: s32'NmlAtk6DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
     callSubroutine: s32'cmn_countertype_high'
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(3)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 35000
@@ -5123,35 +5074,35 @@ beginState: s32'NmlAtk6D'
     wallBounceYVelocity: 25000
     wallBounceGravity: 2500
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -200000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-200000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     upon: (HIT_OR_GUARD)
       extendPushboxX: 50000
       endUpon: 
     checkCurrentStateEntryName: s32'NmlAtk6DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 3
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endIf: 
     else: 
       wallBlowoffType: 3
-      storeValue: (VARIABLE), 343, (STATIC), -450000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-450000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endElse: 
     endUpon: 
   sprite: s32'ram213_00', 1
   sprite: s32'ram213_00', 1
-  if: (VARIABLE), 3
+  if: Mem(3)
     runOnObject: 4
       jumpToState: s32'BitN6D'
       endRunOnObject: 
     endIf: 
   checkCurrentStateEntryName: s32'NmlAtk6D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 5
       jumpToState: s32'BitF6D'
       endRunOnObject: 
@@ -5161,7 +5112,7 @@ beginState: s32'NmlAtk6D'
   velocityXPercentEachFrame: 90
   sprite: s32'ram213_01', 4
   checkCurrentStateEntryName: s32'NmlAtk6DBunri'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'213charge', (PLAYER)
     endIf: 
   sprite: s32'ram213_02', 4
@@ -5173,18 +5124,18 @@ beginState: s32'NmlAtk6D'
   sprite: s32'ram213_04', 3
   sprite: s32'ram213_05', 2
   checkCurrentStateEntryName: s32'NmlAtk6DBunri'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'213eff00', (PLAYER)
     createObject: s32'213eff01', (PLAYER)
     endIf: 
   grabOrRelease: 
   haltMomentum: 1
   checkCurrentStateEntryName: s32'NmlAtk6D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     linkObjectCollision: 5
     createObject: s32'213slash', (PLAYER)
     createObject: s32'213slash_sub', (PLAYER)
-    callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
     endIf: 
   characterSfx: s32'SE_BTL_RAM_13'
   attackVoiceLine: 2, -1
@@ -5230,13 +5181,13 @@ beginState: s32'NmlAtk5E'
     hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, 30000
     hitAirPushbackYOverTime: 0, 60, 0, 8, 0, 16
-    hitGravity: (STATIC), 500
+    hitGravity: Val(500)
     hitGravityOverTime: 0, 250, 0, 5, 0, 30
     wallBlowoffType: 2
-    storeValue: (VARIABLE), 343, (STATIC), -350000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 130000
-    storeValue: (VARIABLE), 350, (STATIC), -60000
+    storeValue: Mem(343), Val(-350000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(130000)
+    storeValue: Mem(350), Val(-60000)
     upon: (HIT_OR_GUARD)
       extendPushboxX: 50000
       endUpon: 
@@ -5245,41 +5196,41 @@ beginState: s32'NmlAtk5E'
   sprite: s32'ram205_01', 2
   sprite: s32'ram205_02', 1
   sprite: s32'ram205_02', 2
-  setSpriteTimeIf: 3, (VARIABLE), 52
+  setSpriteTime: 3, Mem(52)
   sprite: s32'ram205_03', 2
   sprite: s32'ram205_04', 2
   voiceLine: s16'vxxx103'
   sprite: s32'ram205_05', 3
   sprite: s32'ram205_06', 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
-  setSpriteTimeIf: 3, (VARIABLE), 52
+  setSpriteTime: 3, Mem(52)
   sprite: s32'ram205_06', 1
-  setSpriteTimeIf: 3, (VARIABLE), 52
-  if: (VARIABLE), 52
+  setSpriteTime: 3, Mem(52)
+  if: Mem(52)
     spriteBlend: s32'ram205_07', 0, 500
     endIf: 
   sprite: s32'ram205_07', 1
-  setSpriteTimeIf: 3, (VARIABLE), 52
-  if: (VARIABLE), 52
+  setSpriteTime: 3, Mem(52)
+  if: Mem(52)
     spriteBlend: s32'ram205_06', 0, 200
     endIf: 
   sprite: s32'ram205_07', 2
-  setSpriteTimeIf: 3, (VARIABLE), 52
+  setSpriteTime: 3, Mem(52)
   sprite: s32'ram205_08', 2
   createObject: s32'205slash00', (PLAYER)
   createObject: s32'205slash00_sub', (PLAYER)
   hit: 
-  if: (VARIABLE), 3
+  if: Mem(3)
     runOnObject: 4
       jumpToState: s32'BitN6P'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 5
+  if: Mem(5)
     runOnObject: 5
       jumpToState: s32'BitF6P'
       endRunOnObject: 
     endIf: 
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(1), Val(0), Val(0)
   sprite: s32'ram205_09', 3
   callSubroutine: s32'cmn_AttackEnd'
   extendPushboxX: 0
@@ -5302,36 +5253,36 @@ beginState: s32'NmlAtk5E'
 beginState: s32'HomingJump'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_Dust_HomingJump'
-    storeValue: (VARIABLE), 47, (STATIC), 50000
-    storeValue: (VARIABLE), 48, (STATIC), 0
-    storeValue: (VARIABLE), 49, (STATIC), -50000
-    storeValue: (VARIABLE), 50, (STATIC), 30000
-    storeValue: (VARIABLE), 51, (STATIC), -5000
+    storeValue: Mem(47), Val(50000)
+    storeValue: Mem(48), Val(0)
+    storeValue: Mem(49), Val(-50000)
+    storeValue: Mem(50), Val(30000)
+    storeValue: Mem(51), Val(-5000)
     upon: (TIMER)
       upon: (FRAME_STEP)
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 50
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 1000
-          storeValue: (VARIABLE), 45, (STATIC), 1000
+        modifyVar: (ADD), Mem(45), Val(50)
+        ifOperation: (IS_GREATER_OR_EQUAL), Mem(45), Val(1000)
+          storeValue: Mem(45), Val(1000)
           endIf: 
-        modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 46, (STATIC), 6
-          ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 46, (STATIC), 3
+        modifyVar: (ADD), Mem(46), Val(1)
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(46), Val(6)
+          ifOperation: (IS_LESSER_OR_EQUAL), Mem(46), Val(3)
             spriteBlend: s32'ram035_05', 2, 45
             endIf: 
           else: 
             spriteBlend: s32'ram035_06', 2, 45
-            ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (STATIC), 6
-              storeValue: (VARIABLE), 46, (STATIC), 0
+            ifOperation: (IS_GREATER_OR_EQUAL), Mem(46), Val(6)
+              storeValue: Mem(46), Val(0)
               endIf: 
             endElse: 
           endIf: 
         endUpon: 
       endUpon: 
-    if: (VARIABLE), 4
+    if: Mem(4)
       deactivateObjectById: 4
       createObject: s32'wep_Recovery_S', (PLAYER)
       endIf: 
-    if: (VARIABLE), 6
+    if: Mem(6)
       deactivateObjectById: 5
       createObject: s32'wep_Recovery_HS', (PLAYER)
       endIf: 
@@ -5437,9 +5388,9 @@ beginState: s32'NmlAtk2E'
     callSubroutine: s32'cmn_countertype_high'
     damage: 0, 28
     guardType: (LOW)
-    storeValue: (VARIABLE), 338, (STATIC), 100000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(100000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     airHitEffect: (AIR_FACE_DOWN)
     groundHitEffect: (AIR_FACE_DOWN)
@@ -5447,9 +5398,9 @@ beginState: s32'NmlAtk2E'
     hitAirPushbackY: 0, 26000
     counterHitSoftKnockdown: 0
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -200000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-200000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     upon: 62
       hitSoftKnockdown: 0
       endUpon: 
@@ -5481,26 +5432,26 @@ beginState: s32'NmlAtk5F'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
-  gotoLabelIf: s32'TypeB', (VARIABLE), 4
-  gotoLabelIf: s32'TypeB', (VARIABLE), 6
-  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
+  gotoLabelIf: s32'TypeB', Mem(4)
+  gotoLabelIf: s32'TypeB', Mem(6)
+  gotoIfOperation: s32'TypeB', (PERCENT), Val(50), Val(100)
   beginLabel: s32'TypeA'
   sprite: s32'ram300_00', 1
   sprite: s32'ram300_00', 2
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     createObject: s32'616WepR_delete', (PLAYER)
     runOnObject: 4
       jumpToState: s32'BitNProvocation'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     createObject: s32'616WepL_delete', (PLAYER)
     runOnObject: 5
       jumpToState: s32'BitFProvocation'
       endRunOnObject: 
     endIf: 
   createObject: s32'ram300_Minion', (PLAYER)
-  stackObject: 6, 1
+  stackObject: 6, (PREVIOUS)
   sprite: s32'ram300_01', 3
   sprite: s32'ram300_02', 3
   sprite: s32'ram300_03', 4
@@ -5545,7 +5496,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'ram300_25', 5
   sprite: s32'ram300_26', 4
   sprite: s32'ram300_26', 60
-  storeValue: (VARIABLE), 47, (STATIC), 1
+  storeValue: Mem(47), Val(1)
   endLabel: 
   beginLabel: s32'TypeA_Pattern2_Start'
   sprite: s32'ram300_27', 5
@@ -5567,7 +5518,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'ram300_37', 5
   sprite: s32'ram300_38', 4
   sprite: s32'ram300_38', 60
-  storeValue: (VARIABLE), 47, (STATIC), 1
+  storeValue: Mem(47), Val(1)
   endLabel: 
   beginLabel: s32'TypeA_Pattern3_Start'
   sprite: s32'ram300_39', 5
@@ -5603,7 +5554,7 @@ beginState: s32'NmlAtk5F'
   sprite: s32'ram300_63', 5
   sprite: s32'ram300_64', 4
   sprite: s32'ram300_64', 60
-  storeValue: (VARIABLE), 47, (STATIC), 1
+  storeValue: Mem(47), Val(1)
   endLabel: 
   beginLabel: s32'TypeA_End'
   sprite: s32'ram300_65', 4
@@ -5680,8 +5631,8 @@ beginState: s32'NmlAtk5F'
   sprite: s32'ram301_19', 5
   endLabel: 
   upon: (FRAME_STEP)
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 1
-      ifNot: (VARIABLE), 95
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(45), Val(1)
+      ifNot: Mem(95)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'TypeB_Next'
         endIf: 
@@ -5705,8 +5656,8 @@ beginState: s32'NmlAtk5F'
   sprite: s32'ram301_34', 5
   sprite: s32'ram301_35', 5
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-  gotoLabelIf: s32'TypeB_Loop', (VARIABLE), 45
+  modifyVar: (ADD), Mem(45), Val(1)
+  gotoLabelIf: s32'TypeB_Loop', Mem(45)
   beginLabel: s32'TypeB_Next'
   sprite: s32'ram301_36', 5
   sprite: s32'ram301_37', 5
@@ -5724,16 +5675,16 @@ beginState: s32'NmlAtk6F'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnChouhatsuKeii'
     endUpon: 
-  gotoIfOperation: s32'TypeB', (PERCENT), (STATIC), 50, (STATIC), 100
+  gotoIfOperation: s32'TypeB', (PERCENT), Val(50), Val(100)
   beginLabel: s32'TypeA'
   sprite: s32'ram305_00', 1
   sprite: s32'ram305_00', 3
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNRespect1'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFRespect1'
       endRunOnObject: 
@@ -5763,8 +5714,8 @@ beginState: s32'NmlAtk6F'
   sprite: s32'ram305_19', 4
   endLabel: 
   upon: (FRAME_STEP)
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 2
-      ifNot: (VARIABLE), 95
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(45), Val(2)
+      ifNot: Mem(95)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'TypeA_Next'
         endIf: 
@@ -5793,8 +5744,8 @@ beginState: s32'NmlAtk6F'
   sprite: s32'ram305_36', 4
   sprite: s32'ram305_37', 4
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-  gotoLabelIf: s32'TypeA_Loop', (VARIABLE), 45
+  modifyVar: (ADD), Mem(45), Val(1)
+  gotoLabelIf: s32'TypeA_Loop', Mem(45)
   beginLabel: s32'TypeA_Next'
   sprite: s32'ram305_38', 4
   sendSignalToAction: s32'BitNRespect1', 23
@@ -5819,12 +5770,12 @@ beginState: s32'NmlAtk6F'
   beginLabel: s32'TypeB'
   sprite: s32'ram306_00', 1
   sprite: s32'ram306_00', 3
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNRespect2'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFRespect2'
       endRunOnObject: 
@@ -5841,8 +5792,8 @@ beginState: s32'NmlAtk6F'
   voiceLine: s16'vxxx412demo'
   endLabel: 
   upon: (FRAME_STEP)
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (STATIC), 2
-      ifNot: (VARIABLE), 95
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(46), Val(2)
+      ifNot: Mem(95)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'TypeB_Next'
         endIf: 
@@ -5855,8 +5806,8 @@ beginState: s32'NmlAtk6F'
   sprite: s32'ram306_12', 4
   sprite: s32'ram306_13', 4
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-  gotoLabelIf: s32'TypeB_Loop', (VARIABLE), 46
+  modifyVar: (ADD), Mem(46), Val(1)
+  gotoLabelIf: s32'TypeB_Loop', Mem(46)
   beginLabel: s32'TypeB_Next'
   sprite: s32'ram306_14', 4
   sendSignalToAction: s32'BitNRespect2', 23
@@ -5902,375 +5853,375 @@ beginState: s32'NmlAtk6F'
 beginSubroutine: s32'ram300_Pattern_Random'
   setRandom: 2, 45, 0, 1, 0, 3
   ifOpponentCharacterMain: s16'sol'
-  if: (VARIABLE), 0
+  if: Mem(0)
     setRandom: 2, 45, 0, 1, 0, 2
     endIf: 
   ifOpponentCharacterMain: s16'kyk'
-  if: (VARIABLE), 0
+  if: Mem(0)
     setRandom: 2, 45, 0, 1, 0, 2
     endIf: 
   ifOpponentCharacterMain: s16'leo'
-  if: (VARIABLE), 0
+  if: Mem(0)
     setRandom: 2, 45, 0, 1, 0, 2
     endIf: 
   endSubroutine: 
 
 beginSubroutine: s32'ram300_Pattern'
-  storeValue: (VARIABLE), 47, (STATIC), 0
-  storeValue: (VARIABLE), 50, (STATIC), 0
-  storeValue: (VARIABLE), 52, (STATIC), 60
-  modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-  ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 1
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
+  storeValue: Mem(47), Val(0)
+  storeValue: Mem(50), Val(0)
+  storeValue: Mem(52), Val(60)
+  modifyVar: (ADD), Mem(46), Val(1)
+  ifOperation: (IS_EQUAL), Mem(45), Val(1)
+    ifOperation: (IS_EQUAL), Mem(46), Val(1)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx900demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(46), Val(2)
       voiceLine: s16'vxxx901demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(46), Val(3)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx902demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 4
+    ifOperation: (IS_EQUAL), Mem(46), Val(4)
       voiceLine: s16'vxxx903demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 5
+    ifOperation: (IS_EQUAL), Mem(46), Val(5)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx904demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 1
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 6
+    ifOperation: (IS_EQUAL), Mem(46), Val(6)
       voiceLine: s16'vxxx905demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 7
+    ifOperation: (IS_EQUAL), Mem(46), Val(7)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx906demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 8
+    ifOperation: (IS_EQUAL), Mem(46), Val(8)
       voiceLine: s16'vxxx907demo'
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 9
+    ifOperation: (IS_EQUAL), Mem(46), Val(9)
       voiceLine: s16'vxxx908demo'
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 10
+    ifOperation: (IS_EQUAL), Mem(46), Val(10)
       voiceLine: s16'vxxx909demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 11
+    ifOperation: (IS_EQUAL), Mem(46), Val(11)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx910demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 1
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 12
+    ifOperation: (IS_EQUAL), Mem(46), Val(12)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx911demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 13
+    ifOperation: (IS_EQUAL), Mem(46), Val(13)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx912demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 14
+    ifOperation: (IS_EQUAL), Mem(46), Val(14)
       voiceLine: s16'vxxx913demo'
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 15
+    ifOperation: (IS_EQUAL), Mem(46), Val(15)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx914demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 16
+    ifOperation: (IS_EQUAL), Mem(46), Val(16)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx915demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 17
+    ifOperation: (IS_EQUAL), Mem(46), Val(17)
       voiceLine: s16'vxxx916demo'
-      storeValue: (VARIABLE), 51, (STATIC), 1
+      storeValue: Mem(51), Val(1)
       endIf: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 2
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(45), Val(2)
+    ifOperation: (IS_EQUAL), Mem(46), Val(1)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx937demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 1
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(46), Val(2)
       voiceLine: s16'vxxx938demo'
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(46), Val(3)
       voiceLine: s16'vxxx939demo'
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 4
+    ifOperation: (IS_EQUAL), Mem(46), Val(4)
       voiceLine: s16'vxxx940demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 5
+    ifOperation: (IS_EQUAL), Mem(46), Val(5)
       voiceLine: s16'vxxx941demo'
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 6
+    ifOperation: (IS_EQUAL), Mem(46), Val(6)
       voiceLine: s16'vxxx942demo'
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 7
+    ifOperation: (IS_EQUAL), Mem(46), Val(7)
       voiceLine: s16'vxxx943demo'
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 8
+    ifOperation: (IS_EQUAL), Mem(46), Val(8)
       voiceLine: s16'vxxx944demo'
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 9
+    ifOperation: (IS_EQUAL), Mem(46), Val(9)
       voiceLine: s16'vxxx945demo'
-      storeValue: (VARIABLE), 49, (STATIC), 1
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 10
+    ifOperation: (IS_EQUAL), Mem(46), Val(10)
       voiceLine: s16'vxxx946demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 11
+    ifOperation: (IS_EQUAL), Mem(46), Val(11)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx947demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 1
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 12
+    ifOperation: (IS_EQUAL), Mem(46), Val(12)
       voiceLine: s16'vxxx948demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 13
+    ifOperation: (IS_EQUAL), Mem(46), Val(13)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx949demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 14
+    ifOperation: (IS_EQUAL), Mem(46), Val(14)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx950demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 15
+    ifOperation: (IS_EQUAL), Mem(46), Val(15)
       voiceLine: s16'vxxx951demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 16
+    ifOperation: (IS_EQUAL), Mem(46), Val(16)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx952demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 51, (STATIC), 1
+      storeValue: Mem(51), Val(1)
       endIf: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 3
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(45), Val(3)
+    ifOperation: (IS_EQUAL), Mem(46), Val(1)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx917demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(46), Val(2)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx918demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(46), Val(3)
       voiceLine: s16'vxxx919demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 4
+    ifOperation: (IS_EQUAL), Mem(46), Val(4)
       voiceLine: s16'vxxx920demo'
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 5
+    ifOperation: (IS_EQUAL), Mem(46), Val(5)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx921demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 6
+    ifOperation: (IS_EQUAL), Mem(46), Val(6)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx922demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 7
+    ifOperation: (IS_EQUAL), Mem(46), Val(7)
       voiceLine: s16'vxxx923demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 8
+    ifOperation: (IS_EQUAL), Mem(46), Val(8)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx924demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
-      storeValue: (VARIABLE), 52, (STATIC), 160
+      storeValue: Mem(49), Val(4)
+      storeValue: Mem(52), Val(160)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 9
+    ifOperation: (IS_EQUAL), Mem(46), Val(9)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx925demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 10
+    ifOperation: (IS_EQUAL), Mem(46), Val(10)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx926demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
-      storeValue: (VARIABLE), 52, (STATIC), 240
+      storeValue: Mem(49), Val(4)
+      storeValue: Mem(52), Val(240)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 11
+    ifOperation: (IS_EQUAL), Mem(46), Val(11)
       voiceLine: s16'vxxx927demo'
-      storeValue: (VARIABLE), 49, (STATIC), 1
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 12
+    ifOperation: (IS_EQUAL), Mem(46), Val(12)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx928demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
+      storeValue: Mem(49), Val(3)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 13
+    ifOperation: (IS_EQUAL), Mem(46), Val(13)
       voiceLine: s16'vxxx929demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 14
+    ifOperation: (IS_EQUAL), Mem(46), Val(14)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx930demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 15
+    ifOperation: (IS_EQUAL), Mem(46), Val(15)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx931demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 2
+      storeValue: Mem(49), Val(2)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 16
+    ifOperation: (IS_EQUAL), Mem(46), Val(16)
       voiceLine: s16'vxxx932demo'
-      storeValue: (VARIABLE), 49, (STATIC), 0
+      storeValue: Mem(49), Val(0)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 17
+    ifOperation: (IS_EQUAL), Mem(46), Val(17)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx933demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 4
+      storeValue: Mem(49), Val(4)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 18
+    ifOperation: (IS_EQUAL), Mem(46), Val(18)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx934demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 49, (STATIC), 3
-      storeValue: (VARIABLE), 52, (STATIC), 30
+      storeValue: Mem(49), Val(3)
+      storeValue: Mem(52), Val(30)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 19
+    ifOperation: (IS_EQUAL), Mem(46), Val(19)
       voiceLine: s16'vxxx935demo'
-      storeValue: (VARIABLE), 49, (STATIC), 2
-      storeValue: (VARIABLE), 52, (STATIC), 30
+      storeValue: Mem(49), Val(2)
+      storeValue: Mem(52), Val(30)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 20
+    ifOperation: (IS_EQUAL), Mem(46), Val(20)
       runOnObject: 6
         setVoiceChannel: 1
         Unknown593: 1
         voiceLine: s16'vxxx936demo'
         endRunOnObject: 
-      storeValue: (VARIABLE), 51, (STATIC), 1
+      storeValue: Mem(51), Val(1)
       endIf: 
     endIf: 
   upon: (FRAME_STEP)
-    ifNot: (VARIABLE), 47
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (VARIABLE), 52
-        ifNot: (VARIABLE), 95
-          ifNotInObject: 6, (VARIABLE), 95
-            ifNot: (VARIABLE), 50
-              storeValue: (VARIABLE), 50, (STATIC), 1
-              ifOperation: (IS_EQUAL), (VARIABLE), 49, (STATIC), 4
-                storeValue: (VARIABLE), 47, (STATIC), 1
+    ifNot: Mem(47)
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Mem(52)
+        ifNot: Mem(95)
+          ifNotInObject: 6, Mem(95)
+            ifNot: Mem(50)
+              storeValue: Mem(50), Val(1)
+              ifOperation: (IS_EQUAL), Mem(49), Val(4)
+                storeValue: Mem(47), Val(1)
                 endIf: 
               else: 
-                ifOperation: (IS_EQUAL), (VARIABLE), 48, (STATIC), 0
-                  storeValue: (VARIABLE), 47, (STATIC), 1
+                ifOperation: (IS_EQUAL), Mem(48), Val(0)
+                  storeValue: Mem(47), Val(1)
                   endIf: 
-                ifOperation: (IS_EQUAL), (VARIABLE), 48, (STATIC), 1
+                ifOperation: (IS_EQUAL), Mem(48), Val(1)
                   gotoLabelRequests: s32'TypeA_Pattern1_End'
                   endIf: 
-                ifOperation: (IS_EQUAL), (VARIABLE), 48, (STATIC), 2
+                ifOperation: (IS_EQUAL), Mem(48), Val(2)
                   gotoLabelRequests: s32'TypeA_Pattern2_End'
                   endIf: 
-                ifOperation: (IS_EQUAL), (VARIABLE), 48, (STATIC), 3
+                ifOperation: (IS_EQUAL), Mem(48), Val(3)
                   gotoLabelRequests: s32'TypeA_Pattern3_End'
                   endIf: 
                 endElse: 
@@ -6281,26 +6232,26 @@ beginSubroutine: s32'ram300_Pattern'
       endIf: 
     else: 
       clearRegisteredUponCode: (FRAME_STEP)
-      if: (VARIABLE), 16
-        ifNot: (VARIABLE), 51
-          ifOperation: (IS_EQUAL), (VARIABLE), 46, (STATIC), 1
+      if: Mem(16)
+        ifNot: Mem(51)
+          ifOperation: (IS_EQUAL), Mem(46), Val(1)
             sendSignalName: 6, s32'Pattern1_Start', 0
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 49, (STATIC), 4
+          ifOperation: (IS_EQUAL), Mem(49), Val(4)
             callSubroutine: s32'ram300_Pattern'
             endIf: 
           else: 
-            storeValue: (VARIABLE), 48, (VARIABLE), 49
-            ifOperation: (IS_EQUAL), (VARIABLE), 49, (STATIC), 0
+            storeValue: Mem(48), Mem(49)
+            ifOperation: (IS_EQUAL), Mem(49), Val(0)
               gotoLabelRequests: s32'TypeA_Loop_Start'
               endIf: 
-            ifOperation: (IS_EQUAL), (VARIABLE), 49, (STATIC), 1
+            ifOperation: (IS_EQUAL), Mem(49), Val(1)
               gotoLabelRequests: s32'TypeA_Pattern1_Start'
               endIf: 
-            ifOperation: (IS_EQUAL), (VARIABLE), 49, (STATIC), 2
+            ifOperation: (IS_EQUAL), Mem(49), Val(2)
               gotoLabelRequests: s32'TypeA_Pattern2_Start'
               endIf: 
-            ifOperation: (IS_EQUAL), (VARIABLE), 49, (STATIC), 3
+            ifOperation: (IS_EQUAL), Mem(49), Val(3)
               gotoLabelRequests: s32'TypeA_Pattern3_Start'
               endIf: 
             endElse: 
@@ -6320,18 +6271,18 @@ beginSubroutine: s32'ram300_Pattern'
 
 beginState: s32'NmlAtkAir5A'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmn_AtkLv0', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv0', Val(0), Val(0), Val(0), Val(1)
     damage: 0, 20
-    easyRecovery: 1
+    easyClash: 1
     callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 12500
-      storeValue: (VARIABLE), 347, (STATIC), 17500
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(3), Val(0), Val(0), Val(0)
+    ifNot: Mem(317)
+      storeValue: Mem(346), Val(12500)
+      storeValue: Mem(347), Val(17500)
       endIf: 
     else: 
       endElse: 
@@ -6356,9 +6307,9 @@ beginState: s32'NmlAtkAir5A'
       endUpon: 
     callSubroutine: s32'cmn_Dust_HomingJump_Attack'
     wallBlowoffType: 2
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     callSubroutine: s32'cmnLandingStiffadd_Timer'
     endUpon: 
   sprite: s32'ram250_00', 2
@@ -6377,19 +6328,19 @@ beginState: s32'NmlAtkAir5A'
 
 beginState: s32'NmlAtkAir5B'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv1', Val(0), Val(0), Val(0), Val(1)
     damage: 0, 22
     atkAngle: -60
-    easyRecovery: 1
-    easyRecovery: 1
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    easyClash: 1
+    easyClash: 1
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 8000
-      storeValue: (VARIABLE), 347, (STATIC), 25000
-      hitGravity: (STATIC), 3250
+    ifNot: Mem(317)
+      storeValue: Mem(346), Val(8000)
+      storeValue: Mem(347), Val(25000)
+      hitGravity: Val(3250)
       endIf: 
     else: 
       endElse: 
@@ -6405,9 +6356,9 @@ beginState: s32'NmlAtkAir5B'
     callSubroutine: s32'cmnAirMoveCancel'
     callSubroutine: s32'cmn_Dust_HomingJump_Attack'
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 150000
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(150000)
+    storeValue: Mem(345), Val(0)
     callSubroutine: s32'cmnLandingStiffadd_Timer'
     endUpon: 
   sprite: s32'ram251_00', 2
@@ -6428,25 +6379,25 @@ beginState: s32'NmlAtkAir5B'
 
 beginState: s32'NmlAtkAir5C'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
     checkCurrentStateEntryName: s32'NmlAtkAir5CBunri'
-    if: (VARIABLE), 0
-      callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    if: Mem(0)
+      callSubroutineWithArgs: s32'cmn_AtkLv1', Val(0), Val(0), Val(0), Val(1)
       statsActionName: s32'NmlAtkAir5CBunri'
       endIf: 
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 30
     checkCurrentStateEntryName: s32'NmlAtkAir5CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 12000
-      storeValue: (VARIABLE), 347, (STATIC), 25000
+    ifNot: Mem(317)
+      storeValue: Mem(346), Val(12000)
+      storeValue: Mem(347), Val(25000)
       endIf: 
     else: 
       endElse: 
@@ -6460,24 +6411,24 @@ beginState: s32'NmlAtkAir5C'
     callSubroutine: s32'cmn_Dust_HomingJump_Attack'
     displayMesh: s32'toge', 0
     checkCurrentStateEntryName: s32'NmlAtkAir5CBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endIf: 
     else: 
       wallBlowoffType: 1
-      storeValue: (VARIABLE), 343, (STATIC), -350000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-350000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endElse: 
     callSubroutine: s32'cmnLandingStiffadd_Timer'
     endUpon: 
   sprite: s32'ram252_00', 1
   sprite: s32'ram252_00', 2
   checkCurrentStateEntryName: s32'NmlAtkAir5C'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 4
       jumpToState: s32'BitNAir5C'
       endRunOnObject: 
@@ -6489,14 +6440,14 @@ beginState: s32'NmlAtkAir5C'
   sprite: s32'ram252_02', 3
   sprite: s32'ram252_03', 2
   checkCurrentStateEntryName: s32'NmlAtkAir5C'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'252slash00', (PLAYER)
     endIf: 
   attackVoiceLine: 1, -1
   sprite: s32'ram252_04', 2
   deactivateObjectByName: s32'252slash00'
   checkCurrentStateEntryName: s32'NmlAtkAir5C'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'252slash01', (PLAYER)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
@@ -6519,27 +6470,27 @@ beginState: s32'NmlAtkAir5C'
 
 beginState: s32'NmlAtkAir5D'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
     checkCurrentStateEntryName: s32'NmlAtkAir5DBunri'
-    if: (VARIABLE), 0
-      callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+    if: Mem(0)
+      callSubroutineWithArgs: s32'cmn_AtkLv1', Val(0), Val(0), Val(0), Val(1)
       statsActionName: s32'NmlAtkAir5DBunri'
       endIf: 
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 40
     checkCurrentStateEntryName: s32'NmlAtkAir5DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       damagePercent: 80
       endIf: 
     pushbackX: 150
     atkAngle: -90
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 5000
-      storeValue: (VARIABLE), 347, (STATIC), -50000
+    ifNot: Mem(317)
+      storeValue: Mem(346), Val(5000)
+      storeValue: Mem(347), Val(-50000)
       endIf: 
     else: 
       endElse: 
@@ -6549,25 +6500,25 @@ beginState: s32'NmlAtkAir5D'
     callSubroutine: s32'cmn_Dust_HomingJump_Attack'
     displayMesh: s32'toge', 0
     checkCurrentStateEntryName: s32'NmlAtkAir5DBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       wallBlowoffType: 3
-      storeValue: (VARIABLE), 343, (STATIC), -150000
-      storeValue: (VARIABLE), 344, (STATIC), 150000
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-150000)
+      storeValue: Mem(344), Val(150000)
+      storeValue: Mem(345), Val(0)
       statsActionName: s32'NmlAtkAir5DBunri'
       endIf: 
     else: 
       wallBlowoffType: 3
-      storeValue: (VARIABLE), 343, (STATIC), -250000
-      storeValue: (VARIABLE), 344, (STATIC), 150000
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-250000)
+      storeValue: Mem(344), Val(150000)
+      storeValue: Mem(345), Val(0)
       endElse: 
     callSubroutine: s32'cmnLandingStiffadd_Timer'
     endUpon: 
   sprite: s32'ram253_00', 1
   sprite: s32'ram253_00', 2
   checkCurrentStateEntryName: s32'NmlAtkAir5D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     runOnObject: 5
       jumpToState: s32'BitFAir5D'
       endRunOnObject: 
@@ -6583,7 +6534,7 @@ beginState: s32'NmlAtkAir5D'
   sprite: s32'ram253_05', 3
   sprite: s32'ram253_06', 2
   checkCurrentStateEntryName: s32'NmlAtkAir5D'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'253slash', (PLAYER)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
@@ -6608,61 +6559,61 @@ beginState: s32'NmlAtkAir5D'
   endState: 
 
 beginSubroutine: s32'NmlAtkAir5E_atk'
-  callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 1
+  callSubroutineWithArgs: s32'cmn_AtkLv1', Val(3), Val(3), Val(0), Val(1)
   callSubroutine: s32'cmn_countertype_middle'
   damage: 0, 16
   shortHitstop: 1
   hitRedRomanCancelTime: 4
   atkAngle: 60
   pushbackX: 140
-  storeValue: (VARIABLE), 338, (STATIC), 1000000000
-  storeValue: (VARIABLE), 339, (STATIC), 3
-  storeValue: (VARIABLE), 340, (STATIC), 3
+  storeValue: Mem(338), Val(1000000000)
+  storeValue: Mem(339), Val(3)
+  storeValue: Mem(340), Val(3)
   callSubroutine: s32'cmn_hosei'
-  ifNot: (VARIABLE), 317
-    storeValue: (VARIABLE), 346, (STATIC), 5000
-    storeValue: (VARIABLE), 347, (STATIC), 10000
+  ifNot: Mem(317)
+    storeValue: Mem(346), Val(5000)
+    storeValue: Mem(347), Val(10000)
     endIf: 
   else: 
     endElse: 
   callSubroutine: s32'cmn_AtkTemplNmlAtkAir'
-  callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', Val(6), Val(0), Val(0), Val(0)
   callSubroutine: s32'cmn_Dust_HomingJump_Attack'
   wallBlowoffType: 2
-  storeValue: (VARIABLE), 343, (STATIC), -250000
-  storeValue: (VARIABLE), 344, (STATIC), 0
-  storeValue: (VARIABLE), 345, (STATIC), 0
+  storeValue: Mem(343), Val(-250000)
+  storeValue: Mem(344), Val(0)
+  storeValue: Mem(345), Val(0)
   hitCommonSfxAppend: s32'SE_BTL_CMN_Hit_Slash_S'
   guardCommonSfxAppend: s32'SE_BTL_CMN_Guard_Slash_S'
   endSubroutine: 
 
 beginState: s32'NmlAtkAir5E'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmn_AtkLv1', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv1', Val(3), Val(3), Val(0), Val(1)
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 16
     shortHitstop: 1
     hitRedRomanCancelTime: 4
     atkAngle: 60
     pushbackX: 140
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 3
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(3)
+    storeValue: Mem(340), Val(3)
     callSubroutine: s32'cmn_hosei'
-    ifNot: (VARIABLE), 317
-      storeValue: (VARIABLE), 346, (STATIC), 5000
-      storeValue: (VARIABLE), 347, (STATIC), 10000
+    ifNot: Mem(317)
+      storeValue: Mem(346), Val(5000)
+      storeValue: Mem(347), Val(10000)
       endIf: 
     else: 
       endElse: 
     callSubroutine: s32'cmn_AtkTemplNmlAtkAir'
-    callSubroutineWithArgs: s32'cmnAirMoveCancel', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 6, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnAirMoveCancel', Val(1), Val(0), Val(0), Val(0)
+    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', Val(6), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Dust_HomingJump_Attack'
     wallBlowoffType: 2
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     hitCommonSfxAppend: s32'SE_BTL_CMN_Hit_Slash_S'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Guard_Slash_S'
     callSubroutine: s32'cmnLandingStiffadd_Timer'
@@ -6683,9 +6634,9 @@ beginState: s32'NmlAtkAir5E'
   sprite: s32'ram254_05', 2
   hit: 
   callSubroutine: s32'NmlAtkAir5E_atk'
-  ifNot: (VARIABLE), 317
-    storeValue: (VARIABLE), 346, (STATIC), 50000
-    storeValue: (VARIABLE), 347, (STATIC), 15000
+  ifNot: Mem(317)
+    storeValue: Mem(346), Val(50000)
+    storeValue: Mem(347), Val(15000)
     endIf: 
   else: 
     endElse: 
@@ -6694,9 +6645,9 @@ beginState: s32'NmlAtkAir5E'
   airHitEffect: (KIRIMOMI)
   hitAirPushbackXOverTime: 0, 80, 0, 5, 0, 15
   hitAirPushbackYOverTime: 0, 50, 0, 5, 0, 11
-  hitGravity: (STATIC), 500
+  hitGravity: Val(500)
   hitGravityOverTime: 0, 200, 0, 5, 0, 50
-  callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', Val(0), Val(0), Val(0), Val(0)
   callSubroutine: s32'cmn_Dust_HomingJump_Attack'
   sprite: s32'ram254_06', 4
   callSubroutine: s32'cmn_AttackEnd'
@@ -6770,18 +6721,18 @@ beginState: s32'ThrowExe'
     hitAirPushbackY: 0, 0
     killType: (NOT_KILL)
     upon: (HIT)
-      ifOperation: (IS_LESSER), (VARIABLE), 47, (STATIC), 10
-        modifyVar: (ADD), (VARIABLE), 47, (STATIC), 1
-        storeValue: (VARIABLE), 46, (VARIABLE), 47
-        modifyVar: (MOD), (VARIABLE), 46, (STATIC), 4
-        ifOperation: (IS_GREATER), (VARIABLE), 46, (STATIC), 1
+      ifOperation: (IS_LESSER), Mem(47), Val(10)
+        modifyVar: (ADD), Mem(47), Val(1)
+        storeValue: Mem(46), Mem(47)
+        modifyVar: (MOD), Mem(46), Val(4)
+        ifOperation: (IS_GREATER), Mem(46), Val(1)
           groundHitEffect: (NORMAL_LOWER)
           endIf: 
         else: 
           groundHitEffect: (FORCE_STAND)
           endElse: 
-        modifyVar: (MUL), (VARIABLE), 46, (STATIC), 8000
-        storeValueFromObject: (ENEMY), (VARIABLE), 355, (SELF), (VARIABLE), 46
+        modifyVar: (MUL), Mem(46), Val(8000)
+        storeValueFromObject: (ENEMY), Mem(355), (SELF), Mem(46)
         endIf: 
       else: 
         clearRegisteredUponCode: (HIT)
@@ -6795,7 +6746,7 @@ beginState: s32'ThrowExe'
   callSubroutine: s32'cmnAtkTemplNage__EnemyCell'
   sprite: s32'ram310_00', 1
   callSubroutine: s32'cmn_ThrowRC'
-  callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_ThrowRC_Position', Val(1210), Val(0), Val(0), Val(0)
   ignoreZLine: 1
   backThrowDirection: 
   exPointFReset: (PLAYER), 90000, 340000
@@ -6805,7 +6756,7 @@ beginState: s32'ThrowExe'
   setGripPosition: 0, (NECK), 0
   createObject: s32'Cam_Throw', (PLAYER)
   zLine: 2, 5
-  callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_motionblur', Val(2), Val(0), Val(0), Val(0)
   sprite: s32'ram310_01', 3
   sprite: s32'ram310_02', 3
   sprite: s32'ram310_03', 4
@@ -6817,7 +6768,7 @@ beginState: s32'ThrowExe'
   characterSfx: s32'SE_BTL_RAM_15'
   voiceLine: s16'vxxx106'
   endLabel: 
-  storeValue: (VARIABLE), 45, (STATIC), 5
+  storeValue: Mem(45), Val(5)
   attackLockKeep: 1
   beginLabel: s32'loop'
   sprite: s32'ram310_08', 3
@@ -6831,8 +6782,8 @@ beginState: s32'ThrowExe'
   characterSfx: s32'SE_BTL_RAM_02'
   cameraShakeEX: s32'Horizontal', 200, 0, 10, 0, s32'shake_easeout'
   endLabel: 
-  modifyVar: (ADD), (VARIABLE), 45, (STATIC), -1
-  gotoLabelIf: s32'loop', (VARIABLE), 45
+  modifyVar: (ADD), Mem(45), Val(-1)
+  gotoLabelIf: s32'loop', Mem(45)
   sprite: s32'ram310_08', 2
   grabOrRelease: 
   upon: (HIT)
@@ -6849,7 +6800,7 @@ beginState: s32'ThrowExe'
   groundHitEffect: (KIRIMOMI)
   hitAirPushbackX: 0, 20000
   hitAirPushbackY: 0, 23000
-  hitGravity: (STATIC), 2500
+  hitGravity: Val(2500)
   exPointFReset: (PLAYER), 175000, 200000
   createArgScale: 0, 1200
   createParticleWithArg2: s32'ram_310hiteff_fin', (EX_POINT_F)
@@ -6913,7 +6864,7 @@ beginState: s32'AirThrowExe'
   callSubroutine: s32'cmnAtkTemplNage__EnemyCell'
   sprite: s32'ram320_00', 1
   callSubroutine: s32'cmn_ThrowRC'
-  callSubroutineWithArgs: s32'cmn_ThrowRC_Position', (STATIC), 1210, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_ThrowRC_Position', Val(1210), Val(0), Val(0), Val(0)
   ignoreZLine: 1
   backThrowDirection: 
   exPointFReset: (PLAYER), 90000, 340000
@@ -6921,13 +6872,13 @@ beginState: s32'AirThrowExe'
   cmnSfx: s32'SE_BTL_CMN_Impact_Catch'
   enemyGrabSprite: 34
   setGripPosition: 0, (NECK), 0
-  callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_motionblur', Val(2), Val(0), Val(0), Val(0)
   callSubroutine: s32'cmnCam_AirThrow'
   zLine: 2, 5
   sprite: s32'ram320_01', 3
   sprite: s32'ram320_02', 6
-  ifOperation: (IS_GREATER), (VARIABLE), 119, (STATIC), 0
-    storeValue: (VARIABLE), 119, (STATIC), 0
+  ifOperation: (IS_GREATER), Mem(119), Val(0)
+    storeValue: Mem(119), Val(0)
     endIf: 
   else: 
     endElse: 
@@ -6988,7 +6939,7 @@ beginState: s32'AirThrowExe'
   groundHitEffect: (AIR_FACE_UP)
   hitAirPushbackX: 0, 5000
   hitAirPushbackY: 0, 25000
-  hitGravity: (STATIC), 2500
+  hitGravity: Val(2500)
   physicsXImpulse: 0, -15000
   physicsYImpulse: 0, 20000
   exPointFReset: (PLAYER), 220000, 165000
@@ -7015,11 +6966,11 @@ beginState: s32'Dauro'
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 30
     atkAngle: 70
-    storeValue: (VARIABLE), 338, (STATIC), 1
-    storeValue: (VARIABLE), 339, (STATIC), 5
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(1)
+    storeValue: Mem(339), Val(5)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_AtkTemplFloatDamageHead'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_STRONG)
@@ -7027,7 +6978,7 @@ beginState: s32'Dauro'
     hitAirPushbackXOverTime: 0, 70, 0, 6, 0, 10
     hitAirPushbackY: 0, 70000
     hitAirPushbackYOverTime: 0, 70, 0, 7, 0, 12
-    hitGravity: (STATIC), 500
+    hitGravity: Val(500)
     hitGravityOverTime: 0, 100, 0, 8, 0, 28
     Unknown1005: 250
     Unknown1004: 250
@@ -7035,12 +6986,12 @@ beginState: s32'Dauro'
       extendPushboxX: 100000
       endUpon: 
     wallBlowoffType: 2
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram402_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
   sprite: s32'ram402_01', 2
   setAlphaColor: 0
   createObject: s32'402bake', (PLAYER)
@@ -7059,7 +7010,7 @@ beginState: s32'Dauro'
   sprite: s32'ram402_05', 3
   createObject: s32'402atk', (PLAYER)
   hit: 
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
   voiceLine: s16'vxxx202'
   sprite: s32'ram402_06', 4
   recoveryState: 
@@ -7084,9 +7035,9 @@ beginState: s32'DauroEnhanced'
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 36
     atkAngle: 70
-    storeValue: (VARIABLE), 338, (STATIC), 100000
-    storeValue: (VARIABLE), 339, (STATIC), 5
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(100000)
+    storeValue: Mem(339), Val(5)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_STRONG)
@@ -7094,17 +7045,17 @@ beginState: s32'DauroEnhanced'
     hitAirPushbackXOverTime: 0, 70, 0, 6, 0, 10
     hitAirPushbackY: 0, 70000
     hitAirPushbackYOverTime: 0, 70, 0, 7, 0, 12
-    hitGravity: (STATIC), 500
+    hitGravity: Val(500)
     hitGravityOverTime: 0, 100, 0, 8, 0, 28
     Unknown1005: 250
     Unknown1004: 250
     wallBlowoffType: 2
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram402_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
   sprite: s32'ram402_01', 2
   setAlphaColor: 0
   createObject: s32'402bake', (PLAYER)
@@ -7124,7 +7075,7 @@ beginState: s32'DauroEnhanced'
   sprite: s32'ram402_05', 3
   createObject: s32'402atk', (PLAYER)
   hit: 
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
   voiceLine: s16'vxxx202'
   sprite: s32'ram402_06', 4
   recoveryState: 
@@ -7148,15 +7099,15 @@ beginState: s32'BajonetoC'
   upon: (IMMEDIATE)
     attackIgnoreCaution: 1
     checkCurrentStateEntryName: s32'BajonetoCBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       statsActionName: s32'BajonetoCBunri'
       endIf: 
     endUpon: 
   sprite: s32'ram400_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(3), Val(0), Val(0), Val(0)
   sprite: s32'ram400_00', 1
-  checkSubFlag: 12
-  if: (VARIABLE), 0
+  checkMoveFlag: (VARIABLE_3_TRUE)
+  if: Mem(0)
     createObject: s32'404wepL_summon_short', (PLAYER)
     createObject: s32'Summon_Wep', (PLAYER)
     runOnObject: 4
@@ -7193,15 +7144,15 @@ beginState: s32'BajonetoD'
   upon: (IMMEDIATE)
     attackIgnoreCaution: 1
     checkCurrentStateEntryName: s32'BajonetoDBunri'
-    if: (VARIABLE), 0
+    if: Mem(0)
       statsActionName: s32'BajonetoDBunri'
       endIf: 
     endUpon: 
   sprite: s32'ram401_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 3, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(3), Val(0), Val(0), Val(0)
   sprite: s32'ram401_00', 1
-  checkSubFlag: 14
-  if: (VARIABLE), 0
+  checkMoveFlag: (VARIABLE_5_TRUE)
+  if: Mem(0)
     createObject: s32'404wepR_summon_short', (PLAYER)
     createObject: s32'Summon_Wep', (PLAYER)
     runOnObject: 5
@@ -7236,11 +7187,11 @@ beginState: s32'Erarurumo1'
     callSubroutine: s32'cmn_AtkLv2'
     callSubroutine: s32'cmn_countertype_middle'
     damage: 0, 30
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_AtkTemplFloatDamageBody'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (KIRIMOMI)
@@ -7248,7 +7199,7 @@ beginState: s32'Erarurumo1'
     hitAirPushbackXOverTime: 0, 80, 0, 5, 0, 15
     hitAirPushbackY: 0, 30000
     hitAirPushbackYOverTime: 0, 60, 0, 5, 0, 16
-    hitGravity: (STATIC), 500
+    hitGravity: Val(500)
     hitGravityOverTime: 0, 150, 0, 5, 0, 30
     enableGatlings: 0
     addGatlingOption: s32'SpecialCancel_FDash'
@@ -7262,16 +7213,16 @@ beginState: s32'Erarurumo1'
       endUpon: 
     upon: (HIT_OR_GUARD)
       extendPushboxX: 50000
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
       endUpon: 
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -300000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
-    storeValue: (VARIABLE), 53, (STATIC), 0
+    storeValue: Mem(343), Val(-300000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
+    storeValue: Mem(53), Val(0)
     endUpon: 
   sprite: s32'ram407_00', 5
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(1), Val(0), Val(0), Val(0)
   addNamerakaMoveX: 40000
   sprite: s32'ram407_01', 5
   addNamerakaMoveX: 150000
@@ -7296,9 +7247,9 @@ beginState: s32'Erarurumo1'
   enableWhiffCancel: 1
   spriteBlendNext: 0, 1000, 0, 3, 0, 1, 0, 3
   upon: (FRAME_STEP)
-    ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 6
+    ifOperation: (IS_EQUAL), Mem(105), Val(6)
       clearRegisteredUponCode: (FRAME_STEP)
-      storeValue: (VARIABLE), 53, (STATIC), 1
+      storeValue: Mem(53), Val(1)
       endIf: 
     endUpon: 
   sprite: s32'ram407_05', 6
@@ -7316,7 +7267,7 @@ beginState: s32'Erarurumo1'
 
 beginState: s32'Erarurumo2'
   upon: (IMMEDIATE)
-    if: (VARIABLE), 53
+    if: Mem(53)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype_middle'
       damage: 0, 50
@@ -7332,18 +7283,18 @@ beginState: s32'Erarurumo2'
       damage: 0, 35
       endElse: 
     atkAngle: 70
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    if: (VARIABLE), 53
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(1), Val(0), Val(0), Val(0)
+    if: Mem(53)
       callSubroutine: s32'cmn_fuwafuwafuwa'
       hitAirPushbackX: 0, 20000
       hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
       hitAirPushbackY: 0, 60000
       hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
-      hitGravity: (STATIC), 1000
+      hitGravity: Val(1000)
       hitGravityOverTime: 0, 150, 0, 10, 0, 30
       endIf: 
     else: 
@@ -7352,7 +7303,7 @@ beginState: s32'Erarurumo2'
       hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
       hitAirPushbackY: 0, 30000
       hitAirPushbackYOverTime: 0, 60, 0, 6, 0, 10
-      hitGravity: (STATIC), 1000
+      hitGravity: Val(1000)
       hitGravityOverTime: 0, 150, 0, 10, 0, 30
       endElse: 
     enableGatlings: 0
@@ -7361,16 +7312,16 @@ beginState: s32'Erarurumo2'
     addWhiffCancelOption: s32'Erarurumo3B'
     bufferSpecialInput: 12
     wallBlowoffType: 2
-    storeValue: (VARIABLE), 343, (STATIC), -300000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-300000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     upon: (HIT_OR_GUARD)
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
       endUpon: 
-    storeValue: (VARIABLE), 54, (STATIC), 0
+    storeValue: Mem(54), Val(0)
     endUpon: 
   sprite: s32'ram408_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(1), Val(0), Val(0), Val(0)
   sprite: s32'ram408_01', 2
   addNamerakaMoveX: 40000
   sprite: s32'ram408_02', 1
@@ -7386,7 +7337,7 @@ beginState: s32'Erarurumo2'
   sprite: s32'ram408_06', 2
   floorEffect: 4, 100
   createObject: s32'408_bake', (PLAYER)
-  if: (VARIABLE), 53
+  if: Mem(53)
     createObject: s32'408_atk_charge', (PLAYER)
     endIf: 
   else: 
@@ -7404,7 +7355,7 @@ beginState: s32'Erarurumo2'
   sprite: s32'ram408_11', 4
   sprite: s32'ram408_12', 4
   sprite: s32'ram408_13', 5
-  storeValue: (VARIABLE), 54, (STATIC), 1
+  storeValue: Mem(54), Val(1)
   sprite: s32'ram408_14', 3
   sprite: s32'ram408_14', 3
   sprite: s32'ram408_15', 6
@@ -7418,7 +7369,7 @@ beginState: s32'Erarurumo2'
 
 beginState: s32'Erarurumo3'
   upon: (IMMEDIATE)
-    if: (VARIABLE), 54
+    if: Mem(54)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype_high'
       damage: 0, 70
@@ -7432,19 +7383,19 @@ beginState: s32'Erarurumo3'
     pushbackX: 80
     hitSoftKnockdown: 0
     atkAngle: -70
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    if: (VARIABLE), 54
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(1), Val(0), Val(0), Val(0)
+    if: Mem(54)
       callSubroutine: s32'cmn_fuwafuwafuwa'
       groundHitEffect: (AIR_FACE_UP)
       hitAirPushbackX: 0, 10000
       hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
       hitAirPushbackY: 0, -100000
       hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 12
-      hitGravity: (STATIC), 0
+      hitGravity: Val(0)
       groundBounceGravity: 0
       hitGravityOverTime: 0, 100, 0, 20, 0, 35
       groundBounceYVelocityPercent: 100
@@ -7460,7 +7411,7 @@ beginState: s32'Erarurumo3'
       hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
       hitAirPushbackY: 0, -100000
       hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 12
-      hitGravity: (STATIC), 0
+      hitGravity: Val(0)
       groundBounceGravity: 500
       hitGravityOverTime: 0, 100, 0, 15, 0, 30
       groundBounceYVelocityPercent: 30
@@ -7469,12 +7420,12 @@ beginState: s32'Erarurumo3'
       groundBounceNextAction: s32'CmnActBlowoff'
       endElse: 
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -300000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-300000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endUpon: 
   sprite: s32'ram409_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(1), Val(0), Val(0), Val(0)
   shoesSfx: 0, 100
   sprite: s32'ram409_01', 2
   sprite: s32'ram409_02', 1
@@ -7489,14 +7440,14 @@ beginState: s32'Erarurumo3'
   sprite: s32'ram409_07', 1
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   sprite: s32'ram409_08', 2
-  if: (VARIABLE), 54
+  if: Mem(54)
     createObject: s32'409_atk_charge', (PLAYER)
     endIf: 
   else: 
     createObject: s32'409_atk', (PLAYER)
     endElse: 
   hit: 
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
   sprite: s32'ram409_09', 2
   sprite: s32'ram409_10', 2
   sprite: s32'ram409_11', 3
@@ -7518,8 +7469,8 @@ beginState: s32'Erarurumo3'
 beginState: s32'Erarurumo3B'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
-    if: (VARIABLE), 54
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(1), Val(0), Val(0), Val(0)
+    if: Mem(54)
       callSubroutine: s32'cmn_AtkLv3'
       callSubroutine: s32'cmn_countertype_high'
       damage: 0, 50
@@ -7533,9 +7484,9 @@ beginState: s32'Erarurumo3B'
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 10000
     hitAirPushbackY: 0, 34000
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     atkAngle: -90
     pushbackX: 120
     upon: 78
@@ -7580,10 +7531,10 @@ beginState: s32'ShirudoLand'
     damage: 0, 40
     pushbackX: 90
     atkAngle: -90
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     groundHitEffect: (FORCE_CROUCH)
     hitAirPushbackX: 0, 15000
     hitAirPushbackY: 0, -20000
@@ -7597,13 +7548,13 @@ beginState: s32'ShirudoLand'
       gotoLabelRequests: s32'landing'
       endUpon: 
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 200000
-    storeValue: (VARIABLE), 345, (STATIC), 0
-    storeValue: (VARIABLE), 350, (STATIC), -50000
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(200000)
+    storeValue: Mem(345), Val(0)
+    storeValue: Mem(350), Val(-50000)
     endUpon: 
   sprite: s32'ram403_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
   sprite: s32'ram403_01', 2
   sprite: s32'ram403_02', 3
   physicsXImpulse: 0, 25000
@@ -7635,7 +7586,7 @@ beginState: s32'ShirudoLand'
   deactivateObjectByName: s32'403atk'
   createObject: s32'403land', (PLAYER)
   recoveryState: 
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(1), Val(0), Val(0)
   sprite: s32'ram403_18', 3
   sprite: s32'ram403_19', 3
   sprite: s32'ram403_20', 4
@@ -7651,25 +7602,25 @@ beginState: s32'ShirudoAir'
     callSubroutine: s32'cmn_countertype'
     damage: 0, 40
     atkAngle: -90
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, -30000
-    hitGravity: (STATIC), 1500
+    hitGravity: Val(1500)
     groundBounceCount: 1
     groundBounceXVelocity: 15000
     groundBounceYVelocityPercent: 20
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 200000
-    storeValue: (VARIABLE), 345, (STATIC), 0
-    storeValue: (VARIABLE), 350, (STATIC), -50000
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(200000)
+    storeValue: Mem(345), Val(0)
+    storeValue: Mem(350), Val(-50000)
     endUpon: 
   sprite: s32'ram403_00', 2
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
   haltMomentum: 1
   sprite: s32'ram403_01', 2
   sprite: s32'ram403_02', 3
@@ -7715,7 +7666,7 @@ beginState: s32'ShirudoAir'
   createObject: s32'403land_air', (PLAYER)
   recoveryState: 
   velocityXPercentEachFrame: 100
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(1), Val(0), Val(0)
   sprite: s32'ram403_18', 3
   sprite: s32'ram403_19', 3
   sprite: s32'ram403_20', 3
@@ -7736,10 +7687,10 @@ beginState: s32'FBShirudoLand'
     pushbackX: 90
     atkAngle: -90
     groundHitEffect: (FORCE_CROUCH)
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     hitAirPushbackX: 0, 15000
     hitAirPushbackY: 0, -20000
     hitSoftKnockdown: 0
@@ -7748,15 +7699,15 @@ beginState: s32'FBShirudoLand'
       gotoLabelRequests: s32'landing'
       endUpon: 
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 200000
-    storeValue: (VARIABLE), 345, (STATIC), 0
-    storeValue: (VARIABLE), 350, (STATIC), -50000
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(200000)
+    storeValue: Mem(345), Val(0)
+    storeValue: Mem(350), Val(-50000)
     endUpon: 
   sprite: s32'ram403_00', 2
   cmnSfx: s32'SE_BTL_SYS_Skill'
   createParticle: s32'cmn_forcebreak', (HEART)
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
   sprite: s32'ram403_01', 2
   sprite: s32'ram403_02', 3
   physicsXImpulse: 0, 25000
@@ -7788,7 +7739,7 @@ beginState: s32'FBShirudoLand'
   deactivateObjectByName: s32'403atk'
   createObject: s32'403land', (PLAYER)
   recoveryState: 
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(1), Val(0), Val(0)
   sprite: s32'ram403_18', 3
   sprite: s32'ram403_19', 3
   sprite: s32'ram403_20', 3
@@ -7808,24 +7759,24 @@ beginState: s32'FBShirudoAir'
     damage: 0, 40
     atkAngle: -90
     groundHitEffect: (FORCE_CROUCH)
-    storeValue: (VARIABLE), 338, (STATIC), 100000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, -30000
-    hitGravity: (STATIC), 1500
+    hitGravity: Val(1500)
     hitSoftKnockdown: 0
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -250000
-    storeValue: (VARIABLE), 344, (STATIC), 200000
-    storeValue: (VARIABLE), 345, (STATIC), 0
-    storeValue: (VARIABLE), 350, (STATIC), -50000
+    storeValue: Mem(343), Val(-250000)
+    storeValue: Mem(344), Val(200000)
+    storeValue: Mem(345), Val(0)
+    storeValue: Mem(350), Val(-50000)
     endUpon: 
   sprite: s32'ram403_00', 2
   cmnSfx: s32'SE_BTL_SYS_Skill'
   createParticle: s32'cmn_forcebreak', (HEART)
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
   haltMomentum: 1
   sprite: s32'ram403_01', 2
   sprite: s32'ram403_02', 3
@@ -7871,7 +7822,7 @@ beginState: s32'FBShirudoAir'
   createObject: s32'403land_air', (PLAYER)
   recoveryState: 
   velocityXPercentEachFrame: 100
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 1, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(1), Val(0), Val(0)
   sprite: s32'ram403_18', 3
   sprite: s32'ram403_19', 3
   sprite: s32'ram403_20', 3
@@ -7883,45 +7834,45 @@ beginState: s32'FBShirudoAir'
 
 beginState: s32'Sabrobato'
   upon: (IMMEDIATE)
-    storeValue: (VARIABLE), 47, (STATIC), 50
+    storeValue: Mem(47), Val(50)
     checkCurrentStateEntryName: s32'Sabrobato'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv2'
       callSubroutine: s32'cmn_countertype'
       statsActionName: s32'Sabrobato'
       endIf: 
     checkCurrentStateEntryName: s32'SabrobatoC'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype'
-      storeValue: (VARIABLE), 47, (STATIC), 75
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(47), Val(75)
+      storeValue: Mem(45), Val(1)
       statsActionName: s32'SabrobatoC'
       endIf: 
     checkCurrentStateEntryName: s32'SabrobatoD'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype'
-      storeValue: (VARIABLE), 47, (STATIC), 75
-      storeValue: (VARIABLE), 46, (STATIC), 1
+      storeValue: Mem(47), Val(75)
+      storeValue: Mem(46), Val(1)
       statsActionName: s32'SabrobatoD'
       endIf: 
     checkCurrentStateEntryName: s32'SabrobatoCD'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype'
-      storeValue: (VARIABLE), 47, (STATIC), 100
-      storeValue: (VARIABLE), 45, (STATIC), 1
-      storeValue: (VARIABLE), 46, (STATIC), 1
+      storeValue: Mem(47), Val(100)
+      storeValue: Mem(45), Val(1)
+      storeValue: Mem(46), Val(1)
       statsActionName: s32'SabrobatoCD'
       endIf: 
     damage: 2, 47
-    ifOperation: (BIT_OR), (VARIABLE), 45, (VARIABLE), 46
+    ifOperation: (BIT_OR), Mem(45), Mem(46)
       callSubroutine: s32'cmn_countertype_high_slash'
       endIf: 
-    storeValue: (VARIABLE), 338, (STATIC), 110
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(110)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     hitStop: 30
     pushbackX: 60
@@ -7946,41 +7897,41 @@ beginState: s32'Sabrobato'
     wallBounceYVelocity: 20000
     wallBounceGravity: 2500
     checkCurrentStateEntryName: s32'Sabrobato'
-    ifNot: (VARIABLE), 0
+    ifNot: Mem(0)
       wallBlowoffType: 3
-      storeValue: (VARIABLE), 343, (STATIC), -700000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-700000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endIf: 
     else: 
       wallBlowoffType: 3
-      storeValue: (VARIABLE), 343, (STATIC), -300000
-      storeValue: (VARIABLE), 344, (STATIC), 0
-      storeValue: (VARIABLE), 345, (STATIC), 0
+      storeValue: Mem(343), Val(-300000)
+      storeValue: Mem(344), Val(0)
+      storeValue: Mem(345), Val(0)
       endElse: 
     endUpon: 
   sprite: s32'ram404_00', 1
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
-  if: (VARIABLE), 45
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(2), Val(0), Val(0), Val(0)
+  if: Mem(45)
     createObject: s32'404wepL_summon_short', (PLAYER)
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     createObject: s32'404wepR_summon_short', (PLAYER)
     endIf: 
   sprite: s32'ram404_00', 2
-  if: (VARIABLE), 45
+  if: Mem(45)
     runOnObject: 4
       jumpToState: s32'BitNSabrobato'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     runOnObject: 5
       jumpToState: s32'BitFSabrobato'
       endRunOnObject: 
     endIf: 
   sprite: s32'ram404_01', 4
   checkCurrentStateEntryName: s32'Sabrobato'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'404saber', (PLAYER)
     endIf: 
   addNamerakaMoveX: 25000
@@ -7993,38 +7944,38 @@ beginState: s32'Sabrobato'
   voiceLine: s16'vxxx205'
   sprite: s32'ram404_04', 3
   velocityXPercentEachFrame: 50
-  if: (VARIABLE), 45
+  if: Mem(45)
     createObject: s32'404slash_wepL', (PLAYER)
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     createObject: s32'404slash_wepR', (PLAYER)
     endIf: 
   characterSfx: s32'SE_BTL_RAM_16'
   characterSfx: s32'SE_BTL_RAM_17'
   sprite: s32'ram404_05', 4
-  if: (VARIABLE), 45
+  if: Mem(45)
     createObject: s32'404impact1', (PLAYER)
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     createObject: s32'404impact2', (PLAYER)
     endIf: 
-  ifOperation: (BIT_OR), (VARIABLE), 45, (VARIABLE), 46
+  ifOperation: (BIT_OR), Mem(45), Mem(46)
     createObject: s32'404floorair', (PLAYER)
     cameraShakeEX: s32'Impact', 800, 0, 30, 0, s32'shake_easeout'
     endIf: 
   else: 
     cameraShakeEX: s32'Impact', 200, 0, 30, 0, s32'shake_easeout'
     endElse: 
-  ifOperation: (BIT_AND), (VARIABLE), 45, (VARIABLE), 46
+  ifOperation: (BIT_AND), Mem(45), Mem(46)
     cameraShakeEX: s32'Impact', 1000, 0, 30, 0, s32'shake_easeout'
     endIf: 
   hit: 
   haltMomentum: 1
   setInertia: 8000
-  if: (VARIABLE), 45
+  if: Mem(45)
     linkObjectCollision: 4
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     linkObjectCollision: 5
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Sword_L'
@@ -8035,16 +7986,16 @@ beginState: s32'Sabrobato'
   sprite: s32'ram404_08', 7
   sprite: s32'ram404_09', 8
   sprite: s32'ram404_10', 4
-  if: (VARIABLE), 45
+  if: Mem(45)
     createObject: s32'404wepR_end', (PLAYER)
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     createObject: s32'404wepL_end', (PLAYER)
     endIf: 
-  if: (VARIABLE), 45
+  if: Mem(45)
     createObject: s32'404neutral_R', (PLAYER)
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     createObject: s32'404neutral_L', (PLAYER)
     endIf: 
   sprite: s32'ram404_11', 4
@@ -8056,39 +8007,39 @@ beginState: s32'Sabrobato'
 beginState: s32'AgresaOrdono'
   upon: (IMMEDIATE)
     checkCurrentStateEntryName: s32'AgresaOrdono'
-    if: (VARIABLE), 0
+    if: Mem(0)
       statsActionName: s32'AgresaOrdono'
       endIf: 
     checkCurrentStateEntryName: s32'AgresaOrdonoC'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 45, (STATIC), 1
+    if: Mem(0)
+      storeValue: Mem(45), Val(1)
       statsActionName: s32'AgresaOrdonoC'
       endIf: 
     checkCurrentStateEntryName: s32'AgresaOrdonoD'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 46, (STATIC), 1
+    if: Mem(0)
+      storeValue: Mem(46), Val(1)
       statsActionName: s32'AgresaOrdonoD'
       endIf: 
     checkCurrentStateEntryName: s32'AgresaOrdonoCD'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 45, (STATIC), 1
-      storeValue: (VARIABLE), 46, (STATIC), 1
+    if: Mem(0)
+      storeValue: Mem(45), Val(1)
+      storeValue: Mem(46), Val(1)
       statsActionName: s32'AgresaOrdonoCD'
       endIf: 
-    callSubroutineWithArgs: s32'cmn_AtkLv3', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_AtkLv3', Val(2), Val(2), Val(0), Val(0)
     callSubroutine: s32'cmn_countertype'
-    ifNot: (VARIABLE), 45
-      callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
+    ifNot: Mem(45)
+      callSubroutineWithArgs: s32'cmn_AtkLv2', Val(2), Val(2), Val(0), Val(0)
       endIf: 
     damage: 0, 30
-    ifNot: (VARIABLE), 45
+    ifNot: Mem(45)
       damagePercent: 80
       endIf: 
     hitSoftKnockdown: 0
     atkAngle: -30
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 2
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(2)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (KIRIMOMI)
@@ -8096,10 +8047,10 @@ beginState: s32'AgresaOrdono'
     hitAirPushbackXOverTime: 0, 80, 0, 5, 0, 15
     hitAirPushbackY: 0, 10000
     hitAirPushbackYOverTime: 0, 80, 0, 6, 0, 10
-    hitGravity: (STATIC), 500
+    hitGravity: Val(500)
     hitGravityOverTime: 0, 100, 0, 10, 0, 50
     groundHitEffect: (KIRIMOMI)
-    ifNot: (VARIABLE), 45
+    ifNot: Mem(45)
       groundHitEffect: (NORMAL_UPPER)
       endIf: 
     spriteSlowParam: 1, 1, 6, 100, 60, 200
@@ -8110,14 +8061,14 @@ beginState: s32'AgresaOrdono'
       endUpon: 
     endUpon: 
   sprite: s32'ram406_00', 1
-  callSubroutineWithArgs: s32'cmnAddTensionGG', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmnAddTensionGG', Val(1), Val(0), Val(0), Val(0)
   sprite: s32'ram406_00', 1
-  if: (VARIABLE), 45
+  if: Mem(45)
     runOnObject: 4
       jumpToState: s32'BitNAgresaOrdono'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 46
+  if: Mem(46)
     runOnObject: 5
       jumpToState: s32'BitFAgresaOrdono'
       endRunOnObject: 
@@ -8132,7 +8083,7 @@ beginState: s32'AgresaOrdono'
   voiceLine: s16'vxxx204'
   sprite: s32'ram406_03', 3
   sprite: s32'ram406_04', 2
-  if: (VARIABLE), 45
+  if: Mem(45)
     createObject: s32'406slash_wepR', (PLAYER)
     displayMesh: s32'toge', 1
     endIf: 
@@ -8141,23 +8092,23 @@ beginState: s32'AgresaOrdono'
     displayMesh: s32'toge', 0
     endElse: 
   grabOrRelease: 
-  if: (VARIABLE), 45
+  if: Mem(45)
     linkObjectCollision: 4
     hitEffectSlash: 1
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
       endUpon: 
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -400000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-400000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endIf: 
   else: 
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -200000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-200000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endElse: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_M'
   voiceLine: s16'vxxx206'
@@ -8172,22 +8123,22 @@ beginState: s32'AgresaOrdono'
   grabOrRelease: 
   callSubroutine: s32'cmn_AtkLv3'
   callSubroutine: s32'cmn_countertype'
-  ifNot: (VARIABLE), 46
+  ifNot: Mem(46)
     callSubroutine: s32'cmn_AtkLv2'
     endIf: 
   damage: 0, 30
-  ifNot: (VARIABLE), 46
+  ifNot: Mem(46)
     damagePercent: 80
     endIf: 
   groundHitEffect: (AIR_NORMAL)
-  ifNot: (VARIABLE), 46
+  ifNot: Mem(46)
     groundHitEffect: (NORMAL_UPPER)
     endIf: 
   hitSoftKnockdown: 0
   atkAngle: 30
-  storeValue: (VARIABLE), 338, (STATIC), 0
-  storeValue: (VARIABLE), 339, (STATIC), 0
-  storeValue: (VARIABLE), 340, (STATIC), 2
+  storeValue: Mem(338), Val(0)
+  storeValue: Mem(339), Val(0)
+  storeValue: Mem(340), Val(2)
   callSubroutine: s32'cmn_hosei'
   hitAirPushbackX: 0, 5000
   hitAirPushbackY: 0, -50000
@@ -8196,27 +8147,27 @@ beginState: s32'AgresaOrdono'
   spriteSlowParam: 1, 1, 6, 100, 60, 200
   spriteSlowParamFinishStop: 1, 1, 6, 100, 200, 200
   clearRegisteredUponCode: (HIT_OR_GUARD)
-  if: (VARIABLE), 46
+  if: Mem(46)
     createObject: s32'406slash_wepL', (PLAYER)
     linkObjectCollision: 5
     hitEffectSlash: 1
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT_OR_GUARD)
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
       endUpon: 
     displayMesh: s32'toge', 1
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -400000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-400000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endIf: 
   else: 
     createObject: s32'406eff02', (PLAYER)
     displayMesh: s32'toge', 0
     wallBlowoffType: 3
-    storeValue: (VARIABLE), 343, (STATIC), -200000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-200000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     endElse: 
   cmnSfx: s32'SE_BTL_CMN_Swing_Grap_Heavy_L'
   sprite: s32'ram406_12', 2
@@ -8268,13 +8219,13 @@ beginState: s32'Falstelo'
     endUpon: 
   sprite: s32'ram530_00', 1
   sprite: s32'ram530_00', 4
-  if: (VARIABLE), 3
+  if: Mem(3)
     createObject: s32'404wepR_summon_short', (PLAYER)
     runOnObject: 4
       jumpToState: s32'BitNForceReturn'
       endRunOnObject: 
     endIf: 
-  if: (VARIABLE), 5
+  if: Mem(5)
     createObject: s32'404wepL_summon_short', (PLAYER)
     runOnObject: 5
       jumpToState: s32'BitFForceReturn'
@@ -8309,66 +8260,66 @@ beginState: s32'Falstelo'
     resetDiffusion: 1, 1
     setDiffusionLuminance: -1, 1400, 40
     setDiffusionThreshold: -1, 0, 40
-    ifTrueInObject: (ENEMY), (VARIABLE), 393
+    ifTrueInObject: (ENEMY), Mem(393)
       runOnObject: (ENEMY)
-        storeValue: (VARIABLE), 393, (STATIC), 2
+        storeValue: Mem(393), Val(2)
         endRunOnObject: 
       endIf: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 2
-        ifOperation: (IS_EQUAL), (VARIABLE), 4, (STATIC), 1
+      ifOperation: (IS_EQUAL), Mem(105), Val(2)
+        ifOperation: (IS_EQUAL), Mem(4), Val(1)
           runOnObject: 4
             ignoreSuperFreezeFromAlly: 1
             jumpToState: s32'BitNForceReturn'
             endRunOnObject: 
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 6, (STATIC), 1
+        ifOperation: (IS_EQUAL), Mem(6), Val(1)
           runOnObject: 5
             ignoreSuperFreezeFromAlly: 1
             jumpToState: s32'BitFForceReturn'
             endRunOnObject: 
           endIf: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
+      ifOperation: (IS_EQUAL), Mem(105), Val(5)
         createObject: s32'CS500_bg', (PLAYER)
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 5
+      ifOperation: (IS_EQUAL), Mem(105), Val(5)
         characterSfx: s32'SE_BTL_RAM_KAKUSEI_00'
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 40
+      ifOperation: (IS_EQUAL), Mem(105), Val(40)
         postProcessEffect: s32'Overlay_kakusei01', 1, 10
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 60
+      ifOperation: (IS_EQUAL), Mem(105), Val(60)
         postProcessEffect: s32'Overlay_kakusei01', 0, 15
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 60
+      ifOperation: (IS_EQUAL), Mem(105), Val(60)
         voiceLine: s16'vxxx251'
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 80
+      ifOperation: (IS_EQUAL), Mem(105), Val(80)
         postProcessEffect: s32'Overlay_kakusei02', 1, 8
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 108
+      ifOperation: (IS_EQUAL), Mem(105), Val(108)
         postProcessEffect: s32'Overlay_kakusei02', 0, 13
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 111
+      ifOperation: (IS_EQUAL), Mem(105), Val(111)
         postProcessEffect: s32'Overlay_kakusei03', 1, 8
         hideAllButSelf: 0
-        ifTrueInObject: (ENEMY), (VARIABLE), 393
+        ifTrueInObject: (ENEMY), Mem(393)
           runOnObject: (ENEMY)
-            storeValue: (VARIABLE), 393, (STATIC), 1
+            storeValue: Mem(393), Val(1)
             endRunOnObject: 
           endIf: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 125
+      ifOperation: (IS_EQUAL), Mem(105), Val(125)
         postProcessEffect: s32'CS500_speedline', 1, 4
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 126
+      ifOperation: (IS_EQUAL), Mem(105), Val(126)
         postProcessEffect: s32'Overlay_kakusei03', 0, 8
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 128
+      ifOperation: (IS_EQUAL), Mem(105), Val(128)
         createObject: s32'CS500_spark', (PLAYER)
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 130
+      ifOperation: (IS_EQUAL), Mem(105), Val(130)
         exPointFReset: (HEART), 100000, 50000
         createObject: s32'BitLaser', (EX_POINT_F)
         createObject: s32'500Shake', (EX_POINT_F)
@@ -8377,38 +8328,38 @@ beginState: s32'Falstelo'
         createObject: s32'500Beam02', (EX_POINT_F)
         recoveryState: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 150
+      ifOperation: (IS_EQUAL), Mem(105), Val(150)
         postProcessEffect: s32'CS500_speedline', 0, 8
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 140
-        callSubroutineWithArgs: s32'cmnCameraSettings', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
+      ifOperation: (IS_EQUAL), Mem(105), Val(140)
+        callSubroutineWithArgs: s32'cmnCameraSettings', Val(0), Val(0), Val(0), Val(1)
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 1
+      ifOperation: (IS_EQUAL), Mem(105), Val(1)
         setPushboxWidthFront: 0, 100000
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 10
+      ifOperation: (IS_EQUAL), Mem(105), Val(10)
         setPushboxWidthFront: 0, -1
         endIf: 
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 1
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 105, (STATIC), 40
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(1)
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(105), Val(40)
           runOnObject: (ENEMY)
             addDepth: 0, -10000
             endRunOnObject: 
           endIf: 
         endIf: 
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 121
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 105, (STATIC), 160
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(121)
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(105), Val(160)
           runOnObject: (ENEMY)
             addDepth: 0, 10000
             endRunOnObject: 
           endIf: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 161
+      ifOperation: (IS_EQUAL), Mem(105), Val(161)
         runOnObject: (ENEMY)
           setDepth: 0
           endRunOnObject: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 0
+      ifOperation: (IS_EQUAL), Mem(105), Val(0)
         cameraLightDirectionBlend: 0, 0
         cameraLightDirectionBlend: 1000, 0
         runOnObject: (ENEMY)
@@ -8419,7 +8370,7 @@ beginState: s32'Falstelo'
           colorAreaBlend: 500, 0
           endRunOnObject: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 170
+      ifOperation: (IS_EQUAL), Mem(105), Val(170)
         cameraLightDirectionBlend: 0, 10
         colorAreaBlend: 1000, 10
         runOnObject: (ENEMY)
@@ -8432,12 +8383,12 @@ beginState: s32'Falstelo'
   cinesco: 0
   hideUI: 0
   sprite: s32'ram500_00', 2
-  ifOperation: (IS_EQUAL), (VARIABLE), 3, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(3), Val(1)
     runOnObject: 4
       jumpToState: s32'BitNLaser'
       endRunOnObject: 
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 5, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(5), Val(1)
     runOnObject: 5
       jumpToState: s32'BitFLaser'
       endRunOnObject: 
@@ -8496,36 +8447,36 @@ beginState: s32'Falstelo'
 
 beginState: s32'Morutobato'
   upon: (IMMEDIATE)
-    storeValue: (VARIABLE), 47, (STATIC), 100
+    storeValue: Mem(47), Val(100)
     checkCurrentStateEntryName: s32'Morutobato'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv2'
       callSubroutine: s32'cmn_countertype'
       statsActionName: s32'Morutobato'
       endIf: 
     checkCurrentStateEntryName: s32'MorutobatoC'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype'
-      storeValue: (VARIABLE), 47, (STATIC), 130
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(47), Val(130)
+      storeValue: Mem(45), Val(1)
       statsActionName: s32'MorutobatoC'
       endIf: 
     checkCurrentStateEntryName: s32'MorutobatoD'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype'
-      storeValue: (VARIABLE), 47, (STATIC), 130
-      storeValue: (VARIABLE), 46, (STATIC), 1
+      storeValue: Mem(47), Val(130)
+      storeValue: Mem(46), Val(1)
       statsActionName: s32'MorutobatoD'
       endIf: 
     checkCurrentStateEntryName: s32'MorutobatoCD'
-    if: (VARIABLE), 0
+    if: Mem(0)
       callSubroutine: s32'cmn_AtkLv4'
       callSubroutine: s32'cmn_countertype'
-      storeValue: (VARIABLE), 47, (STATIC), 160
-      storeValue: (VARIABLE), 45, (STATIC), 1
-      storeValue: (VARIABLE), 46, (STATIC), 1
+      storeValue: Mem(47), Val(160)
+      storeValue: Mem(45), Val(1)
+      storeValue: Mem(46), Val(1)
       statsActionName: s32'MorutobatoCD'
       endIf: 
     callSubroutine: s32'cmn_countertype_middle'
@@ -8537,10 +8488,10 @@ beginState: s32'Morutobato'
     attackFrontDirection: 0
     atkAngle: 45
     counterHitUkeru: 0
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (Z_SPIN)
     airHitEffect: (Z_SPIN)
@@ -8548,18 +8499,18 @@ beginState: s32'Morutobato'
     hitAirPushbackXOverTime: 0, 80, 0, 8, 0, 15
     hitAirPushbackY: 0, 80000
     hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 15
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     hitGravityOverTime: 0, 200, 0, 5, 0, 50
     pauseTimer: 1
     callSubroutine: s32'cmnNohosei_kakusei'
     callSubroutine: s32'cmn_AtkTemplWSB'
-    attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+    attackExHitParam: Val(0), 0, 0, 1, (ENEMY), Mem(319)
     forceWallBreak: 1
     wallBreakLimitTime: 10
     wallBlowoffType: 1
-    storeValue: (VARIABLE), 343, (STATIC), -550000
-    storeValue: (VARIABLE), 344, (STATIC), 0
-    storeValue: (VARIABLE), 345, (STATIC), 0
+    storeValue: Mem(343), Val(-550000)
+    storeValue: Mem(344), Val(0)
+    storeValue: Mem(345), Val(0)
     upon: (WALL_BREAK)
       jumpToState: s32'WSB_Master_Wait'
       clearRegisteredUponCode: (WALL_BREAK)
@@ -8575,7 +8526,7 @@ beginState: s32'Morutobato'
   sprite: s32'ram501_00', 2
   createObject: s32'501charge', (PLAYER)
   checkCurrentStateEntryName: s32'MorutobatoCD'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'404wepR_summon_short', (PLAYER)
     createObject: s32'404wepL_summon_short', (PLAYER)
     runOnObject: 4
@@ -8586,14 +8537,14 @@ beginState: s32'Morutobato'
       endRunOnObject: 
     endIf: 
   checkCurrentStateEntryName: s32'MorutobatoC'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'404wepL_summon_short', (PLAYER)
     runOnObject: 4
       jumpToState: s32'BitNMorutobato'
       endRunOnObject: 
     endIf: 
   checkCurrentStateEntryName: s32'MorutobatoD'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'404wepR_summon_short', (PLAYER)
     runOnObject: 5
       jumpToState: s32'BitFMorutobato'
@@ -8609,7 +8560,7 @@ beginState: s32'Morutobato'
     callSubroutine: s32'cmnWorldStop_Tension'
     createObject: s32'Cam_Morutobato', (PLAYER)
     zLine: 0, 5
-    callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_motionblur', Val(2), Val(0), Val(0), Val(0)
     exPointFReset: (PLAYER), 0, 190000
     createParticle: s32'cmn_kakusei_hatudo', (EX_POINT_F)
     cmnSfx: s32'SE_BTL_SYS_SKill'
@@ -8627,7 +8578,7 @@ beginState: s32'Morutobato'
   sprite: s32'ram501_11', 3
   hit: 
   checkCurrentStateEntryName: s32'MorutobatoCD'
-  if: (VARIABLE), 0
+  if: Mem(0)
     onSpriteChange: s32'ram501_11_LR'
     createObject: s32'501Burst_wepLR', (PLAYER)
     cameraShakeEX: s32'Impact', 1200, 0, 60, 0, s32'shake_easeout'
@@ -8636,22 +8587,22 @@ beginState: s32'Morutobato'
     cameraShakeEX: s32'Impact', 800, 0, 60, 0, s32'shake_easeout'
     endElse: 
   checkCurrentStateEntryName: s32'MorutobatoC'
-  if: (VARIABLE), 0
+  if: Mem(0)
     onSpriteChange: s32'ram501_11_R'
     createObject: s32'501Burst_nowep', (PLAYER)
     endIf: 
   checkCurrentStateEntryName: s32'Morutobato'
-  if: (VARIABLE), 0
+  if: Mem(0)
     createObject: s32'501Burst_nowep', (PLAYER)
     cameraShakeEX: s32'Impact', 300, 0, 60, 0, s32'shake_easeout'
     endIf: 
   sprite: s32'ram501_12', 3
   checkCurrentStateEntryName: s32'MorutobatoCD'
-  if: (VARIABLE), 0
+  if: Mem(0)
     onSpriteChange: s32'ram501_12_LR'
     endIf: 
   checkCurrentStateEntryName: s32'MorutobatoC'
-  if: (VARIABLE), 0
+  if: Mem(0)
     onSpriteChange: s32'ram501_12_R'
     endIf: 
   sprite: s32'ram501_13', 7

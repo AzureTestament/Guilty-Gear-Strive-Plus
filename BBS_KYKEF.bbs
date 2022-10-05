@@ -284,7 +284,7 @@ beginState: s32'RomanCancel_Mirage'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnRomanCancel_Mirage'
     linkModelSelfTeam: s32'kyk', s32''
-    if: (VARIABLE), 5
+    if: Mem(5)
       beginMeshSet: s32'RomanCancel_Mirage'
       addToMeshSet: s32'Body_cloth'
       addToMeshSet: s32'Weapon'
@@ -305,7 +305,7 @@ beginState: s32'RomanCancel_Mirage'
       setDefaultMeshSet: s32'RomanCancel_Mirage'
       endElse: 
     endUpon: 
-  gotoLabelIfNot: s32'air', (VARIABLE), 115
+  gotoLabelIfNot: s32'air', Mem(115)
   sprite: s32'kyk350_01', 6
   sprite: s32'kyk350_02', 3
   sprite: s32'kyk350_03', 3
@@ -346,11 +346,11 @@ beginState: s32'RomanCancel_Mirage'
   endState: 
 
 beginSubroutine: s32'RandomExPointNum3'
-  ifOperation: (PERCENT), (STATIC), 33, (STATIC), 100
+  ifOperation: (PERCENT), Val(33), Val(100)
     exPointFReset: 0, 0, 0
     endIf: 
   else: 
-    ifOperation: (PERCENT), (STATIC), 50, (STATIC), 100
+    ifOperation: (PERCENT), Val(50), Val(100)
       exPointFReset: 1, 0, 0
       endIf: 
     else: 
@@ -363,15 +363,15 @@ beginState: s32'StunEdgeObj'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmnCutScene_ObjHide'
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-      storeValue: (VARIABLE), 49, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(2)
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
-      storeValue: (VARIABLE), 49, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(3)
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 116, (STATIC), 5
+    ifOperation: (IS_EQUAL), Mem(116), Val(5)
       setLightColor: -16711936
-      if: (VARIABLE), 5
+      if: Mem(5)
         setLightColor: -256
         endIf: 
       endIf: 
@@ -381,7 +381,7 @@ beginState: s32'StunEdgeObj'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     landingHeight: 0
     upon: (TOUCH_GROUND)
       requestDestroy: (SELF)
@@ -400,28 +400,28 @@ beginState: s32'StunEdgeObj'
       linkParticle: s32''
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 250000
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 4
+      ifOperation: (IS_LESSER), Mem(18), Val(250000)
+        ifOperation: (MOD_EQUALS_0), Mem(13), Val(4)
           createParticle: s32'kyk_401_stunedge_floor', (PLAYER_LAND)
           endIf: 
         endIf: 
       setAngleBySpeed: 0
       endUpon: 
-    ifNot: (VARIABLE), 317
+    ifNot: Mem(317)
       Unknown58: 1
       endIf: 
     else: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+      ifOperation: (IS_EQUAL), Mem(115), Val(2)
         setMaxActionTime: 180
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(115), Val(3)
         setMaxActionTime: 120
         endIf: 
       endElse: 
     upon: (HIT_OR_GUARD)
-      ifNot: (VARIABLE), 52
-        ifNot: (VARIABLE), 25
-          storeValue: (VARIABLE), 25, (STATIC), 1
+      ifNot: Mem(52)
+        ifNot: Mem(25)
+          storeValue: Mem(25), Val(1)
           createObject: s32'Taiden_Effect', (ENEMY_CENTER)
           endIf: 
         else: 
@@ -432,34 +432,34 @@ beginState: s32'StunEdgeObj'
           sendSignalToAction: s32'Taiden_Effect', 23
           hitSoftKnockdown: 0
           endElse: 
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 4, (STATIC), 180
-          storeValue: (VARIABLE), 4, (STATIC), 180
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(4), Val(180)
+          storeValue: Mem(4), Val(180)
           endIf: 
         endIf: 
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
       endUpon: 
     upon: 66
       clearRegisteredUponCode: 66
-      storeValue: (VARIABLE), 52, (STATIC), 1
+      storeValue: Mem(52), Val(1)
       endUpon: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
-      if: (VARIABLE), 25
+    ifOperation: (IS_EQUAL), Mem(115), Val(0)
+      if: Mem(25)
         statsActionName: s32'StunEdge1_SSObj'
         endIf: 
       else: 
         statsActionName: s32'StunEdge1Obj'
         endElse: 
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-      if: (VARIABLE), 25
+    ifOperation: (IS_EQUAL), Mem(115), Val(2)
+      if: Mem(25)
         statsActionName: s32'AirStunEdge1_SSObj'
         endIf: 
       else: 
         statsActionName: s32'AirStunEdge1Obj'
         endElse: 
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
-      if: (VARIABLE), 25
+    ifOperation: (IS_EQUAL), Mem(115), Val(3)
+      if: Mem(25)
         statsActionName: s32'AirStunEdge2_SSObj'
         endIf: 
       else: 
@@ -480,17 +480,17 @@ beginState: s32'StunEdgeObj'
   callSubroutine: s32'cmn_AtkLv2'
   callSubroutine: s32'cmn_countertype'
   attackIgnoreCaution: 1
-  if: (VARIABLE), 49
-    setSpriteTimeIf: 8, (STATIC), 1
+  if: Mem(49)
+    setSpriteTime: 8, Val(1)
     endIf: 
   linkObjPosition: 2
   stopLinkObject: 2
   setLinkObjectDestroyOnDamage: 2
   ignoreSlowdown: 1
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(115), Val(0)
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     damage: 0, 30
@@ -503,7 +503,7 @@ beginState: s32'StunEdgeObj'
     addPositionX: 0, 100000
     wallBlowoffType: 1
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(115), Val(1)
     hitEffectElectric: 1
     attackLevel: 4
     damage: 0, 40
@@ -513,10 +513,10 @@ beginState: s32'StunEdgeObj'
     setObjectSize: 2000
     setAngleBySpeed: 0
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(115), Val(2)
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     damage: 0, 30
@@ -531,10 +531,10 @@ beginState: s32'StunEdgeObj'
     setAngleX: -10000
     wallBlowoffType: 3
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+  ifOperation: (IS_EQUAL), Mem(115), Val(3)
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     damage: 0, 30
@@ -557,8 +557,8 @@ beginState: s32'StunEdgeObj'
   grabOrRelease: 
   linkObjPosition: 0
   stopLinkObject: 0
-  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+  gotoIfOperation: s32'Air', (IS_EQUAL), Mem(115), Val(2)
+  gotoIfOperation: s32'Air', (IS_EQUAL), Mem(115), Val(3)
   sprite: s32'_StunEdge_00', 1
   upon: (BEFORE_EXIT)
     createObject: s32'StunEdgeDelete', (PLAYER)
@@ -623,15 +623,15 @@ beginState: s32'StunEdgeObj_DI'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmnCutScene_ObjHide'
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-      storeValue: (VARIABLE), 49, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(2)
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
-      storeValue: (VARIABLE), 49, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(3)
+      storeValue: Mem(49), Val(1)
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 116, (STATIC), 5
+    ifOperation: (IS_EQUAL), Mem(116), Val(5)
       setLightColor: -16711936
-      if: (VARIABLE), 5
+      if: Mem(5)
         setLightColor: -256
         endIf: 
       endIf: 
@@ -641,7 +641,7 @@ beginState: s32'StunEdgeObj_DI'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     setObjectSize: 1300
     landingHeight: 0
     upon: (TOUCH_GROUND)
@@ -660,38 +660,38 @@ beginState: s32'StunEdgeObj_DI'
       linkParticle: s32''
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 250000
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 4
+      ifOperation: (IS_LESSER), Mem(18), Val(250000)
+        ifOperation: (MOD_EQUALS_0), Mem(13), Val(4)
           createParticle: s32'kyk_401_stunedge_floor', (PLAYER_LAND)
           endIf: 
         endIf: 
       setAngleBySpeed: 0
       endUpon: 
-    ifNot: (VARIABLE), 317
+    ifNot: Mem(317)
       Unknown58: 1
       endIf: 
     else: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+      ifOperation: (IS_EQUAL), Mem(115), Val(2)
         setMaxActionTime: 180
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(115), Val(3)
         setMaxActionTime: 120
         endIf: 
       endElse: 
     upon: (HIT_OR_GUARD)
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
       endUpon: 
     upon: 66
       clearRegisteredUponCode: 66
       setLinkObjectDestroyOnDamage: 0
       endUpon: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
+    ifOperation: (IS_EQUAL), Mem(115), Val(0)
       statsActionName: s32'StunEdge1_DIObj'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(115), Val(2)
       statsActionName: s32'AirStunEdge1_DIObj'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(115), Val(3)
       statsActionName: s32'AirStunEdge2_DIObj'
       endIf: 
     upon: (WALL_BREAK)
@@ -705,11 +705,11 @@ beginState: s32'StunEdgeObj_DI'
       endUpon: 
     endUpon: 
   sprite: s32'null', 6
-  callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_AtkLv2', Val(2), Val(2), Val(0), Val(0)
   callSubroutine: s32'cmn_countertype'
   attackIgnoreCaution: 1
-  if: (VARIABLE), 49
-    setSpriteTimeIf: 8, (STATIC), 1
+  if: Mem(49)
+    setSpriteTime: 8, Val(1)
     endIf: 
   linkObjPosition: 2
   stopLinkObject: 2
@@ -717,8 +717,8 @@ beginState: s32'StunEdgeObj_DI'
   disableHitstopForSelf: 0
   ignoreSlowdown: 1
   upon: (HIT_OR_GUARD_ANY)
-    modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-    ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 45, (STATIC), 1
+    modifyVar: (ADD), Mem(45), Val(1)
+    ifOperation: (IS_LESSER_OR_EQUAL), Mem(45), Val(1)
       hitStop: 3
       enemyHitstopAddition: 3, 3, 3
       endIf: 
@@ -727,10 +727,10 @@ beginState: s32'StunEdgeObj_DI'
       enemyHitstopAddition: 0, 0, 0
       endElse: 
     endUpon: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 2
+  ifOperation: (IS_EQUAL), Mem(115), Val(0)
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(2)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     damage: 0, 30
@@ -745,10 +745,10 @@ beginState: s32'StunEdgeObj_DI'
     addPositionX: 0, 100000
     wallBlowoffType: 1
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 2
+  ifOperation: (IS_EQUAL), Mem(115), Val(2)
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(2)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     damage: 0, 30
@@ -765,10 +765,10 @@ beginState: s32'StunEdgeObj_DI'
     setAngleX: -10000
     wallBlowoffType: 3
     endIf: 
-  ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 2
+  ifOperation: (IS_EQUAL), Mem(115), Val(3)
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(2)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     damage: 0, 30
@@ -793,8 +793,8 @@ beginState: s32'StunEdgeObj_DI'
   grabOrRelease: 
   linkObjPosition: 0
   stopLinkObject: 0
-  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-  gotoIfOperation: s32'Air', (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+  gotoIfOperation: s32'Air', (IS_EQUAL), Mem(115), Val(2)
+  gotoIfOperation: s32'Air', (IS_EQUAL), Mem(115), Val(3)
   sprite: s32'_StunEdge_00', 1
   upon: (BEFORE_EXIT)
     createObject: s32'StunEdgeDelete', (PLAYER)
@@ -863,7 +863,7 @@ beginState: s32'StunEdgeObj_DI'
 beginState: s32'StunEdgeDelete'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnCutScene_ObjHide'
-    storeValueFromObject: (SELF), (VARIABLE), 1, (PARENT), (VARIABLE), 1
+    storeValueFromObject: (SELF), Mem(1), (PARENT), Mem(1)
     createArgAngle: 2, 1
     createParticleWithArg2: s32'kyk_401_stunedge_end', (PLAYER)
     endUpon: 
@@ -874,11 +874,11 @@ beginState: s32'ChargedStunEdgeObj'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmnCutScene_ObjHide'
-    callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 3
+    callSubroutineWithArgs: s32'cmn_AtkLv4', Val(3), Val(3), Val(0), Val(0)
+    callSubroutine: s32'cmn_countertype'
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(3)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     disableHitstopForSelf: 0
@@ -890,7 +890,7 @@ beginState: s32'ChargedStunEdgeObj'
     attackReflect: 1
     ignoreSlowdown: 1
     attackIgnoreCaution: 1
-    projectileHitstopRecovery: 1
+    projectileHitstopClash: 1
     shortHitstop: 1
     wallBlowoffType: 1
     initializeDestroy: 
@@ -899,7 +899,7 @@ beginState: s32'ChargedStunEdgeObj'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     landingHeight: 0
     upon: (TOUCH_GROUND)
       requestDestroy: (SELF)
@@ -921,8 +921,8 @@ beginState: s32'ChargedStunEdgeObj'
       linkParticle: s32''
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 250000
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 4
+      ifOperation: (IS_LESSER), Mem(18), Val(250000)
+        ifOperation: (MOD_EQUALS_0), Mem(13), Val(4)
           createParticle: s32'kyk_402_stunedge_floor', (PLAYER_LAND)
           endIf: 
         endIf: 
@@ -930,10 +930,10 @@ beginState: s32'ChargedStunEdgeObj'
     Unknown58: 1
     upon: (HIT_OR_GUARD)
       ignoreSpeedTime: 2
-      ifNot: (VARIABLE), 52
-        ifNot: (VARIABLE), 25
+      ifNot: Mem(52)
+        ifNot: Mem(25)
           clearRegisteredUponCode: (HIT_OR_GUARD)
-          storeValue: (VARIABLE), 25, (STATIC), 1
+          storeValue: Mem(25), Val(1)
           createObject: s32'Taiden_Effect', (ENEMY_CENTER)
           endIf: 
         else: 
@@ -947,16 +947,16 @@ beginState: s32'ChargedStunEdgeObj'
           enemyHitstopAddition: 5, 5, 5
           sendSignalToAction: s32'Taiden_Effect', 23
           endElse: 
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 4, (STATIC), 300
-          storeValue: (VARIABLE), 4, (STATIC), 300
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(4), Val(300)
+          storeValue: Mem(4), Val(300)
           endIf: 
         endIf: 
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
       endUpon: 
     upon: 66
       clearRegisteredUponCode: 66
       clearRegisteredUponCode: 35
-      storeValue: (VARIABLE), 52, (STATIC), 1
+      storeValue: Mem(52), Val(1)
       endUpon: 
     addPositionX: 0, 100000
     upon: (WALL_BREAK)
@@ -965,7 +965,7 @@ beginState: s32'ChargedStunEdgeObj'
       ignoreSuperFreeze: 1
       ignoreFinishStop: 1
       endUpon: 
-    if: (VARIABLE), 25
+    if: Mem(25)
       statsActionName: s32'ChargedStunEdge_SSObj'
       endIf: 
     upon: (AFTER_EXIT)
@@ -1043,11 +1043,11 @@ beginState: s32'ChargedStunEdgeObj_DI'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmnCutScene_ObjHide'
-    callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 5, (STATIC), 5, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 5
+    callSubroutineWithArgs: s32'cmn_AtkLv4', Val(5), Val(5), Val(0), Val(0)
+    callSubroutine: s32'cmn_countertype'
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(5)
     callSubroutine: s32'cmn_hosei'
     hitEffectElectric: 1
     groundHitEffect: (STAGGER)
@@ -1063,7 +1063,7 @@ beginState: s32'ChargedStunEdgeObj_DI'
     attackReflect: 1
     ignoreSlowdown: 1
     attackIgnoreCaution: 1
-    projectileHitstopRecovery: 1
+    projectileHitstopClash: 1
     shortHitstop: 1
     wallBlowoffType: 1
     initializeDestroy: 
@@ -1072,7 +1072,7 @@ beginState: s32'ChargedStunEdgeObj_DI'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     setObjectSize: 1300
     landingHeight: 0
     upon: (TOUCH_GROUND)
@@ -1095,8 +1095,8 @@ beginState: s32'ChargedStunEdgeObj_DI'
       linkParticle: s32''
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 250000
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 4
+      ifOperation: (IS_LESSER), Mem(18), Val(250000)
+        ifOperation: (MOD_EQUALS_0), Mem(13), Val(4)
           createParticle: s32'kyk_402_stunedge_floor', (PLAYER_LAND)
           endIf: 
         endIf: 
@@ -1104,7 +1104,7 @@ beginState: s32'ChargedStunEdgeObj_DI'
     Unknown58: 1
     upon: (HIT_OR_GUARD)
       ignoreSpeedTime: 2
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
       endUpon: 
     addPositionX: 0, 100000
     upon: 66
@@ -1190,18 +1190,18 @@ beginState: s32'ChargedStunEdgeObj_DI'
 
 beginState: s32'StunEdgeCTObj'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     addMoveForceDisableFlag: 1
     ignoreSlowdown: 1
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       gotoLabelRequests: s32'end'
       endUpon: 
     endUpon: 
   sprite: s32'null', 55
-  setSpriteTimeIf: 85, (VARIABLE), 115
+  setSpriteTime: 85, Mem(115)
   sprite: s32'null', 5
-  clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+  clearRegisteredUponCode: 23
   endLabel: 
   exitState: 
   beginLabel: s32'end'
@@ -1212,8 +1212,8 @@ beginState: s32'SacredEdgeObj'
   upon: (IMMEDIATE)
     overdriveAttack: 
     callSubroutine: s32'cmnCutScene_ObjHide'
-    callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 5, (STATIC), 5, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutineWithArgs: s32'cmn_AtkLv4', Val(5), Val(5), Val(0), Val(0)
+    callSubroutine: s32'cmn_countertype'
     callSubroutine: s32'cmnNohosei_kakusei'
     setProjectileDurability: 4
     damage: 0, 22
@@ -1223,10 +1223,10 @@ beginState: s32'SacredEdgeObj'
     ignoreSlowdown: 1
     hitEffectElectric: 1
     attackIgnoreCaution: 1
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     wallBlowoffType: 1
     Unknown58: 1
     linkParticle: s32'kyk_502_loop'
@@ -1236,7 +1236,7 @@ beginState: s32'SacredEdgeObj'
     destroyOnDamageCollision: 1
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     landingHeight: 0
     upon: (TOUCH_GROUND)
       requestDestroy: (SELF)
@@ -1246,30 +1246,30 @@ beginState: s32'SacredEdgeObj'
       deactivateObjectById: (SELF)
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 4
+      ifOperation: (MOD_EQUALS_0), Mem(13), Val(4)
         createParticle: s32'kyk_502_floor', (PLAYER_LAND)
         endIf: 
-      if: (VARIABLE), 45
+      if: Mem(45)
         physicsXImpulse: 0, 5000
-        modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (STATIC), 5
-          storeValue: (VARIABLE), 45, (STATIC), 0
-          storeValue: (VARIABLE), 46, (STATIC), 0
+        modifyVar: (ADD), Mem(46), Val(1)
+        ifOperation: (IS_GREATER_OR_EQUAL), Mem(46), Val(5)
+          storeValue: Mem(45), Val(0)
+          storeValue: Mem(46), Val(0)
           popVelocityX: 
           endIf: 
         endIf: 
       endUpon: 
     upon: (HIT_OR_GUARD)
-      ifNot: (VARIABLE), 48
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 4, (STATIC), 300
-          storeValue: (VARIABLE), 4, (STATIC), 300
+      ifNot: Mem(48)
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(4), Val(300)
+          storeValue: Mem(4), Val(300)
           endIf: 
-        callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+        callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
         endIf: 
-      ifNot: (VARIABLE), 47
-        ifNot: (VARIABLE), 25
-          storeValue: (VARIABLE), 48, (STATIC), 1
-          storeValue: (VARIABLE), 25, (STATIC), 1
+      ifNot: Mem(47)
+        ifNot: Mem(25)
+          storeValue: Mem(48), Val(1)
+          storeValue: Mem(25), Val(1)
           createObject: s32'Taiden_Effect', (ENEMY_CENTER)
           endIf: 
         else: 
@@ -1284,13 +1284,13 @@ beginState: s32'SacredEdgeObj'
           sendSignalToAction: s32'Taiden_Effect', 23
           endElse: 
         endIf: 
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       pushVelocityX: 
       physicsXImpulse: 0, 5000
-      modifyVar: (ADD), (VARIABLE), 47, (STATIC), 1
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 47, (STATIC), 5
+      modifyVar: (ADD), Mem(47), Val(1)
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(47), Val(5)
         callSubroutine: s32'cmn_AtkTemplWSB'
-        attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+        attackExHitParam: Val(0), 0, 0, 1, (ENEMY), Mem(319)
         forceWallBreak: 1
         wallBreakLimitTime: 5
         wallBlowoffType: 1
@@ -1303,7 +1303,7 @@ beginState: s32'SacredEdgeObj'
       ignoreSuperFreeze: 1
       ignoreFinishStop: 1
       endUpon: 
-    if: (VARIABLE), 25
+    if: Mem(25)
       statsActionName: s32'SacredEdge_SSObj'
       endIf: 
     endUpon: 
@@ -1336,8 +1336,8 @@ beginState: s32'SacredEdgeObj_DI'
   upon: (IMMEDIATE)
     overdriveAttack: 
     callSubroutine: s32'cmnCutScene_ObjHide'
-    callSubroutineWithArgs: s32'cmn_AtkLv4', (STATIC), 8, (STATIC), 8, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutineWithArgs: s32'cmn_AtkLv4', Val(8), Val(8), Val(0), Val(0)
+    callSubroutine: s32'cmn_countertype'
     callSubroutine: s32'cmnNohosei_kakusei'
     setProjectileDurability: 4
     damage: 0, 20
@@ -1350,10 +1350,10 @@ beginState: s32'SacredEdgeObj_DI'
     ignoreSlowdown: 1
     hitEffectElectric: 1
     attackIgnoreCaution: 1
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     wallBlowoffType: 1
     Unknown58: 1
     linkParticle: s32'kyk_502_loop'
@@ -1364,7 +1364,7 @@ beginState: s32'SacredEdgeObj_DI'
     destroyOnDamageCollision: 1
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     setObjectSize: 1300
     enemyHitstopAddition: 5, 5, 5
     landingHeight: 0
@@ -1376,33 +1376,33 @@ beginState: s32'SacredEdgeObj_DI'
       deactivateObjectById: (SELF)
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (MOD_EQUALS_0), (VARIABLE), 13, (STATIC), 4
+      ifOperation: (MOD_EQUALS_0), Mem(13), Val(4)
         createParticle: s32'kyk_502_floor', (PLAYER_LAND)
         endIf: 
-      if: (VARIABLE), 45
+      if: Mem(45)
         physicsXImpulse: 0, 5000
-        modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (STATIC), 5
-          storeValue: (VARIABLE), 45, (STATIC), 0
-          storeValue: (VARIABLE), 46, (STATIC), 0
+        modifyVar: (ADD), Mem(46), Val(1)
+        ifOperation: (IS_GREATER_OR_EQUAL), Mem(46), Val(5)
+          storeValue: Mem(45), Val(0)
+          storeValue: Mem(46), Val(0)
           popVelocityX: 
           endIf: 
         endIf: 
       endUpon: 
     upon: (HIT_OR_GUARD)
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       pushVelocityX: 
       physicsXImpulse: 0, 5000
-      modifyVar: (ADD), (VARIABLE), 47, (STATIC), 1
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 47, (STATIC), 8
+      modifyVar: (ADD), Mem(47), Val(1)
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(47), Val(8)
         callSubroutine: s32'cmn_AtkTemplWSB'
-        attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+        attackExHitParam: Val(0), 0, 0, 1, (ENEMY), Mem(319)
         forceWallBreak: 1
         wallBreakLimitTime: 5
         wallBlowoffType: 1
         endIf: 
       finishCameraRequest: s32'Cam_Finish_SacredEdge'
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 3, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(3), Val(0), Val(0)
       endUpon: 
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
@@ -1470,7 +1470,7 @@ beginState: s32'kyk203_bake1'
     Unknown2290: 1
     linkParticle: s32'kyk_203_bake01'
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     addPositionX: 0, 439489
     addPositionY: 0, 216876
     addDepth: 0, -53919
@@ -1524,7 +1524,7 @@ beginState: s32'kyk205_bake1'
     linkObjPosition: 3
     Unknown2290: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     linkParticle: s32'kyk_205_bake01'
     reverseDisplay: 1
     ignoreSlowdown: 1
@@ -1538,7 +1538,7 @@ beginState: s32'kyk205_bake2'
     linkObjPosition: 3
     Unknown2290: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     linkParticle: s32'kyk_205_bake02'
     reverseDisplay: 1
     ignoreSlowdown: 1
@@ -1688,9 +1688,9 @@ beginState: s32'kyk252_bake1'
     setAngle: 14000
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1718,9 +1718,9 @@ beginState: s32'kyk252_bake2'
     setAngle: 17200
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1766,7 +1766,7 @@ beginState: s32'kyk254_start'
     addPositionY: 0, 30000
     Unknown2290: 1
     linkParticle: s32'kyk_254_start'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 100
   endState: 
@@ -1821,9 +1821,9 @@ beginState: s32'kyk404_trail'
     linkParticle: s32'kyk_404_trail'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1832,7 +1832,7 @@ beginState: s32'kyk404_trail'
       endUpon: 
     callSubroutine: s32'cmn_Effect_NoLink'
     ignoreSlowdown: 1
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       linkObjPosition: 0
       endUpon: 
     callSubroutine: s32'cmnWSB_Event_Settings'
@@ -1848,9 +1848,9 @@ beginState: s32'kyk404_atk01'
     linkObjPosition: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1872,7 +1872,7 @@ beginState: s32'kyk404_atk01'
     setAngleX: 166000
     setAngleY: 22000
     setAngle: 314000
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       linkObjPosition: 0
       endUpon: 
     endUpon: 
@@ -1885,9 +1885,9 @@ beginState: s32'kyk404_atk02'
     linkParticle: s32'kyk_404_atk02'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1906,7 +1906,7 @@ beginState: s32'kyk404_atk02'
     setAngleX: 166000
     setAngleY: 22000
     setAngle: 314000
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       linkObjPosition: 0
       endUpon: 
     endUpon: 
@@ -1921,9 +1921,9 @@ beginState: s32'kyk404_atk02sub'
     linkParticle: s32'kyk_404_atk02sub'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1939,7 +1939,7 @@ beginState: s32'kyk404_atk02sub'
     addPositionX: 0, -129974
     addPositionY: 0, 360000
     addDepth: 0, 0
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       linkObjPosition: 0
       endUpon: 
     endUpon: 
@@ -1970,14 +1970,14 @@ beginState: s32'Taiden_charge'
     ignoreSlowdown: 1
     ignoreSuperFreeze: 1
     callSubroutine: s32'cmn_Effect_NoLink'
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       linkObjPosition: 0
       endUpon: 
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2004,9 +2004,9 @@ beginState: s32'Taiden_charge_se1'
     addDepth: 0, -209958
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2014,7 +2014,7 @@ beginState: s32'Taiden_charge_se1'
           endIf: 
         endIf: 
       else: 
-        ifNot: (VARIABLE), 16
+        ifNot: Mem(16)
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
           ignoreFinishStop: 1
@@ -2036,9 +2036,9 @@ beginState: s32'Taiden_charge_se1_air'
     addDepth: 0, -204979
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2046,7 +2046,7 @@ beginState: s32'Taiden_charge_se1_air'
           endIf: 
         endIf: 
       else: 
-        ifNot: (VARIABLE), 16
+        ifNot: Mem(16)
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
           ignoreFinishStop: 1
@@ -2069,9 +2069,9 @@ beginState: s32'Taiden_charge_se2'
     addDepth: 0, -200000
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2079,7 +2079,7 @@ beginState: s32'Taiden_charge_se2'
           endIf: 
         endIf: 
       else: 
-        ifNot: (VARIABLE), 16
+        ifNot: Mem(16)
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
           ignoreFinishStop: 1
@@ -2102,9 +2102,9 @@ beginState: s32'Taiden_charge_se2_end'
     addDepth: 0, -200000
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2112,7 +2112,7 @@ beginState: s32'Taiden_charge_se2_end'
           endIf: 
         endIf: 
       else: 
-        ifNot: (VARIABLE), 16
+        ifNot: Mem(16)
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
           ignoreFinishStop: 1
@@ -2142,9 +2142,9 @@ beginState: s32'kyk407_atk'
     setObjectDepth: 1150
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2174,9 +2174,9 @@ beginState: s32'kyk407_floor'
     setAngle: 0
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2328,7 +2328,7 @@ beginState: s32'Thunder_keii1'
     setAngleX: 308000
     setAngleY: 14000
     setAngle: 148800
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       deactivateObjectById: (SELF)
       endUpon: 
     endUpon: 
@@ -2353,7 +2353,7 @@ beginState: s32'Thunder_keii2'
     setAngleX: 324000
     setAngleY: 9600
     setAngle: 148800
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       deactivateObjectById: (SELF)
       endUpon: 
     endUpon: 
@@ -2436,9 +2436,9 @@ beginState: s32'Stundipper'
     linkObjectZ: 2
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -2473,8 +2473,8 @@ beginState: s32'Vaporthrust'
     ignoreSlowdown: 1
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
-      storeValue: (VARIABLE), 45, (STATIC), 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      storeValue: Mem(45), Val(1)
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -2482,7 +2482,7 @@ beginState: s32'Vaporthrust'
     endUpon: 
   sprite: s32'null', 7
   sprite: s32'null', 80
-  ifNot: (VARIABLE), 45
+  ifNot: Mem(45)
     linkObjPosition: 0
     endIf: 
   endState: 
@@ -2649,7 +2649,7 @@ beginState: s32'kyk500_tossin01'
     setLinkObjectDestroyOnStateChange: 3
     linkObjPosition: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     linkParticle: s32'kyk_500_tossin01loop'
     addPositionX: 0, 79984
     addPositionY: 0, 180000
@@ -2704,7 +2704,7 @@ beginState: s32'kyk500_tossin_floor'
     callSubroutine: s32'cmnCutScene_ObjHide'
     setLinkObjectDestroyOnStateChange: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     linkParticle: s32'kyk_500_rtl_floorloop'
     addPositionX: 0, -102639
     addPositionY: 0, 8523
@@ -2719,7 +2719,7 @@ beginState: s32'kyk500_tossin_floorend'
     callSubroutine: s32'cmnCutScene_ObjHide'
     setLinkObjectDestroyOnStateChange: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     linkParticle: s32'kyk_500_rtl_floorend'
     addPositionX: 0, -102639
     addPositionY: 0, 8523
@@ -2759,7 +2759,7 @@ beginState: s32'Rtl_2ndAtk'
     linkObjPosition: 3
     stopLinkObject: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     linkParticle: s32'kyk_500_2ndatk'
     setAngleX: 50000
     setAngleY: 152000
@@ -2806,7 +2806,7 @@ beginState: s32'Sacred_Trail'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     ignoreSuperFreezeFromAlly: 1
     setMaxActionTime: 300
-    callSubroutineWithArgs: s32'cmnWSB_Event_Settings', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Event_Settings', Val(1), Val(0), Val(0), Val(0)
     endUpon: 
   beginLabel: s32'Loop'
   sprite: s32'null', 6
@@ -2831,7 +2831,7 @@ beginState: s32'DKY_cs01'
     callSubroutine: s32'cmnCutScene_ObjHide'
     linkObjPosition: 3
     ignoreSuperFreezeFromAlly: 1
-    ifNotInObject: (PLAYER), (VARIABLE), 324
+    ifNotInObject: (PLAYER), Mem(324)
       linkParticle: s32'dky_cs01_scr'
       endIf: 
     else: 
@@ -2851,7 +2851,7 @@ beginState: s32'DKY_wingaura'
     linkParticle: s32'dky_cs_wingaura'
     reverseDisplay: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     endUpon: 
   sprite: s32'null', 300
@@ -2886,55 +2886,55 @@ beginState: s32'DKY_stand_aura_loop'
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       upon: 39
-        storeValueFromObject: (SELF), (VARIABLE), 45, (PLAYER), (VARIABLE), 334
-        ifOperationInObject: 9, (DIV), (VARIABLE), 334, (STATIC), 0
-          storeValue: (VARIABLE), 46, (STATIC), 0
+        storeValueFromObject: (SELF), Mem(45), (PLAYER), Mem(334)
+        ifOperationInObject: 9, (DIV), Mem(334), Val(0)
+          storeValue: Mem(46), Val(0)
           endIf: 
-        ifOperationInObject: 9, (DIV), (VARIABLE), 334, (STATIC), 1
-          storeValue: (VARIABLE), 46, (STATIC), 1
+        ifOperationInObject: 9, (DIV), Mem(334), Val(1)
+          storeValue: Mem(46), Val(1)
           endIf: 
-        ifOperationInObject: 9, (DIV), (VARIABLE), 334, (STATIC), 2
-          storeValue: (VARIABLE), 46, (STATIC), 0
+        ifOperationInObject: 9, (DIV), Mem(334), Val(2)
+          storeValue: Mem(46), Val(0)
           endIf: 
-        ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (STATIC), 1
-          ifOperationInObject: 9, (DIV), (VARIABLE), 13, (STATIC), 1
-            ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (VARIABLE), 47
+        ifOperation: (IS_NOT_EQUAL), Mem(46), Val(1)
+          ifOperationInObject: 9, (DIV), Mem(13), Val(1)
+            ifOperation: (IS_NOT_EQUAL), Mem(46), Mem(47)
               linkParticle: s32'dky_aura_stand_loop'
-              storeValue: (VARIABLE), 47, (VARIABLE), 46
+              storeValue: Mem(47), Mem(46)
               endIf: 
             checkCurrentStateName: (PLAYER), s32'CmnActStand'
-            ifNot: (VARIABLE), 0
+            ifNot: Mem(0)
               linkParticle: s32'dky_aura_stand_loop_oku'
-              storeValue: (VARIABLE), 47, (STATIC), 2
+              storeValue: Mem(47), Val(2)
               endIf: 
             endIf: 
-          ifNot: (VARIABLE), 48
+          ifNot: Mem(48)
             linkParticle: s32'dky_aura_stand_loop'
-            storeValue: (VARIABLE), 47, (VARIABLE), 46
-            storeValue: (VARIABLE), 48, (STATIC), 1
+            storeValue: Mem(47), Mem(46)
+            storeValue: Mem(48), Val(1)
             endIf: 
           endIf: 
         else: 
-          ifOperationInObject: 9, (DIV), (VARIABLE), 13, (STATIC), 1
-            ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (VARIABLE), 47
+          ifOperationInObject: 9, (DIV), Mem(13), Val(1)
+            ifOperation: (IS_NOT_EQUAL), Mem(46), Mem(47)
               linkParticle: s32'dky_aura_crouch_loop'
-              storeValue: (VARIABLE), 47, (VARIABLE), 46
+              storeValue: Mem(47), Mem(46)
               endIf: 
             checkCurrentStateName: (PLAYER), s32'CmnActCrouch'
-            ifNot: (VARIABLE), 0
+            ifNot: Mem(0)
               checkCurrentStateName: (PLAYER), s32'CmnActStand2Crouch'
-              ifNot: (VARIABLE), 0
+              ifNot: Mem(0)
                 checkCurrentStateName: (PLAYER), s32'CmnActCrouch2Stand'
-                ifNot: (VARIABLE), 0
+                ifNot: Mem(0)
                   linkParticle: s32'dky_aura_crouch_loop_oku'
-                  storeValue: (VARIABLE), 47, (STATIC), 2
+                  storeValue: Mem(47), Val(2)
                   endIf: 
                 endIf: 
               endIf: 
-            ifNot: (VARIABLE), 48
+            ifNot: Mem(48)
               linkParticle: s32'dky_aura_crouch_loop'
-              storeValue: (VARIABLE), 47, (VARIABLE), 46
-              storeValue: (VARIABLE), 48, (STATIC), 1
+              storeValue: Mem(47), Mem(46)
+              storeValue: Mem(48), Val(1)
               endIf: 
             endIf: 
           endElse: 
@@ -2943,22 +2943,22 @@ beginState: s32'DKY_stand_aura_loop'
     endUpon: 
   sprite: s32'null', 25
   sprite: s32'null', 2147483647
-  ifNot: (VARIABLE), 48
-    ifOperation: (IS_NOT_EQUAL), (VARIABLE), 46, (STATIC), 1
+  ifNot: Mem(48)
+    ifOperation: (IS_NOT_EQUAL), Mem(46), Val(1)
       linkParticle: s32'dky_aura_stand_loop'
       checkCurrentStateName: (PLAYER), s32'CmnActStand'
-      ifNot: (VARIABLE), 0
+      ifNot: Mem(0)
         linkParticle: s32'dky_aura_stand_loop_oku'
         endIf: 
       endIf: 
     else: 
       linkParticle: s32'dky_aura_crouch_loop'
       checkCurrentStateName: (PLAYER), s32'CmnActCrouch'
-      ifNot: (VARIABLE), 0
+      ifNot: Mem(0)
         checkCurrentStateName: (PLAYER), s32'CmnActStand2Crouch'
-        ifNot: (VARIABLE), 0
+        ifNot: Mem(0)
           checkCurrentStateName: (PLAYER), s32'CmnActCrouch2Stand'
-          ifNot: (VARIABLE), 0
+          ifNot: Mem(0)
             linkParticle: s32'dky_aura_crouch_loop_oku'
             endIf: 
           endIf: 
@@ -3093,21 +3093,21 @@ beginState: s32'DKY_floor_aura'
   sprite: s32'null', 2147483647
   upon: 39
     moveToPosTypeToPosTypeEx: 3, 150, 23, 100
-    ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 300000
+    ifOperation: (IS_LESSER), Mem(18), Val(300000)
       setObjectSizeScaleSpeed: 300
       endIf: 
     else: 
       setObjectSizeScaleSpeed: -300
       endElse: 
-    ifOperation: (IS_LESSER), (VARIABLE), 99, (STATIC), 0
+    ifOperation: (IS_LESSER), Mem(99), Val(0)
       setObjectSize: 0
       endIf: 
-    ifOperation: (IS_GREATER), (VARIABLE), 99, (STATIC), 1000
+    ifOperation: (IS_GREATER), Mem(99), Val(1000)
       setObjectSize: 1000
       endIf: 
     setPositionY: 0
-    storeValueFromObject: (SELF), (VARIABLE), 59, (PLAYER), (VARIABLE), 59
-    if: (VARIABLE), 59
+    storeValueFromObject: (SELF), Mem(59), (PLAYER), Mem(59)
+    if: Mem(59)
       clearRegisteredUponCode: 39
       gotoLabelRequests: s32'end'
       ignoreSuperFreeze: 1
@@ -3123,18 +3123,18 @@ beginState: s32'DKY_floor_aura'
 beginSubroutine: s32'DKY_EffectDisp'
   ignoreSlowdown: 1
   upon: 39
-    storeValue: (VARIABLE), 59, (STATIC), 0
+    storeValue: Mem(59), Val(0)
     checkCurrentStateName: (PLAYER), s32'HomingJump'
-    if: (VARIABLE), 0
-      storeValue: (VARIABLE), 59, (STATIC), 1
+    if: Mem(0)
+      storeValue: Mem(59), Val(1)
       endIf: 
-    if: (VARIABLE), 317
-      storeValue: (VARIABLE), 59, (STATIC), 1
+    if: Mem(317)
+      storeValue: Mem(59), Val(1)
       endIf: 
-    if: (VARIABLE), 315
-      storeValue: (VARIABLE), 59, (STATIC), 1
+    if: Mem(315)
+      storeValue: Mem(59), Val(1)
       endIf: 
-    if: (VARIABLE), 59
+    if: Mem(59)
       displayModel: 0
       endIf: 
     else: 
@@ -3147,11 +3147,11 @@ beginState: s32'JumpDobj'
   upon: (IMMEDIATE)
     setLinkObjectDestroyOnDamage: 3
     normalAttack: 
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
-	callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 1000010000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
+    callSubroutine: s32'cmn_countertype'
+    storeValue: Mem(338), Val(1000010000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     damage: 0, 32
     hitEffectElectric: 1
@@ -3160,16 +3160,16 @@ beginState: s32'JumpDobj'
     hitAirPushbackX: 0, 15000
     hitAirPushbackY: 0, 30000
     upon: (HIT_OR_GUARD)
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
       endUpon: 
     addPositionY: 0, -50000
     addPositionX: 0, 250000
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Electric'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Electric'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -3179,20 +3179,20 @@ beginState: s32'JumpDobj'
     callSubroutine: s32'cmnWSB_Event_Settings'
     upon: 95
       clearRegisteredUponCode: 95
-      sendSiganl: (PLAYER), 23
+      sendSignal: (PLAYER), (SELF)
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 46, (STATIC), 1
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 46, (STATIC), 2
+        modifyVar: (ADD), Mem(46), Val(1)
+        ifOperation: (IS_GREATER_OR_EQUAL), Mem(46), Val(2)
           checkLastAttackHitStateName: 32, s32'JumpDobj'
-          if: (VARIABLE), 0
-            ifNotInObject: 32, (VARIABLE), 81
+          if: Mem(0)
+            ifNotInObject: 32, Mem(81)
               clearRegisteredUponCode: 12
-              sendSiganl: (PLAYER), 24
+              sendSignal: (PLAYER), (ATTACKER)
               endIf: 
             endIf: 
           else: 
             clearRegisteredUponCode: 12
-            sendSiganl: (PLAYER), 24
+            sendSignal: (PLAYER), (ATTACKER)
             endElse: 
           endIf: 
         endUpon: 
@@ -3220,11 +3220,11 @@ beginState: s32'StunRaysObj'
     shortHitstop: 1
     attackIgnoreCaution: 1
     attackReflect: 0
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
-	callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
+    callSubroutine: s32'cmn_countertype'
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     damage: 0, 32
     hitEffectElectric: 1
@@ -3238,13 +3238,13 @@ beginState: s32'StunRaysObj'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     landingHeight: 0
     upon: (HIT_OR_GUARD)
-      ifNot: (VARIABLE), 52
-        ifNot: (VARIABLE), 25
+      ifNot: Mem(52)
+        ifNot: Mem(25)
           clearRegisteredUponCode: (HIT_OR_GUARD)
-          storeValue: (VARIABLE), 25, (STATIC), 1
+          storeValue: Mem(25), Val(1)
           createObject: s32'Taiden_Effect', (ENEMY_CENTER)
           endIf: 
         else: 
@@ -3257,11 +3257,11 @@ beginState: s32'StunRaysObj'
           enemyHitstopAddition: 5, 5, 5
           sendSignalToAction: s32'Taiden_Effect', 23
           endElse: 
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 4, (STATIC), 300
-          storeValue: (VARIABLE), 4, (STATIC), 300
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(4), Val(300)
+          storeValue: Mem(4), Val(300)
           endIf: 
         endIf: 
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 1, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
       endUpon: 
     addPositionY: 0, -50000
     addPositionX: 0, 250000
@@ -3274,13 +3274,13 @@ beginState: s32'StunRaysObj'
       recoveryState: 
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 89
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(89)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'Koware'
         endIf: 
       endUpon: 
     endUpon: 
-  if: (VARIABLE), 25
+  if: Mem(25)
     statsActionName: s32'StunRays_SSObj'
     endIf: 
   sprite: s32'null', 16
@@ -3306,11 +3306,11 @@ beginState: s32'StunRays_DIObj'
     disableHitstopForSelf: 0
     attackIgnoreCaution: 1
     attackReflect: 0
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 1
-	callSubroutine: s32'cmn_countertype'
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
+    callSubroutine: s32'cmn_countertype'
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     damage: 0, 20
     hitEffectElectric: 1
@@ -3325,7 +3325,7 @@ beginState: s32'StunRays_DIObj'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     addPositionY: 0, -50000
     addPositionX: 0, 250000
     linkObjPosition: 0
@@ -3338,7 +3338,7 @@ beginState: s32'StunRays_DIObj'
       recoveryState: 
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 129
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(129)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'Koware'
         endIf: 
@@ -3360,71 +3360,71 @@ beginState: s32'Taiden_Effect'
   upon: (IMMEDIATE)
     deactivateObjectByNameExceptSelf: s32'Taiden_Effect'
     upon: (FRAME_STEP)
-      ifNot: (VARIABLE), 25
+      ifNot: Mem(25)
         clearRegisteredUponCode: (FRAME_STEP)
         deactivateObjectById: (SELF)
         endIf: 
-      ifNotInObject: (ENEMY), (VARIABLE), 77
+      ifNotInObject: (ENEMY), Mem(77)
         clearRegisteredUponCode: (FRAME_STEP)
         deactivateObjectById: (SELF)
         endIf: 
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       createArgScale: 0, 2000
       exPointFReset: (ENEMY_CENTER), 0, 0
       createParticleWithArg2: s32'kyk_taiden_hit', (EX_POINT_F)
-      callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 3, (STATIC), 2, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(2), Val(0), Val(0)
       endUpon: 
     runOnObject: (ENEMY)
       cmnSfx: s32'SE_BTL_CMN_Condition_Shock'
       endRunOnObject: 
     upon: (ON_DELETE)
-      ifNot: (VARIABLE), 46
+      ifNot: Mem(46)
         createParticle: s32'cmn_taiden_end', (ENEMY_CENTER)
         endIf: 
       endUpon: 
     linkParticle: s32'kyk_taiden_idling'
     upon: 12
       displayModel: 1
-      storeValue: (VARIABLE), 46, (STATIC), 0
-      if: (VARIABLE), 139
+      storeValue: Mem(46), Val(0)
+      if: Mem(139)
         displayModel: 0
-        storeValue: (VARIABLE), 46, (STATIC), 1
+        storeValue: Mem(46), Val(1)
         endIf: 
-      ifNot: (VARIABLE), 16
+      ifNot: Mem(16)
         displayModel: 0
-        storeValue: (VARIABLE), 46, (STATIC), 1
+        storeValue: Mem(46), Val(1)
         endIf: 
-      if: (VARIABLE), 315
+      if: Mem(315)
         displayModel: 0
-        storeValue: (VARIABLE), 46, (STATIC), 1
+        storeValue: Mem(46), Val(1)
         endIf: 
       moveToPosType: 22, 103
-      storeValueFromObject: (SELF), (VARIABLE), 281, (ENEMY), (VARIABLE), 281
-      ifNot: (VARIABLE), 46
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (MOD_EQUALS_0), (VARIABLE), 45, (STATIC), 16
-          ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 16
+      storeValueFromObject: (SELF), Mem(281), (ENEMY), Mem(281)
+      ifNot: Mem(46)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (MOD_EQUALS_0), Mem(45), Val(16)
+          ifOperation: (IS_EQUAL), Mem(45), Val(16)
             exPointFReset: (PLAYER), 0, 150000
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 32
+          ifOperation: (IS_EQUAL), Mem(45), Val(32)
             exPointFReset: (PLAYER), 0, 0
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 48
+          ifOperation: (IS_EQUAL), Mem(45), Val(48)
             exPointFReset: (PLAYER), 0, -150000
             endIf: 
           createParticle: s32'kyk_taiden_spark', (ENEMY_CENTER)
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 1
+        ifOperation: (IS_EQUAL), Mem(45), Val(1)
           linkParticle: s32'kyk_taiden_idling'
           endIf: 
-        ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 45, (STATIC), 75
-          storeValue: (VARIABLE), 45, (STATIC), 0
+        ifOperation: (IS_GREATER_OR_EQUAL), Mem(45), Val(75)
+          storeValue: Mem(45), Val(0)
           createObject: s32'Taiden_Light', (PLAYER)
           endIf: 
         endIf: 
       else: 
-        storeValue: (VARIABLE), 45, (STATIC), 0
+        storeValue: Mem(45), Val(0)
         linkParticle: s32''
         endElse: 
       endUpon: 
@@ -3456,12 +3456,12 @@ beginState: s32'Lightningsphere'
     setLightColor: -65536
     attackReflect: 1
     upon: (FRAME_STEP)
-      modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      modifyVar: (ADD), Mem(45), Val(1)
+      ifOperation: (IS_EQUAL), Mem(45), Val(10)
         scaleForLink: 1500
         createArgLightColor: 0, -65536
         createParticleWithArg2: s32'kyk_taiden_charge3', (PLAYER)
-        storeValue: (VARIABLE), 45, (STATIC), 0
+        storeValue: Mem(45), Val(0)
         endIf: 
       endUpon: 
     addPositionX: 0, 350000
@@ -3481,46 +3481,47 @@ beginState: s32'DragonInstall_start'
     overdriveAttack: 
     callSubroutine: s32'cmn_AtkLv4'
     callSubroutine: s32'cmnNohosei_kakusei'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 80
     groundHitEffect: (AIR_FACE_UP)
     tensionGainOnConnect: 0
     hitEffectElectric: 1
+	enemyHitstopAddition: 15, 15, 15
     hitSoftKnockdown: 0
     ignoreSlowdown: 1
     attackIgnoreCaution: 1
     attackReflect: 0
-    storeValue: (VARIABLE), 338, (STATIC), 100000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(100000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     hitAirPushbackX: 0, 17000
     linkParticle: s32'dky_burstatk'
     scaleForLink: 2000
     setObjectSize: 1500
     callSubroutine: s32'cmn_AtkTemplWSB'
-    attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
-    storeValue: (VARIABLE), 350, (STATIC), -80000
-    ifNot: (VARIABLE), 317
+    attackExHitParam: Val(0), 0, 0, 1, (ENEMY), Mem(319)
+    storeValue: Mem(350), Val(-80000)
+    ifNot: Mem(317)
       forceWallBreak: 1
       wallBreakLimitTime: 5
       endIf: 
     wallBlowoffType: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
-    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_AtkVectorAirGuard', Val(8), Val(0), Val(0), Val(0)
     upon: (HIT_OR_GUARD)
       finishCameraRequest: s32'Cam_Finish_DragonInstall'
-      if: (VARIABLE), 25
+      if: Mem(25)
         createObject: s32'mahojin', (ENEMY_CENTER)
         damageEffect: 1, s32''
         guardEffect: 1, s32''
         damagePercent: 110
         chipDamagePercent: 25
         clearRegisteredUponCode: (HIT_OR_GUARD)
-        storeValue: (VARIABLE), 3, (STATIC), 0
-        storeValue: (VARIABLE), 4, (STATIC), 0
+        storeValue: Mem(3), Val(0)
+        storeValue: Mem(4), Val(0)
         sendSignalToAction: s32'Taiden_Effect', 23
         endIf: 
       endUpon: 
@@ -3543,7 +3544,7 @@ beginState: s32'DragonInstall_eff'
 beginState: s32'Cam_SacredEdge'
   upon: (IMMEDIATE)
     addPositionX: 0, -18000
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1200000, (STATIC), -1350000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1200000), Val(-1350000), Val(1200000)
     moveCameraTargetCameraOnBlend: 4, 24, s32'brake'
     moveCameraBasePosOffset: 0, -120000, 0, 460000, 0, 135000, 0, 0, 0, 50, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, 82000, 0, 0, 0, 135000, 0, 0, 0, 50, 0, 0, s32'accel_brake', s32'brake'
@@ -3584,7 +3585,7 @@ beginState: s32'Cam_SacredEdge'
 
 beginState: s32'Cam_Throw'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1200000, (STATIC), 1000000, (STATIC), -1450000, (STATIC), 1120000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1200000), Val(1000000), Val(-1450000), Val(1120000)
     moveCameraTargetCameraOnBlend: 4, 32, s32'accel_brake'
     moveCameraBasePosOffset: 0, 28000, 0, 560000, 0, 135000, 0, 20, 0, 1000, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, 38000, 0, 95000, 0, 160000, 0, 20, 0, 1000, 0, 0, s32'accel_brake', s32'accel_brake'
@@ -3606,11 +3607,11 @@ beginState: s32'Cam_Throw'
     endUpon: 
   sprite: s32'null', 50
   sprite: s32'null', 25
-  storeValue: (VARIABLE), 50, (STATIC), -840000
-  storeValue: (VARIABLE), 51, (STATIC), 600000
+  storeValue: Mem(50), Val(-840000)
+  storeValue: Mem(51), Val(600000)
   moveCameraTargetPosOffset: 0, 108000, 0, 95000, 0, 135000, 0, 20, 0, 1000, 0, 0, s32'accel_brake', s32'accel_brake'
   sprite: s32'null', 22
-  ifOperationInObject: 10, (PERCENT), (VARIABLE), 77, (STATIC), 0
+  ifOperationInObject: 10, (PERCENT), Mem(77), Val(0)
     moveCameraTargetCameraOnBlend: 22, 32, s32'accel_brake'
     moveCameraTargetPosRate: 0, 1000, 0, 0, 0, 32, 0, 0, 0, 0, s32'brake', s32'brake'
     moveCameraTargetRotRate: 0, 1000, 0, 0, 0, 22, 0, 0, 0, 0, s32'brake', s32'brake'
@@ -3622,7 +3623,7 @@ beginState: s32'Cam_Throw'
 
 beginState: s32'Cam_AirThrow'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1100000, (STATIC), -1200000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1100000), Val(-1200000), Val(1200000)
     moveCameraTargetCameraOnBlend: 4, 30, s32'brake'
     moveCameraBasePosOffset: 0, -80000, 0, 460000, 0, 200000, 0, 0, 0, 100, 0, 0, s32'linear', s32'linear'
     moveCameraTargetPosOffset: 0, 160000, 0, 10000, 0, 80000, 0, 0, 0, 100, 0, 0, s32'linear', s32'linear'
@@ -3664,20 +3665,62 @@ beginState: s32'Cam_AirThrow'
   endState: 
 
 beginState: s32'Cam_Finish_SacredEdge'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(7), Val(0), Val(0), Val(0)
   endState: 
 
 beginState: s32'Cam_Finish_RTL'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(7), Val(0), Val(0), Val(0)
   addPositionX: 0, 1500000
   endState: 
 
 beginState: s32'Cam_Finish_RTL_Air'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(5), Val(0), Val(0), Val(0)
   endState: 
 
 beginState: s32'Cam_Finish_DragonInstall'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(2), Val(0), Val(0), Val(0)
+  endState: 
+
+beginState: s32'Cam_Ranbu'
+  upon: (IMMEDIATE)
+    setPosXBetweenObject: 3, 3
+    setPosYBetweenObject: 3, 3
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1400000), Val(1400000), Val(-1400000), Val(1400000)
+    moveCameraTargetCameraOnBlend: 3, 52, s32'camera_easeout'
+    moveCameraTargetPosOffset: 0, 10000, 0, -60000, 0, 105000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
+    moveCameraBasePosOffset: 0, 240000, 0, 280000, 0, 105000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
+    moveCameraTargetRotRate: 0, 0, 0, 1000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
+    moveCameraTargetPosRate: 0, 0, 0, 1000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
+    moveCameraTargetPercent: 0, 100, 0, 100, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
+    moveCameraFOV: 0, 68, 0, 32, 0, 80, 0, 0, s32'brake', s32'brake'
+    resetDOF: 1, 1
+    focalDistance: -1, 700, 0
+    focalRegion: -1, 0, 0
+    focalNearTransition: -1, 0, 0
+    focalFarTransition: -1, 500, 0
+    focalNearBlurSize: -1, 0, 0
+    focalFarBlurSize: -1, 5, 10
+    resetDiffusion: 1, 1
+    setDiffusionLuminance: -1, 1400, 40
+    setDiffusionThreshold: -1, 0, 40
+    moveCameraOrthoCurve: s32'orthoone', 0, 80, s32'orthoone'
+    ignoreSuperFreeze: 1
+    ignoreSlowdown: 1
+    endUpon: 
+  sprite: s32'null', 40
+  sprite: s32'null', 20
+  moveCameraStop: 20, s32'brake'
+  moveCameraOrthoCurve: s32'orthoone', 0, 20, s32'orthoone'
+  resetDOF: 0, 20
+  resetDiffusion: 0, 20
+  moveCameraTargetCameraOnBlend: 23, 20, s32'brake'
+  moveCameraTargetPosRate: 0, 1000, 0, 0, 0, 20, 0, 0, 0, 0, s32'brake', s32'brake'
+  moveCameraTrackUp: 0, 0, 0, 12000, 0, 0, 0, 0, 0, 20, s32'brake', s32'brake'
+  moveCameraFOV: 0, 65, 0, 20, 0, 0, 0, 0, s32'brake', s32'brake'
+  endState: 
+
+beginState: s32'Cam_Finish_Ranbu_Last'
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(9), Val(0), Val(0), Val(0)
   endState: 
 
 beginState: s32'mahojin'

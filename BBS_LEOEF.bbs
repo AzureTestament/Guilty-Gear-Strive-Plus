@@ -299,7 +299,7 @@ beginState: s32'RomanCancel_Mirage'
     swapMeshSet: s32'RomanCancel_Mirage'
     setDefaultMeshSet: s32'RomanCancel_Mirage'
     endUpon: 
-  gotoLabelIfNot: s32'air', (VARIABLE), 115
+  gotoLabelIfNot: s32'air', Mem(115)
   sprite: s32'leo350_01', 6
   sprite: s32'leo350_02', 3
   sprite: s32'leo350_03', 3
@@ -343,37 +343,37 @@ beginState: s32'615_gtbd'
   upon: (IMMEDIATE)
     checkScreenCollision: 0
     worldCollision: 0
-    storeValueFromObject: (SELF), (VARIABLE), 45, (PLAYER), (VARIABLE), 17
-    ifNot: (VARIABLE), 32
+    storeValueFromObject: (SELF), Mem(45), (PLAYER), Mem(17)
+    ifNot: Mem(32)
       setRawPositionXInBattle: -1547000
-      modifyVar: (ADD), (VARIABLE), 17, (VARIABLE), 45
+      modifyVar: (ADD), Mem(17), Mem(45)
       endIf: 
     else: 
       setRawPositionXInBattle: 1547000
-      modifyVar: (SUB), (VARIABLE), 17, (VARIABLE), 45
+      modifyVar: (SUB), Mem(17), Mem(45)
       endElse: 
     upon: (FRAME_STEP)
       calcDistance: 23, 100, 3, 100
-      ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 0, (STATIC), 10000
+      ifOperation: (IS_LESSER_OR_EQUAL), Mem(0), Val(10000)
         clearRegisteredUponCode: (FRAME_STEP)
         haltMomentum: 1
         gotoLabelRequests: s32'start'
         endIf: 
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       clearRegisteredUponCode: (FRAME_STEP)
-      ifNot: (VARIABLE), 32
+      ifNot: Mem(32)
         setRawPositionXInBattle: -1677000
-        modifyVar: (ADD), (VARIABLE), 17, (VARIABLE), 45
+        modifyVar: (ADD), Mem(17), Mem(45)
         endIf: 
       else: 
         setRawPositionXInBattle: 1677000
-        modifyVar: (SUB), (VARIABLE), 17, (VARIABLE), 45
+        modifyVar: (SUB), Mem(17), Mem(45)
         endElse: 
       upon: (FRAME_STEP)
         calcDistance: 23, 100, 3, 100
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 0, (STATIC), 153000
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(0), Val(153000)
           clearRegisteredUponCode: (FRAME_STEP)
           haltMomentum: 1
           gotoLabelRequests: s32'start'
@@ -434,7 +434,7 @@ beginState: s32'615_chair'
     linkPawnWithAnimation: s32'leo_chair', s32''
     linkObjPosition: 2
     zLine: 0, 5
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       gotoLabelRequests: s32'chair_stop'
       endUpon: 
     endUpon: 
@@ -482,9 +482,9 @@ beginState: s32'616gtbd01'
     linkPawnWithAnimation: s32'leo_gtbd', s32''
     upon: (FRAME_STEP)
       calcDistance: 3, 123, 23, 123
-      ifOperation: (IS_LESSER), (VARIABLE), 0, (STATIC), 420000
-        sendSiganl: (PLAYER), 23
-        sendSiganl: 5, 23
+      ifOperation: (IS_LESSER), Mem(0), Val(420000)
+        sendSignal: (PLAYER), (SELF)
+        sendSignal: 5, (SELF)
         physicsXImpulse: 0, 0
         gotoLabelRequests: s32'gtbd_stop'
         clearRegisteredUponCode: (FRAME_STEP)
@@ -493,7 +493,7 @@ beginState: s32'616gtbd01'
     endUpon: 
   sprite: s32'gtbd616_01_00', 1
   createObject: s32'616teawagon', (PLAYER)
-  stackObject: 5, 1
+  stackObject: 5, (PREVIOUS)
   endLabel: 
   beginLabel: s32'loop_walk'
   sprite: s32'gtbd616_01_00', 4
@@ -570,7 +570,7 @@ beginState: s32'616gtbd01'
 beginState: s32'616teawagon'
   upon: (IMMEDIATE)
     linkPawnWithAnimation: s32'leo_teawagon', s32''
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       physicsXImpulse: 0, 0
       gotoLabelRequests: s32'wagon_stop'
       endUpon: 
@@ -693,8 +693,8 @@ beginState: s32'Semuke5E_Reflect'
     ignoreSlowdown: 1
     upon: (FRAME_STEP)
       invulnForce: 0
-      ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 14, (STATIC), 400000
-        ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 15, (STATIC), 500000
+      ifOperation: (IS_LESSER_OR_EQUAL), Mem(14), Val(400000)
+        ifOperation: (IS_LESSER_OR_EQUAL), Mem(15), Val(500000)
           invulnForce: 1
           endIf: 
         endIf: 
@@ -704,7 +704,7 @@ beginState: s32'Semuke5E_Reflect'
       endUpon: 
     upon: 65
       characterSfx: s32'SE_BTL_LEO_11'
-      sendSiganl: (PLAYER), 23
+      sendSignal: (PLAYER), (SELF)
       endUpon: 
     endUpon: 
   sprite: s32'leo419_00', 2
@@ -831,8 +831,8 @@ beginState: s32'Leo210Eff'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 15
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(15)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
@@ -863,13 +863,13 @@ beginState: s32'Leo211bake'
     upon: (WALL_BREAK)
       deactivateCurrentObject: 
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       gotoLabelRequests: s32'2'
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       endUpon: 
     upon: 24
       gotoLabelRequests: s32'End'
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       clearRegisteredUponCode: 24
       endUpon: 
     endUpon: 
@@ -989,19 +989,19 @@ beginState: s32'Leo254Bake'
     reverseDisplay: 1
     linkParticle: s32'leo_254bake'
     upon: 12
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 1
+      ifOperationInObject: 9, (DIV), Mem(45), Val(1)
         linkParticle: s32'leo_254bake'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 2
+      ifOperationInObject: 9, (DIV), Mem(45), Val(2)
         linkParticle: s32'leo_254bake2'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 3
+      ifOperationInObject: 9, (DIV), Mem(45), Val(3)
         linkParticle: s32'leo_254bake3'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 4
+      ifOperationInObject: 9, (DIV), Mem(45), Val(4)
         linkParticle: s32'leo_254bake4'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 5
+      ifOperationInObject: 9, (DIV), Mem(45), Val(5)
         linkParticle: s32'leo_254bake5'
         endIf: 
       endUpon: 
@@ -1026,19 +1026,19 @@ beginState: s32'Leo254Spin'
     reverseDisplay: 1
     linkParticle: s32'leo_254spin'
     upon: 12
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 1
+      ifOperationInObject: 9, (DIV), Mem(45), Val(1)
         linkParticle: s32'leo_254spin'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 2
+      ifOperationInObject: 9, (DIV), Mem(45), Val(2)
         linkParticle: s32'leo_254spin2'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 3
+      ifOperationInObject: 9, (DIV), Mem(45), Val(3)
         linkParticle: s32'leo_254spin3'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 4
+      ifOperationInObject: 9, (DIV), Mem(45), Val(4)
         linkParticle: s32'leo_254spin4'
         endIf: 
-      ifOperationInObject: 9, (DIV), (VARIABLE), 45, (STATIC), 5
+      ifOperationInObject: 9, (DIV), Mem(45), Val(5)
         linkParticle: s32'leo_254spin'
         endIf: 
       endUpon: 
@@ -1099,18 +1099,18 @@ beginState: s32'Leo400Eff'
     addMoveForceDisableFlag: 1
     addMoveForceDisableFlag: 2
     Unknown58: 1
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 2, (STATIC), 2, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(2), Val(2), Val(0), Val(0)
+    callSubroutine: s32'cmn_countertype'
     setProjectileDurability: 1
     damage: 0, 20
     attackReflect: 1
-    projectileHitstopRecovery: 1
+    projectileHitstopClash: 1
     disableHitstopForSelf: 0
     shortHitstop: 1
     ignoreSlowdown: 1
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 2
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(2)
     callSubroutine: s32'cmn_hosei'
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 13000
@@ -1120,7 +1120,7 @@ beginState: s32'Leo400Eff'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     destroyOnPlayerEnemy: 1
     upon: (ON_DESTROY)
       clearRegisteredUponCode: (FRAME_STEP)
@@ -1128,7 +1128,7 @@ beginState: s32'Leo400Eff'
       recoveryState: 
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 105, (STATIC), 35
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(35)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'Koware'
         endIf: 
@@ -1174,9 +1174,9 @@ beginState: s32'Leo400_Shot'
     addDepth: 0, 100000
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           clearRegisteredUponCode: (BEFORE_EXIT)
@@ -1214,7 +1214,7 @@ beginState: s32'Leo400_Shot_Smoke_Link'
     setDepth: 0
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
+      if: Mem(315)
         clearRegisteredUponCode: 36
         deactivateObjectById: (SELF)
         endIf: 
@@ -1253,18 +1253,18 @@ beginState: s32'Leo401Eff'
     addMoveForceDisableFlag: 1
     addMoveForceDisableFlag: 2
     Unknown58: 1
-    callSubroutineWithArgs: s32'cmn_AtkLv2', (STATIC), 4, (STATIC), 4, (STATIC), 0, (STATIC), 0
-	callSubroutine: s32'cmn_countertype'
+    callSubroutineWithArgs: s32'cmn_AtkLv2', Val(4), Val(4), Val(0), Val(0)
+    callSubroutine: s32'cmn_countertype'
     setProjectileDurability: 1
     damage: 0, 16
     attackReflect: 1
-    projectileHitstopRecovery: 1
+    projectileHitstopClash: 1
     disableHitstopForSelf: 0
     shortHitstop: 1
     ignoreSlowdown: 1
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 4
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(4)
     callSubroutine: s32'cmn_hosei'
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 13000
@@ -1274,7 +1274,7 @@ beginState: s32'Leo401Eff'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     destroyOnPlayerEnemy: 1
     setMaxActionTime: 180
     upon: (ON_DESTROY)
@@ -1303,7 +1303,7 @@ beginState: s32'Leo401Eff'
   linkObjPosition: 0
   upon: (FRAME_STEP)
     addVelocityX: 0, 150
-    ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 7, (STATIC), 20000
+    ifOperation: (IS_GREATER_OR_EQUAL), Mem(7), Val(20000)
       clearRegisteredUponCode: (FRAME_STEP)
       gotoLabelRequests: s32'End'
       endIf: 
@@ -1341,14 +1341,14 @@ beginState: s32'Leo401_Shot'
     addDepth: 0, 100000
     ignoreSlowdown: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       setLinkObjectDestroyOnDamage: 0
       endUpon: 
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           clearRegisteredUponCode: (BEFORE_EXIT)
@@ -1410,8 +1410,8 @@ beginState: s32'Leo402Eff'
     setLinkObjectDestroyOnDamage: 2
     flipDirection: 
     ignoreSlowdown: 1
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       ignoreFinishStop: 1
       endUpon: 
     callSubroutine: s32'cmn_Effect_NoLink'
@@ -1449,7 +1449,7 @@ beginState: s32'Leo403Eff'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       linkObjectAngle: 3
-      ifNot: (VARIABLE), 115
+      ifNot: Mem(115)
         zLine: 0, 5
         endIf: 
       endUpon: 
@@ -1498,8 +1498,8 @@ beginState: s32'Leo404slashEff'
       clearRegisteredUponCode: (WALL_BREAK)
       zLine: 0, 5
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
@@ -1527,8 +1527,8 @@ beginState: s32'Leo404sparkle'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
@@ -1579,8 +1579,8 @@ beginState: s32'Leo405slashEff'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
@@ -1595,7 +1595,7 @@ beginState: s32'Leo405slashEff'
   characterSfx: s32'SE_BTL_LEO_06'
   sprite: s32'null', 3
   linkParticle: s32'leo_405slash01'
-  ifNot: (VARIABLE), 45
+  ifNot: Mem(45)
     createObject: s32'Leo405sparkle02', (PLAYER)
     endIf: 
   sprite: s32'null', 60
@@ -1611,8 +1611,8 @@ beginState: s32'Leo405sparkle01'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
@@ -1634,8 +1634,8 @@ beginState: s32'Leo405sparkle02'
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
@@ -1663,7 +1663,7 @@ beginState: s32'Leo406Eff'
       linkObjPosition: 3
       stopLinkObject: 0
       ignoreSuperFreeze: 1
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       endUpon: 
     endUpon: 
   sprite: s32'null', 7
@@ -1671,7 +1671,7 @@ beginState: s32'Leo406Eff'
   characterSfx: s32'SE_BTL_LEO_19'
   sprite: s32'null', 42
   linkParticle: s32'leo_406_pillar02'
-  ifNot: (VARIABLE), 45
+  ifNot: Mem(45)
     linkObjPosition: 0
     endIf: 
   setLinkObjectDestroyOnStateChange: 0
@@ -1690,7 +1690,7 @@ beginState: s32'Leo406Eff_re'
       linkObjPosition: 3
       stopLinkObject: 0
       ignoreSuperFreeze: 1
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       ignoreFinishStop: 1
       endUpon: 
     endUpon: 
@@ -1700,7 +1700,7 @@ beginState: s32'Leo406Eff_re'
   sprite: s32'null', 4
   linkParticle: s32'leo_406_pillar03'
   createObject: s32'Leo406Dust', (PLAYER)
-  ifNot: (VARIABLE), 45
+  ifNot: Mem(45)
     linkObjPosition: 0
     endIf: 
   sprite: s32'null', 42
@@ -1720,7 +1720,7 @@ beginState: s32'Leo406Dust'
       linkObjPosition: 3
       stopLinkObject: 0
       ignoreSuperFreeze: 1
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       endUpon: 
     endUpon: 
   sprite: s32'null', 60
@@ -1734,7 +1734,7 @@ beginState: s32'Leo406Ground'
     stopLinkObject: 3
     ignoreSlowdown: 1
     upon: (FRAME_STEP)
-      ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 8
+      ifOperation: (IS_EQUAL), Mem(13), Val(8)
         clearRegisteredUponCode: (FRAME_STEP)
         linkObjPosition: 0
         endIf: 
@@ -1745,7 +1745,7 @@ beginState: s32'Leo406Ground'
       stopLinkObject: 0
       ignoreSuperFreezeFromAlly: 1
       ignoreFinishStop: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         stackObjectEx: (SELF), 12, 3, 12
         linkObjPosition: 12
         linkObjectAngle: 12
@@ -1771,7 +1771,7 @@ beginState: s32'Leo406Light'
     stopLinkObject: 3
     ignoreSlowdown: 1
     upon: (FRAME_STEP)
-      ifOperation: (IS_EQUAL), (VARIABLE), 13, (STATIC), 8
+      ifOperation: (IS_EQUAL), Mem(13), Val(8)
         clearRegisteredUponCode: (FRAME_STEP)
         linkObjPosition: 0
         endIf: 
@@ -1898,14 +1898,14 @@ beginState: s32'Leo418SlashEff'
       clearRegisteredUponCode: (WALL_BREAK)
       zLine: 0, 5
       upon: 12
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 12
           ignoreSuperFreezeFromAlly: 1
           stopLinkObject: 0
           endIf: 
         endUpon: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         endIf: 
       endUpon: 
@@ -1946,9 +1946,9 @@ beginState: s32'Leo419Eff'
     addPositionY: 0, -50000
     ignoreSlowdown: 1
     ignoreSuperFreeze: 1
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       gotoLabelRequests: s32'Success'
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       endUpon: 
     upon: 24
       clearRegisteredUponCode: 24
@@ -2010,16 +2010,16 @@ beginState: s32'Leo420Eff'
         upon: (WALL_BREAK)
           linkObjectAngle: 3
           upon: 12
-            modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-            ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+            modifyVar: (ADD), Mem(45), Val(1)
+            ifOperation: (IS_EQUAL), Mem(45), Val(5)
               clearRegisteredUponCode: 12
               ignoreSuperFreezeFromAlly: 1
               stopLinkObject: 0
               ignoreFinishStop: 1
               endIf: 
             endUpon: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
-            ifNot: (VARIABLE), 317
+          ifOperation: (IS_EQUAL), Mem(322), Val(3)
+            ifNot: Mem(317)
               linkObjPosition: 3
               linkObjectAngle: 3
               endIf: 
@@ -2071,17 +2071,17 @@ beginState: s32'Leo420Eff'
       upon: (IMMEDIATE)
         overdriveAttack: 
         callSubroutine: s32'cmn_AtkLv4'
-		callSubroutine: s32'cmn_countertype'
+        callSubroutine: s32'cmn_countertype'
         setProjectileDurability: 5
         damage: 0, 170
         tensionGainOnConnect: 0
         hitSoftKnockdown: 0
         attackReflect: 0
         callSubroutine: s32'cmnCutScene_ObjHide'
-        storeValue: (VARIABLE), 338, (STATIC), 1000000000
-        storeValue: (VARIABLE), 339, (STATIC), 0
-        storeValue: (VARIABLE), 340, (STATIC), 1
-        callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+        storeValue: Mem(338), Val(1000000000)
+        storeValue: Mem(339), Val(0)
+        storeValue: Mem(340), Val(1)
+        callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
         groundHitEffect: (AIR_FACE_UP)
         hitAirPushbackX: 0, 60000
         hitAirPushbackY: 0, -20000
@@ -2089,7 +2089,7 @@ beginState: s32'Leo420Eff'
         groundBounceYVelocity: 10000
         callSubroutine: s32'cmnNohosei_kakusei'
         callSubroutine: s32'cmn_AtkTemplWSB'
-        attackExHitParam: (STATIC), 0, 0, 0, 1, (ENEMY), (VARIABLE), 319
+        attackExHitParam: Val(0), 0, 0, 1, (ENEMY), Mem(319)
         forceWallBreak: 1
         wallBreakLimitTime: 5
         wallBlowoffType: 1
@@ -2138,7 +2138,7 @@ beginState: s32'Leo420Eff'
           ignoreFinishStop: 1
           linkParticle: s32'leo_500_shot_end'
           gotoLabelRequests: s32'end'
-          ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+          ifOperation: (IS_EQUAL), Mem(322), Val(3)
             linkObjPosition: 3
             linkObjectAngle: 3
             endIf: 
@@ -2176,7 +2176,7 @@ beginState: s32'Leo420Eff'
         linkObjectZ: 3
         flipDirection: 
         upon: 12
-          ifTrueInObject: (ENEMY), (VARIABLE), 77
+          ifTrueInObject: (ENEMY), Mem(77)
             clearRegisteredUponCode: 12
             stopLinkObject: 0
             ignoreFinishStop: 1
@@ -2188,8 +2188,8 @@ beginState: s32'Leo420Eff'
           stopLinkObject: 0
           ignoreSuperFreeze: 1
           endUpon: 
-        upon: (ON_HIT_OR_BLOCK)
-          clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+        upon: 23
+          clearRegisteredUponCode: 23
           spriteTimeAdd: 12
           endUpon: 
         upon: 24
@@ -2308,7 +2308,7 @@ beginState: s32'Leo420Eff'
           clearRegisteredUponCode: (WALL_BREAK)
           linkObjPosition: 3
           zLine: 0, 5
-          ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+          ifOperation: (IS_EQUAL), Mem(322), Val(3)
             linkObjPosition: 3
             linkObjectAngle: 3
             endIf: 
@@ -2330,7 +2330,7 @@ beginState: s32'Leo420Eff'
           clearRegisteredUponCode: (WALL_BREAK)
           linkObjPosition: 3
           zLine: 0, 5
-          ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+          ifOperation: (IS_EQUAL), Mem(322), Val(3)
             linkObjPosition: 3
             linkObjectAngle: 3
             endIf: 
@@ -2393,7 +2393,7 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_Throw'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1000000, (STATIC), -1500000, (STATIC), 1200000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1000000), Val(-1500000), Val(1200000)
         moveCameraTargetCameraOnBlend: 4, 54, s32'accel_brake'
         moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
         moveCameraTargetRotRate: 0, 1000, 0, 1000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
@@ -2416,7 +2416,7 @@ beginState: s32'Leo420Eff'
       sprite: s32'null', 24
       moveCameraTargetPosOffset: 0, 98000, 0, 60000, 0, 125000, 0, 32, 0, 100, 0, 0, s32'accel_brake', s32'brake'
       sprite: s32'null', 24
-      callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_motionblur', Val(7), Val(0), Val(0), Val(0)
       sprite: s32'null', 12
       moveCameraTargetPosOffset: 0, 168000, 0, 0, 0, 135000, 0, 30, 0, 0, 0, 0, s32'brake', s32'brake'
       moveCameraTargetRotRate: 0, 1000, 0, 0, 0, 30, 0, 0, 0, 0, s32'brake', s32'brake'
@@ -2429,7 +2429,7 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_AirThrow'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1500000, (STATIC), -1500000, (STATIC), 1500000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1500000), Val(-1500000), Val(1500000)
         moveCameraTargetCameraOnBlend: 4, 32, s32'accel_brake'
         moveCameraTargetPosOffset: 0, 80000, 0, 60000, 0, 175000, 0, 0, 0, 120, 0, 0, s32'accel_brake', s32'accel_brake'
         moveCameraBasePosOffset: 0, 56000, 0, 400000, 0, 105000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
@@ -2466,7 +2466,7 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_GlaenzenDunkel'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 950000, (STATIC), -1500000, (STATIC), 950000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(950000), Val(-1500000), Val(950000)
         moveCameraTargetCameraOnBlend: 3, 80, s32'accel_brake'
         moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 55000, 0, 0, 0, 232, 0, 0, s32'accel_brake', s32'linear'
         moveCameraTargetRotRate: 0, 1000, 0, 1000, 0, 0, 0, 232, 0, 0, s32'accel_brake', s32'linear'
@@ -2511,7 +2511,7 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_Semuke5E'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1500000, (STATIC), -1500000, (STATIC), 1500000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1500000), Val(-1500000), Val(1500000)
         moveCameraTargetCameraOnBlend: 23, 36, s32'accel_brake'
         moveCameraBasePosOffset: 0, 0, 0, 320000, 0, 95000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
         moveCameraTargetRotRate: 0, 0, 0, 800, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
@@ -2556,7 +2556,7 @@ beginState: s32'Leo420Eff'
       endSubroutine: 
     beginState: s32'Cam_LeidenschaftDirigent_Start'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1500000, (STATIC), -1500000, (STATIC), 1500000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1500000), Val(-1500000), Val(1500000)
         moveCameraTargetCameraOnBlend: 4, 16, s32'brake'
         moveCameraBasePosOffset: 0, 60000, 0, 460000, 0, 105000, 0, 0, 0, 50, 0, 0, s32'accel_brake', s32'linear'
         moveCameraTargetPosOffset: 0, 60000, 0, 0, 0, 115000, 0, 0, 0, 50, 0, 0, s32'accel_brake', s32'brake'
@@ -2591,17 +2591,17 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_LeidenschaftDirigent_Stay'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1600000, (STATIC), 1600000, (STATIC), -1600000, (STATIC), 1600000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1600000), Val(1600000), Val(-1600000), Val(1600000)
         moveCameraTargetCameraOnBlend: 3, 36, s32'accel_brake'
         moveCameraTargetPosRate: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraTargetRotRate: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraTargetPercent: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraSplinePosRate: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraOrthoCurve: s32'orthoone', 0, 0, s32'orthoone'
-        storeValue: (VARIABLE), 54, (STATIC), 0
+        storeValue: Mem(54), Val(0)
         ignoreSuperFreeze: 1
         ignoreFinishStop: 1
-        storeValueFromObject: (SELF), (VARIABLE), 54, (PARENT), (VARIABLE), 52
+        storeValueFromObject: (SELF), Mem(54), (PARENT), Mem(52)
         moveCameraTargetCameraOnBlend: 3, 36, s32'accel_brake'
         moveCameraTargetPosOffset: 0, 30000, 0, -30000, 0, 85000, 0, 0, 0, 400, 0, 0, s32'linear', s32'brake'
         moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
@@ -2611,29 +2611,29 @@ beginState: s32'Leo420Eff'
         moveCameraTargetRotRoll: 0, 0, 0, 6000, 0, 36, 0, 400, 0, 36, s32'accel_brake', s32'brake'
         moveCameraFOV: 0, 82, 0, 36, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraSplinePosRate: 0, 0, 0, 800, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
-        ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 1
+        ifOperation: (IS_EQUAL), Mem(54), Val(1)
           moveCameraSpline: s32'leo_gorengeki_stay', 0, 0, 0, 1000, 0, 160, s32'accel_brake'
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 2
+        ifOperation: (IS_EQUAL), Mem(54), Val(2)
           moveCameraSpline: s32'leo_gorengeki_stay', 0, 320, 0, 1000, 0, 135, s32'accel_brake'
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 3
+        ifOperation: (IS_EQUAL), Mem(54), Val(3)
           moveCameraSpline: s32'leo_gorengeki_stay', 0, 368, 0, 1000, 0, 110, s32'accel_brake'
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 4
+        ifOperation: (IS_EQUAL), Mem(54), Val(4)
           moveCameraSpline: s32'leo_gorengeki_stay', 0, 368, 0, 1000, 0, 92, s32'accel_brake'
           endIf: 
         moveCameraOrthoCurve: s32'orthozero', 0, 0, s32'orthoone'
-        ifOperation: (IS_LESSER), (VARIABLE), 54, (STATIC), 4
+        ifOperation: (IS_LESSER), Mem(54), Val(4)
           gotoLabelRequests: s32'extend'
           endIf: 
-        ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 4
+        ifOperation: (IS_EQUAL), Mem(54), Val(4)
           gotoLabelRequests: s32'extend2'
           moveCameraTargetPosOffset: 0, 40000, 0, -10000, 0, 140000, 0, 36, 0, 220, 0, 0, s32'linear', s32'brake'
           moveCameraTargetRotRoll: 0, 0, 0, -4000, 0, 36, 0, 200, 0, 36, s32'accel_brake', s32'brake'
           clearRegisteredUponCode: 31
           endIf: 
-        if: (VARIABLE), 352
+        if: Mem(352)
           moveCameraTargetCameraOnBlend: 3, 48, s32'brake'
           gotoLabelRequests: s32'extend2'
           endIf: 
@@ -2670,17 +2670,17 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_LeidenschaftDirigent_StayFi'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1600000, (STATIC), 1600000, (STATIC), -1600000, (STATIC), 1600000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1600000), Val(1600000), Val(-1600000), Val(1600000)
         moveCameraTargetCameraOnBlend: 3, 36, s32'accel_brake'
         moveCameraTargetPosRate: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraTargetRotRate: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraTargetPercent: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraSplinePosRate: 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraOrthoCurve: s32'orthoone', 0, 0, s32'orthoone'
-        storeValue: (VARIABLE), 54, (STATIC), 0
+        storeValue: Mem(54), Val(0)
         ignoreSuperFreeze: 1
         ignoreFinishStop: 1
-        storeValueFromObject: (SELF), (VARIABLE), 54, (PARENT), (VARIABLE), 52
+        storeValueFromObject: (SELF), Mem(54), (PARENT), Mem(52)
         moveCameraTargetCameraOnBlend: 3, 36, s32'accel_brake'
         moveCameraTargetPosOffset: 0, 30000, 0, -30000, 0, 85000, 0, 0, 0, 400, 0, 0, s32'linear', s32'brake'
         moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
@@ -2690,21 +2690,21 @@ beginState: s32'Leo420Eff'
         moveCameraTargetRotRoll: 0, 0, 0, 6000, 0, 36, 0, 400, 0, 36, s32'accel_brake', s32'brake'
         moveCameraFOV: 0, 82, 0, 36, 0, 400, 0, 0, s32'accel_brake', s32'brake'
         moveCameraSplinePosRate: 0, 0, 0, 800, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
-        ifNot: (VARIABLE), 16
+        ifNot: Mem(16)
           gotoLabelRequests: s32'finish'
-          ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 1
+          ifOperation: (IS_EQUAL), Mem(54), Val(1)
             moveCameraSpline: s32'leo_gorengeki_stay', 0, 0, 0, 1000, 0, 330, s32'accel_brake'
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 2
+          ifOperation: (IS_EQUAL), Mem(54), Val(2)
             moveCameraSpline: s32'leo_gorengeki_stay', 0, 320, 0, 1000, 0, 305, s32'accel_brake'
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 3
+          ifOperation: (IS_EQUAL), Mem(54), Val(3)
             moveCameraSpline: s32'leo_gorengeki_stay', 0, 368, 0, 1000, 0, 280, s32'accel_brake'
             endIf: 
-          ifOperation: (IS_EQUAL), (VARIABLE), 54, (STATIC), 4
+          ifOperation: (IS_EQUAL), Mem(54), Val(4)
             moveCameraSpline: s32'leo_gorengeki_stay', 0, 368, 0, 1000, 0, 262, s32'accel_brake'
             endIf: 
-          storeValue: (VARIABLE), 46, (STATIC), 1
+          storeValue: Mem(46), Val(1)
           endIf: 
         linkObjPosition: 3
         endUpon: 
@@ -2724,7 +2724,7 @@ beginState: s32'Leo420Eff'
       beginLabel: s32'finish'
       sprite: s32'null', 1
       sprite: s32'null', 133
-      ifOperationInObject: (WINNER), (DIV), (VARIABLE), 47, (STATIC), 1
+      ifOperationInObject: (WINNER), (DIV), Mem(47), Val(1)
         createObject: s32'cmn_FinishCamera_Screen_Effect', (PLAYER)
         endIf: 
       sprite: s32'null', 32
@@ -2745,7 +2745,7 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_LeidenschaftDirigentLast'
       upon: (IMMEDIATE)
-        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1500000, (STATIC), -1500000, (STATIC), 1500000
+        callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1500000), Val(-1500000), Val(1500000)
         moveCameraTargetCameraOnBlend: 3, 12, s32'accel_brake'
         moveCameraBasePosOffset: 0, 40000, 0, 350000, 0, 135000, 0, 0, 0, 300, 0, 0, s32'accel_brake', s32'brake'
         moveCameraTargetPosOffset: 0, 40000, 0, 0, 0, 135000, 0, 0, 0, 300, 0, 0, s32'accel_brake', s32'brake'
@@ -2782,8 +2782,8 @@ beginState: s32'Leo420Eff'
       endState: 
     beginState: s32'Cam_LeidenschaftDirigentLastFin'
       upon: (IMMEDIATE)
-        ifNot: (VARIABLE), 315
-          callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1500000, (STATIC), -1500000, (STATIC), 1500000
+        ifNot: Mem(315)
+          callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1500000), Val(-1500000), Val(1500000)
           moveCameraTargetCameraOnBlend: 23, 12, s32'accel_brake'
           ignoreSuperFreeze: 1
           ignoreFinishStop: 1
@@ -2795,7 +2795,7 @@ beginState: s32'Leo420Eff'
       sprite: s32'null', 3
       sprite: s32'null', 1
       upon: 56
-        warp: (PLAYER), 125, (STATIC), (STATIC), (STATIC), 0, 0, 8
+        warp: (PLAYER), (FRONT_1_BODY), Val(0), Val(0), Val(8)
         endUpon: 
       resetDOF: 1, 1
       focalDistance: -1, 1500, 0
@@ -2827,7 +2827,7 @@ beginState: s32'Leo420Eff'
       runOnObject: 4
         setPosXBetweenObject: 3, 22
         endRunOnObject: 
-      warp: 4, 100, (STATIC), (STATIC), (STATIC), 0, 0, 4
+      warp: 4, (PLAYER), Val(0), Val(0), Val(4)
       moveCameraTargetPosOffset: 0, 0, 0, 0, 0, 135000, 0, 4, 0, 0, 0, 0, s32'linear', s32'linear'
       moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 4, 0, 0, 0, 0, s32'linear', s32'linear'
       moveCameraTargetRotRoll: 0, 0, 0, 1000, 0, 0, 0, 0, 0, 10, s32'linear', s32'linear'
@@ -2847,16 +2847,16 @@ beginState: s32'Leo420Eff'
       hideUI: 0
       endState: 
     beginState: s32'Cam_Finish_LeidenStay'
-      callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(2), Val(0), Val(0), Val(0)
       endState: 
     beginState: s32'Cam_Finish_LeidenLast'
-      callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(2), Val(0), Val(0), Val(0)
       setAngleX: -20000
       setAngleY: 16000
       setDepth: -600000
       endState: 
     beginState: s32'Cam_Finish_Stah'
-      callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 7, (STATIC), 0, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(7), Val(0), Val(0), Val(0)
       endState: 
     beginState: s32'CS500_scr01'
       upon: (IMMEDIATE)
@@ -2899,8 +2899,8 @@ beginState: s32'Leo420Eff'
         setAngleX: 356800
         setAngleY: 358800
         setAngle: 800
-        upon: (ON_HIT_OR_BLOCK)
-          clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+        upon: 23
+          clearRegisteredUponCode: 23
           deactivateObjectById: (SELF)
           endUpon: 
         endUpon: 
@@ -2931,31 +2931,31 @@ beginState: s32'Leo420Eff'
       upon: (IMMEDIATE)
         callSubroutine: s32'gtbd800cs'
         playAnimation: s32'gtbd800cs_03', 0
-        upon: (ON_HIT_OR_BLOCK)
-          clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+        upon: 23
+          clearRegisteredUponCode: 23
           checkEnemyPhysique: 0
-          if: (VARIABLE), 0
+          if: Mem(0)
             addDepth: 0, -30000
             runOnObject: (ENEMY)
               addDepth: 0, -15000
               endRunOnObject: 
             endIf: 
           checkEnemyPhysique: 1
-          if: (VARIABLE), 0
+          if: Mem(0)
             addDepth: 0, -60000
             runOnObject: (ENEMY)
               addDepth: 0, -30000
               endRunOnObject: 
             endIf: 
           checkEnemyPhysique: 2
-          if: (VARIABLE), 0
+          if: Mem(0)
             addDepth: 0, -90000
             runOnObject: (ENEMY)
               addDepth: 0, -45000
               endRunOnObject: 
             endIf: 
           checkEnemyPhysique: 3
-          if: (VARIABLE), 0
+          if: Mem(0)
             addDepth: 0, -120000
             runOnObject: (ENEMY)
               addDepth: 0, -60000
