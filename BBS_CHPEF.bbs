@@ -304,7 +304,7 @@ beginState: s32'RomanCancel_Mirage'
     swapMeshSet: s32'RomanCancel_Mirage'
     setDefaultMeshSet: s32'RomanCancel_Mirage'
     endUpon: 
-  gotoLabelIfNot: s32'air', (VARIABLE), 115
+  gotoLabelIfNot: s32'air', Mem(115)
   sprite: s32'chp350_01', 6
   sprite: s32'chp350_02', 3
   sprite: s32'chp350_03', 3
@@ -488,7 +488,7 @@ beginState: s32'201atk1_wall'
     addPositionX: 0, -97842
     addPositionY: 0, 210000
     addDepth: 0, -4530
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 20
@@ -504,7 +504,7 @@ beginState: s32'201atk2_wall'
     addPositionX: 0, -97842
     addPositionY: 0, 210000
     addDepth: 0, -4530
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 2
@@ -525,9 +525,9 @@ beginState: s32'202atk'
     setAngle: 3200
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 15
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(15)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -550,7 +550,7 @@ beginState: s32'202atk_wall'
     addPositionY: 0, 280000
     addDepth: 0, 52986
     flipDirection: 
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 50
@@ -581,7 +581,7 @@ beginState: s32'203atk_wall'
     addPositionX: 0, -77940
     addPositionY: 0, 195000
     addDepth: 0, -45000
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 50
@@ -594,7 +594,7 @@ beginState: s32'204atk1'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'chp_204atk01'
     reverseDisplay: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 20
@@ -607,7 +607,7 @@ beginState: s32'204atk2'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'chp_204atk02'
     reverseDisplay: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 1
@@ -652,7 +652,7 @@ beginState: s32'210atk1_wall'
     addPositionX: 0, -84620
     addPositionY: 0, 215000
     addDepth: 0, 6568
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 20
@@ -668,7 +668,7 @@ beginState: s32'210atk2_wall'
     addPositionX: 0, -84620
     addPositionY: 0, 215000
     addDepth: 0, 6568
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 20
@@ -703,7 +703,7 @@ beginState: s32'213atk_wall'
     setAngle: 349600
     ignoreSuperFreezeFromAlly: 1
     ignoreFinishStop: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     ignoreSlowdown: 1
     endUpon: 
   sprite: s32'null', 20
@@ -734,7 +734,7 @@ beginState: s32'232atk'
     upon: (WALL_BREAK)
       stopLinkObject: 0
       ignoreSuperFreezeFromAlly: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -934,13 +934,13 @@ beginState: s32'Rakko_tatumaki'
       linkObjectAngle: 3
       ignoreSuperFreeze: 1
       ignoreFinishStop: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       linkObjPosition: 3
       upon: 24
         clearRegisteredUponCode: 24
@@ -957,7 +957,7 @@ beginState: s32'Rakko_tornado'
     setLinkObjectDestroyOnStateChange: 3
     flipDirection: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 11
+      ifOperation: (IS_EQUAL), Mem(105), Val(11)
         clearRegisteredUponCode: (FRAME_STEP)
         setLinkObjectDestroyOnStateChange: 0
         endIf: 
@@ -967,7 +967,7 @@ beginState: s32'Rakko_tornado'
     upon: (WALL_BREAK)
       zLine: 0, 5
       linkObjectAngle: 3
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -1009,13 +1009,13 @@ beginState: s32'chp_rakko_tornado'
     callSubroutine: s32'cmn_Effect_NoLink'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     upon: (FRAME_STEP)
-      ifOperation: (IS_EQUAL), (VARIABLE), 105, (STATIC), 11
+      ifOperation: (IS_EQUAL), Mem(105), Val(11)
         clearRegisteredUponCode: (FRAME_STEP)
         setLinkObjectDestroyOnStateChange: 0
         endIf: 
       endUpon: 
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 2
   sprite: s32'null', 52
@@ -1044,8 +1044,8 @@ beginState: s32'chp205_rakko'
       zLine: 0, 5
       linkObjectAngle: 3
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       linkObjPosition: 3
       upon: 24
         clearRegisteredUponCode: 24
@@ -1111,7 +1111,7 @@ beginState: s32'Gamma_fin'
     addPositionX: 0, -154969
     addPositionY: 0, 185000
     addDepth: 0, -34993
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 80
   endState: 
@@ -1227,9 +1227,9 @@ beginState: s32'bataZanzo01'
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticle: s32'chp_b_blade'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1255,9 +1255,9 @@ beginState: s32'bataZanzo01_sub'
     addPositionY: 0, -80000
     addDepth: 0, 0
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1298,7 +1298,7 @@ beginState: s32'Genrou_bake'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'chp_408zanzo'
     flipDirection: 
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 40
   endState: 
@@ -1308,7 +1308,7 @@ beginState: s32'GenrouLeaf'
     setLinkObjectDestroyOnStateChange: 3
     linkObjPosition: 3
     addPositionY: 0, 200000
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       gotoLabelRequests: s32'end'
       endUpon: 
     endUpon: 
@@ -1324,7 +1324,7 @@ beginState: s32'GenrouMomiji'
     setLinkObjectDestroyOnStateChange: 3
     linkObjPosition: 3
     addPositionY: 0, 200000
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       gotoLabelRequests: s32'end'
       endUpon: 
     endUpon: 
@@ -1344,9 +1344,9 @@ beginState: s32'SukiyakiZanzo'
     callSubroutine: s32'cmn_Effect_NoLink'
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1365,7 +1365,7 @@ beginState: s32'BanzaiZanzo'
     linkObjPosition: 3
     linkParticle: s32'chp_sensyu'
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     ignoreSlowdown: 1
     endUpon: 
@@ -1395,10 +1395,10 @@ beginState: s32'SushiTail'
     setObjectSize: 1400
     ignoreSlowdown: 1
     upon: 12
-      ifNotInObject: (ENEMY), (VARIABLE), 77
-        ifNot: (VARIABLE), 16
+      ifNotInObject: (ENEMY), Mem(77)
+        ifNot: Mem(16)
           checkCurrentStateName: (PLAYER), s32'Sukiyaki'
-          if: (VARIABLE), 0
+          if: Mem(0)
             ignoreFinishStop: 1
             clearRegisteredUponCode: 12
             endIf: 
@@ -1408,9 +1408,9 @@ beginState: s32'SushiTail'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     callSubroutine: s32'cmn_Effect_NoLink'
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1434,7 +1434,7 @@ beginState: s32'Alpha_zanzo_400'
     ignoreFinishStop: 1
     upon: (WALL_BREAK)
       ignoreSuperFreezeFromAlly: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -1457,7 +1457,7 @@ beginState: s32'Alpha_zanzo_401'
     ignoreFinishStop: 1
     upon: (WALL_BREAK)
       ignoreSuperFreezeFromAlly: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -1475,7 +1475,7 @@ beginState: s32'Alpha_zanzo_402'
     ignoreFinishStop: 1
     upon: (WALL_BREAK)
       ignoreSuperFreezeFromAlly: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -1499,7 +1499,7 @@ beginState: s32'Alpha_zanzo_403'
     ignoreFinishStop: 1
     upon: (WALL_BREAK)
       ignoreSuperFreezeFromAlly: 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 322, (STATIC), 3
+      ifOperation: (IS_EQUAL), Mem(322), Val(3)
         linkObjPosition: 3
         linkObjectAngle: 3
         endIf: 
@@ -1531,17 +1531,17 @@ beginState: s32'AlphaBradeHit'
     ignoreFinishStop: 1
     ignoreSlowdown: 1
     checkCurrentStateName: (PLAYER), s32'AlphaBlade'
-    if: (VARIABLE), 0
+    if: Mem(0)
       setAngle: 42000
       addPositionY: 0, 50000
       endIf: 
     checkCurrentStateName: (PLAYER), s32'AirAlphaBlade'
-    if: (VARIABLE), 0
+    if: Mem(0)
       setAngle: -42000
       addPositionX: 0, -220000
       endIf: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       addPositionY: 0, 140000
       endUpon: 
     upon: 24
@@ -1552,7 +1552,7 @@ beginState: s32'AlphaBradeHit'
       clearRegisteredUponCode: 25
       addPositionX: 0, -300000
       addPositionY: 0, 500000
-      storeValue: (VARIABLE), 5, (STATIC), 1
+      storeValue: Mem(5), Val(1)
       endUpon: 
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
@@ -1560,11 +1560,11 @@ beginState: s32'AlphaBradeHit'
       moveToPosType: 22, 103
       endUpon: 
     endUpon: 
-  gotoIfOperation: s32'AlphaBladeref', (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
-  gotoIfOperation: s32'AlphaBlade_yoko', (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-  gotoIfOperation: s32'AirAlphaBlade', (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
-  gotoIfOperation: s32'AirAlphaBladeref', (IS_EQUAL), (VARIABLE), 115, (STATIC), 4
-  gotoIfOperation: s32'AirAlphaBlade_yoko', (IS_EQUAL), (VARIABLE), 115, (STATIC), 5
+  gotoIfOperation: s32'AlphaBladeref', (IS_EQUAL), Mem(115), Val(1)
+  gotoIfOperation: s32'AlphaBlade_yoko', (IS_EQUAL), Mem(115), Val(2)
+  gotoIfOperation: s32'AirAlphaBlade', (IS_EQUAL), Mem(115), Val(3)
+  gotoIfOperation: s32'AirAlphaBladeref', (IS_EQUAL), Mem(115), Val(4)
+  gotoIfOperation: s32'AirAlphaBlade_yoko', (IS_EQUAL), Mem(115), Val(5)
   beginLabel: s32'AlphaBlade'
   sprite: s32'null', 9
   setLinkObjectDestroyOnStateChange: 3
@@ -1600,8 +1600,8 @@ beginState: s32'AlphaBradeHit'
   beginLabel: s32'AirAlphaBladeref'
   sprite: s32'null', 4
   setLinkObjectDestroyOnStateChange: 3
-  ifNot: (VARIABLE), 5
-    ifOperationInObject: (WINNER), (DIV), (VARIABLE), 18, (STATIC), 0
+  ifNot: Mem(5)
+    ifOperationInObject: (WINNER), (DIV), Mem(18), Val(0)
       moveToPosType: 3, 100
       endIf: 
     endIf: 
@@ -1625,7 +1625,7 @@ beginState: s32'AlphaBradeHit_ref'
     ignoreSlowdown: 1
     setAngle: -42000
     addPositionX: 0, -120000
-    ifOperationInObject: (WINNER), (DIV), (VARIABLE), 18, (STATIC), 0
+    ifOperationInObject: (WINNER), (DIV), Mem(18), Val(0)
       moveToPosType: 3, 100
       endIf: 
     upon: (WALL_BREAK)
@@ -1645,7 +1645,7 @@ beginState: s32'Alpha_naname'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv1'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 36
     setProjectileDurability: 0
     disableHitstopForSelf: 1
@@ -1655,11 +1655,11 @@ beginState: s32'Alpha_naname'
     attackFrontDirection: 0
     hitEffectSlash: 1
     attackReflect: 0
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(101)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(2), Val(0), Val(0), Val(0)
     wallBlowoffType: 2
     addPositionY: 0, 150000
     addPositionX: 0, 50000
@@ -1668,15 +1668,15 @@ beginState: s32'Alpha_naname'
     stopLinkObject: 0
     setLinkObjectDestroyOnDamage: 3
     ignoreSlowdown: 1
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       setAngle: -45000
       addPositionY: 0, 350000
       addPositionX: 0, -300000
       atkAngle: -135
-      storeValue: (VARIABLE), 338, (STATIC), 10001
-      storeValue: (VARIABLE), 339, (STATIC), 0
-      storeValue: (VARIABLE), 340, (STATIC), 1
+      storeValue: Mem(338), Val(10001)
+      storeValue: Mem(339), Val(0)
+      storeValue: Mem(340), Val(1)
       callSubroutine: s32'cmn_hosei'
       attackRange: 300000, -1500000, -1, -1
       callSubroutine: s32'cmn_fuwafuwafuwa'
@@ -1685,7 +1685,7 @@ beginState: s32'Alpha_naname'
       hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
       hitAirPushbackY: 0, -100000
       hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
-      hitGravity: (STATIC), 0
+      hitGravity: Val(0)
       hitGravityOverTime: 0, 100, 0, 8, 0, 30
       groundBounceYVelocityPercent: 100
       groundBounceYVelocity: 8000
@@ -1697,9 +1697,9 @@ beginState: s32'Alpha_naname'
     upon: 24
       clearRegisteredUponCode: 24
       attackRange: 300000, -1500000, -1, -1
-      storeValue: (VARIABLE), 338, (STATIC), 10001
-      storeValue: (VARIABLE), 339, (STATIC), 0
-      storeValue: (VARIABLE), 340, (STATIC), 1
+      storeValue: Mem(338), Val(10001)
+      storeValue: Mem(339), Val(0)
+      storeValue: Mem(340), Val(1)
       callSubroutine: s32'cmn_hosei'
       callSubroutine: s32'cmn_fuwafuwafuwa'
       groundHitEffect: (KIRIMOMI)
@@ -1708,7 +1708,7 @@ beginState: s32'Alpha_naname'
       hitAirPushbackXOverTime: 0, 70, 0, 6, 0, 11
       hitAirPushbackY: 0, 60000
       hitAirPushbackYOverTime: 0, 80, 0, 5, 0, 12
-      hitGravity: (STATIC), 1000
+      hitGravity: Val(1000)
       hitGravityOverTime: 0, 300, 0, 15, 0, 25
       groundBounceCount: 0
       Unknown1005: 90
@@ -1716,7 +1716,7 @@ beginState: s32'Alpha_naname'
       upon: 62
         hitAirPushbackX: 0, 20000
         hitAirPushbackY: 0, 40000
-        hitGravity: (STATIC), 1500
+        hitGravity: Val(1500)
         hitGravityOverTime: 0, 300, 0, 5, 0, 25
         endUpon: 
       addPositionY: 0, 50000
@@ -1724,9 +1724,9 @@ beginState: s32'Alpha_naname'
     upon: 25
       clearRegisteredUponCode: 25
       atkAngle: -135
-      storeValue: (VARIABLE), 338, (STATIC), 10001
-      storeValue: (VARIABLE), 339, (STATIC), 0
-      storeValue: (VARIABLE), 340, (STATIC), 1
+      storeValue: Mem(338), Val(10001)
+      storeValue: Mem(339), Val(0)
+      storeValue: Mem(340), Val(1)
       callSubroutine: s32'cmn_hosei'
       groundHitEffect: (NORMAL_UPPER)
       hitAirPushbackX: 0, 5000
@@ -1741,16 +1741,16 @@ beginState: s32'Alpha_naname'
     upon: 26
       clearRegisteredUponCode: 26
       damage: 0, 50
-      storeValue: (VARIABLE), 338, (STATIC), 10000
-      storeValue: (VARIABLE), 339, (STATIC), 0
-      storeValue: (VARIABLE), 340, (STATIC), 1
+      storeValue: Mem(338), Val(10000)
+      storeValue: Mem(339), Val(0)
+      storeValue: Mem(340), Val(1)
       callSubroutine: s32'cmn_hosei'
       callSubroutine: s32'cmn_fuwafuwafuwa'
       hitAirPushbackX: 0, 0
       hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 14
       hitAirPushbackY: 0, 80000
       hitAirPushbackYOverTime: 0, 70, 0, 9, 0, 17
-      hitGravity: (STATIC), 0
+      hitGravity: Val(0)
       hitGravityOverTime: 0, 200, 0, 12, 0, 50
       groundBounceCount: 0
       groundHitEffect: (AIR_STRONG)
@@ -1759,22 +1759,22 @@ beginState: s32'Alpha_naname'
       clearRegisteredUponCode: 27
       deactivateObjectById: (SELF)
       endUpon: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
+    ifOperation: (IS_EQUAL), Mem(115), Val(0)
       statsActionName: s32'AlphaBladeObj'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(1)
       statsActionName: s32'AlphaBladerefObj'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(115), Val(2)
       statsActionName: s32'AirAlphaBladeObj'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(115), Val(3)
       statsActionName: s32'AirAlphaBladeref1Obj'
       endIf: 
     endUpon: 
-  gotoIfOperation: s32'AlphaBladeref', (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
-  gotoIfOperation: s32'AirAlphaBlade', (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
-  gotoIfOperation: s32'AirAlphaBladeref', (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+  gotoIfOperation: s32'AlphaBladeref', (IS_EQUAL), Mem(115), Val(1)
+  gotoIfOperation: s32'AirAlphaBlade', (IS_EQUAL), Mem(115), Val(2)
+  gotoIfOperation: s32'AirAlphaBladeref', (IS_EQUAL), Mem(115), Val(3)
   beginLabel: s32'AlphaBlade'
   sprite: s32'null', 9
   setLinkObjectDestroyOnStateChange: 3
@@ -1812,7 +1812,7 @@ beginState: s32'Alpha_yoko'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv1'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 38
     setProjectileDurability: 0
     pushbackX: 50
@@ -1820,15 +1820,15 @@ beginState: s32'Alpha_yoko'
     hitEffectSlash: 1
     atkAngle: 180
     attackReflect: 0
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(2), Val(0), Val(0), Val(0)
     groundHitEffect: (AIR_FACE_DOWN)
     airHitEffect: (AIR_FACE_DOWN)
-    hitAirPushbackX: 0, 0
-    hitAirPushbackY: 0, 25000
+    hitAirPushbackX: 0, 8000
+    hitAirPushbackY: 0, 35000
     attackFrontDirection: 0
     wallBlowoffType: 1
     addPositionY: 0, 7000
@@ -1836,29 +1836,29 @@ beginState: s32'Alpha_yoko'
     stopLinkObject: 0
     setLinkObjectDestroyOnDamage: 3
     ignoreSlowdown: 1
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       attackRange: 800000, -1500000, -1, -1
       groundHitEffect: (AIR_FACE_UP)
       airHitEffect: (AIR_FACE_UP)
       hitAirPushbackX: 0, 0
-      hitAirPushbackY: 0, 40000
+      hitAirPushbackY: 0, 55000
       addPositionY: 0, 300000
       addPositionY: 0, -50000
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       endUpon: 
     upon: 24
       clearRegisteredUponCode: 24
       deactivateObjectById: (SELF)
       endUpon: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 0
+    ifOperation: (IS_EQUAL), Mem(115), Val(0)
       statsActionName: s32'AlphaBlade_yokoObj'
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(1)
       statsActionName: s32'AirAlphaBlade_yokoObj'
       endIf: 
     endUpon: 
-  gotoIfOperation: s32'AirAlphaBlade_yoko', (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
+  gotoIfOperation: s32'AirAlphaBlade_yoko', (IS_EQUAL), Mem(115), Val(1)
   beginLabel: s32'AlphaBlade_yoko'
   sprite: s32'null', 9
   setLinkObjectDestroyOnStateChange: 3
@@ -1879,7 +1879,7 @@ beginState: s32'Alpha_air_ref'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv1'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 50
     setProjectileDurability: 0
     disableHitstopForSelf: 1
@@ -1889,18 +1889,18 @@ beginState: s32'Alpha_air_ref'
     attackFrontDirection: 0
     hitEffectSlash: 1
     attackReflect: 0
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 2, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(2), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 5000
     hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
     hitAirPushbackY: 0, -100000
     hitAirPushbackYOverTime: 0, 70, 0, 6, 0, 10
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     hitGravityOverTime: 0, 100, 0, 8, 0, 30
     groundBounceYVelocityPercent: 100
     groundBounceYVelocity: 14000
@@ -1945,7 +1945,7 @@ beginState: s32'Step_mahojin'
     linkParticle: s32'cmn_step_mahojin'
     setAngleX: 5000
     ignoreSuperFreeze: 1
-    if: (VARIABLE), 115
+    if: Mem(115)
       ignoreSuperFreeze: 0
       endIf: 
     endUpon: 
@@ -1975,7 +1975,7 @@ beginState: s32'ShurikenObj1'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv0'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     setProjectileDurability: 0
     damage: 0, 10
     shortHitstop: 1
@@ -1984,13 +1984,13 @@ beginState: s32'ShurikenObj1'
     damageEffect: 4, s32'cmn_hit_s'
     hitEffectSlash: 1
     attackIgnoreCaution: 1
-    storeValue: (VARIABLE), 338, (STATIC), 10000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(10000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     hitAirPushbackX: 0, 21500
     hitAirPushbackY: 0, 10000
-    hitGravity: (STATIC), 3500
+    hitGravity: Val(3500)
     wallBlowoffType: 3
     ignoreSlowdown: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
@@ -2001,14 +2001,14 @@ beginState: s32'ShurikenObj1'
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
-    destroyOnRecovery: 1
+    destroyOnClash: 1
     destroyAssari: 1
     upon: (ON_DESTROY)
       gotoLabelRequests: s32'koware'
-      callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
       endUpon: 
     upon: (TOUCH_GROUND)
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       requestDestroy: (SELF)
       endUpon: 
     landingHeight: 0
@@ -2023,7 +2023,7 @@ beginState: s32'ShurikenObj1'
   sprite: s32'null', 24
   clearRegisteredUponCode: (TOUCH_GROUND)
   linkParticle: s32'chp_syuriken_stop'
-  if: (VARIABLE), 45
+  if: Mem(45)
     setPositionY: 0
     physicsXImpulse: 0, 2000
     physicsYImpulse: 0, 12000
@@ -2125,10 +2125,10 @@ beginState: s32'Zansei_Charge'
     endUpon: 
   sprite: s32'null', 30
   sprite: s32'null', 10
-  Unknown1736: 0, 15000
+  setDepthSpeed: 0, 15000
   physicsYImpulse: 0, -15000
   sprite: s32'null', 15
-  Unknown1736: 0, 0
+  setDepthSpeed: 0, 0
   physicsYImpulse: 0, 0
   endState: 
 
@@ -2148,32 +2148,32 @@ beginState: s32'Zansei_atk_CS'
   upon: (IMMEDIATE)
     linkParticle: s32'chp_a_bladehit'
     ignoreSuperFreezeFromAlly: 1
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 1
+    ifOperation: (IS_EQUAL), Mem(115), Val(1)
       setAngle: 270000
       setAngleY: 270000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 2
+    ifOperation: (IS_EQUAL), Mem(115), Val(2)
       setAngleY: 180000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 3
+    ifOperation: (IS_EQUAL), Mem(115), Val(3)
       setAngleY: 270000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 4
+    ifOperation: (IS_EQUAL), Mem(115), Val(4)
       setAngleY: 90000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 5
+    ifOperation: (IS_EQUAL), Mem(115), Val(5)
       setAngle: -30000
       setAngleY: 210000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 6
+    ifOperation: (IS_EQUAL), Mem(115), Val(6)
       setAngle: 30000
       setAngleY: 60000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 7
+    ifOperation: (IS_EQUAL), Mem(115), Val(7)
       setAngle: -30000
       setAngleY: 210000
       endIf: 
-    ifOperation: (IS_EQUAL), (VARIABLE), 115, (STATIC), 8
+    ifOperation: (IS_EQUAL), Mem(115), Val(8)
       setAngle: 30000
       setAngleY: 60000
       endIf: 
@@ -2283,8 +2283,8 @@ beginState: s32'BG_tojo'
   upon: (IMMEDIATE)
     setLinkObjectDestroyOnStateChange: 3
     linkParticle: s32'chp_bg_tojo'
-    jumpToStateInObject: 23, s32'Del'
-    jumpToStateInObject: 24, s32'Modori'
+    gotoLabelUpon: 23, s32'Del'
+    gotoLabelUpon: 24, s32'Modori'
     endUpon: 
   sprite: s32'null', 2147483647
   beginLabel: s32'Del'
@@ -2327,25 +2327,25 @@ beginState: s32'GammaBladeObj'
     createObject: s32'Ganma_dash', (PLAYER)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv2'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 30
     setProjectileDurability: 0
     disableHitstopForSelf: 0
     attackReflect: 0
-    storeValue: (VARIABLE), 338, (STATIC), 10001
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(10001)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     groundHitEffect: (AIR_FACE_UP)
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 30000
     hitAirPushbackY: 0, 2000
     rollDuration: 5
-    noRollLimitPerCombo: 1
+    rollCount: 1
     upon: 62
       hitAirPushbackY: 0, 15000
       endUpon: 
-    callSubroutineWithArgs: s32'cmn_SameAttack', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmn_SameAttack', Val(1), Val(0), Val(0), Val(0)
     setNoCollision: 1
     worldCollision: 1
     physicsXImpulse: 0, 35000
@@ -2373,18 +2373,18 @@ beginState: s32'GammaBladeObj'
       recoveryState: 
       haltMomentum: 1
       gotoLabelRequests: s32'koware'
-      storeValue: (VARIABLE), 45, (STATIC), 1
+      storeValue: Mem(45), Val(1)
       endUpon: 
     addMoveForceDisableFlag: 1
     upon: (BEFORE_EXIT)
       deleteMoveForceDisableFlag: 1
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 104, (STATIC), 400000
+      ifOperation: (IS_LESSER_OR_EQUAL), Mem(104), Val(400000)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'attack'
         endIf: 
-      ifOperation: (IS_GREATER_OR_EQUAL), (VARIABLE), 13, (STATIC), 35
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(13), Val(35)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'attack'
         endIf: 
@@ -2397,7 +2397,7 @@ beginState: s32'GammaBladeObj'
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Katana_M'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Katana_M'
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     endUpon: 
   beginLabel: s32'loop'
   sprite: s32'chp032_01', 2
@@ -2424,7 +2424,7 @@ beginState: s32'GammaBladeObj'
   sprite: s32'chp411_01', 2
   sprite: s32'chp411_02', 4
   createObject: s32'Gamma_fin', (PLAYER)
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(2), Val(0), Val(0)
   hit: 
   characterSfx: s32'SE_BTL_CHP_03'
   sprite: s32'chp411_03', 4
@@ -2450,7 +2450,7 @@ beginState: s32'GammaBladeObj'
   beginLabel: s32'koware'
   sprite: s32'chp060_00', 4
   setNoCollision: 0
-  if: (VARIABLE), 45
+  if: Mem(45)
     applyHitstopForObject: 
     endIf: 
   haltMomentum: 1
@@ -2481,29 +2481,29 @@ beginState: s32'FBGammaBladeObj'
     createObject: s32'Ganma_dash', (PLAYER)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv2'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 35
     riscGain: 10
     riscConsume: 20
     ignoreOtg: 1
-    enemyHitstopAddition: 0, 29, 29
+    enemyHitstopAddition: -5, 29, 29
     groundHitEffect: (AIR_FACE_UP)
     airHitEffect: (AIR_FACE_UP)
     hitAirPushbackX: 0, 5250
     hitAirPushbackY: 0, 17500
-    storeValue: (VARIABLE), 338, (STATIC), 100000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(100000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     upon: (HIT)
       clearRegisteredUponCode: (HIT)
       clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
-      sendSiganl: (PLAYER), 23
+      sendSignal: (PLAYER), (SELF)
       endUpon: 
     upon: (HIT_OR_GUARD)
       clearRegisteredUponCode: (HIT)
       clearRegisteredUponCode: (HIT_OR_GUARD_ANY)
-      sendSiganl: (PLAYER), 23
+      sendSignal: (PLAYER), (SELF)
       deactivateObjectById: (SELF)
       endUpon: 
     upon: (BEFORE_EXIT)
@@ -2513,7 +2513,7 @@ beginState: s32'FBGammaBladeObj'
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Katana_M'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Katana_M'
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'chp411_00', 2
   sprite: s32'chp411_01', 4
@@ -2589,12 +2589,12 @@ beginState: s32'BankiBunshin1'
     swapMeshSet: s32'RomanCancel_Mirage'
     setDefaultMeshSet: s32'RomanCancel_Mirage'
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 9
     tensionGainOnConnect: 0
     hitAirPushbackX: 0, 3500
     hitAirPushbackY: 0, -18000
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     groundBounceCount: 1
     groundBounceYVelocityPercent: 160
     hitStop: 8
@@ -2608,10 +2608,10 @@ beginState: s32'BankiBunshin1'
     zLine: 0, 5
     callSubroutine: s32'cmnWSB_Effect_Angle'
     trialName: s32'BankiMessai'
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     forcedPushbackAndGravityScaling: 0
     riscConsume: 0
     attackNoRecover: 1
@@ -2636,7 +2636,7 @@ beginState: s32'BankiBunshin1'
   hit: 
   beginLabel: s32'loop'
   sprite: s32'chp406_12', 4
-  ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 18, (STATIC), 20000
+  ifOperation: (IS_LESSER_OR_EQUAL), Mem(18), Val(20000)
     setGravity: 0
     physicsYImpulse: 0, 0
     setPositionY: 0
@@ -2676,8 +2676,8 @@ beginState: s32'BankiBunshin1'
   sprite: s32'chp210_03', 3
   sprite: s32'chp210_04', 36
   sprite: s32'chp210_05', 5
-  storeValue: (VARIABLE), 3, (STATIC), 15
-  storeValue: (VARIABLE), 76, (STATIC), 0
+  storeValue: Mem(3), Val(15)
+  storeValue: Mem(76), Val(0)
   changeMaterialSet: s32'blink'
   setCmnMaterialParam: 18, 700, 0
   setCmnMaterialParam: 19, 2500, 0
@@ -2701,12 +2701,12 @@ beginState: s32'BankiBunshin2'
     swapMeshSet: s32'RomanCancel_Mirage'
     setDefaultMeshSet: s32'RomanCancel_Mirage'
     callSubroutine: s32'cmn_AtkLv3'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     tensionGainOnConnect: 0
     damage: 0, 9
     hitAirPushbackX: 0, -65000
     hitAirPushbackY: 0, 28000
-    hitGravity: (STATIC), 180
+    hitGravity: Val(180)
     tensionGainOnConnect: 0
     groundBounceCount: 1
     nextHitActionName: s32'BankiMessai'
@@ -2718,10 +2718,10 @@ beginState: s32'BankiBunshin2'
     zLine: 2, 5
     callSubroutine: s32'cmnWSB_Effect_Angle'
     trialName: s32'BankiMessai'
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     forcedPushbackAndGravityScaling: 0
     riscConsume: 0
     attackNoRecover: 1
@@ -2748,7 +2748,7 @@ beginState: s32'BankiBunshin2'
   createArgHikitsukiVal: 0, 1, 0, 1
   beginLabel: s32'loop'
   sprite: s32'chp403_04', 2
-  ifOperation: (IS_LESSER_OR_EQUAL), (VARIABLE), 18, (STATIC), 20000
+  ifOperation: (IS_LESSER_OR_EQUAL), Mem(18), Val(20000)
     setGravity: 0
     physicsYImpulse: 0, 0
     setPositionY: 0
@@ -2762,7 +2762,7 @@ beginState: s32'BankiBunshin2'
   physicsXImpulse: 0, 24500
   velocityXPercentEachFrame: 95
   setNoCollision: 1
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(2), Val(0), Val(0)
   createObject: s32'BunshinAlpha', (PLAYER)
   createParticle: s32'bg_down_default', (PLAYER_LAND)
   createObject: s32'Alpha_zanzo_403', (PLAYER)
@@ -2782,13 +2782,13 @@ beginState: s32'BankiBunshin2'
   createObjectWithArg: s32'bunshin_rakko', (EX_POINT_F)
   linkObjectCollision: 1
   createObjectWithArg: s32'Rakko_tatumaki', (EX_POINT_F)
-  callSubroutineWithArgs: s32'cmn_screenshake', (STATIC), 1, (STATIC), 2, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_screenshake', Val(1), Val(2), Val(0), Val(0)
   sprite: s32'chp205_03', 4
   sprite: s32'chp205_04', 3
   grabOrRelease: 
   hitAirPushbackX: 0, 0
   hitAirPushbackY: 0, 17000
-  hitGravity: (STATIC), 1000
+  hitGravity: Val(1000)
   hitStop: 16
   disableHitstop: 0
   airHitEffect: (Z_SPIN)
@@ -2807,8 +2807,8 @@ beginState: s32'BankiBunshin2'
   sprite: s32'chp210_03', 3
   sprite: s32'chp210_04', 36
   sprite: s32'chp210_05', 5
-  storeValue: (VARIABLE), 3, (STATIC), 15
-  storeValue: (VARIABLE), 76, (STATIC), 0
+  storeValue: Mem(3), Val(15)
+  storeValue: Mem(76), Val(0)
   changeMaterialSet: s32'blink'
   setCmnMaterialParam: 18, 700, 0
   setCmnMaterialParam: 19, 2500, 0
@@ -2823,7 +2823,7 @@ beginState: s32'BunshinAlpha'
   upon: (IMMEDIATE)
     overdriveAttack: 
     callSubroutine: s32'cmn_AtkLv4'
-	callSubroutine: s32'cmn_countertype'
+    callSubroutine: s32'cmn_countertype'
     damage: 0, 9
     tensionGainOnConnect: 0
     disableHitstopForSelf: 1
@@ -2852,10 +2852,10 @@ beginState: s32'BunshinAlpha'
     callSubroutine: s32'cmnNohosei_kakusei'
     killType: (NOT_KILL)
     trialName: s32'BankiMessai'
-    storeValue: (VARIABLE), 338, (STATIC), 1000000000
-    storeValue: (VARIABLE), 339, (STATIC), 0
-    storeValue: (VARIABLE), 340, (STATIC), 1
-    callSubroutineWithArgs: s32'cmn_hosei', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    storeValue: Mem(338), Val(1000000000)
+    storeValue: Mem(339), Val(0)
+    storeValue: Mem(340), Val(1)
+    callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
     forcedPushbackAndGravityScaling: 0
     riscConsume: 0
     attackNoRecover: 1
@@ -2992,8 +2992,8 @@ beginState: s32'Bunshin_Genrouzan'
   sprite: s32'chp616_16', 4
   sprite: s32'chp616_17', 4
   sprite: s32'chp616_18', 15
-  storeValue: (VARIABLE), 3, (STATIC), 15
-  storeValue: (VARIABLE), 76, (STATIC), 0
+  storeValue: Mem(3), Val(15)
+  storeValue: Mem(76), Val(0)
   changeMaterialSet: s32'blink'
   setCmnMaterialParam: 18, 700, 0
   setCmnMaterialParam: 19, 2500, 0
@@ -3003,7 +3003,7 @@ beginState: s32'Bunshin_Genrouzan'
 beginState: s32'Cam_ZanseiRouga'
   upon: (IMMEDIATE)
     setPosYBetweenObject: 3, 3
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1400000, (STATIC), 1400000, (STATIC), -1400000, (STATIC), 1400000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1400000), Val(1400000), Val(-1400000), Val(1400000)
     moveCameraTargetCameraOnBlend: 4, 16, s32'brake'
     moveCameraBasePosOffset: 0, -460000, 0, 50000, 0, 135000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, -30000, 0, 0, 0, 135000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'brake'
@@ -3017,7 +3017,7 @@ beginState: s32'Cam_ZanseiRouga'
     runOnObject: 4
       ignoreSuperFreeze: 1
       endRunOnObject: 
-    if: (VARIABLE), 317
+    if: Mem(317)
       moveCameraTargetPosRate: 0, 0, 0, 1000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'accel_brake'
       moveCameraTargetRotRate: 0, 0, 0, 1000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
       moveCameraSplinePosRate: 0, 0, 0, 1000, 0, 0, 0, 100, 0, 0, s32'linear', s32'brake'
@@ -3053,10 +3053,10 @@ beginState: s32'Cam_ZanseiRouga_End'
     callSubroutine: s32'cmnCam_InitializeBase'
     setPositionY: 80000
     createObject: s32'Cam_ZanseiRouga_End_Target', (PLAYER)
-    stackObject: 4, 1
+    stackObject: 4, (PREVIOUS)
     moveCameraTargetCameraOnBlend: 22, 0, s32'accel_brake'
-    storeValue: (VARIABLE), 50, (STATIC), -1400000
-    storeValue: (VARIABLE), 51, (STATIC), 1400000
+    storeValue: Mem(50), Val(-1400000)
+    storeValue: Mem(51), Val(1400000)
     callSubroutine: s32'cmnThrowPosition_Limit'
     moveCameraBasePosOffset: 0, 0, 0, 0, 0, 165000, 0, 0, 0, 300, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, -52000, 0, 58000, 0, 85000, 0, 0, 0, 300, 0, 0, s32'accel_brake', s32'brake'
@@ -3079,7 +3079,7 @@ beginState: s32'Cam_ZanseiRouga_End'
     endUpon: 
   sprite: s32'null', 1
   sprite: s32'null', 1
-  ifNot: (VARIABLE), 16
+  ifNot: Mem(16)
     moveCameraSplinePosRate: 0, 0, 0, 600, 0, 0, 0, 280, 0, 0, s32'linear', s32'brake'
     moveCameraSpline: s32'chp_zanseirouga_end', 0, 0, 0, 1000, 0, 360, s32'linear'
     gotoLabelRequests: s32'finish'
@@ -3118,8 +3118,8 @@ beginState: s32'Cam_ZanseiRouga_End'
 beginState: s32'Cam_ZanseiRouga_End_Target'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnCam_InitializeTarget'
-    storeValue: (VARIABLE), 50, (STATIC), -1400000
-    storeValue: (VARIABLE), 51, (STATIC), 1400000
+    storeValue: Mem(50), Val(-1400000)
+    storeValue: Mem(51), Val(1400000)
     callSubroutine: s32'cmnThrowPosition_Limit'
     ignoreSuperFreeze: 1
     upon: 36
@@ -3131,7 +3131,7 @@ beginState: s32'Cam_ZanseiRouga_End_Target'
 
 beginState: s32'Cam_Banki_Start'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1400000, (STATIC), 1400000, (STATIC), -1400000, (STATIC), 1400000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1400000), Val(1400000), Val(-1400000), Val(1400000)
     moveCameraTargetCameraOnBlend: 4, 4, s32'accel_brake'
     moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, 0, 0, 0, 0, 95000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'brake'
@@ -3170,7 +3170,7 @@ beginState: s32'Cam_Banki_Start'
 beginState: s32'Cam_Banki_Stay'
   upon: (IMMEDIATE)
     setPosYBetweenObject: 3, 3
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1200000, (STATIC), 1200000, (STATIC), -1200000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1200000), Val(1200000), Val(-1200000), Val(1200000)
     moveCameraTargetCameraOnBlend: 23, 184, s32'brake'
     moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 200, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, 250000, 0, 0, 0, 95000, 0, 0, 0, 200, 0, 0, s32'accel_brake', s32'brake'
@@ -3181,7 +3181,7 @@ beginState: s32'Cam_Banki_Stay'
     moveCameraSpline: s32'chp_banki_stay', 0, 0, 0, 1000, 0, 200, s32'linear'
     moveCameraFOV: 0, 50, 0, 0, 0, 200, 0, 0, s32'accel_brake', s32'brake'
     upon: 56
-      ifNot: (VARIABLE), 214
+      ifNot: Mem(214)
         clearRegisteredUponCode: 56
         gotoLabelRequests: s32'end'
         endIf: 
@@ -3214,7 +3214,7 @@ beginState: s32'Cam_Banki_Stay'
 beginState: s32'Cam_Banki_End'
   upon: (IMMEDIATE)
     setPosYBetweenObject: 3, 3
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1200000, (STATIC), 1200000, (STATIC), -1200000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1200000), Val(1200000), Val(-1200000), Val(1200000)
     moveCameraTargetCameraOnBlend: 23, 160, s32'brake'
     moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 200, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetPosOffset: 0, 48000, 0, 0, 0, 95000, 0, 0, 0, 200, 0, 0, s32'accel_brake', s32'brake'
@@ -3263,7 +3263,7 @@ beginState: s32'Cam_GenrouzanX'
   upon: (IMMEDIATE)
     addPositionY: 0, 120000
     setDepth: 150000
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1300000, (STATIC), -1400000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1300000), Val(-1400000), Val(1200000)
     moveCameraTargetCameraOnBlend: 4, 37, s32'brake'
     moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 195000, 0, 0, 0, 160, 0, 0, s32'brake', s32'linear'
     moveCameraTargetPosOffset: 0, -100000, 0, 0, 0, 40000, 0, 0, 0, 160, 0, 0, s32'brake', s32'linear'
@@ -3331,7 +3331,7 @@ beginState: s32'Cam_Throw'
 
 beginState: s32'Cam_AirThrow'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1300000, (STATIC), -1200000, (STATIC), 1400000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1300000), Val(-1200000), Val(1400000)
     moveCameraTargetCameraOnBlend: 4, 32, s32'accel_brake'
     moveCameraTargetPosOffset: 0, -10000, 0, 60000, 0, 175000, 0, 0, 0, 120, 0, 0, s32'accel_brake', s32'accel_brake'
     moveCameraBasePosOffset: 0, -36000, 0, 400000, 0, 105000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
@@ -3378,19 +3378,19 @@ beginState: s32'Camera_WallRun'
   endState: 
 
 beginState: s32'Cam_Finish_BankiMessai'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(1), Val(0), Val(0), Val(0)
   endState: 
 
 beginState: s32'Cam_Finish_Zansei'
   createObject: s32'cmn_FinishCamera_Screen_Effect', (PLAYER)
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), -1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(-1), Val(0), Val(0), Val(0)
   setAngleX: 60000
   setAngleY: -70000
   setObjectSize: 3000
   endState: 
 
 beginState: s32'Cam_Finish_ZanseiGuard'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(5), Val(0), Val(0), Val(0)
   endState: 
 
 beginState: s32'chp205_rakko_event'
@@ -3405,8 +3405,8 @@ beginState: s32'chp205_rakko_event'
       Unknown2278: s32'eff_pelvis', 0, 23
       createParticleWithArg2: s32'chp_doron_smoke03', (PLAYER)
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       linkObjPosition: 3
       upon: 24
         clearRegisteredUponCode: 24
@@ -3452,8 +3452,8 @@ beginState: s32'chp205_rakko_event_2'
       Unknown2278: s32'eff_pelvis', 0, 23
       createParticleWithArg2: s32'chp_doron_smoke03', (PLAYER)
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       linkObjPosition: 3
       upon: 24
         clearRegisteredUponCode: 24

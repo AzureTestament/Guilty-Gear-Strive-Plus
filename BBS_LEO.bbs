@@ -4121,9 +4121,11 @@ beginState: s32'NmlAtk6A'
     storeValue: Mem(339), Val(0)
     storeValue: Mem(340), Val(1)
     callSubroutineWithArgs: s32'cmn_hosei', Val(1), Val(0), Val(0), Val(0)
-    callSubroutine: s32'cmn_AtkTemplFloatDamageBody'
-    hitAirPushbackX: 0, 33000
-    hitAirPushbackY: 0, 16000
+    groundHitEffect: (KIRIMOMI)
+    airHitEffect: (KIRIMOMI)
+    hitAirPushbackX: 0, 16000
+    hitAirPushbackY: 0, 33000
+	enableJumpCancel: 1
     addGatlingOption: s32'NmlAtk6B'
     addGatlingOption: s32'NmlAtk6D'
     counterHitSoftKnockdown: 0
@@ -4296,12 +4298,12 @@ beginState: s32'NmlAtk6B'
     callSubroutine: s32'cmn_AtkTemplNokezoriLow'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     airHitEffect: (KIRIMOMI)
-    hitAirPushbackX: 0, 40000
+    hitAirPushbackX: 0, 30000
     hitAirPushbackXOverTime: 0, 80, 0, 6, 0, 10
-    hitAirPushbackY: 0, 38000
+    hitAirPushbackY: 0, 48000
     hitAirPushbackYOverTime: 0, 60, 0, 4, 0, 10
-    hitGravity: Val(500)
-    hitGravityOverTime: 0, 250, 0, 7, 0, 30
+    hitGravity: Val(0)
+    hitGravityOverTime: 0, 150, 0, 7, 0, 45
     addGatlingOption: s32'NmlAtk6D'
     upon: (HIT_OR_GUARD)
       extendPushboxX: 50000
@@ -7401,6 +7403,8 @@ beginState: s32'DrittWind'
     storeValue: Mem(345), Val(0)
     hitAirPushbackX: 0, 26000
     hitAirPushbackY: 0, 31000
+	wallBounceCount: 1
+	wallBounceInCornerOnly: 1
     groundCounterHitEffect: (AIR_STRONG)
     airCounterHitEffect: (AIR_STRONG)
     counterHitRollDuration: 22
@@ -8166,6 +8170,8 @@ beginState: s32'DrittWindFollowup'
     hitAirPushbackX: 0, 26000
     hitAirPushbackY: 0, 28000
     tensionGainOnConnect: 40
+	wallBounceCount: 1
+	wallBounceInCornerOnly: 1
     wallBlowoffType: 1
     storeValue: Mem(343), Val(-350000)
     storeValue: Mem(344), Val(0)

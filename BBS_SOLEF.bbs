@@ -382,7 +382,7 @@ beginState: s32'RomanCancel_Mirage'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnRomanCancel_Mirage'
     linkModelSelfTeam: s32'sol', s32''
-    if: (VARIABLE), 5
+    if: Mem(5)
       beginMeshSet: s32'RomanCancel_Mirage'
       addToMeshSet: s32'Weapon'
       addToMeshSet: s32'Head_DI'
@@ -401,7 +401,7 @@ beginState: s32'RomanCancel_Mirage'
       setDefaultMeshSet: s32'RomanCancel_Mirage'
       endElse: 
     endUpon: 
-  gotoLabelIfNot: s32'air', (VARIABLE), 115
+  gotoLabelIfNot: s32'air', Mem(115)
   sprite: s32'sol350_01', 6
   sprite: s32'sol350_02', 3
   sprite: s32'sol350_03', 3
@@ -494,7 +494,7 @@ beginState: s32'212eff01'
   upon: (IMMEDIATE)
     stopLinkObject: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticle: s32'sol212_eff1'
     endUpon: 
@@ -505,7 +505,7 @@ beginState: s32'212eff02'
   upon: (IMMEDIATE)
     stopLinkObject: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticle: s32'sol212_eff2'
     endUpon: 
@@ -515,7 +515,7 @@ beginState: s32'212eff02'
 beginState: s32'212floor'
   upon: (IMMEDIATE)
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticle: s32'sol212_floor'
     endUpon: 
@@ -676,7 +676,7 @@ beginState: s32'Bringercharge'
     setLinkObjectDestroyOnStateChange: 3
     addPositionX: 0, 15000
     addPositionY: 0, 30000
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       clearRegisteredUponCode: (FRAME_STEP)
       addPositionX: 0, 35000
       addPositionY: 0, -10000
@@ -696,9 +696,9 @@ beginState: s32'Dust_atk_sol'
     resetLocalTime: 0
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -723,9 +723,9 @@ beginState: s32'GunFlame_Obj'
     ignoreSlowdown: 1
     attackIgnoreCaution: 1
     attackFrontDirection: 3
-    storeValue: (VARIABLE), 338, (STATIC), 10001
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(10001)
+    storeValue: Mem(339), Val(3)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     callSubroutine: s32'cmn_fuwafuwafuwa'
     groundHitEffect: (AIR_STRONG)
@@ -733,7 +733,7 @@ beginState: s32'GunFlame_Obj'
     hitAirPushbackXOverTime: 0, 80, 0, 4, 0, 8
     hitAirPushbackY: 0, 25000
     hitAirPushbackYOverTime: 0, 60, 0, 8, 0, 13
-    hitGravity: (STATIC), 0
+    hitGravity: Val(0)
     hitGravityOverTime: 0, 125, 0, 10, 0, 30
     Unknown1005: 200
     Unknown1004: 200
@@ -754,7 +754,7 @@ beginState: s32'GunFlame_Obj'
       endUpon: 
     upon: 66
       sendSignalToAction: s32'GunFlame_Eff', 24
-      sendSiganl: 4, 25
+      sendSignal: 4, (DEFENDER)
       endUpon: 
     statsActionName: s32'GunFlameObj'
     endUpon: 
@@ -764,19 +764,19 @@ beginState: s32'GunFlame_Obj'
   sprite: s32'GunFlame', 10
   createArgHikitsukiVal: 0, 1, 0, 0
   createObjectWithArg: s32'GunFlame_Eff', (PLAYER)
-  stackObject: 4, 1
+  stackObject: 4, (PREVIOUS)
   hit: 
   sprite: s32'GunFlame', 10
   addPositionX: 0, 130000
   createArgHikitsukiVal: 0, 1, 0, 1
   createObjectWithArg: s32'GunFlame_Eff', (PLAYER)
-  stackObject: 4, 1
+  stackObject: 4, (PREVIOUS)
   damage: 0, 35
   sprite: s32'GunFlame', 10
   addPositionX: 0, 130000
   createArgHikitsukiVal: 0, 1, 0, 1
   createObjectWithArg: s32'GunFlame_Eff', (PLAYER)
-  stackObject: 4, 1
+  stackObject: 4, (PREVIOUS)
   damage: 0, 30
   sprite: s32'GunFlame', 10
   addPositionX: 0, 130000
@@ -792,9 +792,9 @@ beginState: s32'GunFlame_Obj_DI'
   upon: (IMMEDIATE)
     specialAttack: 
     callSubroutine: s32'cmn_AtkLv2'
-    storeValue: (VARIABLE), 338, (STATIC), 0
-    storeValue: (VARIABLE), 339, (STATIC), 3
-    storeValue: (VARIABLE), 340, (STATIC), 1
+    storeValue: Mem(338), Val(0)
+    storeValue: Mem(339), Val(3)
+    storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
     hitEffectFire: 1
     groundHitEffect: (AIR_STRONG)
@@ -807,7 +807,7 @@ beginState: s32'GunFlame_Obj_DI'
     hitAirPushbackXOverTime: 0, 80, 0, 4, 0, 8
     hitAirPushbackY: 0, 50000
     hitAirPushbackYOverTime: 0, 60, 0, 8, 0, 13
-    hitGravity: (STATIC), 2400
+    hitGravity: Val(2400)
     hitGravityOverTime: 0, 125, 0, 10, 0, 30
     linkParticle: s32'sol_gunflame'
     Unknown2271: 0, 1
@@ -845,19 +845,19 @@ beginState: s32'GunFlame_Eff'
     linkParticle: s32'sol_gunflame'
     callSubroutine: s32'cmnCutScene_ObjHide'
     ignoreSlowdown: 1
-    if: (VARIABLE), 115
+    if: Mem(115)
       addPositionX: 0, 130000
       endIf: 
-    ifNot: (VARIABLE), 116
+    ifNot: Mem(116)
       destroyOnPlayerEnemy: 1
       upon: (ON_DESTROY)
         clearRegisteredUponCode: (ON_DESTROY)
-        clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+        clearRegisteredUponCode: 23
         linkParticle: s32'sol_gunflame_end'
         endUpon: 
       endIf: 
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       clearRegisteredUponCode: (ON_DESTROY)
       linkParticle: s32'sol_gunflame_end'
       endUpon: 
@@ -873,7 +873,7 @@ beginState: s32'GunFlame_Eff'
   sprite: s32'null', 50
   destroyOnPlayerEnemy: 0
   clearRegisteredUponCode: (ON_DESTROY)
-  clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+  clearRegisteredUponCode: 23
   endState: 
 
 beginState: s32'KudakeroEF'
@@ -883,7 +883,7 @@ beginState: s32'KudakeroEF'
     callSubroutine: s32'cmn_AtkLv3'
     callSubroutine: s32'cmn_countertype'
     callSubroutine: s32'cmnNohosei'
-    damage: 0, 35
+    damage: 0, 25
     groundHitEffect: (AIR_STRONG)
     hitAirPushbackX: 0, 20000
     hitAirPushbackY: 0, 30000
@@ -934,11 +934,11 @@ beginState: s32'Crater'
   upon: (IMMEDIATE)
     setLinkObjectDestroyOnDamage: 3
     upon: (WALL_BREAK)
-      ifNot: (VARIABLE), 317
+      ifNot: Mem(317)
         stackObjectEx: (SELF), 12, 3, 12
         linkObjPosition: 12
         linkObjectAngle: 12
-        ifOperationInObject: 15, (DIV), (VARIABLE), 319, (STATIC), 0
+        ifOperationInObject: 15, (DIV), Mem(319), Val(0)
           linkObjectAngle: 3
           endIf: 
         endIf: 
@@ -950,14 +950,14 @@ beginState: s32'Crater'
     addDepth: 0, 40012
     ignoreSlowdown: 1
     checkCurrentStateName: (PLAYER), s32'BanditBringer_Air'
-    if: (VARIABLE), 0
+    if: Mem(0)
       addPositionX: 0, -200000
       setObjectSize: 1200
       endIf: 
     upon: 36
-      if: (VARIABLE), 315
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 10
+      if: Mem(315)
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(10)
           stopLinkObject: 0
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
@@ -1004,8 +1004,8 @@ beginState: s32'Grandviper_atk'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'sol_grandviper_atk'
     upon: 36
-      modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+      modifyVar: (ADD), Mem(45), Val(1)
+      ifOperation: (IS_EQUAL), Mem(45), Val(5)
         clearRegisteredUponCode: 36
         ignoreSuperFreeze: 1
         stopLinkObject: 0
@@ -1081,33 +1081,33 @@ beginState: s32'BanditBringerPunch'
     ignoreSlowdown: 1
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       linkObjPosition: 3
       linkObjectAngle: 3
       stopLinkObject: 0
       spriteTimeAdd: 60
       linkParticle: s32'sol_banditbringer_end'
       upon: 36
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 20
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(20)
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
           endIf: 
         endUpon: 
-      callSubroutineWithArgs: s32'cmnWSB_Event_Settings', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+      callSubroutineWithArgs: s32'cmnWSB_Event_Settings', Val(1), Val(0), Val(0), Val(0)
       endUpon: 
     linkParticle: s32'sol_banditbringer_loop'
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       clearRegisteredUponCode: (WALL_BREAK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       linkObjPosition: 0
       linkParticle: s32'sol_banditbringer_end'
       endUpon: 
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       clearRegisteredUponCode: (AFTER_EXIT)
       clearRegisteredUponCode: (WALL_BREAK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       addPositionX: 0, -100000
       linkParticle: s32'sol_banditbringer_end'
       endUpon: 
@@ -1130,14 +1130,14 @@ beginState: s32'FafnirPunch'
       endUpon: 
     upon: (WALL_BREAK)
       clearRegisteredUponCode: (WALL_BREAK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+      clearRegisteredUponCode: 23
       linkObjPosition: 3
       linkObjectAngle: 3
       stopLinkObject: 0
       spriteTimeAdd: 60
       upon: 36
-        modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-        ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 5
+        modifyVar: (ADD), Mem(45), Val(1)
+        ifOperation: (IS_EQUAL), Mem(45), Val(5)
           clearRegisteredUponCode: 36
           ignoreSuperFreeze: 1
           ignoreFinishStop: 1
@@ -1305,7 +1305,7 @@ beginState: s32'TyrantRavePunch2_DI'
     wallBounceCount: 1
     wallBounceInCornerOnly: 1
     rollDuration: 15
-    if: (VARIABLE), 126
+    if: Mem(126)
       guardType: (NONE)
       endIf: 
     Unknown2271: 0, 1
@@ -1371,8 +1371,8 @@ beginState: s32'TyrantRave_sub'
     addDepth: 0, 264947
     callSubroutine: s32'cmnCutScene_ObjHide'
     callSubroutine: s32'cmn_Effect_NoLink'
-    upon: (ON_HIT_OR_BLOCK)
-      clearRegisteredUponCode: (ON_HIT_OR_BLOCK)
+    upon: 23
+      clearRegisteredUponCode: 23
       displayModel: 0
       endUpon: 
     callSubroutine: s32'cmnWSB_Event_Settings'
@@ -1758,7 +1758,7 @@ beginState: s32'VV_1st_atk'
     linkParticle: s32'sol_vv_1st'
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
+      if: Mem(315)
         clearRegisteredUponCode: 36
         linkObjPosition: 3
         addPositionX: 0, -100000
@@ -1789,7 +1789,7 @@ beginState: s32'VV_1st_atk_air'
     addDepth: 0, 0
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
+      if: Mem(315)
         clearRegisteredUponCode: 36
         linkObjPosition: 3
         addPositionX: 0, -125000
@@ -1851,7 +1851,7 @@ beginState: s32'VV_Loop'
     addPositionY: 0, -325610
     addDepth: 0, 238560
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       stopLinkObject: 0
@@ -1883,7 +1883,7 @@ beginState: s32'VV_Loop_air'
     setObjectHeight: 1200
     setObjectDepth: 2000
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       stopLinkObject: 0
@@ -1914,7 +1914,7 @@ beginState: s32'VV_Loop_hs'
     addDepth: 0, 104979
     setObjectDepth: 1400
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       stopLinkObject: 0
@@ -1950,7 +1950,7 @@ beginState: s32'VV_Loop_hs_air'
     setAngleY: 320000
     setAngle: 0
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       stopLinkObject: 0
@@ -1980,7 +1980,7 @@ beginState: s32'VV_End'
     addDepth: 0, 139972
     linkParticle: s32'sol_vvend'
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       stopLinkObject: 0
@@ -2002,7 +2002,7 @@ beginState: s32'VV_End_air'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'sol_vvend_air'
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     upon: (AFTER_EXIT)
       clearRegisteredUponCode: (AFTER_EXIT)
       stopLinkObject: 0
@@ -2024,9 +2024,9 @@ beginState: s32'VV2_End'
     addPositionY: 0, 170000
     addDepth: 0, 99980
     setObjectDepth: 1400
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
-    callSubroutineWithArgs: s32'cmnWSB_Event_Settings', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Event_Settings', Val(1), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 120
   endState: 
@@ -2039,7 +2039,7 @@ beginState: s32'VV2_End_air'
     addPositionX: 0, 129974
     addPositionY: 0, 345135
     addDepth: 0, 5284
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     endUpon: 
   sprite: s32'null', 120
@@ -2059,7 +2059,7 @@ beginState: s32'VV_ptclight'
     linkObjPosition: 3
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticle: s32'sol_vv_ptclight'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 0, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(0), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 50
   endState: 
@@ -2150,55 +2150,6 @@ beginState: s32'Dsl_startD'
   linkParticle: s32'dsl_startD'
   endState: 
 
-beginState: s32'DSL_floor_aura'
-  upon: (IMMEDIATE)
-    linkParticle: s32'dsl_floor_aura'
-    hideByCutscene: 1
-    deactivateObjectByNameExceptSelf: s32'DSL_floor_aura'
-    ignoreSlowdown: 1
-    upon: (WALL_BREAK)
-      clearRegisteredUponCode: (WALL_BREAK)
-      clearRegisteredUponCode: 39
-      gotoLabelRequests: s32'end'
-      ignoreSuperFreeze: 1
-      ignoreFinishStop: 1
-      linkObjPosition: 3
-      linkObjectAngle: 3
-      endUpon: 
-    endUpon: 
-  sprite: s32'null', 5
-  setObjectSize: 0
-  setObjectSizeScaleSpeed: 200
-  sprite: s32'null', 2147483647
-  upon: 39
-    moveToPosTypeToPosTypeEx: 3, 150, 23, 100
-    ifOperation: (IS_LESSER), (VARIABLE), 18, (STATIC), 300000
-      setObjectSizeScaleSpeed: 300
-      endIf: 
-    else: 
-      setObjectSizeScaleSpeed: -300
-      endElse: 
-    ifOperation: (IS_LESSER), (VARIABLE), 99, (STATIC), 0
-      setObjectSize: 0
-      endIf: 
-    ifOperation: (IS_GREATER), (VARIABLE), 99, (STATIC), 1000
-      setObjectSize: 1000
-      endIf: 
-    setPositionY: 0
-    storeValueFromObject: (SELF), (VARIABLE), 59, (PLAYER), (VARIABLE), 59
-    if: (VARIABLE), 59
-      clearRegisteredUponCode: 39
-      gotoLabelRequests: s32'end'
-      ignoreSuperFreeze: 1
-      ignoreFinishStop: 1
-      endIf: 
-    endUpon: 
-  endLabel: 
-  beginLabel: s32'end'
-  sprite: s32'null', 5
-  setObjectSizeScaleSpeed: -200
-  endState: 
-  
 beginState: s32'sol233_bake1'
   upon: (IMMEDIATE)
     setLinkObjectDestroyOnStateChange: 2
@@ -2238,7 +2189,7 @@ beginState: s32'sol232_bake1'
     linkObjPosition: 2
     Unknown2290: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticleWithArg2: s32'sol232_bake1'
     endUpon: 
@@ -2251,7 +2202,7 @@ beginState: s32'sol232_bake1_sub'
     linkObjPosition: 2
     Unknown2290: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticleWithArg2: s32'sol232_bake1_sub'
     endUpon: 
@@ -2264,7 +2215,7 @@ beginState: s32'sol232_bake2'
     linkObjPosition: 2
     Unknown2290: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticleWithArg2: s32'sol232_bake2'
     endUpon: 
@@ -2277,7 +2228,7 @@ beginState: s32'sol232_bake3'
     linkObjPosition: 2
     Unknown2290: 1
     callSubroutine: s32'cmnWSB_Effect_Angle'
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     callSubroutine: s32'cmn_Effect_NoLink'
     linkParticleWithArg2: s32'sol232_bake3'
     endUpon: 
@@ -2292,7 +2243,7 @@ beginState: s32'sol234_bake'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticleWithArg2: s32'sol234_bake01_re01'
     ignoreSlowdown: 1
-    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', (STATIC), 1, (STATIC), 0, (STATIC), 0, (STATIC), 0
+    callSubroutineWithArgs: s32'cmnWSB_Effect_NoStop_or_Delete', Val(1), Val(0), Val(0), Val(0)
     endUpon: 
   sprite: s32'null', 3
   sprite: s32'null', 20
@@ -2307,7 +2258,7 @@ beginState: s32'sol252_bake1'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticleWithArg2: s32'sol252_bake1'
     upon: 36
-      if: (VARIABLE), 315
+      if: Mem(315)
         clearRegisteredUponCode: 36
         deactivateObjectById: (SELF)
         endIf: 
@@ -2324,7 +2275,7 @@ beginState: s32'sol252_bake2'
     callSubroutine: s32'cmnWSB_Effect_Angle'
     linkParticleWithArg2: s32'sol252_bake2'
     upon: 36
-      if: (VARIABLE), 315
+      if: Mem(315)
         clearRegisteredUponCode: 36
         deactivateObjectById: (SELF)
         endIf: 
@@ -2342,7 +2293,7 @@ beginState: s32'sol252_bake3'
     linkParticleWithArg2: s32'sol252_bake3'
     ignoreSlowdown: 1
     upon: 36
-      if: (VARIABLE), 315
+      if: Mem(315)
         clearRegisteredUponCode: 36
         deactivateObjectById: (SELF)
         endIf: 
@@ -2376,7 +2327,7 @@ beginState: s32'Fefnir_Slow_cam'
   upon: (IMMEDIATE)
     linkCommonPawn: 
     ifOpponentCharacterMain: s16'jam'
-    ifNot: (VARIABLE), 0
+    ifNot: Mem(0)
       targetCamera: 23, 22, 0, 125000, 0, 135000, 0, 100000, 0, 0, 0, 142500, 0, 0, 0, 70, 40, 0, 5, 0, 53, 0, 8, 0, s32'linear', s32'linear'
       endIf: 
     else: 
@@ -2388,18 +2339,18 @@ beginState: s32'Fefnir_Slow_cam'
       setAcceleration: -50
       endUpon: 
     upon: 77
-      storeValueFromObject: (SELF), (VARIABLE), 18, (ENEMY), (VARIABLE), 18
+      storeValueFromObject: (SELF), Mem(18), (ENEMY), Mem(18)
       ignoreSuperFreezeFromAlly: 1
       runOnObject: (ENEMY)
         ignoreSuperFreeze: 1
         endRunOnObject: 
-      modifyVar: (ADD), (VARIABLE), 45, (STATIC), 1
-      ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 1
+      modifyVar: (ADD), Mem(45), Val(1)
+      ifOperation: (IS_EQUAL), Mem(45), Val(1)
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 4
+      ifOperation: (IS_EQUAL), Mem(45), Val(4)
         ifOpponentCharacterMain: s16'jam'
-        ifNot: (VARIABLE), 0
-          if: (VARIABLE), 16
+        ifNot: Mem(0)
+          if: Mem(16)
             targetCamera: 23, 22, 0, 125000, 0, 135000, 0, 100000, 0, -25000, 0, 160000, 0, 0, 25000, 100, 30, 0, 50, 0, 0, 0, 12, 0, s32'linear', s32'linear'
             endIf: 
           else: 
@@ -2407,7 +2358,7 @@ beginState: s32'Fefnir_Slow_cam'
             endElse: 
           endIf: 
         else: 
-          if: (VARIABLE), 16
+          if: Mem(16)
             targetCamera: 23, 22, 0, 125000, 0, 135000, 0, 100000, 0, -25000, 0, 150000, 0, 0, 25000, 100, 30, 0, 50, 0, 0, 0, 12, 0, s32'linear', s32'linear'
             endIf: 
           else: 
@@ -2415,7 +2366,7 @@ beginState: s32'Fefnir_Slow_cam'
             endElse: 
           endElse: 
         endIf: 
-      ifOperation: (IS_EQUAL), (VARIABLE), 45, (STATIC), 13
+      ifOperation: (IS_EQUAL), Mem(45), Val(13)
         endIf: 
       endUpon: 
     upon: (AFTER_EXIT)
@@ -2429,7 +2380,7 @@ beginState: s32'Fefnir_Slow_cam'
       endUpon: 
     endUpon: 
   sprite: s32'null', 40
-  callSubroutineWithArgs: s32'cmn_motionblur', (STATIC), 8, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_motionblur', Val(8), Val(0), Val(0), Val(0)
   sprite: s32'null', 1000
   resetMotionBlurAmount: 
   endState: 
@@ -2441,7 +2392,7 @@ beginState: s32'slow_hit'
     addPositionX: 0, 350000
     addPositionY: 0, 300000
     addDepth: 0, -67973
-    upon: (ON_HIT_OR_BLOCK)
+    upon: 23
       ignoreFinishStop: 1
       endUpon: 
     endUpon: 
@@ -2450,7 +2401,7 @@ beginState: s32'slow_hit'
 
 beginState: s32'Cam_Bukkira'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1100000, (STATIC), 1300000, (STATIC), -1200000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1100000), Val(1300000), Val(-1200000), Val(1200000)
     moveCameraTargetCameraOnBlend: 4, 42, s32'brake'
     moveCameraTargetPosOffset: 0, 0, 0, 0, 0, 125000, 0, 0, 0, 120, 0, 0, s32'accel_brake', s32'accel_brake'
     moveCameraBasePosOffset: 0, 0, 0, 400000, 0, 125000, 0, 0, 0, 120, 0, 0, s32'brake', s32'brake'
@@ -2485,7 +2436,7 @@ beginState: s32'Cam_Bukkira'
 
 beginState: s32'Cam_Throw'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1300000, (STATIC), 1000000, (STATIC), -1500000, (STATIC), 1200000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1300000), Val(1000000), Val(-1500000), Val(1200000)
     moveCameraTargetCameraOnBlend: 4, 16, s32'accel_brake'
     moveCameraBasePosOffset: 0, 0, 0, 460000, 0, 135000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
     moveCameraTargetRotRate: 0, 700, 0, 700, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'linear'
@@ -2522,7 +2473,7 @@ beginState: s32'Cam_Throw'
 
 beginState: s32'Cam_AirThrow'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1500000, (STATIC), 1000000, (STATIC), -1500000, (STATIC), 1100000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1500000), Val(1000000), Val(-1500000), Val(1100000)
     moveCameraTargetCameraOnBlend: 4, 16, s32'accel_brake'
     moveCameraBasePosOffset: 0, 66000, 0, 400000, 0, 155000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'brake'
     moveCameraTargetPosOffset: 0, 66000, 0, 0, 0, 190000, 0, 0, 0, 100, 0, 0, s32'accel_brake', s32'brake'
@@ -2557,7 +2508,7 @@ beginState: s32'Cam_AirThrow'
 
 beginState: s32'Cam_Dragon'
   upon: (IMMEDIATE)
-    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', (STATIC), -1400000, (STATIC), 650000, (STATIC), -1400000, (STATIC), 750000
+    callSubroutineWithArgs: s32'cmnInitializeThrowBaseAndTarget', Val(-1400000), Val(650000), Val(-1400000), Val(750000)
     moveCameraTargetCameraOnBlend: 3, 40, s32'accel_brake'
     linkObjPosition: 3
     moveCameraBasePosOffset: 0, 66000, 0, 400000, 0, 205000, 0, 0, 0, 400, 0, 0, s32'accel_brake', s32'brake'
@@ -2588,7 +2539,7 @@ beginState: s32'Cam_Dragon'
   moveCameraTrackUp: 0, 0, 0, 38000, 0, 24, 0, 0, 0, 16, s32'accel_brake', s32'brake'
   moveCameraBasePosOffset: 0, 166000, 0, 400000, 0, 205000, 0, 64, 0, 300, 0, 0, s32'accel_brake', s32'brake'
   sprite: s32'null', 1
-  ifNot: (VARIABLE), 16
+  ifNot: Mem(16)
     gotoLabelRequests: s32'finish'
     endIf: 
   else: 
@@ -2621,8 +2572,8 @@ beginState: s32'Cam_Dragon'
   runOnObject: 4
     setPosXBetweenObject: 3, 22
     setPositionY: 0
-    storeValue: (VARIABLE), 50, (STATIC), -1200000
-    storeValue: (VARIABLE), 51, (STATIC), 1200000
+    storeValue: Mem(50), Val(-1200000)
+    storeValue: Mem(51), Val(1200000)
     callSubroutine: s32'cmnThrowPosition_Limit'
     endRunOnObject: 
   moveCameraTargetCameraOnBlend: 4, 20, s32'accel_brake'
@@ -2644,7 +2595,7 @@ beginState: s32'Cam_Dragon'
   endState: 
 
 beginState: s32'Cam_Finish_TyrantRave'
-  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', (STATIC), 5, (STATIC), 0, (STATIC), 0, (STATIC), 0
+  callSubroutineWithArgs: s32'cmn_FinishCamera_Init', Val(5), Val(0), Val(0), Val(0)
   endState: 
 
 beginState: s32'DUMMY'

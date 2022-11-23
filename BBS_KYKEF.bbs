@@ -3216,17 +3216,16 @@ beginState: s32'StunRaysObj'
   upon: (IMMEDIATE)
     clearRegisteredUponCode: 35
     setLinkObjectDestroyOnDamage: 3
-    overdriveAttack: 
+    specialAttack: 
     shortHitstop: 1
     attackIgnoreCaution: 1
-    attackReflect: 0
     callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
     callSubroutine: s32'cmn_countertype'
-    storeValue: Mem(338), Val(0)
+    storeValue: Mem(338), Val(10000)
     storeValue: Mem(339), Val(0)
     storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    damage: 0, 32
+    damage: 0, 20
     hitEffectElectric: 1
     hitAirPushbackX: 0, 12000
     hitAirPushbackY: 0, 35000
@@ -3234,7 +3233,7 @@ beginState: s32'StunRaysObj'
     airHitEffect: (AIR_LAUNCH)
     initializeDestroy: 
     numberOfHits: 2
-    destroyOnDamageCollision: 0
+    destroyOnDamageCollision: 1
     destroyOnEnemyDamage: 1
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
@@ -3250,7 +3249,7 @@ beginState: s32'StunRaysObj'
         else: 
           damageEffect: 2, s32'mahojin'
           guardEffect: 2, s32'mahojin'
-          chipDamagePercent: 18
+          chipDamagePercent: 25
           hitAirPushbackY: 0, 45000
           damage: 0, 35
           hitSoftKnockdown: 0
@@ -3274,14 +3273,14 @@ beginState: s32'StunRaysObj'
       recoveryState: 
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(89)
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(120)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'Koware'
         endIf: 
       endUpon: 
     endUpon: 
   if: Mem(25)
-    statsActionName: s32'StunRays_SSObj'
+    statsActionName: s32'StunRaysObj'
     endIf: 
   sprite: s32'null', 16
   endLabel: 
@@ -3297,26 +3296,21 @@ beginState: s32'StunRaysObj'
 
 beginState: s32'StunRays_DIObj'
   upon: (IMMEDIATE)
+    clearRegisteredUponCode: 35
     setLinkObjectDestroyOnDamage: 3
-    overdriveAttack: 
-    ignoreSlowdown: 1
-    zLine: 2, 5
-    setProjectileDurability: 2
+    specialAttack: 
     shortHitstop: 1
-    disableHitstopForSelf: 0
     attackIgnoreCaution: 1
-    attackReflect: 0
     callSubroutineWithArgs: s32'cmn_AtkLv2', Val(0), Val(0), Val(0), Val(1)
     callSubroutine: s32'cmn_countertype'
-    storeValue: Mem(338), Val(0)
+    storeValue: Mem(338), Val(10000)
     storeValue: Mem(339), Val(0)
     storeValue: Mem(340), Val(1)
     callSubroutine: s32'cmn_hosei'
-    damage: 0, 20
+    damage: 0, 15
     hitEffectElectric: 1
-    hitSoftKnockdown: 0
-    hitAirPushbackX: 0, 15000
-    hitAirPushbackY: 0, 22500
+    hitAirPushbackX: 0, 12000
+    hitAirPushbackY: 0, 35000
     groundHitEffect: (AIR_LAUNCH)
     airHitEffect: (AIR_LAUNCH)
     initializeDestroy: 
@@ -3326,11 +3320,17 @@ beginState: s32'StunRays_DIObj'
     destroyOnEnemyGuard: 1
     destroyOnHit: 1
     destroyOnClash: 1
+    landingHeight: 0
+    upon: (HIT_OR_GUARD)
+      ifNot: Mem(52)
+        chipDamagePercent: 37
+        endIf: 
+      callSubroutineWithArgs: s32'cmn_screenshake', Val(3), Val(1), Val(0), Val(0)
+      endUpon: 
     addPositionY: 0, -50000
     addPositionX: 0, 250000
     linkObjPosition: 0
     stopLinkObject: 0
-    setLinkObjectDestroyOnDamage: 3
     hitCommonSfxAppend: s32'SE_BTL_CMN_Impact_Electric'
     guardCommonSfxAppend: s32'SE_BTL_CMN_Impact_Electric'
     upon: (ON_DESTROY)
@@ -3338,13 +3338,16 @@ beginState: s32'StunRays_DIObj'
       recoveryState: 
       endUpon: 
     upon: (FRAME_STEP)
-      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(129)
+      ifOperation: (IS_GREATER_OR_EQUAL), Mem(105), Val(240)
         clearRegisteredUponCode: (FRAME_STEP)
         gotoLabelRequests: s32'Koware'
         endIf: 
       endUpon: 
     endUpon: 
-  sprite: s32'null', 12
+  if: Mem(25)
+    statsActionName: s32'StunRays_DIObj'
+    endIf: 
+  sprite: s32'null', 16
   endLabel: 
   beginLabel: s32'loop'
   sprite: s32'_kyk254_00', 10
